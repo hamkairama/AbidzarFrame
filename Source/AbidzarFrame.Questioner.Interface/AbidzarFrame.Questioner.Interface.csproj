@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F1DCC3E-9AA0-4AC7-A4E7-C33665A7533B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AbidzarFrame.Questioner.Interface</RootNamespace>
+    <AssemblyName>AbidzarFrame.Questioner.Interface</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dto\DetailPemilu\DetailPemiluRequest.cs" />
+    <Compile Include="Dto\DetailPemilu\DetailPemiluResponse.cs" />
+    <Compile Include="Dto\DetailPemilu\DetailPemiluResult.cs" />
+    <Compile Include="Dto\TanyaRtDetail\TanyaRtDetailRequest.cs" />
+    <Compile Include="Dto\TanyaRtDetail\TanyaRtDetailResponse.cs" />
+    <Compile Include="Dto\TanyaRtDetail\TanyaRtDetailResult.cs" />
+    <Compile Include="Dto\TanyaRt\TanyaRtRequest.cs" />
+    <Compile Include="Dto\TanyaRt\TanyaRtResponse.cs" />
+    <Compile Include="Dto\TanyaRt\TanyaRtResult.cs" />
+    <Compile Include="Dto\PollingPemilu\PollingPemiluRequest.cs" />
+    <Compile Include="Dto\PollingPemilu\PollingPemiluResponse.cs" />
+    <Compile Include="Dto\PollingPemilu\PollingPemiluResult.cs" />
+    <Compile Include="Dto\Pemilu\PemiluRequest.cs" />
+    <Compile Include="Dto\Pemilu\PemiluResponse.cs" />
+    <Compile Include="Dto\Pemilu\PemiluResult.cs" />
+    <Compile Include="IQuestionerManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AbidzarFrame.Core.Model.Business\AbidzarFrame.Core.Model.Business.vbproj">
+      <Project>{8c7126ad-4d1d-4788-a84e-f26d05a017a0}</Project>
+      <Name>AbidzarFrame.Core.Model.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AbidzarFrame.Domain\AbidzarFrame.Domain.csproj">
+      <Project>{aa4d2f20-bee5-4153-a044-f5df515aebec}</Project>
+      <Name>AbidzarFrame.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AbidzarFrame.Utils\AbidzarFrame.Utils.vbproj">
+      <Project>{e88b2524-3bbd-4159-9fe7-e183ee2033b4}</Project>
+      <Name>AbidzarFrame.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

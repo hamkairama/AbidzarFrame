@@ -1,0 +1,87 @@
+﻿
+            ' '' Success Case (dataadaptor)            
+            'Dim cmd As IDbCommand = Database.CreateCommand(conn,
+            '        "cws_ta_pkg.get_simp_cli_info_refcur")
+            'cmd.CommandType = CommandType.StoredProcedure
+            'cmd.Parameters.Add(New OracleParameter("pi_id_typ", OracleDbType.NVarchar2) With {.Direction = ParameterDirection.Input, .Value = idType})
+            'cmd.Parameters.Add(New OracleParameter("pi_id_num", OracleDbType.NVarchar2) With {.Direction = ParameterDirection.Input, .Value = idNumber})
+            'cmd.Parameters.Add(New OracleParameter("po_refcur", OracleDbType.RefCursor) With {.Direction = ParameterDirection.Output})
+
+            'Dim err As IDbDataParameter = New OracleParameter("po_err_cd", OracleDbType.NVarchar2) _
+            '                              With {.Direction = ParameterDirection.Output}
+            'cmd.Parameters.Add(err)
+
+            'Dim dataAdaptor As OracleDataAdapter = New OracleDataAdapter(cmd)
+            'Dim ds As New DataTable()
+            'dataAdaptor.Fill(ds)
+
+            'Dim errCodes As String = Nothing
+            'DbHelper.SetValue(errCodes, err.Value)
+            'If (String.IsNullOrEmpty(errCodes)) Then
+            '    client = New ClientData
+            '    For Each r As DataRow In ds.Rows
+            '        DbHelper.SetValue(client.ClientId, r("ta_cli_num"))
+            '        DbHelper.SetValue(client.ClientName, r("cli_nm"))
+            '        DbHelper.SetValue(client.Address1, r("addr_1"))
+            '        DbHelper.SetValue(client.Address2, r("addr_2"))
+            '        DbHelper.SetValue(client.Address3, r("addr_3"))
+            '        DbHelper.SetValue(client.Address4, r("addr_4"))
+            '        DbHelper.SetValue(client.ZipCode, r("zip_code"))
+
+            '        client.ClientId = client.ClientId.Substring(client.ClientId.Length - 10)
+            '        Exit For
+            '    Next
+            'Else
+            '    errors = InterpretErrors(errCodes)
+            'End If
+
+            '' Success Case
+			'Dim cmd As OracleCommand = New OracleCommand("cws_ta_pkg.get_simp_cli_info_refcur", conn)
+            'cmd.CommandType = CommandType.StoredProcedure
+            'cmd.Parameters.Add("out", OracleDbType.RefCursor).Direction = ParameterDirection.Output
+            'cmd.Parameters.Add("p0", idType).Direction = ParameterDirection.Input
+            'cmd.Parameters.Add("p1", idNumber).Direction = ParameterDirection.Input
+            'cmd.Parameters.Add("p2", OracleDbType.Varchar2).Direction = ParameterDirection.Output
+
+            'Dim r As OracleDataReader = cmd.ExecuteReader()
+            'If r.Read() Then
+            '    DbHelper.SetValue(client.ClientId, r("ta_cli_num"))
+            '    DbHelper.SetValue(client.ClientName, r("cli_nm"))
+            '    DbHelper.SetValue(client.Address1, r("addr_1"))
+            '    DbHelper.SetValue(client.Address2, r("addr_2"))
+            '    DbHelper.SetValue(client.Address3, r("addr_3"))
+            '    DbHelper.SetValue(client.Address4, r("addr_4"))
+            '    DbHelper.SetValue(client.ZipCode, r("zip_code"))
+            'End If
+
+            'Dim cmd As IDbCommand = Database.CreateCommand(conn,
+            '        "{call cws_ta_pkg.get_simp_cli_info_refcur_func(?, ?, ?)}", idType, idNumber)
+            'cmd.CommandType = CommandType.StoredProcedure
+            'Dim out1 As IDbDataParameter = cmd.CreateParameter()
+            'out1.Direction = ParameterDirection.Output
+            'out1.DbType = DbType.String
+            'out1.Size = 250
+            'cmd.Parameters.Add(out1)
+
+            'Dim dataAdaptor As System.Data.IDbDataAdapter = Database.CreateDataAdaptor(cmd)
+            'Dim ds As New DataSet()
+            'dataAdaptor.Fill(ds)
+
+            'Dim errCodes As String = Nothing
+            'DbHelper.SetValue(errCodes, out1.Value)
+            'If (String.IsNullOrEmpty(errCodes)) Then
+            '    client = New ClientData
+            '    For Each r As DataRow In ds.Tables(0).Rows
+            '        DbHelper.SetValue(client.ClientId, r("ta_cli_num"))
+            '        DbHelper.SetValue(client.ClientName, r("cli_nm"))
+            '        DbHelper.SetValue(client.Address1, r("addr_1"))
+            '        DbHelper.SetValue(client.Address2, r("addr_2"))
+            '        DbHelper.SetValue(client.Address3, r("addr_3"))
+            '        DbHelper.SetValue(client.Address4, r("addr_4"))
+            '        DbHelper.SetValue(client.ZipCode, r("zip_code"))
+            '        Exit For
+            '    Next
+            'Else
+            '    errors = InterpretErrors(out1.Value)
+            'End If
+

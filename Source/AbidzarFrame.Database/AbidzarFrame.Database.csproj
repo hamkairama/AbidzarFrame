@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{967AE737-07F9-4859-95F9-8AAD8953222C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AbidzarFrame.Database</RootNamespace>
+    <AssemblyName>AbidzarFrame.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataType\" />
+    <Folder Include="Function\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Script\11. aceh.sql" />
+    <Content Include="Script\12. sumut.sql" />
+    <Content Include="Script\13. sumbar.sql" />
+    <Content Include="Script\14. RIAU.sql" />
+    <Content Include="Script\15. JAMBI.sql" />
+    <Content Include="Script\16. sumatera selatan.sql" />
+    <Content Include="Script\17. bengkulu.sql" />
+    <Content Include="Script\keren.txt" />
+    <Content Include="StoreProcedure\dbo.SpAbidzarFindingString.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAppointmentDiaryInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAppointmentDiarySelectByDateRange.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAppointmentDiarySelectByTitle.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAppointmentDiarySelectByTitleAndMonth.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAppointmentDiaryUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisInformasiSelectByIdJenisInformasi.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisKegiatanSelectByIdJenisKegiatan.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisKegiatanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailPemiluDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailPemiluInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailPemiluSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailPemiluSelectByIdPemilu.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailPemiluUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDokumentasiDetailJenisKegiatanSelectByIdDetailJenisKegiatan.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpEmailTemplateSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpHistoricalUserLoginDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpHistoricalUserLoginInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpHistoricalUserLoginSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpHistoricalUserLoginSelectByDate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpHistoricalUserLoginSelectByMonth.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpHistoricalUserLoginSelectByYear.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpHistoricalUserLoginUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJadwalSiskamlimInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKtpSelectBy.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpLaporanKasDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpLaporanKasInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpLaporanKasSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpLaporanKasSelectByDate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpLaporanKasSelectByYear.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpLaporanKasUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPemiluDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPemiluInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPemiluSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPemiluUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPhotoKtpUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPollingPemiluDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPollingPemiluInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPollingPemiluSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPollingPemiluSelectByIdDetailPemilu.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPollingPemiluSelectByNik.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPollingPemiluSelectGrafikByIdPemilu.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPollingPemiluUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleMenuDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleMenuSelectByRoleId.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleMenuUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStrukturUpdateByDrag.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAgamaDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAgamaInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAgamaSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAgamaUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpAutentikasiTokenSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisInformasiDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisInformasiInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisInformasiSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisInformasiUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisKegiatanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisKegiatanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDetailJenisKegiatanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDokumentasiDetailJenisKegiatanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDokumentasiDetailJenisKegiatanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDokumentasiDetailJenisKegiatanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpDokumentasiDetailJenisKegiatanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpGolonganDarahDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpGolonganDarahInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpGolonganDarahSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpGolonganDarahUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJabatanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJabatanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJabatanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJabatanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisInformasiDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisInformasiInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisInformasiSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisInformasiUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisKegiatanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisKegiatanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisKegiatanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisKegiatanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisKelaminDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisKelaminInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisKelaminSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisKelaminUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisPekerjaanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisPekerjaanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisPekerjaanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpJenisPekerjaanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKecamatanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKecamatanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKecamatanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKecamatanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKelurahanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKelurahanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKelurahanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKelurahanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKewarganegaraanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKewarganegaraanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKewarganegaraanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKewarganegaraanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKotaDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKotaInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKotaSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKotaUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKtpDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKtpInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKtpSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpKtpUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpMenuAccessRight.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpMenuDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpMenuInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpMenuSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpMenuUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPendidikanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPendidikanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPendidikanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpPendidikanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpProvinsiDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpProvinsiInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpProvinsiSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpProvinsiUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleMenuInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleMenuSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpRoleUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpSignatureKtpDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpSignatureKtpInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpSignatureKtpSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpSignatureKtpUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStatusPerkawinanDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStatusPerkawinanInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStatusPerkawinanSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStatusPerkawinanUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStrukturDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStrukturInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStrukturSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpStrukturUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpTanyaRtDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpTanyaRtDetailDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpTanyaRtDetailInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpTanyaRtDetailSelectByIdTanyaRt.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpTanyaRtInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpTanyaRtSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpTanyaRtSelectByNik.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpUserApiSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpUserDelete.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpUserInsert.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpUserRegistrasi.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpUserSelect.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpUserUpdate.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpUserUpdateSandi.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SpUserVerifikasi.StoredProcedure.sql" />
+    <Content Include="StoreProcedure\dbo.SP_GET_ERROR_INFO.StoredProcedure.sql" />
+    <Content Include="Table\dbo.AppointmentDiary.Table.sql" />
+    <Content Include="Table\dbo.TbAgama.Table.sql" />
+    <Content Include="Table\dbo.TbAutentikasiToken.Table.sql" />
+    <Content Include="Table\dbo.TbDetailJenisInformasi.Table.sql" />
+    <Content Include="Table\dbo.TbDetailJenisKegiatan.Table.sql" />
+    <Content Include="Table\dbo.TbDetailPemilu.Table.sql" />
+    <Content Include="Table\dbo.TbDokumentasiDetailJenisKegiatan.Table.sql" />
+    <Content Include="Table\dbo.TbEmailTemplate.Table.sql" />
+    <Content Include="Table\dbo.TbErrorLogs.Table.sql" />
+    <Content Include="Table\dbo.TbGolonganDarah.Table.sql" />
+    <Content Include="Table\dbo.TbHistoricalUserLogin.Table.sql" />
+    <Content Include="Table\dbo.TbJabatan.Table.sql" />
+    <Content Include="Table\dbo.TbJadwalSiskamlim.Table.sql" />
+    <Content Include="Table\dbo.TbJenisInformasi.Table.sql" />
+    <Content Include="Table\dbo.TbJenisKegiatan.Table.sql" />
+    <Content Include="Table\dbo.TbJenisKelamin.Table.sql" />
+    <Content Include="Table\dbo.TbJenisPekerjaan.Table.sql" />
+    <Content Include="Table\dbo.TbKecamatan.Table.sql" />
+    <Content Include="Table\dbo.TbKelurahan.Table.sql" />
+    <Content Include="Table\dbo.TbKewarganegaraan.Table.sql" />
+    <Content Include="Table\dbo.TbKota.Table.sql" />
+    <Content Include="Table\dbo.TbKtp.Table.sql" />
+    <Content Include="Table\dbo.TbLaporanKas.Table.sql" />
+    <Content Include="Table\dbo.TbMenu.Table.sql" />
+    <Content Include="Table\dbo.TbPemilu.Table.sql" />
+    <Content Include="Table\dbo.TbPendidikan.Table.sql" />
+    <Content Include="Table\dbo.TbPhotoKtp.Table.sql" />
+    <Content Include="Table\dbo.TbPollingPemilu.Table.sql" />
+    <Content Include="Table\dbo.TbProvinsi.Table.sql" />
+    <Content Include="Table\dbo.TbRole.Table.sql" />
+    <Content Include="Table\dbo.TbRoleMenu.Table.sql" />
+    <Content Include="Table\dbo.TbSignatureKtp.Table.sql" />
+    <Content Include="Table\dbo.TbStatusPerkawinan.Table.sql" />
+    <Content Include="Table\dbo.TbStruktur.Table.sql" />
+    <Content Include="Table\dbo.TbTanyaRt.Table.sql" />
+    <Content Include="Table\dbo.TbTanyaRtDetail.Table.sql" />
+    <Content Include="Table\dbo.TbUser.Table.sql" />
+    <Content Include="Table\dbo.TbUserApi.Table.sql" />
+    <Content Include="Table\RUKUNTANGGA.Database.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

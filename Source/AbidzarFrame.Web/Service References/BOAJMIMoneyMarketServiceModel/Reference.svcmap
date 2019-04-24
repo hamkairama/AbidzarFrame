@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9876cf67-aadc-4318-89e5-eec1ea1535cb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55553/BOAJMIMoneyMarketService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BOAJMIMoneyMarketService.xsd" MetadataType="Schema" ID="76ab6b59-b5b3-423d-998a-2810f76466c4" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BOAJMIMoneyMarketService1.xsd" MetadataType="Schema" ID="e334b97e-40f0-45f0-939a-5fbcf90988fc" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BOAJMIMoneyMarketService2.xsd" MetadataType="Schema" ID="bf6351f7-14d5-48d0-baf2-349c4afb16d4" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BOAJMIMoneyMarketService3.xsd" MetadataType="Schema" ID="4ba697a9-76ef-404a-ad10-de27ee5083e1" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BOAJMIMoneyMarketService.wsdl" MetadataType="Wsdl" ID="5a38a44e-fb11-4a58-8c41-e57c96348867" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIMoneyMarketService.svc?wsdl" />
+    <MetadataFile FileName="BOAJMIMoneyMarketService4.xsd" MetadataType="Schema" ID="df32d265-0e66-46cf-a231-4fffb51a266d" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BOAJMIMoneyMarketService5.xsd" MetadataType="Schema" ID="b44c8ce9-63b5-4c8d-9eef-a883bcea004b" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BOAJMIMoneyMarketService.disco" MetadataType="Disco" ID="9f57b76c-c331-42c2-b597-a11bfa729edb" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIMoneyMarketService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,85 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.DetailJenisKegiatanResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+    ViewBag.Title = "DetailJenisKegiatan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/AbidzarFrame/bundles/datatables/css")
+
+@if (ViewBag.MsgScs != null)
+{
+    <div class="alert alert-success" style="display: block;">
+        <button class="close" data-close="alert">X</button>
+        @ViewBag.MsgScs
+    </div>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-body">
+                <div class="row">
+                    <a class="btn btn-sm blue" href="@Url.Action("Index", "Kegiatan", new {area = "Kegiatan"})">
+                        <i class="fa fa-arrow-circle-left"></i>Kembali
+                    </a>
+                    @if (CurrentUser.IsAdmin())
+                    {
+                        <button id="btnAdd" class="btn btn-sm green" data-toggle="modal" data-target="#AbidzarFrameModalFormWithRefresh"
+                                data-item-description="Add" data-item-id="0" data-backdrop="static" data-keyboard="false"
+                                data-url=@Url.Action("EditorFormPartial", "Kegiatan", new { area = "Kegiatan" })
+                                data-url-action=@Url.Action("CreateDetailJenisKegiatan", "Kegiatan", new { area = "Kegiatan" })>
+                            Tambah <i class="fa fa-plus"></i>
+                        </button>
+                    }
+                </div>
+                @*<div class="table-responsive">*@
+                <div class="row">
+                    @{
+                        if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="col-md-3 form-control-static">
+                                    <div class="top-news">
+                                        <a style="text-decoration:none" href="@Url.Action("Index", "Dokumentasi", new { area = "Kegiatan", idDetailJenisKegiatan = item.Id})" class="btn @item.WarnaLatar">
+                                            <span>@item.NamaKegiatan</span>
+                                            <em>
+                                                <i class="fa fa-tags"></i> : @item.Deskripsi <br />
+                                                <i class="fa fa-clock-o"></i> : @item.TanggalKegiatan.ToString("dd MMM yyyy, HH:MM")<br />
+                                                <i class="fa fa-home"></i> : @item.Lokasi<br />
+                                            </em>
+                                            <i class="fa fa-book top-news-icon"></i>
+                                        </a>
+
+                                        @if (CurrentUser.IsAdmin())
+                                        {
+                                            <div class="">
+                                                <button class="btn btn-sm blue" data-toggle="modal" data-target="#AbidzarFrameModalFormWithRefresh"
+                                                        data-item-description="Edit" data-item-id="@item.Id" data-backdrop="static" data-keyboard="false"
+                                                        data-url=@Url.Action("EditorFormPartial", "Kegiatan", new { area = "Kegiatan" })
+                                                        data-url-action=@Url.Action("UpdateDetailJenisKegiatan", "Kegiatan", new { area = "Kegiatan" })>
+                                                    Edit
+                                                </button>
+                                                <button class="btn btn-sm red" data-toggle="modal" data-target="#confirm-delete"
+                                                        data-item-description="Edit" data-item-id="@item.Id" data-backdrop="static" data-keyboard="false"
+                                                        data-url=@Url.Action("DeleteDetailJenisKegiatan", "Kegiatan", new { area = "Kegiatan" })>
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+                @*</div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        hideLoading();
+    })
+</script>

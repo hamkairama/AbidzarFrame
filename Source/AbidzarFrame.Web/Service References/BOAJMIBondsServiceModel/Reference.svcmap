@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a77716f6-2f88-4655-ad18-8517a2d83ae9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55553/BOAJMIBondsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BOAJMIBondsService.xsd" MetadataType="Schema" ID="2f61973e-07d3-43b4-8164-5daff091877b" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BOAJMIBondsService1.xsd" MetadataType="Schema" ID="c689f07a-3905-4ad8-b6f6-da45a4d74ca8" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BOAJMIBondsService.wsdl" MetadataType="Wsdl" ID="3fd4337a-46e7-4cf6-b58c-6e8b0bd364b2" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIBondsService.svc?wsdl" />
+    <MetadataFile FileName="BOAJMIBondsService.disco" MetadataType="Disco" ID="8323fbcb-1473-4358-97d6-fcb4e3b33992" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIBondsService.svc?disco" />
+    <MetadataFile FileName="BOAJMIBondsService2.xsd" MetadataType="Schema" ID="f0c1b131-5c03-4556-8c8e-408fb5325362" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BOAJMIBondsService3.xsd" MetadataType="Schema" ID="2c9cd40b-e285-4ba2-9ed1-3cecc7907e18" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BOAJMIBondsService4.xsd" MetadataType="Schema" ID="93f9a6cc-7d1b-46e3-8caa-84a17d6fdff0" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BOAJMIBondsService5.xsd" MetadataType="Schema" ID="b0dedd79-0f30-444a-8ec5-f45861d19f8b" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

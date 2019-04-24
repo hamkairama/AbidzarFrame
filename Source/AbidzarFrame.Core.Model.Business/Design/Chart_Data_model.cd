@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AbidzarFrame.Core.Model.Business.ChartDataBase">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAIAAAEAAAAAAAIAAQAAAAAAAAAAAAAADAAI=</HashCode>
+      <FileName>ChartData\ChartDataBase.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ChartData" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.DataSeriesXY">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChartData\DataSeriesXY.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SeriesData" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.DataSeriesBase">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>YAAAAAAAJAAAAAAAgAIAAAAQAAAAAIAAAAAAAAADAAA=</HashCode>
+      <FileName>ChartData\DataSeriesBase.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.DataSeriesNameWithValue">
+    <Position X="0.5" Y="4.25" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="SeriesData" Type="AbidzarFrame.Core.Model.Business.DataPointNameWithValue" FixedFromPoint="true">
+      <Path>
+        <Point X="2.75" Y="5" />
+        <Point X="3.75" Y="5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChartData\DataSeriesNameWithValue.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SeriesData" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.DataPointXY">
+    <Position X="9" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAABAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ChartData\DataPointXY.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.DataPointNameWithValue">
+    <Position X="3.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAABAAAAAAAAAAAAAACAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ChartData\DataPointNameWithValue.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.MsChartProvider">
+    <Position X="6.25" Y="10" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAIASAAAAAAEAIAAAQAJAAAAAIAEAEIAAAQAA=</HashCode>
+      <FileName>ChartProviders\MsChartProvider.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_chartType" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.SyncfusionChartProvider">
+    <Position X="0.5" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAIAAAAAAIAAAIAAAAAAAIAEAAAAAAAAA=</HashCode>
+      <FileName>ChartProviders\SyncfusionChartProvider.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_engine" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.ChartEngine">
+    <Position X="2.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAJAAAgAAAAAAIAEAAAIAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ChartProviders\Synfusion\ChartEngine.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.GaugeEngine">
+    <Position X="4.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIABBAAAgAAAAAAIAEAAAIAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ChartProviders\Synfusion\GaugeEngine.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="AbidzarFrame.Core.Model.Business.IChartImageProvider">
+    <Position X="0.5" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>IChartImageProvider.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AbidzarFrame.Core.Model.Business.IChartEngine">
+    <Position X="3.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABAAAgAAAAAAIAEAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChartProviders\Synfusion\IChartEngine.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="AbidzarFrame.Core.Model.Business.ChartType">
+    <Position X="9.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAgAAAAABCAAAAAAAAAAAAAAAAAQABAgA=</HashCode>
+      <FileName>ChartProviders\MsChartProvider.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

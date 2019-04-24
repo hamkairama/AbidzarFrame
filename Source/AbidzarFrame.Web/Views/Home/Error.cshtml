@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<!-- BEGIN REGISTRATION FORM -->
+<a href="javascript:void(0)">
+    @*<img src="~/Content/Images/manulife_logo_white.png" alt="logo" style="max-width:180px;max-height:180px" />*@
+</a>
+<h3>Ooppss</h3>
+@*<p>
+        Data is not found. You have to register it first!
+    </p>*@
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { role = "form" }))
+{
+    <label>Sorry, the page that you want is gone</label>
+    <div class="form-actions">
+        <button type="submit" id="register-submit-btn" class="btn blue pull-right">
+            <i class="m-icon-swapleft m-icon-white"></i> Back
+        </button>
+        &nbsp;
+    </div>
+
+}
+
+
+
+<!-- END REGISTRATION FORM -->

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" />
+  <xs:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Manulife.Core.Model.Business" />
+  <xs:complexType name="BrokerCodeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" base="q1:BrokerBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthenticationToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BrokerCodeRequest" nillable="true" type="tns:BrokerCodeRequest" />
+  <xs:complexType name="BrokerCodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BrokerCodeResult" nillable="true" type="tns:BrokerCodeResult" />
+      <xs:element minOccurs="0" name="BrokerCodeResultList" nillable="true" type="tns:ArrayOfBrokerCodeResult" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Manulife.Core.Model.Business" minOccurs="0" name="Errors" nillable="true" type="q2:BusinessErrors" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BrokerCodeResponse" nillable="true" type="tns:BrokerCodeResponse" />
+  <xs:complexType name="BrokerCodeResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" base="q3:BrokerBaseModel">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BrokerCodeResult" nillable="true" type="tns:BrokerCodeResult" />
+  <xs:complexType name="ArrayOfBrokerCodeResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BrokerCodeResult" nillable="true" type="tns:BrokerCodeResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBrokerCodeResult" nillable="true" type="tns:ArrayOfBrokerCodeResult" />
+  <xs:complexType name="EquityHeaderRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" base="q4:EquityHBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthenticationToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EquityHeaderRequest" nillable="true" type="tns:EquityHeaderRequest" />
+  <xs:complexType name="EquityHeaderResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EquityHeaderResult" nillable="true" type="tns:EquityHeaderResult" />
+      <xs:element minOccurs="0" name="EquityHeaderResultList" nillable="true" type="tns:ArrayOfEquityHeaderResult" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Manulife.Core.Model.Business" minOccurs="0" name="Errors" nillable="true" type="q5:BusinessErrors" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EquityHeaderResponse" nillable="true" type="tns:EquityHeaderResponse" />
+  <xs:complexType name="EquityHeaderResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" base="q6:EquityHBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EquityDetailResultList" nillable="true" type="tns:ArrayOfEquityDetailResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EquityHeaderResult" nillable="true" type="tns:EquityHeaderResult" />
+  <xs:complexType name="ArrayOfEquityDetailResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquityDetailResult" nillable="true" type="tns:EquityDetailResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquityDetailResult" nillable="true" type="tns:ArrayOfEquityDetailResult" />
+  <xs:complexType name="EquityDetailResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" base="q7:EquityDBaseModel">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EquityDetailResult" nillable="true" type="tns:EquityDetailResult" />
+  <xs:complexType name="ArrayOfEquityHeaderResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquityHeaderResult" nillable="true" type="tns:EquityHeaderResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquityHeaderResult" nillable="true" type="tns:ArrayOfEquityHeaderResult" />
+  <xs:complexType name="EquityDetailRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" base="q8:EquityDBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthenticationToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EquityDetailRequest" nillable="true" type="tns:EquityDetailRequest" />
+  <xs:complexType name="EquityDetailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EquityDetailResult" nillable="true" type="tns:EquityDetailResult" />
+      <xs:element minOccurs="0" name="EquityDetailResultList" nillable="true" type="tns:ArrayOfEquityDetailResult" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Manulife.Core.Model.Business" minOccurs="0" name="Errors" nillable="true" type="q9:BusinessErrors" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EquityDetailResponse" nillable="true" type="tns:EquityDetailResponse" />
+</xs:schema>

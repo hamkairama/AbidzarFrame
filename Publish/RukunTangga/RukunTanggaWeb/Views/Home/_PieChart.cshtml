@@ -1,0 +1,50 @@
+﻿<style>
+    #chartdiv {
+        width: 100%;
+        max-height: 600px;
+        height: 100vh;
+    }
+</style>
+
+<div id="chartdiv"></div>
+<script src="~/Content/plugins/chart/core.js"></script>
+<script src="~/Content/plugins/chart/charts.js"></script>
+<script src="~/Content/plugins/chart/animated.js"></script>
+<script>
+    am4core.useTheme(am4themes_animated);
+
+    var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+
+
+    chart.data = [{
+        "country": "Lithuania",
+        "litres": 501.9
+    }, {
+        "country": "Czech Republic",
+        "litres": 301.9
+    }, {
+        "country": "Ireland",
+        "litres": 201.1
+    }, {
+        "country": "Germany",
+        "litres": 165.8
+    }, {
+        "country": "Australia",
+        "litres": 139.9
+    }, {
+        "country": "Austria",
+        "litres": 128.3
+    }];
+
+    chart.innerRadius = am4core.percent(20);
+    chart.depth = 90;
+
+    chart.legend = new am4charts.Legend();
+    chart.legend.position = "down";
+
+    var series = chart.series.push(new am4charts.PieSeries3D());
+    series.dataFields.value = "litres";
+    series.dataFields.depthValue = "litres";
+    series.dataFields.category = "country";
+</script>
+

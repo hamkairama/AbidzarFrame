@@ -1,0 +1,298 @@
+﻿@model AbidzarFrame.Master.Interface.Dto.KtpResult
+@using AbidzarFrame.Web.Helpers
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/AbidzarFrame/bundles/bootstrap-datepicker3/css")
+@Scripts.Render("~/AbidzarFrame/bundles/bootstrap-datepicker/js")
+
+@Html.AntiForgeryToken()
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+
+<form id="FormObject">
+    <fieldset>
+        @{
+            if ((object)ViewBag.ActionGrid == "Edit")
+            {
+                <div class="row hidden">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.Nik)
+                    @Html.TextBoxFor(m => m.Nik, new { @class = "form-control", @style = "width:100%", @maxlength = "16" })
+                    @Html.ValidationMessageFor(m => m.Nik, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.Nama)
+                    @Html.TextBoxFor(m => m.Nama, new { @class = "form-control", @style = "width:100%", @maxlength = "100" })
+                    @Html.ValidationMessageFor(m => m.Nama, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.TempatLahir)
+                    @Html.TextBoxFor(m => m.TempatLahir, new { @class = "form-control", @style = "width:100%", @maxlength = "100" })
+                    @Html.ValidationMessageFor(m => m.TempatLahir, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.TanggalLahir)
+                    <div class="input-group date date-picker" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years" style="width:100%">
+                        @Html.TextBoxFor(m => m.TanggalLahir, "{0:dd-MM-yyyy}", new { @class = "form-control", @style = "width:100%", @readonly = "readonly" })
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" id="btnCalendar"><i class="fa fa-calendar"></i></button>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.TanggalLahir, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdJenisKelamin)
+                    @Html.DropDownListFor(m => m.IdJenisKelamin, new SelectList(ViewBag.JenisKelaminList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdJenisKelamin, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdKota)
+                    @Html.DropDownListFor(m => m.IdKota, new SelectList(ViewBag.KotaList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdKota, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdKecamatan)
+                    @Html.DropDownListFor(m => m.IdKecamatan, new SelectList(ViewBag.KecamatanList, "Value", "Text"), "", new { @class = "form-control" })
+                    @*@Html.DropDownList("IdKecamatan", new SelectList(ViewBag.KecamatanList, "Value", "Text"), "", new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(m => m.IdKecamatan, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdKelurahan)
+                    @Html.DropDownListFor(m => m.IdKelurahan, new SelectList(ViewBag.KelurahanList, "Value", "Text"), "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.IdKelurahan, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.Alamat)
+                    @Html.TextBoxFor(m => m.Alamat, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                    @Html.ValidationMessageFor(m => m.Alamat, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.Rt)
+                    @Html.DropDownListFor(m => m.Rt, new SelectList(ViewBag.RtList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @*@Html.TextBoxFor(m => m.Rt, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })*@
+                    @Html.ValidationMessageFor(m => m.Rt, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.Rw)
+                    @Html.DropDownListFor(m => m.Rw, new SelectList(ViewBag.RwList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @*@Html.TextBoxFor(m => m.Rw, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })*@
+                    @Html.ValidationMessageFor(m => m.Rw, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.KodePos)
+                    @Html.TextBoxFor(m => m.KodePos, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                    @Html.ValidationMessageFor(m => m.KodePos, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdAgama)
+                    @Html.DropDownListFor(m => m.IdAgama, new SelectList(ViewBag.AgamaList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdAgama, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdStatusPerkawinan)
+                    @Html.DropDownListFor(m => m.IdStatusPerkawinan, new SelectList(ViewBag.StatusPerkawinanList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdStatusPerkawinan, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.TanggalPerkawinan)
+                    <div class="input-group date date-picker" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years" style="width:100%">
+                        @Html.TextBoxFor(m => m.TanggalPerkawinan, "{0:dd-MM-yyyy}", new { @class = "form-control", @style = "width:100%", @readonly = "readonly" })
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" id="btnCalendar"><i class="fa fa-calendar"></i></button>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.TanggalPerkawinan, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdJenisPekerjaan)
+                    @Html.DropDownListFor(m => m.IdJenisPekerjaan, new SelectList(ViewBag.JenisPekerjaanList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdJenisPekerjaan, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdKewarganegaraan)
+                    @Html.DropDownListFor(m => m.IdKewarganegaraan, new SelectList(ViewBag.KewarganegaraanList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdKewarganegaraan, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdGolonganDarah)
+                    @Html.DropDownListFor(m => m.IdGolonganDarah, new SelectList(ViewBag.GolonganDarahList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdGolonganDarah, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdPendidikan)
+                    @Html.DropDownListFor(m => m.IdPendidikan, new SelectList(ViewBag.PendidikanList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdPendidikan, "", new { @class = "text-danger" })
+                </div>
+
+                @*<div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.IdPhotoKtp)
+                        <section action="#" class="dropzone" id="my-dropzone"></section>
+                        @Html.ValidationMessageFor(m => m.IdPhotoKtp, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.IdSignatureKtp)
+                        @Html.TextBoxFor(m => m.IdSignatureKtp, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                        @Html.ValidationMessageFor(m => m.IdSignatureKtp, "", new { @class = "text-danger" })
+                    </div>*@
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.NamaAyah)
+                    @Html.TextBoxFor(m => m.NamaAyah, new { @class = "form-control", @style = "width:100%", @maxlength = "100" })
+                    @Html.ValidationMessageFor(m => m.NamaAyah, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.NamaIbu)
+                    @Html.TextBoxFor(m => m.NamaIbu, new { @class = "form-control", @style = "width:100%", @maxlength = "100" })
+                    @Html.ValidationMessageFor(m => m.NamaIbu, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.Kk)
+                    @Html.TextBoxFor(m => m.Kk, new { @class = "form-control", @style = "width:100%", @maxlength = "16" })
+                </div>
+
+                @if (CurrentUser.IsApiLogin())
+                {
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.KodeRt)
+                        @Html.TextBoxFor(m => m.KodeRt, new { @class = "form-control", @style = "width:100%", @maxlength = "100" })
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </fieldset>
+</form>
+<script>
+    $(document).ready(function () {
+        jQuery.validator.methods["date"] = function (value, element) {
+            return true;
+        }
+
+        //Reference : https://silviomoreto.github.io/bootstrap-select/options/
+        $('.selectpicker').selectpicker({
+            liveSearch: true,
+            size: 5,
+            showSubtext: true
+        });
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            $('.selectpicker').selectpicker('mobile');
+        }
+
+        $(".date-picker").datepicker({
+            dateFormat: 'dd-mm-yyyy',
+            changeYear: true,
+            showButtonPanel: true,
+        });
+
+        //var datepicker = $.fn.datepicker.noConflict(); // return $.fn.datepicker to previously assigned value
+        //$.fn.bootstrapDP = datepicker;
+        //$('#divTanggalLahir').bootstrapDP({ dateFormat: 'dd-mm-yy', autoclose: false });
+
+        setTimeout(function () {
+            //$("#KodePos").autoNumeric('init', { vMin: 0, vMax: 99999, mDec: 0 });
+            //$("#TAX_RT_DISPLAY").autoNumeric('init', { vMax: 100.00, mDec: 2 });
+        }, 1000);
+
+        $('#IdKota').change(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListByIdKota/";
+            $.ajax({
+                url: path,
+                cache: false,
+                traditional: true,
+                type: 'POST',
+                data: {
+                    idKota: idSelected
+                },
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    var markup, responseText, responseValue;
+                    responseText = "Select :";
+                    responseValue = "";
+                    markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                    for (var x = 0; x < response.length; x++) {
+                        var responseText = response[x].Text;
+                        var responseValue = response[x].Value;
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                    }
+                    $("#IdKecamatan").html(markup).show();
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+
+        })
+
+        $('#IdKecamatan').change(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListByIdKecamatan/";
+            $.ajax({
+                url: path,
+                cache: false,
+                traditional: true,
+                type: 'POST',
+                data: {
+                    idKecamatan: idSelected
+                },
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    var markup, responseText, responseValue;
+                    responseText = "Select :";
+                    responseValue = "";
+                    markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                    for (var x = 0; x < response.length; x++) {
+                        var responseText = response[x].Text;
+                        var responseValue = response[x].Value;
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                    }
+                    $("#IdKelurahan").html(markup).show();
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+
+        })
+
+
+
+    })
+</script>

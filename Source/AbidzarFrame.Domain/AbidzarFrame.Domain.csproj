@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA4D2F20-BEE5-4153-A044-F5DF515AEBEC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AbidzarFrame.Domain</RootNamespace>
+    <AssemblyName>AbidzarFrame.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ResultStatus.cs" />
+    <Compile Include="Models\Base\BaseModel.cs" />
+    <Compile Include="Models\Master\ParameterBaseModel.cs" />
+    <Compile Include="Models\Master\SlideShowBaseModel.cs" />
+    <Compile Include="Models\Master\AppointmentDiaryBaseModel.cs" />
+    <Compile Include="Models\Master\JadwalSiskamlingBaseModel.cs" />
+    <Compile Include="Models\Master\AgamaBaseModel.cs" />
+    <Compile Include="Models\Master\AutentikasiTokenBaseModel.cs" />
+    <Compile Include="Models\Master\DetailJenisInformasiBaseModel.cs" />
+    <Compile Include="Models\Master\DetailJenisKegiatanBaseModel.cs" />
+    <Compile Include="Models\Master\DokumentasiDetailJenisKegiatanBaseModel.cs" />
+    <Compile Include="Models\Master\GolonganDarahBaseModel.cs" />
+    <Compile Include="Models\Master\JabatanBaseModel.cs" />
+    <Compile Include="Models\Master\JenisInformasiBaseModel.cs" />
+    <Compile Include="Models\Master\JenisKegiatanBaseModel.cs" />
+    <Compile Include="Models\Master\JenisKelaminBaseModel.cs" />
+    <Compile Include="Models\Master\JenisPekerjaanBaseModel.cs" />
+    <Compile Include="Models\Master\KecamatanBaseModel.cs" />
+    <Compile Include="Models\Master\KelurahanBaseModel.cs" />
+    <Compile Include="Models\Master\KewarganegaraanBaseModel.cs" />
+    <Compile Include="Models\Master\KotaBaseModel.cs" />
+    <Compile Include="Models\Master\KtpBaseModel.cs" />
+    <Compile Include="Models\Master\PendidikanBaseModel.cs" />
+    <Compile Include="Models\Master\PhotoKtpBaseModel.cs" />
+    <Compile Include="Models\Master\ProvinsiBaseModel.cs" />
+    <Compile Include="Models\Master\SignatureKtpBaseModel.cs" />
+    <Compile Include="Models\Master\StatusPerkawinanBaseModel.cs" />
+    <Compile Include="Models\Master\StrukturBaseModel.cs" />
+    <Compile Include="Models\Questioner\TanyaRtBaseModel.cs" />
+    <Compile Include="Models\Questioner\TanyaRtDetailBaseModel.cs" />
+    <Compile Include="Models\Questioner\PollingPemiluBaseModel.cs" />
+    <Compile Include="Models\Questioner\DetailPemiluBaseModel.cs" />
+    <Compile Include="Models\Questioner\PemiluBaseModel.cs" />
+    <Compile Include="Models\Reports\LaporanKasBaseModel.cs" />
+    <Compile Include="Models\Security\EmailBaseModel.cs" />
+    <Compile Include="Models\Security\MenuBaseModel.cs" />
+    <Compile Include="Models\Security\RoleMenuBaseModel.cs" />
+    <Compile Include="Models\Security\RoleBaseModel.cs" />
+    <Compile Include="Models\Security\UserApiBaseModel.cs" />
+    <Compile Include="Models\Security\HistoricalUserLoginBaseModel.cs" />
+    <Compile Include="Models\Security\UserBaseModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

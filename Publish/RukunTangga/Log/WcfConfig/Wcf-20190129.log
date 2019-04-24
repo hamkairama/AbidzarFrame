@@ -1,0 +1,2 @@
+STAT. [29-01-2019 22:30:28:07] [ID=] begin.api=SecurityServiceManager(GetUserApiFindBy)[user_id='ApiService']
+STAT. [29-01-2019 22:30:46:81] [ID=] end...api=SecurityServiceManager(GetUserApiFindBy)[user_id='ApiService']

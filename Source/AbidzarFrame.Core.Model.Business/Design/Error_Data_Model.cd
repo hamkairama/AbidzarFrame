@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AbidzarFrame.Core.Model.Business.BusinessErrorVo">
+    <Position X="3" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAACACAQABAAEAAAAAAAAgAAAEAEAAAACQAAAA=</HashCode>
+      <FileName>BusinessErrorVo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.BusinessErrors">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAEAQBAIAAAAAABAAAA=</HashCode>
+      <FileName>BusinessErrors.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_errorList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.BusinessWarnings" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessWarnings.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.BusinessWarningVo" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessWarningVo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

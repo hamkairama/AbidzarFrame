@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BOAJMIEquityService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Manulife.Core.Model.Business" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEquityManager_GetBrokerCodeFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrokerCodeFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetBrokerCodeFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrokerCodeFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetBrokerCodeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrokerCodeList" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetBrokerCodeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrokerCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_InsertBrokerCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBrokerCode" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_InsertBrokerCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBrokerCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_UpdateBrokerCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBrokerCode" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_UpdateBrokerCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBrokerCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_DeleteBrokerCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBrokerCode" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_DeleteBrokerCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBrokerCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetEquityHeadFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquityHeadFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetEquityHeadFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquityHeadFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetEquityHeaderList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquityHeaderList" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetEquityHeaderList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquityHeaderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_InsertEquityHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEquityHeader" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_InsertEquityHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEquityHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_UpdateEquityHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEquityHeader" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_UpdateEquityHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEquityHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_DeleteEquityHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEquityHeader" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_DeleteEquityHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEquityHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetEquityDetailFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquityDetailFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetEquityDetailFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquityDetailFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetEquityDetailList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquityDetailList" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_GetEquityDetailList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquityDetailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_InsertEquityDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEquityDetail" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_InsertEquityDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEquityDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_UpdateEquityDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEquityDetail" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_UpdateEquityDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEquityDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_DeleteEquityDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEquityDetail" />
+  </wsdl:message>
+  <wsdl:message name="IEquityManager_DeleteEquityDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEquityDetailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEquityManager">
+    <wsdl:operation name="GetBrokerCodeFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/GetBrokerCodeFindBy" message="tns:IEquityManager_GetBrokerCodeFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/GetBrokerCodeFindByResponse" message="tns:IEquityManager_GetBrokerCodeFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBrokerCodeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/GetBrokerCodeList" message="tns:IEquityManager_GetBrokerCodeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/GetBrokerCodeListResponse" message="tns:IEquityManager_GetBrokerCodeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBrokerCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/InsertBrokerCode" message="tns:IEquityManager_InsertBrokerCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/InsertBrokerCodeResponse" message="tns:IEquityManager_InsertBrokerCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBrokerCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/UpdateBrokerCode" message="tns:IEquityManager_UpdateBrokerCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/UpdateBrokerCodeResponse" message="tns:IEquityManager_UpdateBrokerCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBrokerCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/DeleteBrokerCode" message="tns:IEquityManager_DeleteBrokerCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/DeleteBrokerCodeResponse" message="tns:IEquityManager_DeleteBrokerCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquityHeadFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/GetEquityHeadFindBy" message="tns:IEquityManager_GetEquityHeadFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/GetEquityHeadFindByResponse" message="tns:IEquityManager_GetEquityHeadFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquityHeaderList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/GetEquityHeaderList" message="tns:IEquityManager_GetEquityHeaderList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/GetEquityHeaderListResponse" message="tns:IEquityManager_GetEquityHeaderList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEquityHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/InsertEquityHeader" message="tns:IEquityManager_InsertEquityHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/InsertEquityHeaderResponse" message="tns:IEquityManager_InsertEquityHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEquityHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/UpdateEquityHeader" message="tns:IEquityManager_UpdateEquityHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/UpdateEquityHeaderResponse" message="tns:IEquityManager_UpdateEquityHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEquityHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/DeleteEquityHeader" message="tns:IEquityManager_DeleteEquityHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/DeleteEquityHeaderResponse" message="tns:IEquityManager_DeleteEquityHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquityDetailFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/GetEquityDetailFindBy" message="tns:IEquityManager_GetEquityDetailFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/GetEquityDetailFindByResponse" message="tns:IEquityManager_GetEquityDetailFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquityDetailList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/GetEquityDetailList" message="tns:IEquityManager_GetEquityDetailList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/GetEquityDetailListResponse" message="tns:IEquityManager_GetEquityDetailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEquityDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/InsertEquityDetail" message="tns:IEquityManager_InsertEquityDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/InsertEquityDetailResponse" message="tns:IEquityManager_InsertEquityDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEquityDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/UpdateEquityDetail" message="tns:IEquityManager_UpdateEquityDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/UpdateEquityDetailResponse" message="tns:IEquityManager_UpdateEquityDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEquityDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquityManager/DeleteEquityDetail" message="tns:IEquityManager_DeleteEquityDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquityManager/DeleteEquityDetailResponse" message="tns:IEquityManager_DeleteEquityDetail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEquityManager" type="tns:IEquityManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBrokerCodeFindBy">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/GetBrokerCodeFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBrokerCodeList">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/GetBrokerCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBrokerCode">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/InsertBrokerCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBrokerCode">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/UpdateBrokerCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBrokerCode">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/DeleteBrokerCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquityHeadFindBy">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/GetEquityHeadFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquityHeaderList">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/GetEquityHeaderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEquityHeader">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/InsertEquityHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEquityHeader">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/UpdateEquityHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEquityHeader">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/DeleteEquityHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquityDetailFindBy">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/GetEquityDetailFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquityDetailList">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/GetEquityDetailList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEquityDetail">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/InsertEquityDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEquityDetail">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/UpdateEquityDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEquityDetail">
+      <soap:operation soapAction="http://tempuri.org/IEquityManager/DeleteEquityDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BOAJMIEquityService">
+    <wsdl:port name="BasicHttpBinding_IEquityManager" binding="tns:BasicHttpBinding_IEquityManager">
+      <soap:address location="http://localhost:55553/BOAJMIEquityService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

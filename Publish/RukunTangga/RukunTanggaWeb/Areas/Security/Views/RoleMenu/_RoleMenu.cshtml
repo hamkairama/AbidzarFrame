@@ -1,0 +1,408 @@
+﻿@model AbidzarFrame.Web.Areas.Security.Models.RoleMenuViewModel
+
+@{
+    ViewBag.Title = "Menu Security";
+    Layout = "";
+}
+
+@Html.AntiForgeryToken()
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+@Html.Hidden("hiddenArrayLoadId", (object)ViewBag.ArrayLoadId)
+
+<form id="FormRoleMenu">
+    <fieldset>
+        @*@Html.HiddenFor(m => m.ArrayMenuId)*@
+        @Html.EditorFor(m => m.ArrayMenuId)     
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet green-meadow box">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            @Html.HiddenFor(m => m.IdRole)
+                            @Model.IdRole
+                            @*@Model.ArrayMenuId*@
+                        </div>
+                        <div class="caption">
+                            &nbsp; - &nbsp;
+                        </div>
+                        <div class="caption">
+                            @Model.NamaRole
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div>
+                            @foreach (var mdl in Model.RoleMenuBaseModelList)
+                            {
+                                var _roleId = mdl.IdRole;
+                                var _menuId = mdl.IdMenu;
+                                var _menuName = mdl.NamaMenu;
+                                var _parentId = mdl.ParentId;
+                                var _parentName = mdl.NamaParent;
+                                var _menuArea = mdl.MenuArea;
+                                var _iconName = mdl.NamaIcon;
+                                var _menuController = mdl.MenuController;
+                                var _haveAccess = mdl.HaveAccess;
+                                var _child = mdl.Child;
+
+                                var _clicked = mdl.HaveAccess ? "jstree-clicked" : "";
+                           
+
+                                //if (_haveAccess == true)
+                                //{
+                                //    Model.ArrayMenuId.Add(Convert.ToString("5"));
+                                //}
+
+                                <input type="hidden" id="valueHidden"/>
+                                if (_iconName != null)
+                                {
+                                    <div id="tree_2" class="tree-demo jstree jstree-2 jstree-default jstree-checkbox-selection" role="tree" aria-activedescendant="j2_5">
+                                        <ul class="jstree-container-ul jstree-children jstree-wholerow-ul jstree-no-dots">
+                                            <li role="treeitem" aria-expanded="true" id="j2_1" class="jstree-node  jstree-open" aria-selected="false">
+                                                <div unselectable="on" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl"></i>
+                                                <a class="jstree-anchor @_clicked" onclick="centang(@_menuId)" id="@_menuId">
+                                                    <i class="jstree-icon jstree-checkbox"></i>
+                                                    <i class="jstree-icon jstree-themeicon fa fa-folder icon-state-warning icon-lg jstree-themeicon-custom"></i>@_menuName
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                }
+                                else
+                                {
+                                    if (_child == 0)
+                                    {
+                                        <div id="tree_2" class="tree-demo jstree jstree-2 jstree-default jstree-checkbox-selection" role="tree" aria-activedescendant="j2_5">
+                                            <ul class="jstree-container-ul jstree-children jstree-wholerow-ul jstree-no-dots">
+                                                <li role="treeitem" aria-expanded="true" id="j2_1" class="jstree-node  jstree-open" aria-selected="false">
+
+                                                    <ul role="group" class="jstree-children" style="">
+
+                                                        <li role="treeitem" aria-expanded="true" id="j2_4" class="jstree-node  jstree-open" aria-selected="false">
+
+                                                            <div unselectable="on" class="jstree-wholerow">&nbsp;</div>
+                                                            <i class="jstree-icon jstree-ocl"></i>
+                                                            <a class="jstree-anchor @_clicked" onclick="centang(@_menuId)" id="@_menuId">
+                                                                <i class="jstree-icon jstree-checkbox"></i>
+                                                                <i class="jstree-icon jstree-themeicon fa fa-folder icon-state-danger jstree-themeicon-custom"></i>@_menuName
+                                                            </a>
+
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div id="tree_2" class="tree-demo jstree jstree-2 jstree-default jstree-checkbox-selection" role="tree" aria-activedescendant="j2_5">
+                                            <ul class="jstree-container-ul jstree-children jstree-wholerow-ul jstree-no-dots">
+                                                <li role="treeitem" aria-expanded="true" id="j2_1" class="jstree-node  jstree-open" aria-selected="false">
+
+                                                    <ul role="group" class="jstree-children" style="">
+                                                        <li role="treeitem" aria-expanded="true" id="j2_4" class="jstree-node  jstree-open" aria-selected="false">
+
+                                                            <div unselectable="on" class="jstree-wholerow">&nbsp;</div>
+
+                                                            <ul role="group" class="jstree-children">
+                                                                <li role="treeitem" id="j2_5" class="jstree-node  jstree-leaf jstree-last" aria-selected="false">
+                                                                    <div unselectable="on" class="jstree-wholerow">&nbsp;</div>
+                                                                    <i class="jstree-icon jstree-ocl"></i>
+                                                                    <a class="jstree-anchor @_clicked" onclick="centang(@_menuId)" id="@_menuId">
+                                                                        <i class="jstree-icon jstree-checkbox"></i>
+                                                                        <i class="jstree-icon jstree-themeicon fa fa-briefcase icon-state-default jstree-themeicon-custom"></i>@_menuName
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    }
+                                }
+
+                            }
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        @*<div class="row">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ROLE_ID)
+                            @Html.TextBoxFor(m => m.ROLE_ID, new { @class = "form-control", @style = "width:100%", @maxlength = "10", @readonly = "readonly" })
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ROLE_NAME)
+                            @Html.TextBoxFor(m => m.ROLE_NAME, new { @class = "form-control", @style = "width:100%", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+
+               <div class="col-md-12">
+                    <div id="tree_2" class="tree-demo jstree jstree-2 jstree-default jstree-checkbox-selection" role="tree" aria-activedescendant="j2_8">
+
+                        @{foreach (var mdl in Model.RoleMenuBaseModelList)
+                            {
+                                var _roleId = mdl.ROLE_ID;
+                                var _menuId = mdl.MENU_ID;
+                                var _menuName = mdl.MENU_NAME;
+                                var _parentId = mdl.PARENT_ID;
+                                var _parentName = mdl.PARENT_NAME;
+                                var _menuArea = mdl.MENU_AREA;
+                                var _iconName = mdl.ICON_NAME;
+                                var _menuController = mdl.MENU_CONTROLLER;
+                                var _haveAccess = mdl.HAVE_ACCESS;
+                                var _child = mdl.CHILD;
+
+                                if (_iconName != null)
+                                {
+                                    if (_haveAccess == true)
+                                    {
+                                        <ul class="jstree-container-ul jstree-children jstree-no-dots">
+                                            <li role="treeitem" aria-expanded="true" id="j2_1" class="jstree-node  jstree-open">
+                                                <i class="jstree-icon jstree-ocl"></i>
+                                                <a class="jstree-anchor jstree-clicked" onclick="centang(@_menuId)" id="@_menuId">
+                                                    <i class="jstree-icon jstree-checkbox"></i>
+                                                    <i class="jstree-icon jstree-themeicon fa fa-folder icon-state-warning icon-lg jstree-themeicon-custom"></i> @_menuName
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <ul class="jstree-container-ul jstree-children jstree-no-dots">
+                                            <li role="treeitem" aria-expanded="true" id="j2_1" class="jstree-node  jstree-open">
+                                                <i class="jstree-icon jstree-ocl"></i>
+                                                <a class="jstree-anchor" onclick="centang(@_menuId)" id="@_menuId">
+                                                    <i class="jstree-icon jstree-checkbox"></i>
+                                                    <i class="jstree-icon jstree-themeicon fa fa-folder icon-state-warning icon-lg jstree-themeicon-custom"></i> @_menuName
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    }
+                                }
+                                else
+                                {
+                                    if (_child == 0)
+                                    {
+                                        if (_haveAccess == true)
+                                        {
+                                            <ul role="group" class="jstree-children">
+                                                <li role="treeitem" aria-expanded="true" id="j2_4" class="jstree-node  jstree-open">
+                                                    <i class="jstree-icon jstree-ocl"></i>
+                                                    <a class="jstree-anchor jstree-clicked" onclick="centang(@_menuId)" id="@_menuId">
+                                                        <i class="jstree-icon jstree-checkbox"></i>
+                                                        <i class="jstree-icon jstree-themeicon fa fa-folder icon-state-default jstree-themeicon-custom"></i>@_menuName
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <ul role="group" class="jstree-children">
+                                                <li role="treeitem" aria-expanded="true" id="j2_4" class="jstree-node  jstree-open">
+                                                    <i class="jstree-icon jstree-ocl"></i>
+                                                    <a class="jstree-anchor" onclick="centang(@_menuId)" id="@_menuId">
+                                                        <i class="jstree-icon jstree-checkbox"></i>
+                                                        <i class="jstree-icon jstree-themeicon fa fa-folder icon-state-default jstree-themeicon-custom"></i>@_menuName
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        }
+
+
+                                    }
+                                    else
+                                    {
+                                        if (_haveAccess == true)
+                                        {
+                                            <ul role="group" class="jstree-children">
+                                                <li role="treeitem" id="j2_5" class="jstree-node jstree-leaf">
+                                                    <i class="jstree-icon jstree-ocl"></i>
+                                                    <a class="jstree-anchor jstree-clicked" onclick="centang(@_menuId)" id="@_menuId">
+                                                        <i class="jstree-icon jstree-checkbox"></i>
+                                                        <i class="jstree-icon jstree-themeicon fa fa-file icon-state-warning icon-lg jstree-themeicon-custom"></i>@_menuName
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <ul role="group" class="jstree-children">
+                                                <li role="treeitem" id="j2_5" class="jstree-node jstree-leaf">
+                                                    <i class="jstree-icon jstree-ocl"></i>
+                                                    <a class="jstree-anchor" onclick="centang(@_menuId)" id="@_menuId">
+                                                        <i class="jstree-icon jstree-checkbox"></i>
+                                                        <i class="jstree-icon jstree-themeicon fa fa-file icon-state-warning icon-lg jstree-themeicon-custom"></i>@_menuName
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>*@
+    </fieldset>
+</form>
+
+<script>
+
+    var ArrayTemp = [];
+    var param = $('#roleId').val();
+    $(document).ready(function () {
+
+        ArrayTemp = @Html.Raw(Json.Encode(ViewBag.ArrayLoadId)); //call array from controller
+
+        //console.log(ArrayTemp);
+
+        //if ($('#hiddenArrayLoadId').val() == 'Edit') {
+        //    $('#CODE').attr("readonly", "readonly");
+        //}
+
+
+    });
+
+    function centang(mId) {
+
+        var isDelete = false;
+
+        if ($('#' + mId).hasClass("jstree-clicked")) {
+            $('#' + mId).removeClass("jstree-clicked");
+
+            //remove array value javascript
+            ArrayTemp = jQuery.grep(ArrayTemp, function (value) {
+                return value != mId;
+            });
+
+            isDelete = true;
+            //model.ArrayMenuId.Remove(mId);
+
+
+
+            @*@Model.ArrayMenuId.Remove(mId); //<---cek ini*@
+        }
+        else {
+            $('#' + mId).addClass("jstree-clicked");
+
+            //add array value javascript
+            ArrayTemp.push(mId);
+
+            isDelete=false;
+
+            //add array value model
+            @*@Model.ArrayMenuId.Add(mId); //<---cek ini*@
+        }
+       // console.log(ArrayTemp);
+
+
+        //var param = {
+        //    model : $('#FormRoleMenu').serializeObject(),
+        //    arrMenuId : mId
+        //};
+
+        //console.log(param);
+
+        $.ajax({
+            url: '@Url.Action("RemoveArrayMenuId", "RoleMenu", new { area = "Security" })',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                //model: $('#FormRoleMenu').serializeObject(),
+                isDel: isDelete, //untuk melempar nilai ke controller
+                arrTemp: ArrayTemp, //untuk melempar nilai ke controller
+                arrMenuId: mId //untuk melempar nilai ke controller
+            }),
+            //untuk memunculkan pesan
+            success: function (ret) {
+                alert("sukses");
+                //$('#ManulifeModalFormContent').html(ret);
+            },
+            error: function (ret) {
+                alert("error");
+                //alertError(JSON.parse(ret.responseText).ErrorMessage);                
+            }
+
+        });
+    }
+
+
+
+
+    @*$('#btnSave').click(function () {
+            //debugger;
+
+            //alert('test');
+            console.log(this.checked)
+            var valueCheck = this.checked
+            var removevalue = this.value
+            if (valueCheck == true) {
+                ArrayTemp.push(this.value)
+            } else {
+                ArrayTemp = jQuery.grep(ArrayTemp, function (value) {
+                    return value != removevalue;
+
+                });
+            }
+            console.log(ArrayTemp)
+
+            $.ajax({
+                url: '@Url.Action("Update", "RoleMenu", new { area = "Security" })',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({
+                    model: $('#FormRoleMenu').serializeObject(),
+                    array: ArrayTemp //untuk melempar nilai ke controller
+                }),
+
+
+                //untuk memunculkan pesan
+                success: function (ret) {
+                    if (ret.Msg != null && ret.Msg != "") {
+                        alertSuccess(ret.Msg);
+                        $('#ManulifeModalFormEdit').modal('hide');
+                        if (dataTable != null) {
+                            dataTable.ajax.reload();
+                        }
+                    } else if (!ret.success) {
+                        $.each(ret.errors, function (index, value) {
+                            // Error message
+                            var validationMessageElement = $('span[data-valmsg-for="' + index + '"]');
+                            validationMessageElement.removeClass('field-validation-valid');
+                            validationMessageElement.addClass('field-validation-error');
+                            validationMessageElement.text(value[0]);
+                        });
+                    }
+                    else {
+                        alertError(JSON.parse(ret.responseText).ErrorMessage);
+                    }
+
+                },
+                error: function (ret) {
+                    alertError(JSON.parse(ret.responseText).ErrorMessage);
+                    if (dataTable != null) {
+                        dataTable.ajax.reload();
+                    }
+                }
+
+            });
+        });*@
+</script>
+

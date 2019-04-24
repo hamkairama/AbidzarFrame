@@ -1,0 +1,89 @@
+﻿@model List<AbidzarFrame.Questioner.Interface.Dto.PemiluResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+    ViewBag.Title = "Pemilu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.MsgScs != null)
+{
+    <div class="alert alert-success" style="display: block;">
+        <button class="close" data-close="alert">X</button>
+        @ViewBag.MsgScs
+    </div>
+}
+@if (CurrentUser.IsAdmin())
+{
+    <div class="row">
+        <button id="btnAdd" class="btn btn-sm green" data-toggle="modal" data-target="#AbidzarFrameModalFormEditWithFile"
+                data-item-description="Add" data-item-id="0" data-backdrop="static" data-keyboard="false"
+                data-url=@Url.Action("EditorFormPartial", "Pemilu", new { area = "Questioner" })
+                data-url-action=@Url.Action("Create", "Pemilu", new { area = "Questioner" })>
+            Add New Item <i class="fa fa-plus"></i>
+        </button>
+    </div>
+    <hr />
+}
+    @*<div class="table-responsive">*@
+    <div class="row">
+        @{
+            if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-md-2 col-sm-2 col-xs-6">
+                        <div class="thumbnail">
+                            <a style="text-decoration:none" href="@Url.Action("Index", "DetailPemilu", new { area = "Questioner", idPemilu = item.Id})">
+                                @if (item.FileName == null)
+                                {
+                                <img src="~/Content/Layout/img/no-image.png" />
+                                }
+                                else
+                                {
+                                <img src="@item.FileName" @*alt="100%x200" style="width: 100%; height: 200px;*@ display block;" data-src="../assets/global/plugins/holder.js/100%x200">
+                                }
+
+                                <div class="caption" style="text-align:center">
+                                    <b>@item.Judul</b>
+                                </div>
+                            </a>
+
+                            <div style="text-align:center">
+                                @if (CurrentUser.IsAdmin())
+                                {
+                                <a data-toggle="modal" data-target="#AbidzarFrameModalFormEditWithFile"
+                                   data-item-description="Edit" data-item-id="@item.Id" data-backdrop="static" data-keyboard="false"
+                                   data-url=@Url.Action("EditorFormPartial", "Pemilu", new { area = "Questioner" })
+                                   data-url-action=@Url.Action("Update", "Pemilu", new { area = "Questioner" })>
+                                    <i class="fa fa-edit default"></i>
+                                </a>
+                                <a data-toggle="modal" data-target="#confirm-delete"
+                                   data-item-description="Edit" data-item-id="@item.Id" data-backdrop="static" data-keyboard="false"
+                                   data-url=@Url.Action("Delete", "Pemilu", new { area = "Questioner" })>
+                                    <i class="fa fa-trash danger"></i>
+                                </a>
+                                <a data-toggle="modal" data-target="#AbidzarFrameModalFormEditGrafik"
+                                   data-item-description="Edit" data-item-id="@item.Id" data-backdrop="static" data-keyboard="false"
+                                   data-url=@Url.Action("EditorFormPartialGrafik", "Pemilu", new { area = "Questioner" })>
+                                    <i class="icon-graph success"></i>
+                                </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+    @*</div>*@
+    <script>
+        $(function () {
+            hideLoading();
+        })
+    </script>
+
+    <script src="~/Content/plugins/chart/core.js"></script>
+    <script src="~/Content/plugins/chart/charts.js"></script>
+    <script src="~/Content/plugins/chart/animated.js"></script>
+

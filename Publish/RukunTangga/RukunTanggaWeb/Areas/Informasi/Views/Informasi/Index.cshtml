@@ -1,0 +1,44 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.JenisInformasiResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+    ViewBag.Title = "Informasi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Layout/css/about.css" rel="stylesheet" />
+<style>
+    .overflow-ellipsis {
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+</style>
+
+<div class="row margin-bottom-20">
+    @{
+        for (int i = 0; i < Model.Count(); i++)
+        {
+            <a href="@Url.Action("Index", "DetailJenisInformasi", new { area = "Informasi", idJenisInformasi = Model[i].Id })">
+                <div class="col-md-2 col-sm-2 col-xs-6" @*class="col-lg-3 col-md-6 form-control-static" style="padding-right:0px;" *@>
+                    <div class="portlet light" style="background-image: url('../Content/Images/bg/card-grunge-blue-1.png');background-repeat:no-repeat">
+                        <div class="card-icon">
+                            @Html.Raw(Labels.CardIcon(i))
+                        </div>
+                        <div class="card-title">
+                            <span style="font-size: 14px;">@Model[i].JenisInformasi</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    }
+</div>
+
+<script>
+    $(function () {
+        hideLoading();
+    })
+
+</script>

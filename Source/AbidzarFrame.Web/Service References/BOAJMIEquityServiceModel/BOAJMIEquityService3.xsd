@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" />
+  <xs:element name="GetBrokerCodeFindBy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q1:BrokerCodeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBrokerCodeFindByResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="GetBrokerCodeFindByResult" nillable="true" type="q2:BrokerCodeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBrokerCodeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q3:BrokerCodeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBrokerCodeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="GetBrokerCodeListResult" nillable="true" type="q4:BrokerCodeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertBrokerCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q5:BrokerCodeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertBrokerCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="InsertBrokerCodeResult" nillable="true" type="q6:BrokerCodeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBrokerCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q7:BrokerCodeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBrokerCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="UpdateBrokerCodeResult" nillable="true" type="q8:BrokerCodeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBrokerCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q9:BrokerCodeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBrokerCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="DeleteBrokerCodeResult" nillable="true" type="q10:BrokerCodeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquityHeadFindBy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q11:EquityHeaderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquityHeadFindByResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="GetEquityHeadFindByResult" nillable="true" type="q12:EquityHeaderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquityHeaderList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquityHeaderListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="GetEquityHeaderListResult" nillable="true" type="q13:EquityHeaderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEquityHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q14:EquityHeaderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEquityHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="InsertEquityHeaderResult" nillable="true" type="q15:EquityHeaderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEquityHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q16:EquityHeaderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEquityHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="UpdateEquityHeaderResult" nillable="true" type="q17:EquityHeaderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEquityHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q18:EquityHeaderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEquityHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="DeleteEquityHeaderResult" nillable="true" type="q19:EquityHeaderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquityDetailFindBy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q20:EquityDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquityDetailFindByResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="GetEquityDetailFindByResult" nillable="true" type="q21:EquityDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquityDetailList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquityDetailListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="GetEquityDetailListResult" nillable="true" type="q22:EquityDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEquityDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q23:EquityDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEquityDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="InsertEquityDetailResult" nillable="true" type="q24:EquityDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEquityDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q25:EquityDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEquityDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="UpdateEquityDetailResult" nillable="true" type="q26:EquityDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEquityDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="request" nillable="true" type="q27:EquityDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEquityDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Equity.Interface.Dto" minOccurs="0" name="DeleteEquityDetailResult" nillable="true" type="q28:EquityDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

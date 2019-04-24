@@ -1,0 +1,124 @@
+﻿@model List<AbidzarFrame.Questioner.Interface.Dto.TanyaRtResult>
+<link href="~/Content/plugins/todo/todo.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Tanya Rt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.MsgScs != null)
+{
+    <div class="alert alert-success" style="display: block;">
+        <button class="close" data-close="alert">X</button>
+        @ViewBag.MsgScs
+    </div>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-bar-chart font-green-sharp hide"></i>
+                    <span class="caption-helper"></span> &nbsp; <span class="caption-subject font-green-sharp bold uppercase">Tanya RT</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group">
+                        <div class="btn-group">
+                            <button id="btnAdd" class="btn btn-circle green" data-toggle="modal" data-target="#AbidzarFrameModalFormWithRefresh"
+                                    data-item-description="Add" data-item-id="0" data-backdrop="static" data-keyboard="false"
+                                    data-url=@Url.Action("EditorFormPartial", "TanyaRt", new { area = "Questioner" })
+                                    data-url-action=@Url.Action("Create", "TanyaRt", new { area = "Questioner" })>
+                                    Buat judul pertanyaan <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-5 col-sm-4">
+                        <div class="scroller" style="max-height: 600px;" data-always-visible="0" data-rail-visible="0" data-handle-color="#dae3e7">
+                            <div class="todo-tasklist">
+                                @{
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="todo-tasklist-item todo-tasklist-item-border-red" onclick="GetTanyaRtDetailList('@item.Id')">
+                                            <img class="todo-userpic pull-left" src="@item.NamaFile" width="27px" height="27px">
+                                            <div class="todo-tasklist-item-title">
+                                                @item.Nama &nbsp;<i class="fa fa-calendar"></i> <span class="todo-comment-date">@item.DibuatTanggal.ToString("dd MMM yyyy mm:hh")</span>
+                                                <button class="close" onclick="DeleteTanyaRt('@item.Id')" data-close="alert">X</button>
+                                            </div>
+
+                                            <div class="todo-tasklist-item-text">
+                                                @item.Judul
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="todo-tasklist-devider">
+                    </div>
+                    <div class="col-md-7 col-sm-8">
+                        <div id="divTanyaRtDetail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="~/Content/plugins/todo/todo.js"></script>
+<script>
+    $(function () {
+        hideLoading();
+        Todo.init();
+        //Refresh();
+    })
+
+    //function Refresh() {
+    //    window.location.reload(true);
+    //}
+
+    function GetTanyaRtDetailList(id) {
+        var path = location.origin + "/TanyaRtDetail/GetTanyaRtDetail/";
+        $.ajax({
+            data: {
+                idTanyaRt: id,
+            },
+            cache: false,
+            url: path,
+            //traditional: true,
+            //type: 'POST',
+            //dataType: "json",
+            async: true,
+            success: function (data) {
+                $("#divTanyaRtDetail").html(data);
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    }
+    function DeleteTanyaRt(idTanya) {
+        var path = location.origin + "/TanyaRt/Delete/";
+        $.ajax({
+            url: path,
+            cache: false,
+            traditional: true,
+            type: "POST",
+            data: { id: idTanya },
+            //dataType: "json",
+            //contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (respText) {
+                Refresh();
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    }
+</script>

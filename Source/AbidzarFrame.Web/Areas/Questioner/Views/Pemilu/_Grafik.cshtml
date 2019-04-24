@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Pemilu";
+    Layout = null;
+}
+
+<style>
+    #chartdiv {
+        width: 100%;
+        max-height: 600px;
+        height: 100vh;
+    }
+</style>
+
+@Html.Hidden("idPemiluGrafik", (int)ViewBag.IdPemilu)
+<div id="divSummary">
+    <div class="row">
+        <div id="chartdiv"></div>
+    </div>
+</div>
+<script src="~/Scripts/controller/PemiluGrafik.js"></script>
+<script>
+    $(function () {
+        hideLoading();
+    })
+</script>
+

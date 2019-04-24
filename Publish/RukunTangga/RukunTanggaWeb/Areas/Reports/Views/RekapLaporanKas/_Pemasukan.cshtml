@@ -1,0 +1,82 @@
+﻿@model List<AbidzarFrame.Reports.Interface.Dto.LaporanKasResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+    ViewBag.Title = "";
+}
+
+@{
+    if (ViewBag.ByValue == "Pemasukan")
+    {
+        decimal subTotal = 0;
+        <div class="" id="divPemasukan">
+            <div class="row invoice-head">
+                <div class="col-md-7 col-xs-6">
+                    <div class="invoice-logo">
+                        <h1 class="uppercase">Laporan Kas Pemasukan @ViewBag.Date</h1>
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-6">
+                    <div class="company-address">
+                        <span class="bold uppercase">RukunTangga.com</span>
+                        <br> Srengseng, kembangan. Jakarta Barat
+                        <br> DKI Jakarta, Indonesia
+                        @*<br>
+                        <span class="bold">T</span> 08581182xxxx
+                        <br>
+                        <span class="bold">E</span> support@rukuntangga.com
+                        <br>
+                        <span class="bold">W</span> www.rukuntangga.com*@
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row invoice-body">
+                <div class="col-xs-12 table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="invoice-title uppercase">Deskripsi</th>
+                                <th class="invoice-title uppercase text-center">Tanggal</th>
+                                <th class="invoice-title uppercase text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.Deskripsi
+                                            @*<p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet et dolore siat magna aliquam erat volutpat. </p>*@
+                                        </td>
+                                        <td class="text-left sbold">@item.Tanggal.ToString("dd/MM/yyyy")</td>
+                                        <td class="text-right sbold">@item.Total.ToString("###,###")</td>
+                                    </tr>
+
+                                    subTotal = subTotal + item.Total;
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row invoice-subtotal">
+                <div class="col-xs-3">
+                    <h2 class="invoice-title uppercase">Subtotal</h2>
+                    <p class="invoice-desc">@subTotal.ToString("###,###")</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="btn btn-lg green-haze hidden-print uppercase print-btn" onclick="javascript:window.print();">Print</a>
+                </div>
+            </div>
+        </div>
+    }
+
+}
+
+

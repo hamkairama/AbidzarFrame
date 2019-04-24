@@ -1,0 +1,172 @@
+﻿@using AbidzarFrame.Web.Helpers
+
+
+@{
+    string namaPerusahaan = @CurrentUser.GetNamaPerusahaan();
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="ver-inline-menu tabbable margin-bottom-10">
+                <li class="active">
+                    <a data-toggle="tab" href="#tab_1">
+                        <i class="fa fa-briefcase"></i> General
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab_2">
+                        <i class="fa fa-group"></i> Syarat &amp; Ketentuan
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab_3">
+                        <i class="fa fa-plus"></i> Kebijakan Privasi
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <div class="tab-content">
+                <div id="tab_1" class="tab-pane active">
+                    <div id="accordion1" class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="font-size:14px">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_1"> 1.Bagaimana cara menggunakan aplikasi ? </a>
+                                </h4>
+                            </div>
+                            <div id="accordion1_1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    Warga yang telah terdaftar di aplikasi ini dapat melakukan registrasi terlebih dahulu melalui aplikasi ini
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="font-size:14px">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_2"> 2. Apa yang dilakukan setelah registrasi ? </a>
+                                </h4>
+                            </div>
+                            <div id="accordion1_2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Setelah registrasi berhasil, maka system akan mengirimkan kode aktivasi ke email pengguna. Kemudian lakukan complit proses dengan masuk ke email tersebut dan lakukan aktifasi.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="font-size:14px">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_3"> 3. Setelah registrasi berhasil dan complete, apa yang harus dilakukan ? </a>
+                                </h4>
+                            </div>
+                            <div id="accordion1_3" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Pengguna dapat melakukan login pada aplikasi sesuai NIK/No. KTP yang terdaftar dengan disertai password yang disimpan pada saat registrasi awal
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab_2" class="tab-pane">
+                    <div id="accordion2" class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="font-size:14px">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion2_1"> Definisi</a>
+                                </h4>
+                            </div>
+                            <div id="accordion2_1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <p>
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                                        nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                                        beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+                                        you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </p>
+                                    <p>
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                                        nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                                        beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+                                        you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab_3" class="tab-pane">
+                    <div id="accordion3" class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="font-size:14px">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#accordion3_1"> Lingkup Kebijakan Privasi </a>
+                                </h4>
+                            </div>
+                            <div id="accordion3_1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <p>
+                                        Kebijakan privasi ini diberikan sebagai bentuk komitmen @namaPerusahaan Digital Niaga dalam menghargai penggunaan informasi pengguna yang secara langsung atau tidak langsung telah diunggah ke dalam situs @namaPerusahaan.
+                                        Dengan mengakses dan menggunakan situs @namaPerusahaan, Pengguna dianggap telah membaca, memahami dan memberikan persetujuannya terhadap pengumpulan dan penggunaan data pribadi Pengguna sebagaimana diuraikan di bawah ini.
+                                        Kebijakan Privasi ini dapat Kami perbarui secara berkala, tanpa adanya kewajiban untuk memberikan pernyataan terhadap pengguna terlebih dahulu
+                                    </p>
+                                    <p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="font-size:14px">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#accordion3_2"> Informasi Pengguna </a>
+                                </h4>
+                            </div>
+                            <div id="accordion3_2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    @namaPerusahaan mengumpulkan informasi Pengguna dengan tujuan untuk memperoses dan memperlancar proses penggunaan situs @namaPerusahaan. Tindakan tersebut telah memperoleh persetujuan Pengguna pada saat pengumpulan informasi.
+                                    Sewaktu Anda berinteraksi terhadap Situs @namaPerusahaan, Kami akan mengumpulkan data pribadi Pengguna sesuai dengan data yang dibutuhkan untuk menjalankan 1(satu) atau beberapa layanan yang ada melalui kolom informasi yang dapat diisi oleh Pengguna. Ketika data Pengguna diunggah ke situs @namaPerusahaan, maka data tersebut akan tersimpan ke dalam sistem @namaPerusahaan.
+                                    @namaPerusahaan hanya menyimpan empat digit terakhir dan informasi billing dari nomor kartu kredit Pengguna saat melakukan konfirmasi pembayaran pesanan dengan metode pembayaran kartu kredit
+                                    @namaPerusahaan berkomitmen untuk menyimpan data pengguna dari pihak ketiga, terkecuali dalam hal kerjasama untuk tujuan peningkatan sistem layanan yang ada.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="font-size:14px">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#accordion3_3"> Keamanan </a>
+                                </h4>
+                            </div>
+                            <div id="accordion3_3" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Kerahasiaan kata sandi atau password merupakan tanggung jawab masing-masing Pengguna. @namaPerusahaan tidak bertanggung jawab atas kerugian yang dapat ditimbulkan akibat kelalaian pengguna dalam menjaga kerahasiaan passwordnya.
+                                    @namaPerusahaan tidak menjamin kerahasiaan informasi yang Pengguna sampaikan tersebut, dalam kondisi adanya pihak-pihak lain yang mengambil atau mempergunakan informasi Pengguna dengan melawan hukum serta tanpa izin @namaPerusahaan.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="font-size:14px">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#accordion3_4"> Penggunaan Informasi </a>
+                                </h4>
+                            </div>
+                            <div id="accordion3_4" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    @namaPerusahaan berhak untuk mengolah data tersebut terkait pengembangan layanan yang ada di situs @namaPerusahaan
+                                    @namaPerusahaan dapat menampung data berupa cookies yang secara tidak langsung tersedia ketika pengguna mengakses situs @namaPerusahaan untuk keperluan promosi atau penawaran produk terkait.
+                                    @namaPerusahaan dapat secara berkala meminta informasi opsional dari pengguna demi meningkatkan mutu layanan yang ada maupun akan diimplementasi.
+                                    Situs @namaPerusahaan memiliki kemungkinan terhubung dengan situs-situs lain diluar situs @namaPerusahaan, maka dengan demikian Pengguna menyadari serta memahami bahwa @namaPerusahaan tidak turut bertanggung jawab terhadap kerahasiaan informasi Pengguna setelah Pengguna mengakses situs-situs tersebut dengan meninggalkan atau berada diluar situs @namaPerusahaan.
+                                    @namaPerusahaan menjamin tidak ada peminjaman, pengalihan, atau penjualan informasi pribadi Pengguna kepada pihak ketiga lain tanpa adanya izin dari Pengguna, Kecuali dalam kondisi apabila @namaPerusahaan berkewajiban mengungkapkan dan/atau berbagi data pribadi Pengguna dalam upaya mematuhi kewajiban hukum dan/atau dalam upaya memberlakukan atau menerapkan syarat-syarat penggunaan @namaPerusahaan sebagaimana tercantum dalam Syarat dan Ketentuan Layanan @namaPerusahaan dan/atau perikatan - perikatan lainnya antara @namaPerusahaan dengan pihak ketiga, atau untuk melindungi hak, properti, atau keselamatan @namaPerusahaan, pelanggan @namaPerusahaan, atau pihak lain. Di sini termasuk pertukaran informasi dengan perusahaan dan organisasi lain untuk tujuan perlindungan @namaPerusahaan beserta Penggunanya termasuk namun tidak terbatas pada penipuan, kerugian finansial atau pengurangan resiko lainnya.
+                                    Syarat-syarat dan ketentuan dalam Kebijakan Privasi ini tunduk kepada hukum di wilayah Negara Kesatuan Republik Indonesia.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+<script>
+    $(function () {
+        hideLoading();
+    })
+</script>

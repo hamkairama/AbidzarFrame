@@ -1,0 +1,33 @@
+﻿@model AbidzarFrame.Master.Interface.Dto.PendidikanResult
+@{
+    Layout = null;
+}
+
+@Html.AntiForgeryToken()
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+
+<form id="FormObject">
+    <fieldset>
+        <div class="col-md-12">
+            @{
+                if ((object)ViewBag.ActionGrid == "Edit")
+                {
+                    <div class="row hidden">
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                        </div>
+                    </div>
+                }
+            }
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Pendidikan)
+                    @Html.TextBoxFor(m => m.Pendidikan, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                    @Html.ValidationMessageFor(m => m.Pendidikan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+

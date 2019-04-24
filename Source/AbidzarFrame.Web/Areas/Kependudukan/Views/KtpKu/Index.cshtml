@@ -1,0 +1,490 @@
+﻿@*@model AbidzarFrame.Master.Interface.Dto.KtpResult*@
+@model Tuple<AbidzarFrame.Master.Interface.Dto.KtpResult, AbidzarFrame.Web.Models.ChangePasswordViewModel>
+
+@{
+    ViewBag.Title = "Ktp-ku";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@Styles.Render("~/AbidzarFrame/bundles/dropzone/css")*@
+<link href="~/Content/plugins/dropzone/css/dropzone.css" rel="stylesheet" />
+
+<style>
+    #ktp-bg {
+        /*background-image: url("/w3images/photographer.jpg");*/
+        background-color: #cccccc;
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .ktp-text {
+        font-size:10px;
+    }
+</style>
+@*<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>*@
+
+@{
+    if (Model.Item1.Id > 0)
+    {
+        @Html.Hidden("hiddenIdPhotoKtp", (int)Model.Item1.IdPhotoKtp)
+
+        if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count() > 0)
+        {
+            <div class="alert alert-danger" style="display: block;">
+                <button class="close" data-close="alert">X</button>
+                @Html.ValidationSummary(true)
+            </div>
+        }
+        if (ViewBag.MsgScs != null)
+        {
+            <div class="alert alert-success" style="display: block;">
+                <button class="close" data-close="alert">X</button>
+                @ViewBag.MsgScs
+            </div>
+        }
+        if (ViewBag.MsgErr != null)
+        {
+            <div class="alert alert-danger" style="display: block;">
+                <button class="close" data-close="alert">X</button>
+                @ViewBag.MsgErr
+            </div>
+        }
+
+        <div class="tabbable-line tabbable-full-width">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab_1_1" data-toggle="tab" aria-expanded="true">Detail</a>
+                </li>
+
+                <li class="">
+                    <a href="#tab_1_2" data-toggle="tab" aria-expanded="true">Alamat Map</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1_1">
+                    <div class="row profile-account">
+                        <div class="col-md-3">
+                            <ul class="ver-inline-menu tabbable margin-bottom-10">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#tab_1-1" aria-expanded="true">
+                                        <i class="fa fa-cog"></i> Personal info
+                                    </a>
+                                    <span class="after"> </span>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#tab_2-2" aria-expanded="false">
+                                        <i class="fa fa-picture-o"></i> Change Photo
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#tab_3-3" aria-expanded="false">
+                                        <i class="fa fa-lock"></i> Change Password
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab_4-4" aria-expanded="true">
+                                        <i class="fa fa-eye"></i> Ktp-ku
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="tab-content">
+                                <div id="tab_1-1" class="tab-pane active">
+                                    <form role="form" action="#">
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <div class="form-group col-md-12">
+                                                    @Html.LabelFor(m => m.Item1.Nik)
+                                                    @Html.TextBoxFor(m => m.Item1.Nik, new { @class = "form-control", @style = "width:100%", @maxlength = "16", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.Nik, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.Nama)
+                                                    @Html.TextBoxFor(m => m.Item1.Nama, new { @class = "form-control", @style = "width:100%", @maxlength = "100", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.Nama, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.TempatLahir)
+                                                    @Html.TextBoxFor(m => m.Item1.TempatLahir, new { @class = "form-control", @style = "width:100%", @maxlength = "100", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.TempatLahir, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.TanggalLahir)
+                                                    <div class="input-group date date-picker" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years" style="width:100%">
+                                                        @Html.TextBoxFor(m => m.Item1.TanggalLahir, "{0:dd-MM-yyyy}", new { @class = "form-control", @style = "width:100%", @disabled = "disabled" })
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button" id="btnCalendar"><i class="fa fa-calendar"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdJenisKelamin)
+                                                    @Html.DropDownListFor(m => m.Item1.IdJenisKelamin, new SelectList(ViewBag.JenisKelaminList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdJenisKelamin, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdKota)
+                                                    @Html.DropDownListFor(m => m.Item1.IdKota, new SelectList(ViewBag.KotaList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdKota, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdKecamatan)
+                                                    @Html.DropDownListFor(m => m.Item1.IdKecamatan, new SelectList(ViewBag.KecamatanList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdKecamatan, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdKelurahan)
+                                                    @Html.DropDownListFor(m => m.Item1.IdKelurahan, new SelectList(ViewBag.KelurahanList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdKelurahan, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.Alamat)
+                                                    @Html.TextBoxFor(m => m.Item1.Alamat, new { @class = "form-control", @style = "width:100%", @maxlength = "50", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.Alamat, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.Rt)
+                                                    @Html.TextBoxFor(m => m.Item1.Rt, new { @class = "form-control", @style = "width:100%", @maxlength = "50", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.Rt, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.Rw)
+                                                    @Html.TextBoxFor(m => m.Item1.Rw, new { @class = "form-control", @style = "width:100%", @maxlength = "50", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.Rw, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.KodePos)
+                                                    @Html.TextBoxFor(m => m.Item1.KodePos, new { @class = "form-control", @style = "width:100%", @maxlength = "50", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.KodePos, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdAgama)
+                                                    @Html.DropDownListFor(m => m.Item1.IdAgama, new SelectList(ViewBag.AgamaList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdAgama, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdStatusPerkawinan)
+                                                    @Html.DropDownListFor(m => m.Item1.IdStatusPerkawinan, new SelectList(ViewBag.StatusPerkawinanList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdStatusPerkawinan, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.TanggalPerkawinan)
+                                                    <div class="input-group date date-picker" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years" style="width:100%">
+                                                        @Html.TextBoxFor(m => m.Item1.TanggalPerkawinan, "{0:dd-MM-yyyy}", new { @class = "form-control", @style = "width:100%", @disabled = "disabled" })
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button" id="btnCalendar"><i class="fa fa-calendar"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdJenisPekerjaan)
+                                                    @Html.DropDownListFor(m => m.Item1.IdJenisPekerjaan, new SelectList(ViewBag.JenisPekerjaanList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdJenisPekerjaan, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdKewarganegaraan)
+                                                    @Html.DropDownListFor(m => m.Item1.IdKewarganegaraan, new SelectList(ViewBag.KewarganegaraanList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdKewarganegaraan, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdGolonganDarah)
+                                                    @Html.DropDownListFor(m => m.Item1.IdGolonganDarah, new SelectList(ViewBag.GolonganDarahList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdGolonganDarah, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.IdPendidikan)
+                                                    @Html.DropDownListFor(m => m.Item1.IdPendidikan, new SelectList(ViewBag.PendidikanList, "Value", "Text"), "", new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.IdPendidikan, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.NamaAyah)
+                                                    @Html.TextBoxFor(m => m.Item1.NamaAyah, new { @class = "form-control", @style = "width:100%", @maxlength = "100", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.NamaAyah, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.NamaIbu)
+                                                    @Html.TextBoxFor(m => m.Item1.NamaIbu, new { @class = "form-control", @style = "width:100%", @maxlength = "100", @disabled = "disabled" })
+                                                    @Html.ValidationMessageFor(m => m.Item1.NamaIbu, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.LabelFor(m => m.Item1.Kk)
+                                                    @Html.TextBoxFor(m => m.Item1.Kk, new { @class = "form-control", @style = "width:100%", @maxlength = "100", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="tab_2-2" class="tab-pane">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail" style="width: 175px; height: 210px;">
+                                                    <section action="#" class="dropzone" id="my-dropzone"><a href="@Model.Item1.NamaFilePhoto"><img style="width:120px;height:150px" id="no-image" src="@Model.Item1.NamaFilePhoto" alt="" /></a></section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="note note-info" style="color:red">
+                                            Clik daerah abu-abu untuk merubah photo
+                                        </div>
+                                        <div class="margin-top-10">
+                                            <button onclick="UpdatePhotoKtp()" class="btn green">
+                                                Change Photo
+                                            </button>
+                                            <button onclick="Refresh()" class="btn default">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="tab_3-3" class="tab-pane">
+                                    <form action="#">
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label">Current Password</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-lock"></i>
+                                                @Html.PasswordFor(m => m.Item2.Sandi, new { @class = "form-control placeholder-no-fix bg-grey-steel", type = "password", placeholder = "CurrentPassword" })
+
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Item2.Sandi, "", new { @class = "help-block" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">New Password</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-lock"></i>
+                                                @Html.PasswordFor(m => m.Item2.NewSandi, new { @class = "form-control placeholder-no-fix bg-grey-steel", type = "password", placeholder = "NewPassword" })
+
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Item2.NewSandi, "", new { @class = "help-block" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Re-New Password</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-lock"></i>
+                                                @Html.PasswordFor(m => m.Item2.ReNewSandi, new { @class = "form-control placeholder-no-fix bg-grey-steel", type = "password", placeholder = "ReNewPassword" })
+
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Item2.ReNewSandi, "", new { @class = "help-block" })
+                                        </div>
+                                        <div class="margin-top-10 col-md-12">
+                                            <button onclick="ChangePassword()" class="btn green">
+                                                Change Password
+                                            </button>
+                                            <button onclick="Refresh()" class="btn default">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="tab_4-4" class="tab-pane">
+                                    <form action="#">
+                                        <div id="ktp-bg" class="fileinput-new thumbnail col-md-10" style="background-image: url('../Content/Images/bg/bg-ktp.jpg');" @*style="background:rgba(0,0,0,0.03)"*@>
+                                            <div class="col-md-12">
+                                                <div class="row ">
+                                                    <div class="col-md-12" style="text-align:center; font-size:13px;">
+                                                        <span><b>PROVINSI @Model.Item1.NamaProvinsi.ToUpper()</b></span><br />
+                                                        <span><b>@Model.Item1.NamaKota.ToUpper()</b></span>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <table class="" style="font-size:10px">
+                                                            <tr>
+                                                                <td class="col-md-8">
+                                                                    <table>
+                                                                        <tr style="font-family:'Lucida Console'; font-size:14px">
+                                                                            <td>NIK</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td>@Model.Item1.Nik</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Nama</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">@Model.Item1.Nama.ToUpper()</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Tempat/Tgl. Lahir</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">
+                                                                                @Model.Item1.TempatLahir.ToUpper(), @Model.Item1.TanggalLahir.ToString("dd-MM-yyyy")
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Jenis Kelamin</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">
+                                                                                @Model.Item1.JenisKelamin.ToUpper()
+                                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                Gol. Darah &nbsp;&nbsp;&nbsp;&nbsp;: @Model.Item1.GolonganDarah.ToUpper()
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Alamat</td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RT/RW</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">@Model.Item1.Rt / @Model.Item1.Rw</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kel/Desa</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">@Model.Item1.NamaKelurahan.ToUpper()</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kecamatan</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">@Model.Item1.NamaKecamatan.ToUpper()</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Agama</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">@Model.Item1.NamaAgama.ToUpper()</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Status Perkawinan</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">@Model.Item1.StatusPerkawinan.ToUpper()</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Pekerjaan</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">@Model.Item1.JenisPekerjaan.ToUpper()</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Kewarganegaraan</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">@Model.Item1.JenisKewarganegaraan.ToUpper()</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Berlaku Hingga</td>
+                                                                            <td>:&nbsp;&nbsp;</td>
+                                                                            <td class="ktp-text">SEUMUR HIDUP</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td class="col-md-4 ktp-text" style="text-align:center">
+                                                                    <img style="width:120px;height:150px;" id="no-image" src="@Model.Item1.NamaFilePhoto" alt="" />
+                                                                    <br />@Model.Item1.NamaKota.ToUpper()
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end col-md-9-->
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_1_2">
+                    <div class="row">
+                        @*<div id="map" class="gmaps margin-bottom-40" style="height:400px;">
+                            </div>*@
+
+                        @*<div id="map" class="gmaps margin-bottom-40" style="height: 400px; position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;"><div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 985; transform: matrix(1, 0, 0, 1, -41, -251);"><div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 512px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 512px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="width: 27px; height: 43px; overflow: hidden; position: absolute; left: -14px; top: -43px; z-index: 0;"><img alt="" src="http://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 27px; height: 43px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; z-index: 985; transform: matrix(1, 0, 0, 1, -41, -251);"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 512px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 512px; top: 256px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 985; transform: matrix(1, 0, 0, 1, -41, -251);"><div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12880!3i17578!4i256!2m3!1e0!2sm!3i451159470!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=56811" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12879!3i17578!4i256!2m3!1e0!2sm!3i451159518!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=107104" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12879!3i17577!4i256!2m3!1e0!2sm!3i451159518!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=28005" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12880!3i17577!4i256!2m3!1e0!2sm!3i451159470!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=108783" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12881!3i17577!4i256!2m3!1e0!2sm!3i451159482!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=32887" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12881!3i17578!4i256!2m3!1e0!2sm!3i451159422!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=6234" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12878!3i17578!4i256!2m3!1e0!2sm!3i451159518!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=117485" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12878!3i17577!4i256!2m3!1e0!2sm!3i451159518!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=38386" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12882!3i17577!4i256!2m3!1e0!2sm!3i451159482!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=22506" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 512px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i12882!3i17578!4i256!2m3!1e0!2sm!3i451159482!2m3!1e2!6m1!3e5!3m14!2sid-ID!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=101605" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div><div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0; transition-duration: 0.8s;"><p class="gm-style-pbt">Gunakan ctrl + scroll untuk memperbesar atau memperkecil peta</p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"><div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><div style="width: 27px; height: 43px; overflow: hidden; position: absolute; opacity: 0; left: -14px; top: -43px; z-index: 0;"><img alt="" src="http://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png" draggable="false" usemap="#gmimap0" style="position: absolute; left: 0px; top: 0px; width: 27px; height: 43px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"><map name="gmimap0" id="gmimap0"><area log="miw" coords="13.5,0,4,3.75,0,13.5,13.5,43,27,13.5,23,3.75" shape="poly" title="Loop, Inc." style="cursor: pointer; touch-action: none;"></map></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"><div style="cursor: default; position: absolute; top: -118px; left: -123px; width: 247px; height: 51px; z-index: -118;"><div style="position: absolute; left: 0px; top: 0px;"><div style="width: 0px; height: 0px; border-right: 10px solid transparent; border-left: 10px solid transparent; border-top: 24px solid rgba(0, 0, 0, 0.1); position: absolute; left: 114px; top: 51px;"></div><div style="position: absolute; left: 0px; top: 0px; background-color: rgba(0, 0, 0, 0.2); border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; width: 247px; height: 51px;"></div><div style="border-top-width: 24px; position: absolute; left: 114px; top: 48px;"><div style="position: absolute; overflow: hidden; left: -6px; top: -1px; width: 16px; height: 30px;"><div style="position: absolute; left: 6px; background-color: rgb(255, 255, 255); transform: skewX(22.6deg); transform-origin: 0px 0px 0px; height: 24px; width: 10px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 6px;"></div></div><div style="position: absolute; overflow: hidden; top: -1px; left: 10px; width: 16px; height: 30px;"><div style="position: absolute; left: 0px; background-color: rgb(255, 255, 255); transform: skewX(-22.6deg); transform-origin: 10px 0px 0px; height: 24px; width: 10px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 6px;"></div></div></div><div style="position: absolute; left: 1px; top: 1px; border-radius: 2px; background-color: rgb(255, 255, 255); width: 245px; height: 49px;"></div></div><div class="gm-style-iw" style="top: 9px; position: absolute; left: 15px; width: 217px;"><div style="display: inline-block; overflow: auto; max-height: 215px; max-width: 654px;"><div style="overflow: auto;"><b>Loop, Inc.</b> 795 Park Ave, Suite 120<br>San Francisco, CA 94107</div></div></div><button draggable="false" title="Close" aria-label="Close" type="button" class="gm-ui-hover-effect" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: absolute; cursor: pointer; user-select: none; top: 0px; right: 0px; width: 37px; height: 33px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%206.41L17.59%205%2012%2010.59%206.41%205%205%206.41%2010.59%2012%205%2017.59%206.41%2019%2012%2013.41%2017.59%2019%2019%2017.59%2013.41%2012z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="pointer-events: none; display: block; width: 13px; height: 13px; margin: 10px 12px;"></button></div></div></div></div></div><iframe aria-hidden="true" frameborder="0" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: none;" src="about:blank"></iframe><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" rel="noopener" href="https://maps.google.com/maps?ll=-13.004333,-38.494333&amp;z=15&amp;t=m&amp;hl=id-ID&amp;gl=US&amp;mapclient=apiv3" title="Open this area in Google Maps (opens a new window)" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 66px; height: 26px; cursor: pointer;"><img alt="" src="http://maps.gstatic.com/mapfiles/api-3/images/google4.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 300px; height: 180px; position: absolute; left: 402px; top: 110px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Data Peta</div><div style="font-size: 13px;">Data peta ©2019 Google</div><button draggable="false" title="Close" aria-label="Close" type="button" class="gm-ui-hover-effect" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: absolute; cursor: pointer; user-select: none; top: 0px; right: 0px; width: 37px; height: 37px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%206.41L17.59%205%2012%2010.59%206.41%205%205%206.41%2010.59%2012%205%2017.59%206.41%2019%2012%2013.41%2017.59%2019%2019%2017.59%2013.41%2012z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="pointer-events: none; display: block; width: 13px; height: 13px; margin: 12px;"></button></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 311px; bottom: 0px; width: 122px;"><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="text-decoration: none; cursor: pointer; display: none;">Data Peta</a><span>Data peta ©2019 Google</span></div></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Data peta ©2019 Google</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 123px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/intl/id-ID_US/help/terms_maps.html" target="_blank" rel="noopener" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Syarat Penggunaan</a></div></div><button draggable="false" title="Beralih ke tampilan layar penuh" aria-label="Beralih ke tampilan layar penuh" type="button" class="gm-control-active gm-fullscreen-control" style="background: none rgb(255, 255, 255); border: 0px; margin: 10px; padding: 0px; position: absolute; cursor: pointer; user-select: none; border-radius: 2px; height: 40px; width: 40px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; overflow: hidden; top: 0px; right: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%20018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_blank" rel="noopener" title="Laporkan kesalahan dalam peta jalan atau citra ke Google" href="https://www.google.com/maps/@-13.004333,-38.494333,15z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Laporkan kesalahan peta</a></div></div><div class="gmnoprint gm-bundled-control" draggable="false" controlwidth="40" controlheight="81" style="margin: 10px; user-select: none; position: absolute; left: 0px; top: 0px;"><div class="gmnoprint" controlwidth="40" controlheight="81" style="position: absolute; left: 0px; top: 0px;"><div draggable="false" style="user-select: none; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 40px; height: 81px;"><button draggable="false" title="Perbesar" aria-label="Perbesar" type="button" class="gm-control-active" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; overflow: hidden; width: 40px; height: 40px; top: 0px; left: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23333%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23111%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button><div style="position: relative; overflow: hidden; width: 30px; height: 1px; margin: 0px 5px; background-color: rgb(230, 230, 230); top: 0px;"></div><button draggable="false" title="Perkecil" aria-label="Perkecil" type="button" class="gm-control-active" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; overflow: hidden; width: 40px; height: 40px; top: 0px; left: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button></div></div></div><div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" controlwidth="0" controlheight="0" style="margin: 10px; user-select: none; position: absolute; display: none; bottom: 14px; right: 0px;"><div style="position: absolute; left: 0px; top: 0px;"></div><div class="gmnoprint" controlwidth="40" controlheight="40" style="display: none; position: absolute;"><div style="width: 40px; height: 40px;"><button draggable="false" title="Rotate map 90 degrees" aria-label="Rotate map 90 degrees" type="button" class="gm-control-active" style="background: none rgb(255, 255, 255); display: none; border: 0px; margin: 0px 0px 32px; padding: 0px; position: relative; cursor: pointer; user-select: none; width: 40px; height: 40px; top: 0px; left: 0px; overflow: hidden; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button><button draggable="false" title="Tilt map" aria-label="Tilt map" type="button" class="gm-tilt gm-control-active" style="background: none rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; width: 40px; height: 40px; top: 0px; left: 0px; overflow: hidden; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="width: 18px;"></button></div></div></div><div draggable="false" class="gm-style-cc" style="position: absolute; user-select: none; height: 14px; line-height: 14px; right: 221px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><span>200 m&nbsp;</span><div style="position: relative; display: inline-block; height: 8px; bottom: -1px; width: 47px;"><div style="width: 100%; height: 4px; position: absolute; left: 0px; top: 0px;"></div><div style="width: 4px; height: 8px; left: 0px; top: 0px; background-color: rgb(255, 255, 255);"></div><div style="width: 4px; height: 8px; position: absolute; background-color: rgb(255, 255, 255); right: 0px; bottom: 0px;"></div><div style="position: absolute; background-color: rgb(102, 102, 102); height: 2px; left: 1px; bottom: 1px; right: 1px;"></div><div style="position: absolute; width: 2px; height: 6px; left: 1px; top: 1px; background-color: rgb(102, 102, 102);"></div><div style="width: 2px; height: 6px; position: absolute; background-color: rgb(102, 102, 102); bottom: 1px; right: 1px;"></div></div></div></div></div></div></div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+@*@Scripts.Render("~/AbidzarFrame/bundles/dropzone/js")*@
+
+<script src="~/Content/plugins/dropzone/metronic.js"></script>
+<script src="~/Content/plugins/dropzone/dropzone.js"></script>
+<script src="~/Content/plugins/dropzone/form-dropzone.js"></script>
+<script>
+    $(function () {
+        hideLoading();
+    })
+
+    FormDropzone.init(); //call custom dropzone
+    Dropzone.prototype.defaultOptions.maxFiles = 1;//set dropzone only one
+
+    function Refresh() {
+        window.location.reload(true);
+    }
+
+    function ChangePassword() {
+        var path = location.origin + "/Account/ChangePassword/";
+        $.ajax({
+            url: path,
+            cache: false,
+            traditional: true,
+            type: 'POST',
+            data: {
+                sandi: $("#Item2_Sandi").val(),
+                newSandi: $("#Item2_NewSandi").val()
+            },
+            //dataType: "json",
+            async: false,
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    }
+
+    function UpdatePhotoKtp() {
+        var path = location.origin + "/KtpKu/UpdatePhotoKtp/";
+        $.ajax({
+            url: path,
+            cache: false,
+            traditional: true,
+            type: 'POST',
+            data: {
+                idPhotoKtp: $("#hiddenIdPhotoKtp").val(),
+            },
+            //dataType: "json",
+            async: false,
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    }
+</script>
+<style>
+    .dropzone .dz-preview,
+    .dropzone-previews .dz-preview {
+        margin: 0px;
+    }
+</style>
+@*<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+<script src="~/Content/plugins/gmaps/gmaps.min.js"></script>*@

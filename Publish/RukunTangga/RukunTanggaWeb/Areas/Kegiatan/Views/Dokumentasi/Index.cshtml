@@ -1,0 +1,178 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.DokumentasiDetailJenisKegiatanResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+    ViewBag.Title = "Dokumentasi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+     .mySlides {
+        display: none;
+    }
+
+    .cursor {
+        cursor: pointer;
+    }
+
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+    img {
+        margin-bottom: -4px;
+    }
+
+    .caption-container {
+        text-align: center;
+        background-color: black;
+        padding: 2px 16px;
+        color: white;
+    }
+
+    .demo {
+        opacity: 0.6;
+    }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+
+    img.hover-shadow {
+        transition: 0.3s;
+    }
+
+    .hover-shadow:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-md-12">
+        @{
+            if (Model.Count > 0)
+            {
+                int index = 1;
+                <div class="portlet box light">
+                    <div class="portlet-body ">
+                        <div class="row">
+                            @if (CurrentUser.IsAdmin())
+                            {
+                                <a id="btnAdd" class="btn btn-sm green" href="@Url.Action("EditorFormPartial", "Dokumentasi", new { area = "Kegiatan", idDetailJenisKegiatan = ViewBag.IdDetailJenisKegiatan })">
+                                    Add New Documentation <i class="fa fa-plus"></i>
+                                </a>
+                            }
+                        </div>
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-sm-2 col-sm-12 form-control-static">
+                                    <img src="@item.NamaFile" style="width: 140px; height: 140px; display: block;" class="hover-shadow cursor thumbnail" onclick="openModal();currentSlide(@index)" />
+                                </div>
+                                index = index + 1;
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModalGalery" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">@Model[0].NamaKegiatan</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                @foreach (var item in Model)
+                                {
+                                    <div class="mySlides">
+                                        <img src="@item.NamaFile" style="width:100%">
+                                    </div>
+                                }
+
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                                <div class="caption-container">
+                                    <p id="caption"></p>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default btn-circle" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>    
+</div>
+
+
+<script>
+    $(function () {
+        hideLoading();
+    })
+
+    function openModal() {
+        $("#myModalGalery").modal();
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        //dots[slideIndex - 1].className += " active";
+        //captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+
+</script>

@@ -1,0 +1,84 @@
+﻿@model AbidzarFrame.Web.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<!-- BEGIN REGISTRATION FORM -->
+<a href="javascript:void(0)">
+    @*<img src="~/Content/Images/manulife_logo_white.png" alt="logo" style="max-width:180px;max-height:180px" />*@
+</a>
+<h3>Registration Form</h3>
+@*<p>
+        Data is not found. You have to register it first!
+    </p>*@
+@using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count() > 0)
+    {
+        <div class="alert alert-danger" style="display: block;">
+            <button class="close" data-close="alert">X</button>
+            @Html.ValidationSummary(true)
+        </div>
+    }
+    if (ViewBag.MsgScs != null)
+    {
+        <div class="alert alert-success" style="display: block;">
+            <button class="close" data-close="alert">X</button>
+            @ViewBag.MsgScs
+        </div>
+    }
+    <div class="form-group">
+        @Html.LabelFor(m => m.IdUser, new { @class = "control-label visible-ie8 visible-ie9" })
+        <div class="input-icon">
+            <i class="fa fa-user" title="@Html.DisplayNameFor(m => m.IdUser)"></i>
+            @Html.TextBoxFor(m => m.IdUser, new { @class = "form-control placeholder-no-fix bg-grey-steel", type = "text", placeholder = @Html.DisplayNameFor(m => m.IdUser) })
+        </div>
+        @Html.ValidationMessageFor(m => m.IdUser, "", new { @class = "help-block" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "control-label visible-ie8 visible-ie9" })
+        <div class="input-icon">
+            <i class="fa fa-envelope" title="@Html.DisplayNameFor(m => m.Email)"></i>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control placeholder-no-fix bg-grey-steel", type = "text", placeholder = @Html.DisplayNameFor(m => m.Email) })
+        </div>
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "help-block" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Password</label>
+        <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            @Html.PasswordFor(m => m.Sandi, new { @class = "form-control placeholder-no-fix bg-grey-steel", type = "password", placeholder = "Password" })
+
+        </div>
+        @Html.ValidationMessageFor(m => m.Sandi, "", new { @class = "help-block" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Re-Password</label>
+        <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            @Html.PasswordFor(m => m.ReSandi, new { @class = "form-control placeholder-no-fix bg-grey-steel", type = "password", placeholder = "RePassword" })
+
+        </div>
+        @Html.ValidationMessageFor(m => m.ReSandi, "", new { @class = "help-block" })
+    </div>
+
+    <div class="form-actions">
+        <a href="@Url.Action("Login", "Account")" class="btn green pull-left">
+            <i class="m-icon-swapleft m-icon-white"></i> Back Login
+        </a>
+
+        <button type="submit" id="register-submit-btn" class="btn blue pull-right">
+            Submit Request <i class="m-icon-swapright m-icon-white"></i>
+        </button>
+        &nbsp;
+    </div>
+
+}
+
+
+
+<!-- END REGISTRATION FORM -->

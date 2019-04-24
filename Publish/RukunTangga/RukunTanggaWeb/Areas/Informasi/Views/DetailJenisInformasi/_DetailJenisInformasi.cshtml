@@ -1,0 +1,176 @@
+﻿@model AbidzarFrame.Master.Interface.Dto.DetailJenisInformasiResult
+@using AbidzarFrame.Web.Helpers
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+@Html.AntiForgeryToken()
+@Html.ValidationSummary("", new { @class = "text-danger" })
+
+@{
+    if ((string)ViewBag.ActionGrid == "Edit")
+    {
+        Model.Deskripsi = HttpUtility.HtmlDecode(Model.Deskripsi);
+
+        using (Html.BeginForm("Update", "DetailJenisInformasi", FormMethod.Post, new { area = "Informasi", enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+        {
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box red-soft">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-cogs"></i>Update Detail Informasi
+                                </div>
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <input hidden name="IdJenisInformasi" id="IdJenisInformasi" value="@ViewBag.IdJenisInformasi" />
+                                <div class="row">
+                                    <div class="row hidden">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="padding-left: 20px; padding-right:20px">
+                                        Judul
+                                        @Html.TextBoxFor(m => m.Judul, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                                        @Html.ValidationMessageFor(m => m.Judul, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group" style="padding-left: 20px; padding-right:20px">
+                                        @Html.TextAreaFor(m => m.Deskripsi, new { @class = "form-control tinymce", @style = "width:300px" })
+                                        @Html.ValidationMessageFor(m => m.Deskripsi, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-grey-steel" id="divSave">
+                                <a class="btn btn-danger" href="@Url.Action("Index", "DetailJenisInformasi", new {area = "Informasi", IdJenisInformasi = ViewBag.IdJenisInformasi})">Back</a>
+                                <input type="submit" class="btn btn-default" value="Edit" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    }
+    else if ((string)ViewBag.ActionGrid == "Add")
+    {
+        using (Html.BeginForm("Create", "DetailJenisInformasi", FormMethod.Post, new { area = "Informasi", enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+        {
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box red-soft">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-cogs"></i>Create Detal Informasi
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                    <a href="#portlet-config" data-toggle="modal" class="config">
+                                    </a>
+                                    <a href="javascript:;" class="reload">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="portlet-body">
+                                <input hidden name="IdJenisInformasi" id="IdJenisInformasi" value="@ViewBag.IdJenisInformasi" />
+                                <div class="row">
+                                    <div class="form-group" style="padding-left: 20px; padding-right:20px">
+                                        Judul
+                                        @Html.TextBoxFor(m => m.Judul, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                                        @Html.ValidationMessageFor(m => m.Judul, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group" style="padding-left: 20px; padding-right:20px">
+                                        @Html.TextAreaFor(m => m.Deskripsi, new { @class = "form-control tinymce", @style = "width:300px" })
+                                        @Html.ValidationMessageFor(m => m.Deskripsi, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-grey-steel" id="divSave">
+                                <a class="btn btn-danger" href="@Url.Action("Index", "DetailJenisInformasi", new {area = "Informasi", IdJenisInformasi = ViewBag.IdJenisInformasi})">Back</a>
+                                <input type="submit" class="btn btn-success" value="Save" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    }
+    else
+    {
+        Model.Deskripsi = HttpUtility.HtmlDecode(Model.Deskripsi);
+        <div class="portlet light">
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12 blog-page">
+                        <div class="row">
+                            <div class="col-md-9 article-block">
+                                <h3 style="margin-top:0;">@Model.Judul</h3>
+                                <div class="blog-tag-data">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="list-inline blog-tags">
+                                                <li>
+                                                    <i class="fa fa-calendar"></i>
+                                                    <a href="javascript:;" style="text-decoration:none">
+                                                        @Model.DibuatTanggal.ToString("dd MMM yyyyy")
+                                                    </a>
+                                                    <i class="fa fa-tags"></i>
+                                                    <a href="javascript:;" style="text-decoration:none">
+                                                        @Model.JenisInformasi
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end news-tag-data-->
+                                <div>
+                                    @Html.Raw(Model.Deskripsi)
+                                </div>
+                                <div>
+                                    <ul class="social-icons">
+                                        <li>
+                                            <a href="https://www.facebook.com" data-original-title="facebook" class="facebook">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.twitter.com" data-original-title="twitter" class="twitter">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com" data-original-title="instagram" class="instagram">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <hr>
+                                <a class="btn btn-sm blue" href="@Url.Action("Index", "DetailJenisInformasi", new {area = "Informasi", idJenisInformasi = Model.IdJenisInformasi})">
+                                    <i class="fa fa-arrow-circle-left"></i>Kembali
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 blog-sidebar">
+                                @Html.Partial("_Sidebar")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<script>
+    $(document).ready(function () {
+        hideLoading();
+    })
+</script>
+<script src="~/Content/plugins/tinymce/tinymce.min.js"></script>
+<script src="~/Content/plugins/tinymce/tinymce.custom.js"></script>

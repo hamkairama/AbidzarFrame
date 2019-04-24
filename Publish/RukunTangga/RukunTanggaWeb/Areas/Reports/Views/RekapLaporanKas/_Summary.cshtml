@@ -1,0 +1,107 @@
+﻿@model List<AbidzarFrame.Reports.Interface.Dto.LaporanKasResult>
+@using AbidzarFrame.Web.Helpers
+@using AbidzarFrame.Reports.Interface.Dto
+
+@{
+    ViewBag.Title = "";
+}
+
+@{
+    if (ViewBag.ByValue == "Summary")
+    {
+        <div id="divSummary">
+            <div class="row invoice-head">
+                <div class="col-md-7 col-xs-6">
+                    <div class="invoice-logo">
+                        <h1 class="uppercase">Laporan Kas Summary @ViewBag.Date</h1>
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-6">
+                    <div class="company-address">
+                        <span class="bold uppercase">RukunTangga.com</span>
+                        <br> Srengseng, kembangan. Jakarta Barat
+                        <br> DKI Jakarta, Indonesia
+                        @*<br>
+                        <span class="bold">T</span> 08581182xxxx
+                        <br>
+                        <span class="bold">E</span> support@rukuntangga.com
+                        <br>
+                        <span class="bold">W</span> www.rukuntangga.com*@
+                    </div>
+                </div>
+            </div>
+            <div class="row invoice-body">
+                <div class="col-xs-12 table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="invoice-title uppercase">Tipe</th>
+                                <th class="invoice-title uppercase text-center">Januari</th>
+                                <th class="invoice-title uppercase text-center">Februari</th>
+                                <th class="invoice-title uppercase text-center">Maret</th>
+                                <th class="invoice-title uppercase text-center">April</th>
+                                <th class="invoice-title uppercase text-center">Mey</th>
+                                <th class="invoice-title uppercase text-center">Juni</th>
+                                <th class="invoice-title uppercase text-center">Juli</th>
+                                <th class="invoice-title uppercase text-center">Agustus</th>
+                                <th class="invoice-title uppercase text-center">September</th>
+                                <th class="invoice-title uppercase text-center">Oktober</th>
+                                <th class="invoice-title uppercase text-center">November</th>
+                                <th class="invoice-title uppercase text-center">Desember</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int h = 0; h < 2; h++)
+                            {
+                                <tr>
+                                    @if (h == 0)
+                                    {
+                                        <td>
+                                            <h3>Pemasukan</h3>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <h3>Pengeluaran</h3>
+                                        </td>
+                                    }
+
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        decimal totalPerMonth = 0;
+                                        List<LaporanKasResult> mdl = Model.Where(x => x.Tipe == h.ToString() && x.Tanggal.Month == i).ToList();
+                                        if (mdl != null)
+                                        {
+                                            foreach (var item in mdl)
+                                            {
+                                                totalPerMonth = totalPerMonth + item.Total;
+                                            }
+                                        }
+
+                                        <td class="text-right sbold">@totalPerMonth.ToString("###,###")</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row invoice-subtotal">
+                @*<div class="col-xs-3">
+                        <h2 class="invoice-title uppercase">Subtotal</h2>
+                        <p class="invoice-desc">1.000.000</p>
+                    </div>*@
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="btn btn-lg green-haze hidden-print uppercase print-btn" onclick="javascript:window.print();">Print</a>
+                </div>
+            </div>
+        </div>
+
+    }
+
+}
+
+

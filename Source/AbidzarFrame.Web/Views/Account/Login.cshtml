@@ -1,0 +1,68 @@
+﻿@model AbidzarFrame.Web.Models.LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Log in";
+}
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+    @Html.AntiForgeryToken()
+    <a href="javascript:void(0)">
+        @*<img src="~/Content/Images/abidzarframe_logo.png" alt="logo" style="max-width:180px;max-height:180px" />*@
+    </a>
+    <h3>Login Form</h3>
+
+    if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count() > 0)
+    {
+        <div class="alert alert-danger" style="display: block;">
+            <button class="close" data-close="alert">X</button>
+            @Html.ValidationSummary(true)
+        </div>
+    }
+    if (ViewBag.MsgScs != null)
+    {
+        <div class="alert alert-success" style="display: block;">
+            <button class="close" data-close="alert">X</button>
+            @ViewBag.MsgScs
+        </div>
+    }
+    @*<h3 class="form-title">Login to your account</h3>*@
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Username</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-user"></i>
+            </span>
+            @Html.TextBoxFor(m => m.IdUser, new { @class = "form-control placeholder-no-fix", type = "", placeholder = "Tangal Lahir / Nik" })
+        </div>
+        @Html.ValidationMessageFor(m => m.IdUser, "", new { @class = "help-block" })
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Password</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-lock"></i>
+            </span>
+            @Html.PasswordFor(m => m.Sandi, new { @class = "form-control placeholder-no-fix", type = "password", placeholder = "Password" })
+
+        </div>
+        @Html.ValidationMessageFor(m => m.Sandi, "", new { @class = "help-block" })
+    </div>
+    <div class="form-group margin-top-20 margin-bottom-10">
+        <span>Belum punya akun ?</span>
+        <a href="@Url.Action("Register", "Account")" style="color:white">Register</a>
+        <span></span>
+    </div>
+    <div class="form-group margin-bottom-20">
+        <span>Tidak terima kode aktivasi ?</span>
+        <a href="@Url.Action("ResendActivate", "Account")" style="color:white">Click di sini</a>
+        <span></span>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn blue pull-right" style="width:100px">
+            Login <i class="m-icon m-icon-big-swapright m-icon-white"></i>
+        </button>
+    </div>
+
+}

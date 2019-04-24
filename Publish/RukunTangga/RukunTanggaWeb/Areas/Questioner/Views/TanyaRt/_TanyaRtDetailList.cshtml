@@ -1,0 +1,103 @@
+﻿@model List<AbidzarFrame.Questioner.Interface.Dto.TanyaRtDetailResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+//Layout = null;
+}
+
+
+@Html.Hidden("idTanyaRt", (int)ViewBag.IdTanyaRt)
+
+@{
+    @*<div class="scroller" style="width: auto; height: 600px; overflow: hidden; max-height: 600px;" data-handle-color="#dae3e7" data-rail-visible="0" data-always-visible="0" data-initialized="1">*@
+    <div class="form-group">
+        <div class="col-md-12">
+            <ul class="media-list">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <li class="media">
+                            <a class="pull-left" href="javascript:;">
+                                <img class="todo-userpic" src="@item.NamaFile" width="27px" height="27px">
+                            </a>
+                            <div class="media-body todo-comment">
+                                <button type="button" onclick="DeleteTanyaRtDetail('@item.Id')" class="todo-comment-btn btn btn-circle btn-default btn-xs">&nbsp; Hapus &nbsp;</button>
+                                <p class="todo-comment-head">
+                                    <span class="todo-comment-username">@item.Nama</span> &nbsp; <span class="todo-comment-date">@item.DibuatTanggal.ToString("dd MMM yyyy mm:hh")</span>
+                                </p>
+                                <p class="todo-text-color">
+                                    @item.Deskripsi
+                                </p>
+                            </div>
+                        </li>
+
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <ul class="media-list">
+                <li class="media">
+                    <img class="todo-userpic" src="@CurrentUser.GetCurrentPhoto()" width="27px" height="27px">
+                    <div class="media-body">
+                        <textarea id="deskripsi" class="form-control todo-taskbody-taskdesc" rows="4" placeholder="Type comment..."></textarea>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" class="pull-right btn btn-sm btn-circle green-haze" onclick="InsertTanyaRtDetail()"> &nbsp; Submit &nbsp; </button>
+        </div>
+    </div>
+    @*</div>*@
+}
+
+
+<script>
+    function Refresh() {
+        window.location.reload(true);
+    }
+
+    function InsertTanyaRtDetail(id) {
+        var path = location.origin + "/Questioner/TanyaRtDetail/Create/";
+        var jsonRequest = {
+            IdTanyaRt: $("#idTanyaRt").val(),
+            Deskripsi: $("#deskripsi").val()
+        };
+        $.ajax({
+            url: path,
+            cache: false,
+            traditional: true,
+            type: "POST",
+            data: JSON.stringify({ model: jsonRequest }),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (respText) {
+                GetTanyaRtDetailList($("#idTanyaRt").val());
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    }
+    function DeleteTanyaRtDetail(idDetail) {
+        var path = location.origin + "/Questioner/TanyaRtDetail/Delete/";
+        $.ajax({
+            url: path,
+            cache: false,
+            traditional: true,
+            type: "POST",
+            data: { id: idDetail },
+            //dataType: "json",
+            //contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (respText) {
+                GetTanyaRtDetailList($("#idTanyaRt").val());
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    }
+</script>

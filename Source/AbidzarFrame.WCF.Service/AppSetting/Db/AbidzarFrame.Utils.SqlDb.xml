@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<EncryptedDbCredential xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserId>2Jsr24YXEJw=</UserId>
+  <Password>2Jsr24YXEJw=</Password>
+  <Database>3VC3qeP7r98XkdWllyux1kG8nEDSsCYt</Database>
+  <ConnectionString>Initial Catalog={2};User ID={0}; Password={1}; Data Source={3};</ConnectionString>
+  <Datasource>HgBiWNRS8dd4C1MqjcioCRIPx7XHzG83Udh9vwC3pfqJLTLYwd6UNahM9UOPbQZP</Datasource>
+</EncryptedDbCredential>

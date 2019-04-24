@@ -1,0 +1,237 @@
+﻿@model AbidzarFrame.Web.Areas.Security.Models.RoleMenuViewModel
+@using AbidzarFrame.Domain.Models
+
+@{
+    ViewBag.Title = "Menu Security";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.AntiForgeryToken()
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+@Html.Hidden("hiddenArrayLoadId", (object)ViewBag.ArrayLoadId)
+
+@{
+    List<RoleMenuBaseModel> header = Model.RoleMenuBaseModelList.Where(x => x.NamaIcon != null).ToList();
+    List<RoleMenuBaseModel> detail = Model.RoleMenuBaseModelList.Where(x => x.NamaIcon == null).ToList();
+}
+
+<form id="FormRoleMenu">
+    <fieldset>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet grey">
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        @Html.HiddenFor(m => m.IdRole)
+                                        @Html.DropDownList("ddlRoleId", new SelectList(ViewBag.RoleList, "Value", "Text"), new { @class = "form-control selectpicker show-tick" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="submit" class="btn green btn-sm m-icon" id="btnProcess">
+                                            View
+                                            <i class="icon icon-hourglass m-icon-white"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                <div class="panel panel-default" id="divTree">
+                                    <div class="portlet-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="tree-demo jstree jstree-2 jstree-default jstree-checkbox-selection jstree-1" id="tree_2" role="tree" aria-activedescendant="j1_1">
+                                                    <ul class="jstree-container-ul jstree-children jstree-wholerow-ul jstree-no-dots">
+                                                        @for (int i = 0; i < header.Count(); i++)
+                                                        {
+                                                            var _clickedHeader = header[i].HaveAccess ? "jstree-clicked" : "";
+                                                            <li class="jstree-node jstree-open" @*id="@header[i].IdMenu"*@ role="treeitem" aria-expanded="true" aria-selected="false">
+                                                                <div class="jstree-wholerow" unselectable="on">&nbsp;</div>
+                                                                <i class="jstree-icon jstree-ocl"></i>
+                                                                <a class="jstree-anchor @_clickedHeader" href="#" id="@header[i].IdMenu">
+                                                                    <i class="jstree-icon jstree-checkbox jstree-undetermined"></i>
+                                                                    <i class="jstree-icon jstree-themeicon fa fa-folder icon-state-warning icon-lg jstree-themeicon-custom"></i>@header[i].NamaMenu
+                                                                </a>
+                                                                <ul class="jstree-children" role="group">
+                                                                    @for (int j = 0; j < detail.Count(); j++)
+                                                                    {
+                                                                        if (header[i].IdMenu == detail[j].ParentId)
+                                                                        {
+                                                                            var _clickedDetail = detail[j].HaveAccess ? "jstree-clicked" : "";
+
+                                                                            <li class="jstree-node  jstree-leaf" @*id="@detail[j].IdMenu"*@ role="treeitem" aria-selected="false">
+                                                                                <div class="jstree-wholerow @_clickedDetail" unselectable="on">&nbsp;</div>
+                                                                                <i class="jstree-icon jstree-ocl"></i>
+                                                                                <a class="jstree-anchor @_clickedDetail" id="@detail[j].IdMenu" href="#">
+                                                                                    <i class="jstree-icon jstree-checkbox"></i>
+                                                                                    <i class="jstree-icon jstree-themeicon fa fa-folder icon-state-warning icon-lg jstree-themeicon-custom"></i>@detail[j].NamaMenu
+                                                                                </a>
+                                                                            </li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                            </li>
+                                                        }
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-grey-steel" id="divSave">
+                        <button type="button" class="btn btn-primary" id="btnSave">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+
+<script>
+    var ArrayTemp = [];
+    var param = $('#roleId').val();
+
+    $(document).ready(function () {
+        hideLoading();
+
+        ArrayTemp = @Html.Raw(Json.Encode(ViewBag.ArrayLoadId)); //call array from controller
+        //console.log(ArrayTemp);
+
+        $('#tree_2').jstree({
+            'plugins': ["wholerow", "checkbox", "types"],
+            "types" : {
+                "default" : {
+                    "icon" : "fa fa-folder icon-state-warning icon-lg"
+                },
+                "file" : {
+                    "icon" : "fa fa-file icon-state-warning icon-lg"
+                }
+            }
+        });
+
+    });
+
+    $('#btnProcess').click(function (e) {
+        $.ajax({
+            //contentType: 'application/json; charset=utf-8',
+            //dataType: 'json',
+            type: 'POST',
+            url: '@Url.Action("Index", "RoleMenu", new { area = "Security"})',
+            data: {'ddlRoleId': $('#ddlRoleId').val()},
+            //    JSON.stringify({
+            //    'ddlRoleId': $('#ddlRoleId').val()
+            //}),
+            success: function () {
+                //alertSuccess(ret.Msg);
+                //$('#divSave').show();
+            },
+            failure: function (ret) {
+                //alertError(JSON.parse(ret.responseText).ErrorMessage);
+            }
+        });
+    });
+
+    //function centang(mId) {
+    //    var isDelete = false;
+
+    //    if ($('#' + mId).hasClass("jstree-clicked")) {
+    //        $('#' + mId).removeClass("jstree-clicked");
+    //        ArrayTemp = jQuery.grep(ArrayTemp, function (value) {
+    //            return value != mId;
+    //        });
+
+    //        isDelete = true;
+    //    }
+    //    else {
+    //        $('#' + mId).addClass("jstree-clicked");
+    //        ArrayTemp.push(mId);
+    //        isDelete = false;
+    //    }
+    //}
+
+    function GetRoleChecked() {
+        var fields = document.getElementsByClassName("jstree-clicked");
+        var array = [];
+        for (i = 0; i < fields.length; ++i) {
+            if (fields[i].id != "") {
+                array.push(fields[i].id)
+            }
+        };
+
+        return array;
+    }
+
+    function IsValidChecked() {
+        var fields = document.getElementsByClassName("jstree-clicked");
+        var ArrayTemp1 = [];
+
+        for (i = 0; i < fields.length; ++i) {
+            ArrayTemp1.push(fields[i].id)
+        };
+
+        alert(fields.length + "nnn" + ArrayTemp1);
+    };
+
+
+    $('#btnSave').click(function () {
+        ArrayTemp = GetRoleChecked();
+        //GetRoleChecked();
+        $('#IdRole').val( $('#ddlRoleId').val());
+
+        console.log(ArrayTemp);
+        //debugger;
+
+        //console.log(this.checked)
+        //var valueCheck = this.checked
+        //var removevalue = this.value
+        //if (valueCheck == true) {
+        //    ArrayTemp.push(this.value)
+        //} else {
+        //    ArrayTemp = jQuery.grep(ArrayTemp, function (value) {
+        //        return value != removevalue;
+        //    });
+        //}
+        //ArrayTemp = GetRoleChecked();
+        //console.log(ArrayTemp)
+
+        $.ajax({
+            url: '@Url.Action("Update", "RoleMenu", new { area = "Security" })',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                model: $('#FormRoleMenu').serializeObject(),
+                array: ArrayTemp //untuk melempar nilai ke controller
+            }),
+
+            //untuk memunculkan pesan
+            success: function (ret) {
+                if (ret.Msg != null && ret.Msg != "") {
+                    alertSuccess(ret.Msg);
+
+                } else if (!ret.success) {
+                    $.each(ret.errors, function (index, value) {
+                        // Error message
+                        var validationMessageElement = $('span[data-valmsg-for="' + index + '"]');
+                        validationMessageElement.removeClass('field-validation-valid');
+                        validationMessageElement.addClass('field-validation-error');
+                        validationMessageElement.text(value[0]);
+                    });
+                }
+                else {
+                    alertError(JSON.parse(ret.responseText).ErrorMessage);
+                }
+
+            },
+            error: function (ret) {
+                alertError(JSON.parse(ret.responseText).ErrorMessage);
+            }
+        });
+    });
+</script>

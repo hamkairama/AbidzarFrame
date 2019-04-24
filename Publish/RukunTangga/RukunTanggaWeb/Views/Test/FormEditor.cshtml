@@ -1,0 +1,152 @@
+﻿@model AbidzarFrame.Web.Areas.Parameters.Models.BankCodeViewModel
+@{
+    ViewBag.Title = "Bank Code";
+}
+
+@Html.AntiForgeryToken()
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+
+<div class="col-md-12">
+    <div class="portlet box purple">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i>@ViewBag.Title
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="collapse">
+                </a>
+                <a href="#portlet-config" data-toggle="modal" class="config">
+                </a>
+                <a href="javascript:;" class="reload">
+                </a>
+                <a href="javascript:;" class="remove">
+                </a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <!-- BEGIN FORM-->
+            <form id="FormBankCodeTest">
+                <div class="form-body">
+                    <fieldset>
+                        <div class="row ">
+                            <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.CODE)
+                                    @Html.TextBoxFor(m => m.CODE, new { @class = "form-control", @style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.CODE, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.NAME)
+                                    @Html.TextBoxFor(m => m.NAME, new { @class = "form-control", @style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.NAME, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.CONTACT)
+                                    @Html.TextBoxFor(m => m.CONTACT, new { @class = "form-control", @style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.CONTACT, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.PHONE)
+                                    @Html.TextBoxFor(m => m.PHONE, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.PHONE, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.ADDRESS_1)
+                                    @Html.TextAreaFor(m => m.ADDRESS_1, new { @class = "form-control", @style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.ADDRESS_1, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.ADDRESS_2)
+                                    @Html.TextAreaFor(m => m.ADDRESS_2, new { @class = "form-control", @style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.ADDRESS_2, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.ADDRESS_3)
+                                    @Html.TextAreaFor(m => m.ADDRESS_3, new { @class = "form-control", @style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.ADDRESS_3, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FAX)
+                                    @Html.TextBoxFor(m => m.FAX, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.FAX, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.RATING)
+                                    @Html.TextBoxFor(m => m.RATING, new { @class = "form-control", @style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.RATING, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.RATING_F)
+                                    @Html.TextBoxFor(m => m.RATING_F, new { @class = "form-control", @style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.RATING_F, "", new { @class = "text-danger" })
+                                </div>
+                                @*<div class="form-group col-md-6">
+                                        @Html.LabelFor(m => m.CATEGORY)
+                                        @Html.DropDownListFor(model => model.CATEGORY, new SelectList(ViewBag.BankCategory, "COD_D", "DESC_1"), "", new { @class = "selectpicker show-tick form-control" })
+                                        @Html.ValidationMessageFor(model => model.CATEGORY, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        @Html.LabelFor(m => m.BANK_GROUP)
+                                        @Html.DropDownListFor(model => model.BANK_GROUP, new SelectList(ViewBag.BankGroup, "COD_D", "DESC_1"), "", new { @class = "selectpicker show-tick form-control" })
+                                        @Html.ValidationMessageFor(model => model.BANK_GROUP, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        @Html.LabelFor(m => m.LMT_GROUP)
+                                        @Html.DropDownListFor(model => model.LMT_GROUP, new SelectList(ViewBag.BankLimit, "COD_D", "DESC_1"), "", new { @class = "selectpicker show-tick form-control" })
+                                        @Html.ValidationMessageFor(model => model.LMT_GROUP, "", new { @class = "text-danger" })
+                                    </div>*@
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" class="btn btn-primary" id="btnSaveFormTest">Save changes</button>
+                </div>
+            </form>
+            <!-- END FORM-->
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#btnSaveFormTest').click(function (e) {
+        e.preventDefault();
+        alert('clicked');
+        @*if ($('#FormBankCodeTest').valid()) {
+            $.ajax({
+                url: '@Url.Action("Update", "Test", new { area = "" })',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({
+                    model: $('#FormBankCodeTest').serializeObject()
+                }),
+                success: function (ret) {
+                    if (ret.Msg != null && ret.Msg != "") {
+                        alertSuccess(ret.Msg);
+                    } else if (!ret.success) {
+                        $.each(ret.errors, function (index, value) {
+                            // Error message
+                            var validationMessageElement = $('span[data-valmsg-for="' + index + '"]');
+                            validationMessageElement.removeClass('field-validation-valid');
+                            validationMessageElement.addClass('field-validation-error');
+                            validationMessageElement.text(value[0]);
+                        });
+                    }
+                    else {
+                        var msg = ret ? $.parseJSON(ret) : null; alertError(msg.ErrorMessage);
+                    }
+
+                },
+                error: function (ret) {
+                    var msg = ret ? $.parseJSON(ret) : null; alertError(msg.ErrorMessage);
+                }
+            });
+        }*@
+    });
+
+</script>

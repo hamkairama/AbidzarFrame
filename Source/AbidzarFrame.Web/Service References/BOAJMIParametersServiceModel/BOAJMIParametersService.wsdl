@@ -1,0 +1,2075 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BOAJMIParametersService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Parameters.Interface.Dto" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Manulife.Core.Model.Business" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IParameterManager_DeleteAumGrpByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAumGrpByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteAumGrpByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAumGrpByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBeginningBalanceFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeginningBalanceFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBeginningBalanceFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeginningBalanceFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBeginningBalanceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeginningBalanceList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBeginningBalanceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeginningBalanceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertBeginningBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBeginningBalance" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertBeginningBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBeginningBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateBeginningBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBeginningBalance" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateBeginningBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBeginningBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteBeginningBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBeginningBalance" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteBeginningBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBeginningBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBeginningBalanceDetailFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeginningBalanceDetailFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBeginningBalanceDetailFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeginningBalanceDetailFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBeginningBalanceDetailList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeginningBalanceDetailList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBeginningBalanceDetailList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeginningBalanceDetailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertBeginningBalanceDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBeginningBalanceDetail" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertBeginningBalanceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBeginningBalanceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateBeginningBalanceDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBeginningBalanceDetail" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateBeginningBalanceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBeginningBalanceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteBeginningBalanceDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBeginningBalanceDetail" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteBeginningBalanceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBeginningBalanceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSharesCodeListByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSharesCodeListByCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSharesCodeListByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSharesCodeListByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSharesCodeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSharesCodeList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSharesCodeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSharesCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertSharesCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSharesCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertSharesCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSharesCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSharesCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSharesCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSharesCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSharesCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteSharesCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSharesCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteSharesCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSharesCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashMoveFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashMoveFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashMoveFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashMoveFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashMoveListAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashMoveListAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashMoveListAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashMoveListAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashMoveListDeletion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashMoveListDeletion" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashMoveListDeletion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashMoveListDeletionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashMoveList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashMoveList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashMoveList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashMoveListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertCashMove_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCashMove" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertCashMove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCashMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateCashMove_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCashMove" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateCashMove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCashMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteCashMove_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCashMove" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteCashMove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCashMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBankAccountFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBankAccountFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBankAccountList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBankAccountList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertBankAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertBankAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateBankAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateBankAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteBankAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteBankAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBankCodeFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankCodeFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBankCodeFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankCodeFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBankCodeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankCodeList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetBankCodeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertBankCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBankCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertBankCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBankCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateBankCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBankCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateBankCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBankCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteBankCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBankCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteBankCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBankCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCombinedDFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCombinedDFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCombinedDFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCombinedDFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCombinedDList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCombinedDList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCombinedDList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCombinedDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertCombinedD_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCombinedD" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertCombinedD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCombinedDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateCombinedD_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCombinedD" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateCombinedD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCombinedDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteCombinedD_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCombinedD" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteCombinedD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCombinedDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCombinedHList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCombinedHList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCombinedHList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCombinedHListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetHolidayFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHolidayFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetHolidayFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHolidayFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetHolidayList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHolidayList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetHolidayList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHolidayListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertHoliday_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHoliday" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertHoliday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHolidayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateHoliday_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHoliday" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateHoliday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHolidayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteHoliday_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHoliday" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteHoliday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHolidayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSyariahParameterFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyariahParameterFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSyariahParameterFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyariahParameterFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSyariahParameterList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyariahParameterList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSyariahParameterList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyariahParameterListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertSyariahParameter_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSyariahParameter" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertSyariahParameter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSyariahParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSyariahParameter_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSyariahParameter" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSyariahParameter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSyariahParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteSyariahParameter_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSyariahParameter" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteSyariahParameter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSyariahParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMoneyMarketProductFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyMarketProductFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMoneyMarketProductFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyMarketProductFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMoneyMarketProductList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyMarketProductList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMoneyMarketProductList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyMarketProductListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertMoneyMarketProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMoneyMarketProduct" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertMoneyMarketProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMoneyMarketProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateMoneyMarketProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMoneyMarketProduct" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateMoneyMarketProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMoneyMarketProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteMoneyMarketProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMoneyMarketProduct" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteMoneyMarketProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMoneyMarketProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetFundSettingFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFundSettingFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetFundSettingFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFundSettingFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetFundSettingList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFundSettingList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetFundSettingList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFundSettingListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertFundSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFundSetting" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertFundSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFundSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateFundSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFundSetting" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateFundSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFundSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteFundSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFundSetting" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteFundSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFundSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSystemParameter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemParameter" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSystemParameter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSystemParameter_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSystemParameter" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSystemParameter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSystemParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMaximisGrpList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaximisGrpList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMaximisGrpList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaximisGrpListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertMaximisGrp_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMaximisGrp" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertMaximisGrp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMaximisGrpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateMaximisGrp_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMaximisGrp" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateMaximisGrp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMaximisGrpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteMaximisGrp_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMaximisGrp" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteMaximisGrp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMaximisGrpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetTierFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTierFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetTierFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTierFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetTierList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTierList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetTierList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTierListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertTier_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTier" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertTier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateTier_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTier" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateTier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteTier_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTier" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteTier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpHFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpHFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpHFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpHFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpHList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpHList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpHList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpHListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertSgrpH_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSgrpH" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertSgrpH_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSgrpHResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSgrpH_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSgrpH" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSgrpH_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSgrpHResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteSgrpH_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSgrpH" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteSgrpH_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSgrpHResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpDFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpDFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpDFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpDFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpDList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpDList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpDList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpDListByGrupCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpDListByGrupCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetSgrpDListByGrupCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSgrpDListByGrupCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertSgrpD_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSgrpD" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertSgrpD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSgrpDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSgrpD_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSgrpD" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateSgrpD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSgrpDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteSgrpD_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSgrpD" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteSgrpD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSgrpDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCustodianBankFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustodianBankFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCustodianBankFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustodianBankFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCustodianBankList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustodianBankList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCustodianBankList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustodianBankListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertCustodianBank_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustodianBank" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertCustodianBank_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustodianBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateCustodianBank_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustodianBank" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateCustodianBank_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustodianBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteCustodianBank_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustodianBank" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteCustodianBank_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustodianBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetExCurrencyConvRateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExCurrencyConvRateList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetExCurrencyConvRateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExCurrencyConvRateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertExCurrencyConvRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertExCurrencyConvRate" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertExCurrencyConvRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertExCurrencyConvRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteExCurrencyConvRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExCurrencyConvRate" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteExCurrencyConvRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExCurrencyConvRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashPayableMapFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashPayableMapFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashPayableMapFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashPayableMapFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashPayableMapList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashPayableMapList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetCashPayableMapList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashPayableMapListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertCashPayableMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCashPayableMap" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertCashPayableMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCashPayableMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateCashPayableMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCashPayableMap" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateCashPayableMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCashPayableMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteCashPayableMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCashPayableMap" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteCashPayableMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCashPayableMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetAccountNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountNo" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetAccountNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMisGroupFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMisGroupFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMisGroupFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMisGroupFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMisGroupFindByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMisGroupFindByCode" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMisGroupFindByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMisGroupFindByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMisGroupList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMisGroupList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetMisGroupList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMisGroupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertMisGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMisGroup" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertMisGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMisGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateMisGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMisGroup" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateMisGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMisGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteMisGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMisGroup" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteMisGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMisGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetAumGrpFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAumGrpFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetAumGrpFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAumGrpFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetAumGrpList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAumGrpList" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetAumGrpList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAumGrpListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetAumGrpListByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAumGrpListByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_GetAumGrpListByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAumGrpListByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertAumGrp_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAumGrp" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_InsertAumGrp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAumGrpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateAumGrp_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAumGrp" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateAumGrp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAumGrpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateAumGrpInclude_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAumGrpInclude" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_UpdateAumGrpInclude_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAumGrpIncludeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteAumGrp_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAumGrp" />
+  </wsdl:message>
+  <wsdl:message name="IParameterManager_DeleteAumGrp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAumGrpResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IParameterManager">
+    <wsdl:operation name="DeleteAumGrpByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteAumGrpByGroup" message="tns:IParameterManager_DeleteAumGrpByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteAumGrpByGroupResponse" message="tns:IParameterManager_DeleteAumGrpByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeginningBalanceFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetBeginningBalanceFindBy" message="tns:IParameterManager_GetBeginningBalanceFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetBeginningBalanceFindByResponse" message="tns:IParameterManager_GetBeginningBalanceFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeginningBalanceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetBeginningBalanceList" message="tns:IParameterManager_GetBeginningBalanceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetBeginningBalanceListResponse" message="tns:IParameterManager_GetBeginningBalanceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBeginningBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertBeginningBalance" message="tns:IParameterManager_InsertBeginningBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertBeginningBalanceResponse" message="tns:IParameterManager_InsertBeginningBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeginningBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateBeginningBalance" message="tns:IParameterManager_UpdateBeginningBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateBeginningBalanceResponse" message="tns:IParameterManager_UpdateBeginningBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeginningBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteBeginningBalance" message="tns:IParameterManager_DeleteBeginningBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteBeginningBalanceResponse" message="tns:IParameterManager_DeleteBeginningBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeginningBalanceDetailFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetBeginningBalanceDetailFindBy" message="tns:IParameterManager_GetBeginningBalanceDetailFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetBeginningBalanceDetailFindByResponse" message="tns:IParameterManager_GetBeginningBalanceDetailFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeginningBalanceDetailList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetBeginningBalanceDetailList" message="tns:IParameterManager_GetBeginningBalanceDetailList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetBeginningBalanceDetailListResponse" message="tns:IParameterManager_GetBeginningBalanceDetailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBeginningBalanceDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertBeginningBalanceDetail" message="tns:IParameterManager_InsertBeginningBalanceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertBeginningBalanceDetailResponse" message="tns:IParameterManager_InsertBeginningBalanceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeginningBalanceDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateBeginningBalanceDetail" message="tns:IParameterManager_UpdateBeginningBalanceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateBeginningBalanceDetailResponse" message="tns:IParameterManager_UpdateBeginningBalanceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeginningBalanceDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteBeginningBalanceDetail" message="tns:IParameterManager_DeleteBeginningBalanceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteBeginningBalanceDetailResponse" message="tns:IParameterManager_DeleteBeginningBalanceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSharesCodeListByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSharesCodeListByCode" message="tns:IParameterManager_GetSharesCodeListByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSharesCodeListByCodeResponse" message="tns:IParameterManager_GetSharesCodeListByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSharesCodeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSharesCodeList" message="tns:IParameterManager_GetSharesCodeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSharesCodeListResponse" message="tns:IParameterManager_GetSharesCodeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSharesCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertSharesCode" message="tns:IParameterManager_InsertSharesCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertSharesCodeResponse" message="tns:IParameterManager_InsertSharesCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSharesCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateSharesCode" message="tns:IParameterManager_UpdateSharesCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateSharesCodeResponse" message="tns:IParameterManager_UpdateSharesCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSharesCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteSharesCode" message="tns:IParameterManager_DeleteSharesCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteSharesCodeResponse" message="tns:IParameterManager_DeleteSharesCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashMoveFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCashMoveFindBy" message="tns:IParameterManager_GetCashMoveFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCashMoveFindByResponse" message="tns:IParameterManager_GetCashMoveFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashMoveListAdjustment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCashMoveListAdjustment" message="tns:IParameterManager_GetCashMoveListAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCashMoveListAdjustmentResponse" message="tns:IParameterManager_GetCashMoveListAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashMoveListDeletion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCashMoveListDeletion" message="tns:IParameterManager_GetCashMoveListDeletion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCashMoveListDeletionResponse" message="tns:IParameterManager_GetCashMoveListDeletion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashMoveList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCashMoveList" message="tns:IParameterManager_GetCashMoveList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCashMoveListResponse" message="tns:IParameterManager_GetCashMoveList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCashMove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertCashMove" message="tns:IParameterManager_InsertCashMove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertCashMoveResponse" message="tns:IParameterManager_InsertCashMove_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCashMove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateCashMove" message="tns:IParameterManager_UpdateCashMove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateCashMoveResponse" message="tns:IParameterManager_UpdateCashMove_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCashMove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteCashMove" message="tns:IParameterManager_DeleteCashMove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteCashMoveResponse" message="tns:IParameterManager_DeleteCashMove_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetBankAccountFindBy" message="tns:IParameterManager_GetBankAccountFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetBankAccountFindByResponse" message="tns:IParameterManager_GetBankAccountFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetBankAccountList" message="tns:IParameterManager_GetBankAccountList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetBankAccountListResponse" message="tns:IParameterManager_GetBankAccountList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBankAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertBankAccount" message="tns:IParameterManager_InsertBankAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertBankAccountResponse" message="tns:IParameterManager_InsertBankAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateBankAccount" message="tns:IParameterManager_UpdateBankAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateBankAccountResponse" message="tns:IParameterManager_UpdateBankAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteBankAccount" message="tns:IParameterManager_DeleteBankAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteBankAccountResponse" message="tns:IParameterManager_DeleteBankAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankCodeFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetBankCodeFindBy" message="tns:IParameterManager_GetBankCodeFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetBankCodeFindByResponse" message="tns:IParameterManager_GetBankCodeFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankCodeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetBankCodeList" message="tns:IParameterManager_GetBankCodeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetBankCodeListResponse" message="tns:IParameterManager_GetBankCodeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBankCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertBankCode" message="tns:IParameterManager_InsertBankCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertBankCodeResponse" message="tns:IParameterManager_InsertBankCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateBankCode" message="tns:IParameterManager_UpdateBankCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateBankCodeResponse" message="tns:IParameterManager_UpdateBankCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteBankCode" message="tns:IParameterManager_DeleteBankCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteBankCodeResponse" message="tns:IParameterManager_DeleteBankCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCombinedDFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCombinedDFindBy" message="tns:IParameterManager_GetCombinedDFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCombinedDFindByResponse" message="tns:IParameterManager_GetCombinedDFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCombinedDList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCombinedDList" message="tns:IParameterManager_GetCombinedDList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCombinedDListResponse" message="tns:IParameterManager_GetCombinedDList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCombinedD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertCombinedD" message="tns:IParameterManager_InsertCombinedD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertCombinedDResponse" message="tns:IParameterManager_InsertCombinedD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCombinedD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateCombinedD" message="tns:IParameterManager_UpdateCombinedD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateCombinedDResponse" message="tns:IParameterManager_UpdateCombinedD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCombinedD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteCombinedD" message="tns:IParameterManager_DeleteCombinedD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteCombinedDResponse" message="tns:IParameterManager_DeleteCombinedD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCombinedHList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCombinedHList" message="tns:IParameterManager_GetCombinedHList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCombinedHListResponse" message="tns:IParameterManager_GetCombinedHList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHolidayFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetHolidayFindBy" message="tns:IParameterManager_GetHolidayFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetHolidayFindByResponse" message="tns:IParameterManager_GetHolidayFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHolidayList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetHolidayList" message="tns:IParameterManager_GetHolidayList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetHolidayListResponse" message="tns:IParameterManager_GetHolidayList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHoliday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertHoliday" message="tns:IParameterManager_InsertHoliday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertHolidayResponse" message="tns:IParameterManager_InsertHoliday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoliday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateHoliday" message="tns:IParameterManager_UpdateHoliday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateHolidayResponse" message="tns:IParameterManager_UpdateHoliday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHoliday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteHoliday" message="tns:IParameterManager_DeleteHoliday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteHolidayResponse" message="tns:IParameterManager_DeleteHoliday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSyariahParameterFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSyariahParameterFindBy" message="tns:IParameterManager_GetSyariahParameterFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSyariahParameterFindByResponse" message="tns:IParameterManager_GetSyariahParameterFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSyariahParameterList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSyariahParameterList" message="tns:IParameterManager_GetSyariahParameterList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSyariahParameterListResponse" message="tns:IParameterManager_GetSyariahParameterList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSyariahParameter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertSyariahParameter" message="tns:IParameterManager_InsertSyariahParameter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertSyariahParameterResponse" message="tns:IParameterManager_InsertSyariahParameter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSyariahParameter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateSyariahParameter" message="tns:IParameterManager_UpdateSyariahParameter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateSyariahParameterResponse" message="tns:IParameterManager_UpdateSyariahParameter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSyariahParameter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteSyariahParameter" message="tns:IParameterManager_DeleteSyariahParameter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteSyariahParameterResponse" message="tns:IParameterManager_DeleteSyariahParameter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyMarketProductFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetMoneyMarketProductFindBy" message="tns:IParameterManager_GetMoneyMarketProductFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetMoneyMarketProductFindByResponse" message="tns:IParameterManager_GetMoneyMarketProductFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyMarketProductList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetMoneyMarketProductList" message="tns:IParameterManager_GetMoneyMarketProductList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetMoneyMarketProductListResponse" message="tns:IParameterManager_GetMoneyMarketProductList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMoneyMarketProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertMoneyMarketProduct" message="tns:IParameterManager_InsertMoneyMarketProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertMoneyMarketProductResponse" message="tns:IParameterManager_InsertMoneyMarketProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMoneyMarketProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateMoneyMarketProduct" message="tns:IParameterManager_UpdateMoneyMarketProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateMoneyMarketProductResponse" message="tns:IParameterManager_UpdateMoneyMarketProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMoneyMarketProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteMoneyMarketProduct" message="tns:IParameterManager_DeleteMoneyMarketProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteMoneyMarketProductResponse" message="tns:IParameterManager_DeleteMoneyMarketProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFundSettingFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetFundSettingFindBy" message="tns:IParameterManager_GetFundSettingFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetFundSettingFindByResponse" message="tns:IParameterManager_GetFundSettingFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFundSettingList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetFundSettingList" message="tns:IParameterManager_GetFundSettingList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetFundSettingListResponse" message="tns:IParameterManager_GetFundSettingList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertFundSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertFundSetting" message="tns:IParameterManager_InsertFundSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertFundSettingResponse" message="tns:IParameterManager_InsertFundSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFundSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateFundSetting" message="tns:IParameterManager_UpdateFundSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateFundSettingResponse" message="tns:IParameterManager_UpdateFundSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFundSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteFundSetting" message="tns:IParameterManager_DeleteFundSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteFundSettingResponse" message="tns:IParameterManager_DeleteFundSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemParameter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSystemParameter" message="tns:IParameterManager_GetSystemParameter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSystemParameterResponse" message="tns:IParameterManager_GetSystemParameter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSystemParameter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateSystemParameter" message="tns:IParameterManager_UpdateSystemParameter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateSystemParameterResponse" message="tns:IParameterManager_UpdateSystemParameter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaximisGrpList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetMaximisGrpList" message="tns:IParameterManager_GetMaximisGrpList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetMaximisGrpListResponse" message="tns:IParameterManager_GetMaximisGrpList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMaximisGrp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertMaximisGrp" message="tns:IParameterManager_InsertMaximisGrp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertMaximisGrpResponse" message="tns:IParameterManager_InsertMaximisGrp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMaximisGrp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateMaximisGrp" message="tns:IParameterManager_UpdateMaximisGrp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateMaximisGrpResponse" message="tns:IParameterManager_UpdateMaximisGrp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaximisGrp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteMaximisGrp" message="tns:IParameterManager_DeleteMaximisGrp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteMaximisGrpResponse" message="tns:IParameterManager_DeleteMaximisGrp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTierFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetTierFindBy" message="tns:IParameterManager_GetTierFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetTierFindByResponse" message="tns:IParameterManager_GetTierFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTierList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetTierList" message="tns:IParameterManager_GetTierList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetTierListResponse" message="tns:IParameterManager_GetTierList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertTier" message="tns:IParameterManager_InsertTier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertTierResponse" message="tns:IParameterManager_InsertTier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateTier" message="tns:IParameterManager_UpdateTier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateTierResponse" message="tns:IParameterManager_UpdateTier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteTier" message="tns:IParameterManager_DeleteTier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteTierResponse" message="tns:IParameterManager_DeleteTier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpHFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpHFindBy" message="tns:IParameterManager_GetSgrpHFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpHFindByResponse" message="tns:IParameterManager_GetSgrpHFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpHList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpHList" message="tns:IParameterManager_GetSgrpHList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpHListResponse" message="tns:IParameterManager_GetSgrpHList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSgrpH">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertSgrpH" message="tns:IParameterManager_InsertSgrpH_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertSgrpHResponse" message="tns:IParameterManager_InsertSgrpH_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSgrpH">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateSgrpH" message="tns:IParameterManager_UpdateSgrpH_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateSgrpHResponse" message="tns:IParameterManager_UpdateSgrpH_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSgrpH">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteSgrpH" message="tns:IParameterManager_DeleteSgrpH_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteSgrpHResponse" message="tns:IParameterManager_DeleteSgrpH_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpDFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpDFindBy" message="tns:IParameterManager_GetSgrpDFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpDFindByResponse" message="tns:IParameterManager_GetSgrpDFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpDList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpDList" message="tns:IParameterManager_GetSgrpDList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpDListResponse" message="tns:IParameterManager_GetSgrpDList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpDListByGrupCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpDListByGrupCode" message="tns:IParameterManager_GetSgrpDListByGrupCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetSgrpDListByGrupCodeResponse" message="tns:IParameterManager_GetSgrpDListByGrupCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSgrpD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertSgrpD" message="tns:IParameterManager_InsertSgrpD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertSgrpDResponse" message="tns:IParameterManager_InsertSgrpD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSgrpD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateSgrpD" message="tns:IParameterManager_UpdateSgrpD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateSgrpDResponse" message="tns:IParameterManager_UpdateSgrpD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSgrpD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteSgrpD" message="tns:IParameterManager_DeleteSgrpD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteSgrpDResponse" message="tns:IParameterManager_DeleteSgrpD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustodianBankFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCustodianBankFindBy" message="tns:IParameterManager_GetCustodianBankFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCustodianBankFindByResponse" message="tns:IParameterManager_GetCustodianBankFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustodianBankList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCustodianBankList" message="tns:IParameterManager_GetCustodianBankList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCustodianBankListResponse" message="tns:IParameterManager_GetCustodianBankList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustodianBank">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertCustodianBank" message="tns:IParameterManager_InsertCustodianBank_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertCustodianBankResponse" message="tns:IParameterManager_InsertCustodianBank_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustodianBank">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateCustodianBank" message="tns:IParameterManager_UpdateCustodianBank_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateCustodianBankResponse" message="tns:IParameterManager_UpdateCustodianBank_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustodianBank">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteCustodianBank" message="tns:IParameterManager_DeleteCustodianBank_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteCustodianBankResponse" message="tns:IParameterManager_DeleteCustodianBank_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExCurrencyConvRateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetExCurrencyConvRateList" message="tns:IParameterManager_GetExCurrencyConvRateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetExCurrencyConvRateListResponse" message="tns:IParameterManager_GetExCurrencyConvRateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertExCurrencyConvRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertExCurrencyConvRate" message="tns:IParameterManager_InsertExCurrencyConvRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertExCurrencyConvRateResponse" message="tns:IParameterManager_InsertExCurrencyConvRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExCurrencyConvRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteExCurrencyConvRate" message="tns:IParameterManager_DeleteExCurrencyConvRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteExCurrencyConvRateResponse" message="tns:IParameterManager_DeleteExCurrencyConvRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashPayableMapFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCashPayableMapFindBy" message="tns:IParameterManager_GetCashPayableMapFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCashPayableMapFindByResponse" message="tns:IParameterManager_GetCashPayableMapFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashPayableMapList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetCashPayableMapList" message="tns:IParameterManager_GetCashPayableMapList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetCashPayableMapListResponse" message="tns:IParameterManager_GetCashPayableMapList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCashPayableMap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertCashPayableMap" message="tns:IParameterManager_InsertCashPayableMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertCashPayableMapResponse" message="tns:IParameterManager_InsertCashPayableMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCashPayableMap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateCashPayableMap" message="tns:IParameterManager_UpdateCashPayableMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateCashPayableMapResponse" message="tns:IParameterManager_UpdateCashPayableMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCashPayableMap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteCashPayableMap" message="tns:IParameterManager_DeleteCashPayableMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteCashPayableMapResponse" message="tns:IParameterManager_DeleteCashPayableMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetAccountNo" message="tns:IParameterManager_GetAccountNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetAccountNoResponse" message="tns:IParameterManager_GetAccountNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMisGroupFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetMisGroupFindBy" message="tns:IParameterManager_GetMisGroupFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetMisGroupFindByResponse" message="tns:IParameterManager_GetMisGroupFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMisGroupFindByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetMisGroupFindByCode" message="tns:IParameterManager_GetMisGroupFindByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetMisGroupFindByCodeResponse" message="tns:IParameterManager_GetMisGroupFindByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMisGroupList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetMisGroupList" message="tns:IParameterManager_GetMisGroupList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetMisGroupListResponse" message="tns:IParameterManager_GetMisGroupList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMisGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertMisGroup" message="tns:IParameterManager_InsertMisGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertMisGroupResponse" message="tns:IParameterManager_InsertMisGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMisGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateMisGroup" message="tns:IParameterManager_UpdateMisGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateMisGroupResponse" message="tns:IParameterManager_UpdateMisGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMisGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteMisGroup" message="tns:IParameterManager_DeleteMisGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteMisGroupResponse" message="tns:IParameterManager_DeleteMisGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAumGrpFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetAumGrpFindBy" message="tns:IParameterManager_GetAumGrpFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetAumGrpFindByResponse" message="tns:IParameterManager_GetAumGrpFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAumGrpList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetAumGrpList" message="tns:IParameterManager_GetAumGrpList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetAumGrpListResponse" message="tns:IParameterManager_GetAumGrpList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAumGrpListByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/GetAumGrpListByGroup" message="tns:IParameterManager_GetAumGrpListByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/GetAumGrpListByGroupResponse" message="tns:IParameterManager_GetAumGrpListByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAumGrp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/InsertAumGrp" message="tns:IParameterManager_InsertAumGrp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/InsertAumGrpResponse" message="tns:IParameterManager_InsertAumGrp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAumGrp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateAumGrp" message="tns:IParameterManager_UpdateAumGrp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateAumGrpResponse" message="tns:IParameterManager_UpdateAumGrp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAumGrpInclude">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/UpdateAumGrpInclude" message="tns:IParameterManager_UpdateAumGrpInclude_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/UpdateAumGrpIncludeResponse" message="tns:IParameterManager_UpdateAumGrpInclude_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAumGrp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IParameterManager/DeleteAumGrp" message="tns:IParameterManager_DeleteAumGrp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IParameterManager/DeleteAumGrpResponse" message="tns:IParameterManager_DeleteAumGrp_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IParameterManager" type="tns:IParameterManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteAumGrpByGroup">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteAumGrpByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeginningBalanceFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetBeginningBalanceFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeginningBalanceList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetBeginningBalanceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBeginningBalance">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertBeginningBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeginningBalance">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateBeginningBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeginningBalance">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteBeginningBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeginningBalanceDetailFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetBeginningBalanceDetailFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeginningBalanceDetailList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetBeginningBalanceDetailList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBeginningBalanceDetail">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertBeginningBalanceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeginningBalanceDetail">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateBeginningBalanceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeginningBalanceDetail">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteBeginningBalanceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSharesCodeListByCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSharesCodeListByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSharesCodeList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSharesCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSharesCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertSharesCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSharesCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateSharesCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSharesCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteSharesCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashMoveFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCashMoveFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashMoveListAdjustment">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCashMoveListAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashMoveListDeletion">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCashMoveListDeletion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashMoveList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCashMoveList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCashMove">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertCashMove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCashMove">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateCashMove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCashMove">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteCashMove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetBankAccountFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetBankAccountList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBankAccount">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccount">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankAccount">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankCodeFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetBankCodeFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankCodeList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetBankCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBankCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertBankCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateBankCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteBankCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCombinedDFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCombinedDFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCombinedDList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCombinedDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCombinedD">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertCombinedD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCombinedD">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateCombinedD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCombinedD">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteCombinedD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCombinedHList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCombinedHList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHolidayFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetHolidayFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHolidayList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetHolidayList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHoliday">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertHoliday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoliday">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateHoliday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHoliday">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteHoliday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyariahParameterFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSyariahParameterFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyariahParameterList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSyariahParameterList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSyariahParameter">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertSyariahParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSyariahParameter">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateSyariahParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSyariahParameter">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteSyariahParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyMarketProductFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetMoneyMarketProductFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyMarketProductList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetMoneyMarketProductList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMoneyMarketProduct">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertMoneyMarketProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMoneyMarketProduct">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateMoneyMarketProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMoneyMarketProduct">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteMoneyMarketProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundSettingFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetFundSettingFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundSettingList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetFundSettingList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFundSetting">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertFundSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFundSetting">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateFundSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFundSetting">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteFundSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemParameter">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSystemParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSystemParameter">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateSystemParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaximisGrpList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetMaximisGrpList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMaximisGrp">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertMaximisGrp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMaximisGrp">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateMaximisGrp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaximisGrp">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteMaximisGrp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTierFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetTierFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTierList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetTierList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTier">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertTier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTier">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateTier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTier">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteTier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpHFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSgrpHFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpHList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSgrpHList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSgrpH">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertSgrpH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSgrpH">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateSgrpH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSgrpH">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteSgrpH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpDFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSgrpDFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpDList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSgrpDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSgrpDListByGrupCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetSgrpDListByGrupCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSgrpD">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertSgrpD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSgrpD">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateSgrpD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSgrpD">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteSgrpD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustodianBankFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCustodianBankFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustodianBankList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCustodianBankList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustodianBank">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertCustodianBank" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustodianBank">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateCustodianBank" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustodianBank">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteCustodianBank" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExCurrencyConvRateList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetExCurrencyConvRateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertExCurrencyConvRate">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertExCurrencyConvRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExCurrencyConvRate">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteExCurrencyConvRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashPayableMapFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCashPayableMapFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashPayableMapList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetCashPayableMapList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCashPayableMap">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertCashPayableMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCashPayableMap">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateCashPayableMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCashPayableMap">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteCashPayableMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountNo">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetAccountNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMisGroupFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetMisGroupFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMisGroupFindByCode">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetMisGroupFindByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMisGroupList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetMisGroupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMisGroup">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertMisGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMisGroup">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateMisGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMisGroup">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteMisGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAumGrpFindBy">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetAumGrpFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAumGrpList">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetAumGrpList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAumGrpListByGroup">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/GetAumGrpListByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAumGrp">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/InsertAumGrp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAumGrp">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateAumGrp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAumGrpInclude">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/UpdateAumGrpInclude" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAumGrp">
+      <soap:operation soapAction="http://tempuri.org/IParameterManager/DeleteAumGrp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BOAJMIParametersService">
+    <wsdl:port name="BasicHttpBinding_IParameterManager" binding="tns:BasicHttpBinding_IParameterManager">
+      <soap:address location="http://localhost:55553/BOAJMIParametersService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

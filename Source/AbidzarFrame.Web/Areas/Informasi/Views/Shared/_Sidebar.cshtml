@@ -1,0 +1,226 @@
+﻿@using AbidzarFrame.Master.Interface.Dto
+@using AbidzarFrame.Web.Helpers
+@{
+    List<SlideShowResult> listSlideShow = new List<SlideShowResult>();
+
+    listSlideShow = Common.GetSlideShow(CurrentUser.GetCurrentKodeRt(), 0, 1);
+
+    <h3 style="margin-top:0px">Iklan Promosi Di sini</h3>
+    <div id="myCarousel" class="carousel image-carousel slide">
+        <div class="carousel-inner">
+            @if (listSlideShow.Count > 0)
+            {
+                for (int i = 0; i < listSlideShow.Count(); i++)
+                {
+                    if (i == 0)
+                    {
+                        <div class="item active">
+                            <img src="@listSlideShow[i].FileName" class="img-responsive" style="height: 150px; width: 100%;" />
+                            <div class="carousel-caption">
+                                <h4>
+                                    <a>@listSlideShow[i].Judul</a>
+                                </h4>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            <img src="@listSlideShow[i].FileName" class="img-responsive" style="height: 150px; width: 100%;" />
+                            <div class="carousel-caption">
+                                <h4>
+                                    <a>@listSlideShow[i].Judul</a>
+                                </h4>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <i class="m-icon-big-swapleft m-icon-white"></i>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+            <i class="m-icon-big-swapright m-icon-white"></i>
+        </a>
+        <ol class="carousel-indicators">
+            @if (listSlideShow.Count > 0)
+            {
+                for (int i = 0; i < listSlideShow.Count(); i++)
+                {
+                    if (i == 0)
+                    {
+                        <li data-target="#myCarousel" data-slide-to="@i" class="active">
+                        </li>
+                    }
+                    else
+                    {
+                        <li data-target="#myCarousel" data-slide-to="@i" class="">
+                        </li>
+                    }
+                }
+            }
+        </ol>
+    </div>
+
+    <div class="top-news">
+        <a href="javascript:;" class="btn yellow">
+            <span>
+                Study Abroad
+            </span>
+            <em>Posted on: April 13, 2013</em>
+            <em>
+                <i class="fa fa-tags"></i>
+                Education, Students, Canada
+            </em>
+            <i class="fa fa-book top-news-icon"></i>
+        </a>
+        <a href="javascript:;" class="btn purple">
+            <span>
+                Top Destinations
+            </span>
+            <em>Posted on: April 12, 2013</em>
+            <em>
+                <i class="fa fa-tags"></i>
+                Places, Internet, Google Map
+            </em>
+            <i class="fa fa-bolt top-news-icon"></i>
+        </a>
+    </div>
+    <div class="space20">
+    </div>
+    <h3>10 Photo terbaru kegiatan</h3>
+    <ul class="list-inline blog-images">
+        <li>
+            <a class="fancybox-button" data-rel="fancybox-button" href="~/Content/Data/Koala.jpg">
+                <img src="~/Content/Data/Koala.jpg" />
+            </a>
+        </li>
+        <li>
+            <a href="~/Content/Data/jokowi-maruf.jpg">
+                <img src="~/Content/Data/jokowi-maruf.jpg" />
+            </a>
+        </li>
+        <li>
+            <a href="~/Content/Data/Hydrangeas.jpg">
+                <img src="~/Content/Data/Hydrangeas.jpg" />
+            </a>
+        </li>
+        <li>
+            <a href="~/Content/Data/Penguins.jpg">
+                <img src="~/Content/Data/Penguins.jpg" />
+            </a>
+        </li>
+        <li>
+            <a href="~/Content/Data/pilpres2019.jpg">
+                <img src="~/Content/Data/pilpres2019.jpg" />
+            </a>
+        </li>
+        <li>
+            <a href="~/Content/Data/prabowo-sandi.jpg">
+                <img src="~/Content/Data/prabowo-sandi.jpg" />
+            </a>
+        </li>
+        <li>
+            <a href="~/Content/Data/Chrysanthemum.jpg">
+                <img src="~/Content/Data/Chrysanthemum.jpg" />
+            </a>
+        </li>
+        <li>
+            <a href="~/Content/Data/Desert.jpg">
+                <img src="~/Content/Data/Desert.jpg" />
+            </a>
+        </li>
+        <li>
+            <a href="~/Content/Data/Capture.PNG">
+                <img src="~/Content/Data/Capture.PNG" />
+            </a>
+        </li>
+    </ul>
+    <div class="space20">
+    </div>
+    <h3>Informasi Tambahan</h3>
+    <div class="tabbable tabbable-custom">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" href="#tab_1_1">
+                    Section 1
+                </a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#tab_1_2">
+                    Section 2
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="tab_1_1" class="tab-pane active">
+                <p>
+                    I'm in Section 1.
+                </p>
+                <p>
+                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+                </p>
+            </div>
+            <div id="tab_1_2" class="tab-pane">
+                <p>
+                    Howdy, I'm in Section 2.
+                </p>
+                <p>
+                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="space20">
+    </div>
+    <h3>Twitts sosmed</h3>
+    <div class="blog-twitter">
+        <div class="blog-twitter-block">
+            <a href="">
+                keenthemes
+            </a>
+            <p>
+                At vero eos et accusamus et iusto odio.
+            </p>
+            <a href="javascript:;">
+                <em>http://t.co/sBav7dm</em>
+            </a>
+            <span>
+                2 hours ago
+            </span>
+            <i class="fa fa-twitter blog-twiiter-icon"></i>
+        </div>
+        <div class="blog-twitter-block">
+            <a href="">
+                keenthemes
+            </a>
+            <p>
+                At vero eos et accusamus et iusto odio.
+            </p>
+            <a href="javascript:;">
+                <em>http://t.co/sBav7dm</em>
+            </a>
+            <span>
+                5 hours ago
+            </span>
+            <i class="fa fa-twitter blog-twiiter-icon"></i>
+        </div>
+        <div class="blog-twitter-block">
+            <a href="">
+                keenthemes
+            </a>
+            <p>
+                At vero eos et accusamus et iusto odio.
+            </p>
+            <a href="javascript:;">
+                <em>http://t.co/sBav7dm</em>
+            </a>
+            <span>
+                7 hours ago
+            </span>
+            <i class="fa fa-twitter blog-twiiter-icon"></i>
+        </div>
+    </div>
+}

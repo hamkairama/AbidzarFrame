@@ -1,0 +1,1961 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BOAJMIMoneyMarketService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.MoneyMarket.Interface.Dto" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Manulife.Core.Model.Business" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIMoneyMarketService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMoneyMarketManager_UndoOutstandingCashDataEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UndoOutstandingCashDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoOutstandingCashDataEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UndoOutstandingCashDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingUnitFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingUnitFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingUnitFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingUnitFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingUnitList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingUnitList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingUnitList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingUnitListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertOutstandingUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOutstandingUnit" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertOutstandingUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOutstandingUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateOutstandingUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOutstandingUnit" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateOutstandingUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOutstandingUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteOutstandingUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOutstandingUnit" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteOutstandingUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOutstandingUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoOutstandingUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UndoOutstandingUnit" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoOutstandingUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UndoOutstandingUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetRebatePaymentHeaderFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRebatePaymentHeaderFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetRebatePaymentHeaderFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRebatePaymentHeaderFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetRebatePaymentHeaderList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRebatePaymentHeaderList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetRebatePaymentHeaderList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRebatePaymentHeaderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertRebatePaymentHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRebatePaymentHeader" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertRebatePaymentHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRebatePaymentHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateRebatePaymentHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRebatePaymentHeader" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateRebatePaymentHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRebatePaymentHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteRebatePaymentHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRebatePaymentHeader" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteRebatePaymentHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRebatePaymentHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetRebatePaymentDetailFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRebatePaymentDetailFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetRebatePaymentDetailFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRebatePaymentDetailFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetRebatePaymentDetailList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRebatePaymentDetailList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetRebatePaymentDetailList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRebatePaymentDetailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertRebatePaymentDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRebatePaymentDetail" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertRebatePaymentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRebatePaymentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateRebatePaymentDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRebatePaymentDetail" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateRebatePaymentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRebatePaymentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteRebatePaymentDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRebatePaymentDetail" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteRebatePaymentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRebatePaymentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryLiquidateFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryLiquidateFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryLiquidateFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryLiquidateFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryLiquidateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryLiquidateList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryLiquidateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryLiquidateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertDataEntryLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDataEntryLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertDataEntryLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDataEntryLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateDataEntryLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDataEntryLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateDataEntryLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDataEntryLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteDataEntryLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataEntryLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteDataEntryLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataEntryLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoDataEntryLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UndoDataEntryLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoDataEntryLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UndoDataEntryLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_ProcessJobDataEntryLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessJobDataEntryLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_ProcessJobDataEntryLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessJobDataEntryLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetFunctionInterestFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionInterestFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetFunctionInterestFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionInterestFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_FunctionGetSyariahFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:FunctionGetSyariahFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_FunctionGetSyariahFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FunctionGetSyariahFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_FunctionGetSyariahTableFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:FunctionGetSyariahTableFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_FunctionGetSyariahTableFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FunctionGetSyariahTableFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetStoreForwardLiquidateFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreForwardLiquidateFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetStoreForwardLiquidateFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreForwardLiquidateFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetStoreForwardLiquidateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreForwardLiquidateList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetStoreForwardLiquidateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreForwardLiquidateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertStoreForwardLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertStoreForwardLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertStoreForwardLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertStoreForwardLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateStoreForwardLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStoreForwardLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateStoreForwardLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStoreForwardLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteStoreForwardLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStoreForwardLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteStoreForwardLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStoreForwardLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoStoreForwardLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UndoStoreForwardLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoStoreForwardLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UndoStoreForwardLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_ProcessJobStoreForwardLiquidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessJobStoreForwardLiquidate" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_ProcessJobStoreForwardLiquidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessJobStoreForwardLiquidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetStoreForwardRollOverFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreForwardRollOverFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetStoreForwardRollOverFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreForwardRollOverFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetStoreForwardRollOverList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreForwardRollOverList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetStoreForwardRollOverList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreForwardRollOverListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertStoreForwardRollOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertStoreForwardRollOver" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertStoreForwardRollOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertStoreForwardRollOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateStoreForwardRollOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStoreForwardRollOver" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateStoreForwardRollOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStoreForwardRollOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteStoreForwardRollOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStoreForwardRollOver" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteStoreForwardRollOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStoreForwardRollOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoStoreForwardRollOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:UndoStoreForwardRollOver" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoStoreForwardRollOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UndoStoreForwardRollOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_ProcessJobStoreForwardRollOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessJobStoreForwardRollOver" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_ProcessJobStoreForwardRollOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessJobStoreForwardRollOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSyariahProfitFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyariahProfitFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSyariahProfitFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyariahProfitFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSyariahProfitList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyariahProfitList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSyariahProfitList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyariahProfitListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertSyariahProfit_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSyariahProfit" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertSyariahProfit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSyariahProfitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateSyariahProfit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSyariahProfit" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateSyariahProfit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSyariahProfitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteSyariahProfit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSyariahProfit" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteSyariahProfit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSyariahProfitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryNewPlacementFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryNewPlacementFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryNewPlacementFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryNewPlacementFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryNewPlacementList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryNewPlacementList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryNewPlacementList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryNewPlacementListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertDataEntryNewPlacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDataEntryNewPlacement" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertDataEntryNewPlacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDataEntryNewPlacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateDataEntryNewPlacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDataEntryNewPlacement" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateDataEntryNewPlacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDataEntryNewPlacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteDataEntryNewPlacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataEntryNewPlacement" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteDataEntryNewPlacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataEntryNewPlacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryRollOverFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryRollOverFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryRollOverFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryRollOverFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryRollOverList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryRollOverList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDataEntryRollOverList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataEntryRollOverListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetMoneyMarket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyMarket" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetMoneyMarket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyMarketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateDataEntryRollOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDataEntryRollOver" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateDataEntryRollOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDataEntryRollOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteDataEntryRollOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataEntryRollOver" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteDataEntryRollOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataEntryRollOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoDataEntryRollOver_InputMessage">
+    <wsdl:part name="parameters" element="tns:UndoDataEntryRollOver" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoDataEntryRollOver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UndoDataEntryRollOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingPayableDataEntryFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingPayableDataEntryFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingPayableDataEntryFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingPayableDataEntryFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingPayableDataEntryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingPayableDataEntryList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingPayableDataEntryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingPayableDataEntryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingPayableDataEntryListAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingPayableDataEntryListAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingPayableDataEntryListAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingPayableDataEntryListAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertOutstandingPayableDataEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOutstandingPayableDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertOutstandingPayableDataEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOutstandingPayableDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateOutstandingPayableDataEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOutstandingPayableDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateOutstandingPayableDataEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOutstandingPayableDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteOutstandingPayableDataEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOutstandingPayableDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteOutstandingPayableDataEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOutstandingPayableDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoOutstandingPayable_InputMessage">
+    <wsdl:part name="parameters" element="tns:UndoOutstandingPayable" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UndoOutstandingPayable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UndoOutstandingPayableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutFillFeeRebateDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutFillFeeRebateDetail" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutFillFeeRebateDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutFillFeeRebateDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_FunctionCheckSyariahProfitFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:FunctionCheckSyariahProfitFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_FunctionCheckSyariahProfitFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FunctionCheckSyariahProfitFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_FunctionCheckPortValuationFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:FunctionCheckPortValuationFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_FunctionCheckPortValuationFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FunctionCheckPortValuationFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_AdjustmentMoneyMarketITList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustmentMoneyMarketITList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_AdjustmentMoneyMarketITList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustmentMoneyMarketITListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetAdjustmentMoneyMarketITFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdjustmentMoneyMarketITFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetAdjustmentMoneyMarketITFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdjustmentMoneyMarketITFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateAdjustmentMoneyMarketIT_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdjustmentMoneyMarketIT" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateAdjustmentMoneyMarketIT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdjustmentMoneyMarketITResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeletionMoneyMarketITList_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletionMoneyMarketITList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeletionMoneyMarketITList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletionMoneyMarketITListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDeletionMoneyMarketITFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeletionMoneyMarketITFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetDeletionMoneyMarketITFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeletionMoneyMarketITFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetCustodianFeePaymentFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustodianFeePaymentFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetCustodianFeePaymentFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustodianFeePaymentFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetCustodianFeePaymentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustodianFeePaymentList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetCustodianFeePaymentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustodianFeePaymentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertCustodianFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustodianFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertCustodianFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustodianFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateCustodianFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustodianFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateCustodianFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustodianFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteCustodianFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustodianFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteCustodianFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustodianFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetManagementFeePaymentFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagementFeePaymentFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetManagementFeePaymentFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagementFeePaymentFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetManagementFeePaymentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagementFeePaymentList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetManagementFeePaymentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagementFeePaymentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertManagementFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertManagementFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertManagementFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertManagementFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateManagementFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManagementFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateManagementFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManagementFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteManagementFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteManagementFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteManagementFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteManagementFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetAuditFeePaymentFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditFeePaymentFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetAuditFeePaymentFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditFeePaymentFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetAuditFeePaymentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditFeePaymentList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetAuditFeePaymentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditFeePaymentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertAuditFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAuditFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertAuditFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAuditFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateAuditFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuditFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateAuditFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuditFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteAuditFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuditFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteAuditFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuditFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSubsRedemPayablePaymentFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubsRedemPayablePaymentFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSubsRedemPayablePaymentFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubsRedemPayablePaymentFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSubsRedemPayablePaymentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubsRedemPayablePaymentList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSubsRedemPayablePaymentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubsRedemPayablePaymentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertSubsRedemPayablePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSubsRedemPayablePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertSubsRedemPayablePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSubsRedemPayablePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateSubsRedemPayablePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSubsRedemPayablePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateSubsRedemPayablePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSubsRedemPayablePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteSubsRedemPayablePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubsRedemPayablePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteSubsRedemPayablePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubsRedemPayablePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSubsRedemPayableMovementFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubsRedemPayableMovementFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSubsRedemPayableMovementFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubsRedemPayableMovementFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSubsRedemPayableMovementList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubsRedemPayableMovementList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetSubsRedemPayableMovementList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubsRedemPayableMovementListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertSubsRedemPayableMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSubsRedemPayableMovement" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertSubsRedemPayableMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSubsRedemPayableMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateSubsRedemPayableMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSubsRedemPayableMovement" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateSubsRedemPayableMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSubsRedemPayableMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteSubsRedemPayableMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubsRedemPayableMovement" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteSubsRedemPayableMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubsRedemPayableMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingCashDataEntryFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingCashDataEntryFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingCashDataEntryFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingCashDataEntryFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingCashDataEntryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingCashDataEntryList" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_GetOutstandingCashDataEntryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingCashDataEntryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertOutstandingCashDataEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOutstandingCashDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_InsertOutstandingCashDataEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOutstandingCashDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateOutstandingCashDataEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOutstandingCashDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_UpdateOutstandingCashDataEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOutstandingCashDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteOutstandingCashDataEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOutstandingCashDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="IMoneyMarketManager_DeleteOutstandingCashDataEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOutstandingCashDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMoneyMarketManager">
+    <wsdl:operation name="UndoOutstandingCashDataEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoOutstandingCashDataEntry" message="tns:IMoneyMarketManager_UndoOutstandingCashDataEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoOutstandingCashDataEntryResponse" message="tns:IMoneyMarketManager_UndoOutstandingCashDataEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingUnitFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingUnitFindBy" message="tns:IMoneyMarketManager_GetOutstandingUnitFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingUnitFindByResponse" message="tns:IMoneyMarketManager_GetOutstandingUnitFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingUnitList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingUnitList" message="tns:IMoneyMarketManager_GetOutstandingUnitList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingUnitListResponse" message="tns:IMoneyMarketManager_GetOutstandingUnitList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOutstandingUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertOutstandingUnit" message="tns:IMoneyMarketManager_InsertOutstandingUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertOutstandingUnitResponse" message="tns:IMoneyMarketManager_InsertOutstandingUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOutstandingUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingUnit" message="tns:IMoneyMarketManager_UpdateOutstandingUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingUnitResponse" message="tns:IMoneyMarketManager_UpdateOutstandingUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutstandingUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingUnit" message="tns:IMoneyMarketManager_DeleteOutstandingUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingUnitResponse" message="tns:IMoneyMarketManager_DeleteOutstandingUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoOutstandingUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoOutstandingUnit" message="tns:IMoneyMarketManager_UndoOutstandingUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoOutstandingUnitResponse" message="tns:IMoneyMarketManager_UndoOutstandingUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRebatePaymentHeaderFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentHeaderFindBy" message="tns:IMoneyMarketManager_GetRebatePaymentHeaderFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentHeaderFindByResponse" message="tns:IMoneyMarketManager_GetRebatePaymentHeaderFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRebatePaymentHeaderList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentHeaderList" message="tns:IMoneyMarketManager_GetRebatePaymentHeaderList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentHeaderListResponse" message="tns:IMoneyMarketManager_GetRebatePaymentHeaderList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRebatePaymentHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertRebatePaymentHeader" message="tns:IMoneyMarketManager_InsertRebatePaymentHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertRebatePaymentHeaderResponse" message="tns:IMoneyMarketManager_InsertRebatePaymentHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRebatePaymentHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateRebatePaymentHeader" message="tns:IMoneyMarketManager_UpdateRebatePaymentHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateRebatePaymentHeaderResponse" message="tns:IMoneyMarketManager_UpdateRebatePaymentHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRebatePaymentHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteRebatePaymentHeader" message="tns:IMoneyMarketManager_DeleteRebatePaymentHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteRebatePaymentHeaderResponse" message="tns:IMoneyMarketManager_DeleteRebatePaymentHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRebatePaymentDetailFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentDetailFindBy" message="tns:IMoneyMarketManager_GetRebatePaymentDetailFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentDetailFindByResponse" message="tns:IMoneyMarketManager_GetRebatePaymentDetailFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRebatePaymentDetailList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentDetailList" message="tns:IMoneyMarketManager_GetRebatePaymentDetailList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentDetailListResponse" message="tns:IMoneyMarketManager_GetRebatePaymentDetailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRebatePaymentDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertRebatePaymentDetail" message="tns:IMoneyMarketManager_InsertRebatePaymentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertRebatePaymentDetailResponse" message="tns:IMoneyMarketManager_InsertRebatePaymentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRebatePaymentDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateRebatePaymentDetail" message="tns:IMoneyMarketManager_UpdateRebatePaymentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateRebatePaymentDetailResponse" message="tns:IMoneyMarketManager_UpdateRebatePaymentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRebatePaymentDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteRebatePaymentDetail" message="tns:IMoneyMarketManager_DeleteRebatePaymentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteRebatePaymentDetailResponse" message="tns:IMoneyMarketManager_DeleteRebatePaymentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryLiquidateFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryLiquidateFindBy" message="tns:IMoneyMarketManager_GetDataEntryLiquidateFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryLiquidateFindByResponse" message="tns:IMoneyMarketManager_GetDataEntryLiquidateFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryLiquidateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryLiquidateList" message="tns:IMoneyMarketManager_GetDataEntryLiquidateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryLiquidateListResponse" message="tns:IMoneyMarketManager_GetDataEntryLiquidateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDataEntryLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertDataEntryLiquidate" message="tns:IMoneyMarketManager_InsertDataEntryLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertDataEntryLiquidateResponse" message="tns:IMoneyMarketManager_InsertDataEntryLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataEntryLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryLiquidate" message="tns:IMoneyMarketManager_UpdateDataEntryLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryLiquidateResponse" message="tns:IMoneyMarketManager_UpdateDataEntryLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataEntryLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryLiquidate" message="tns:IMoneyMarketManager_DeleteDataEntryLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryLiquidateResponse" message="tns:IMoneyMarketManager_DeleteDataEntryLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoDataEntryLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoDataEntryLiquidate" message="tns:IMoneyMarketManager_UndoDataEntryLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoDataEntryLiquidateResponse" message="tns:IMoneyMarketManager_UndoDataEntryLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJobDataEntryLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/ProcessJobDataEntryLiquidate" message="tns:IMoneyMarketManager_ProcessJobDataEntryLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/ProcessJobDataEntryLiquidateResponse" message="tns:IMoneyMarketManager_ProcessJobDataEntryLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionInterestFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetFunctionInterestFindBy" message="tns:IMoneyMarketManager_GetFunctionInterestFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetFunctionInterestFindByResponse" message="tns:IMoneyMarketManager_GetFunctionInterestFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FunctionGetSyariahFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/FunctionGetSyariahFindBy" message="tns:IMoneyMarketManager_FunctionGetSyariahFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/FunctionGetSyariahFindByResponse" message="tns:IMoneyMarketManager_FunctionGetSyariahFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FunctionGetSyariahTableFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/FunctionGetSyariahTableFindBy" message="tns:IMoneyMarketManager_FunctionGetSyariahTableFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/FunctionGetSyariahTableFindByResponse" message="tns:IMoneyMarketManager_FunctionGetSyariahTableFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreForwardLiquidateFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetStoreForwardLiquidateFindBy" message="tns:IMoneyMarketManager_GetStoreForwardLiquidateFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetStoreForwardLiquidateFindByResponse" message="tns:IMoneyMarketManager_GetStoreForwardLiquidateFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreForwardLiquidateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetStoreForwardLiquidateList" message="tns:IMoneyMarketManager_GetStoreForwardLiquidateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetStoreForwardLiquidateListResponse" message="tns:IMoneyMarketManager_GetStoreForwardLiquidateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertStoreForwardLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertStoreForwardLiquidate" message="tns:IMoneyMarketManager_InsertStoreForwardLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertStoreForwardLiquidateResponse" message="tns:IMoneyMarketManager_InsertStoreForwardLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStoreForwardLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateStoreForwardLiquidate" message="tns:IMoneyMarketManager_UpdateStoreForwardLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateStoreForwardLiquidateResponse" message="tns:IMoneyMarketManager_UpdateStoreForwardLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStoreForwardLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteStoreForwardLiquidate" message="tns:IMoneyMarketManager_DeleteStoreForwardLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteStoreForwardLiquidateResponse" message="tns:IMoneyMarketManager_DeleteStoreForwardLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoStoreForwardLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoStoreForwardLiquidate" message="tns:IMoneyMarketManager_UndoStoreForwardLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoStoreForwardLiquidateResponse" message="tns:IMoneyMarketManager_UndoStoreForwardLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJobStoreForwardLiquidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/ProcessJobStoreForwardLiquidate" message="tns:IMoneyMarketManager_ProcessJobStoreForwardLiquidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/ProcessJobStoreForwardLiquidateResponse" message="tns:IMoneyMarketManager_ProcessJobStoreForwardLiquidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreForwardRollOverFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetStoreForwardRollOverFindBy" message="tns:IMoneyMarketManager_GetStoreForwardRollOverFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetStoreForwardRollOverFindByResponse" message="tns:IMoneyMarketManager_GetStoreForwardRollOverFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreForwardRollOverList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetStoreForwardRollOverList" message="tns:IMoneyMarketManager_GetStoreForwardRollOverList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetStoreForwardRollOverListResponse" message="tns:IMoneyMarketManager_GetStoreForwardRollOverList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertStoreForwardRollOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertStoreForwardRollOver" message="tns:IMoneyMarketManager_InsertStoreForwardRollOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertStoreForwardRollOverResponse" message="tns:IMoneyMarketManager_InsertStoreForwardRollOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStoreForwardRollOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateStoreForwardRollOver" message="tns:IMoneyMarketManager_UpdateStoreForwardRollOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateStoreForwardRollOverResponse" message="tns:IMoneyMarketManager_UpdateStoreForwardRollOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStoreForwardRollOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteStoreForwardRollOver" message="tns:IMoneyMarketManager_DeleteStoreForwardRollOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteStoreForwardRollOverResponse" message="tns:IMoneyMarketManager_DeleteStoreForwardRollOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoStoreForwardRollOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoStoreForwardRollOver" message="tns:IMoneyMarketManager_UndoStoreForwardRollOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoStoreForwardRollOverResponse" message="tns:IMoneyMarketManager_UndoStoreForwardRollOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJobStoreForwardRollOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/ProcessJobStoreForwardRollOver" message="tns:IMoneyMarketManager_ProcessJobStoreForwardRollOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/ProcessJobStoreForwardRollOverResponse" message="tns:IMoneyMarketManager_ProcessJobStoreForwardRollOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSyariahProfitFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSyariahProfitFindBy" message="tns:IMoneyMarketManager_GetSyariahProfitFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSyariahProfitFindByResponse" message="tns:IMoneyMarketManager_GetSyariahProfitFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSyariahProfitList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSyariahProfitList" message="tns:IMoneyMarketManager_GetSyariahProfitList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSyariahProfitListResponse" message="tns:IMoneyMarketManager_GetSyariahProfitList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSyariahProfit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertSyariahProfit" message="tns:IMoneyMarketManager_InsertSyariahProfit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertSyariahProfitResponse" message="tns:IMoneyMarketManager_InsertSyariahProfit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSyariahProfit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateSyariahProfit" message="tns:IMoneyMarketManager_UpdateSyariahProfit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateSyariahProfitResponse" message="tns:IMoneyMarketManager_UpdateSyariahProfit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSyariahProfit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteSyariahProfit" message="tns:IMoneyMarketManager_DeleteSyariahProfit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteSyariahProfitResponse" message="tns:IMoneyMarketManager_DeleteSyariahProfit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryNewPlacementFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryNewPlacementFindBy" message="tns:IMoneyMarketManager_GetDataEntryNewPlacementFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryNewPlacementFindByResponse" message="tns:IMoneyMarketManager_GetDataEntryNewPlacementFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryNewPlacementList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryNewPlacementList" message="tns:IMoneyMarketManager_GetDataEntryNewPlacementList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryNewPlacementListResponse" message="tns:IMoneyMarketManager_GetDataEntryNewPlacementList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDataEntryNewPlacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertDataEntryNewPlacement" message="tns:IMoneyMarketManager_InsertDataEntryNewPlacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertDataEntryNewPlacementResponse" message="tns:IMoneyMarketManager_InsertDataEntryNewPlacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataEntryNewPlacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryNewPlacement" message="tns:IMoneyMarketManager_UpdateDataEntryNewPlacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryNewPlacementResponse" message="tns:IMoneyMarketManager_UpdateDataEntryNewPlacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataEntryNewPlacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryNewPlacement" message="tns:IMoneyMarketManager_DeleteDataEntryNewPlacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryNewPlacementResponse" message="tns:IMoneyMarketManager_DeleteDataEntryNewPlacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryRollOverFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryRollOverFindBy" message="tns:IMoneyMarketManager_GetDataEntryRollOverFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryRollOverFindByResponse" message="tns:IMoneyMarketManager_GetDataEntryRollOverFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryRollOverList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryRollOverList" message="tns:IMoneyMarketManager_GetDataEntryRollOverList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDataEntryRollOverListResponse" message="tns:IMoneyMarketManager_GetDataEntryRollOverList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyMarket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetMoneyMarket" message="tns:IMoneyMarketManager_GetMoneyMarket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetMoneyMarketResponse" message="tns:IMoneyMarketManager_GetMoneyMarket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataEntryRollOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryRollOver" message="tns:IMoneyMarketManager_UpdateDataEntryRollOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryRollOverResponse" message="tns:IMoneyMarketManager_UpdateDataEntryRollOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataEntryRollOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryRollOver" message="tns:IMoneyMarketManager_DeleteDataEntryRollOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryRollOverResponse" message="tns:IMoneyMarketManager_DeleteDataEntryRollOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoDataEntryRollOver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoDataEntryRollOver" message="tns:IMoneyMarketManager_UndoDataEntryRollOver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoDataEntryRollOverResponse" message="tns:IMoneyMarketManager_UndoDataEntryRollOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingPayableDataEntryFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryFindBy" message="tns:IMoneyMarketManager_GetOutstandingPayableDataEntryFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryFindByResponse" message="tns:IMoneyMarketManager_GetOutstandingPayableDataEntryFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingPayableDataEntryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryList" message="tns:IMoneyMarketManager_GetOutstandingPayableDataEntryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryListResponse" message="tns:IMoneyMarketManager_GetOutstandingPayableDataEntryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingPayableDataEntryListAdjustment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryListAdjustment" message="tns:IMoneyMarketManager_GetOutstandingPayableDataEntryListAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryListAdjustmentResponse" message="tns:IMoneyMarketManager_GetOutstandingPayableDataEntryListAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOutstandingPayableDataEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertOutstandingPayableDataEntry" message="tns:IMoneyMarketManager_InsertOutstandingPayableDataEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertOutstandingPayableDataEntryResponse" message="tns:IMoneyMarketManager_InsertOutstandingPayableDataEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOutstandingPayableDataEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingPayableDataEntry" message="tns:IMoneyMarketManager_UpdateOutstandingPayableDataEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingPayableDataEntryResponse" message="tns:IMoneyMarketManager_UpdateOutstandingPayableDataEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutstandingPayableDataEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingPayableDataEntry" message="tns:IMoneyMarketManager_DeleteOutstandingPayableDataEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingPayableDataEntryResponse" message="tns:IMoneyMarketManager_DeleteOutstandingPayableDataEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoOutstandingPayable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoOutstandingPayable" message="tns:IMoneyMarketManager_UndoOutstandingPayable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UndoOutstandingPayableResponse" message="tns:IMoneyMarketManager_UndoOutstandingPayable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutFillFeeRebateDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutFillFeeRebateDetail" message="tns:IMoneyMarketManager_GetOutFillFeeRebateDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutFillFeeRebateDetailResponse" message="tns:IMoneyMarketManager_GetOutFillFeeRebateDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FunctionCheckSyariahProfitFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/FunctionCheckSyariahProfitFindBy" message="tns:IMoneyMarketManager_FunctionCheckSyariahProfitFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/FunctionCheckSyariahProfitFindByResponse" message="tns:IMoneyMarketManager_FunctionCheckSyariahProfitFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FunctionCheckPortValuationFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/FunctionCheckPortValuationFindBy" message="tns:IMoneyMarketManager_FunctionCheckPortValuationFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/FunctionCheckPortValuationFindByResponse" message="tns:IMoneyMarketManager_FunctionCheckPortValuationFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustmentMoneyMarketITList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/AdjustmentMoneyMarketITList" message="tns:IMoneyMarketManager_AdjustmentMoneyMarketITList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/AdjustmentMoneyMarketITListResponse" message="tns:IMoneyMarketManager_AdjustmentMoneyMarketITList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustmentMoneyMarketITFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetAdjustmentMoneyMarketITFindBy" message="tns:IMoneyMarketManager_GetAdjustmentMoneyMarketITFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetAdjustmentMoneyMarketITFindByResponse" message="tns:IMoneyMarketManager_GetAdjustmentMoneyMarketITFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdjustmentMoneyMarketIT">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateAdjustmentMoneyMarketIT" message="tns:IMoneyMarketManager_UpdateAdjustmentMoneyMarketIT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateAdjustmentMoneyMarketITResponse" message="tns:IMoneyMarketManager_UpdateAdjustmentMoneyMarketIT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletionMoneyMarketITList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeletionMoneyMarketITList" message="tns:IMoneyMarketManager_DeletionMoneyMarketITList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeletionMoneyMarketITListResponse" message="tns:IMoneyMarketManager_DeletionMoneyMarketITList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeletionMoneyMarketITFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDeletionMoneyMarketITFindBy" message="tns:IMoneyMarketManager_GetDeletionMoneyMarketITFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetDeletionMoneyMarketITFindByResponse" message="tns:IMoneyMarketManager_GetDeletionMoneyMarketITFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustodianFeePaymentFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetCustodianFeePaymentFindBy" message="tns:IMoneyMarketManager_GetCustodianFeePaymentFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetCustodianFeePaymentFindByResponse" message="tns:IMoneyMarketManager_GetCustodianFeePaymentFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustodianFeePaymentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetCustodianFeePaymentList" message="tns:IMoneyMarketManager_GetCustodianFeePaymentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetCustodianFeePaymentListResponse" message="tns:IMoneyMarketManager_GetCustodianFeePaymentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustodianFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertCustodianFeePayment" message="tns:IMoneyMarketManager_InsertCustodianFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertCustodianFeePaymentResponse" message="tns:IMoneyMarketManager_InsertCustodianFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustodianFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateCustodianFeePayment" message="tns:IMoneyMarketManager_UpdateCustodianFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateCustodianFeePaymentResponse" message="tns:IMoneyMarketManager_UpdateCustodianFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustodianFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteCustodianFeePayment" message="tns:IMoneyMarketManager_DeleteCustodianFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteCustodianFeePaymentResponse" message="tns:IMoneyMarketManager_DeleteCustodianFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManagementFeePaymentFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetManagementFeePaymentFindBy" message="tns:IMoneyMarketManager_GetManagementFeePaymentFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetManagementFeePaymentFindByResponse" message="tns:IMoneyMarketManager_GetManagementFeePaymentFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManagementFeePaymentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetManagementFeePaymentList" message="tns:IMoneyMarketManager_GetManagementFeePaymentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetManagementFeePaymentListResponse" message="tns:IMoneyMarketManager_GetManagementFeePaymentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertManagementFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertManagementFeePayment" message="tns:IMoneyMarketManager_InsertManagementFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertManagementFeePaymentResponse" message="tns:IMoneyMarketManager_InsertManagementFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManagementFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateManagementFeePayment" message="tns:IMoneyMarketManager_UpdateManagementFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateManagementFeePaymentResponse" message="tns:IMoneyMarketManager_UpdateManagementFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManagementFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteManagementFeePayment" message="tns:IMoneyMarketManager_DeleteManagementFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteManagementFeePaymentResponse" message="tns:IMoneyMarketManager_DeleteManagementFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditFeePaymentFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetAuditFeePaymentFindBy" message="tns:IMoneyMarketManager_GetAuditFeePaymentFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetAuditFeePaymentFindByResponse" message="tns:IMoneyMarketManager_GetAuditFeePaymentFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditFeePaymentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetAuditFeePaymentList" message="tns:IMoneyMarketManager_GetAuditFeePaymentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetAuditFeePaymentListResponse" message="tns:IMoneyMarketManager_GetAuditFeePaymentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAuditFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertAuditFeePayment" message="tns:IMoneyMarketManager_InsertAuditFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertAuditFeePaymentResponse" message="tns:IMoneyMarketManager_InsertAuditFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuditFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateAuditFeePayment" message="tns:IMoneyMarketManager_UpdateAuditFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateAuditFeePaymentResponse" message="tns:IMoneyMarketManager_UpdateAuditFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuditFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteAuditFeePayment" message="tns:IMoneyMarketManager_DeleteAuditFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteAuditFeePaymentResponse" message="tns:IMoneyMarketManager_DeleteAuditFeePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubsRedemPayablePaymentFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayablePaymentFindBy" message="tns:IMoneyMarketManager_GetSubsRedemPayablePaymentFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayablePaymentFindByResponse" message="tns:IMoneyMarketManager_GetSubsRedemPayablePaymentFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubsRedemPayablePaymentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayablePaymentList" message="tns:IMoneyMarketManager_GetSubsRedemPayablePaymentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayablePaymentListResponse" message="tns:IMoneyMarketManager_GetSubsRedemPayablePaymentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSubsRedemPayablePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertSubsRedemPayablePayment" message="tns:IMoneyMarketManager_InsertSubsRedemPayablePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertSubsRedemPayablePaymentResponse" message="tns:IMoneyMarketManager_InsertSubsRedemPayablePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubsRedemPayablePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateSubsRedemPayablePayment" message="tns:IMoneyMarketManager_UpdateSubsRedemPayablePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateSubsRedemPayablePaymentResponse" message="tns:IMoneyMarketManager_UpdateSubsRedemPayablePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubsRedemPayablePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteSubsRedemPayablePayment" message="tns:IMoneyMarketManager_DeleteSubsRedemPayablePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteSubsRedemPayablePaymentResponse" message="tns:IMoneyMarketManager_DeleteSubsRedemPayablePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubsRedemPayableMovementFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayableMovementFindBy" message="tns:IMoneyMarketManager_GetSubsRedemPayableMovementFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayableMovementFindByResponse" message="tns:IMoneyMarketManager_GetSubsRedemPayableMovementFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubsRedemPayableMovementList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayableMovementList" message="tns:IMoneyMarketManager_GetSubsRedemPayableMovementList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayableMovementListResponse" message="tns:IMoneyMarketManager_GetSubsRedemPayableMovementList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSubsRedemPayableMovement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertSubsRedemPayableMovement" message="tns:IMoneyMarketManager_InsertSubsRedemPayableMovement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertSubsRedemPayableMovementResponse" message="tns:IMoneyMarketManager_InsertSubsRedemPayableMovement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubsRedemPayableMovement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateSubsRedemPayableMovement" message="tns:IMoneyMarketManager_UpdateSubsRedemPayableMovement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateSubsRedemPayableMovementResponse" message="tns:IMoneyMarketManager_UpdateSubsRedemPayableMovement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubsRedemPayableMovement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteSubsRedemPayableMovement" message="tns:IMoneyMarketManager_DeleteSubsRedemPayableMovement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteSubsRedemPayableMovementResponse" message="tns:IMoneyMarketManager_DeleteSubsRedemPayableMovement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingCashDataEntryFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingCashDataEntryFindBy" message="tns:IMoneyMarketManager_GetOutstandingCashDataEntryFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingCashDataEntryFindByResponse" message="tns:IMoneyMarketManager_GetOutstandingCashDataEntryFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingCashDataEntryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingCashDataEntryList" message="tns:IMoneyMarketManager_GetOutstandingCashDataEntryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/GetOutstandingCashDataEntryListResponse" message="tns:IMoneyMarketManager_GetOutstandingCashDataEntryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOutstandingCashDataEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertOutstandingCashDataEntry" message="tns:IMoneyMarketManager_InsertOutstandingCashDataEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/InsertOutstandingCashDataEntryResponse" message="tns:IMoneyMarketManager_InsertOutstandingCashDataEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOutstandingCashDataEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingCashDataEntry" message="tns:IMoneyMarketManager_UpdateOutstandingCashDataEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingCashDataEntryResponse" message="tns:IMoneyMarketManager_UpdateOutstandingCashDataEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutstandingCashDataEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingCashDataEntry" message="tns:IMoneyMarketManager_DeleteOutstandingCashDataEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingCashDataEntryResponse" message="tns:IMoneyMarketManager_DeleteOutstandingCashDataEntry_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMoneyMarketManager" type="tns:IMoneyMarketManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UndoOutstandingCashDataEntry">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UndoOutstandingCashDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingUnitFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetOutstandingUnitFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingUnitList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetOutstandingUnitList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOutstandingUnit">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertOutstandingUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOutstandingUnit">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutstandingUnit">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoOutstandingUnit">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UndoOutstandingUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRebatePaymentHeaderFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentHeaderFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRebatePaymentHeaderList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentHeaderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRebatePaymentHeader">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertRebatePaymentHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRebatePaymentHeader">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateRebatePaymentHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRebatePaymentHeader">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteRebatePaymentHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRebatePaymentDetailFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentDetailFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRebatePaymentDetailList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetRebatePaymentDetailList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRebatePaymentDetail">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertRebatePaymentDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRebatePaymentDetail">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateRebatePaymentDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRebatePaymentDetail">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteRebatePaymentDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryLiquidateFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetDataEntryLiquidateFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryLiquidateList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetDataEntryLiquidateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDataEntryLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertDataEntryLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataEntryLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataEntryLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoDataEntryLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UndoDataEntryLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJobDataEntryLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/ProcessJobDataEntryLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionInterestFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetFunctionInterestFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FunctionGetSyariahFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/FunctionGetSyariahFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FunctionGetSyariahTableFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/FunctionGetSyariahTableFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreForwardLiquidateFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetStoreForwardLiquidateFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreForwardLiquidateList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetStoreForwardLiquidateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertStoreForwardLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertStoreForwardLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStoreForwardLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateStoreForwardLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStoreForwardLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteStoreForwardLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoStoreForwardLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UndoStoreForwardLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJobStoreForwardLiquidate">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/ProcessJobStoreForwardLiquidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreForwardRollOverFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetStoreForwardRollOverFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreForwardRollOverList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetStoreForwardRollOverList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertStoreForwardRollOver">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertStoreForwardRollOver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStoreForwardRollOver">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateStoreForwardRollOver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStoreForwardRollOver">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteStoreForwardRollOver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoStoreForwardRollOver">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UndoStoreForwardRollOver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJobStoreForwardRollOver">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/ProcessJobStoreForwardRollOver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyariahProfitFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetSyariahProfitFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyariahProfitList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetSyariahProfitList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSyariahProfit">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertSyariahProfit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSyariahProfit">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateSyariahProfit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSyariahProfit">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteSyariahProfit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryNewPlacementFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetDataEntryNewPlacementFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryNewPlacementList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetDataEntryNewPlacementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDataEntryNewPlacement">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertDataEntryNewPlacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataEntryNewPlacement">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryNewPlacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataEntryNewPlacement">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryNewPlacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryRollOverFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetDataEntryRollOverFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEntryRollOverList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetDataEntryRollOverList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyMarket">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetMoneyMarket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataEntryRollOver">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateDataEntryRollOver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataEntryRollOver">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteDataEntryRollOver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoDataEntryRollOver">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UndoDataEntryRollOver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingPayableDataEntryFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingPayableDataEntryList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingPayableDataEntryListAdjustment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetOutstandingPayableDataEntryListAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOutstandingPayableDataEntry">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertOutstandingPayableDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOutstandingPayableDataEntry">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingPayableDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutstandingPayableDataEntry">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingPayableDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoOutstandingPayable">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UndoOutstandingPayable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutFillFeeRebateDetail">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetOutFillFeeRebateDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FunctionCheckSyariahProfitFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/FunctionCheckSyariahProfitFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FunctionCheckPortValuationFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/FunctionCheckPortValuationFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustmentMoneyMarketITList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/AdjustmentMoneyMarketITList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustmentMoneyMarketITFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetAdjustmentMoneyMarketITFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdjustmentMoneyMarketIT">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateAdjustmentMoneyMarketIT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletionMoneyMarketITList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeletionMoneyMarketITList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeletionMoneyMarketITFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetDeletionMoneyMarketITFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustodianFeePaymentFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetCustodianFeePaymentFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustodianFeePaymentList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetCustodianFeePaymentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustodianFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertCustodianFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustodianFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateCustodianFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustodianFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteCustodianFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManagementFeePaymentFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetManagementFeePaymentFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManagementFeePaymentList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetManagementFeePaymentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertManagementFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertManagementFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManagementFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateManagementFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManagementFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteManagementFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditFeePaymentFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetAuditFeePaymentFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditFeePaymentList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetAuditFeePaymentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAuditFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertAuditFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuditFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateAuditFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuditFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteAuditFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubsRedemPayablePaymentFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayablePaymentFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubsRedemPayablePaymentList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayablePaymentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSubsRedemPayablePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertSubsRedemPayablePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubsRedemPayablePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateSubsRedemPayablePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubsRedemPayablePayment">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteSubsRedemPayablePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubsRedemPayableMovementFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayableMovementFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubsRedemPayableMovementList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetSubsRedemPayableMovementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSubsRedemPayableMovement">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertSubsRedemPayableMovement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubsRedemPayableMovement">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateSubsRedemPayableMovement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubsRedemPayableMovement">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteSubsRedemPayableMovement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingCashDataEntryFindBy">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetOutstandingCashDataEntryFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingCashDataEntryList">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/GetOutstandingCashDataEntryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOutstandingCashDataEntry">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/InsertOutstandingCashDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOutstandingCashDataEntry">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/UpdateOutstandingCashDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutstandingCashDataEntry">
+      <soap:operation soapAction="http://tempuri.org/IMoneyMarketManager/DeleteOutstandingCashDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BOAJMIMoneyMarketService">
+    <wsdl:port name="BasicHttpBinding_IMoneyMarketManager" binding="tns:BasicHttpBinding_IMoneyMarketManager">
+      <soap:address location="http://localhost:55553/BOAJMIMoneyMarketService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

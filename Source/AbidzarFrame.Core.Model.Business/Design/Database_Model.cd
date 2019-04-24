@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AbidzarFrame.Core.Model.Business.GenericDbFactory">
+    <Position X="0.5" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAQAAIAAEABAAUAAAACAAAgAAAAAABAAAABAA=</HashCode>
+      <FileName>Factory\GenericDbFactory.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.DbCredential">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAACAAAAAAAgAAAAAAAAKACAAAAAAAAA=</HashCode>
+      <FileName>Data\DbCredential.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.AwsDb">
+    <Position X="7.25" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Factory\AwsDb.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.OracleDbFactory">
+    <Position X="4" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAGEBAAEAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\OracleDbFactory.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbidzarFrame.Core.Model.Business.OleDbFactory">
+    <Position X="4" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAEABAAEAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\OleDbFactory.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="AbidzarFrame.Core.Model.Business.IDbCredential">
+    <Position X="4" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAACACAAAAAAAAA=</HashCode>
+      <FileName>IDbCredential.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AbidzarFrame.Core.Model.Business.IDbConnFactory">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAEABAAUAAAAAAAAgAAAAAAAAAAABAA=</HashCode>
+      <FileName>IDbConnFactory.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

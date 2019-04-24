@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE9F185B-7688-4EC3-B349-9DD2A9511C9D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AbidzarFrame.Master.Interface</RootNamespace>
+    <AssemblyName>AbidzarFrame.Master.Interface</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dto\Parameter\ParameterRequest.cs" />
+    <Compile Include="Dto\Parameter\ParameterResponse.cs" />
+    <Compile Include="Dto\Parameter\ParameterResult.cs" />
+    <Compile Include="Dto\SlideShow\SlideShowRequest.cs" />
+    <Compile Include="Dto\SlideShow\SlideShowResponse.cs" />
+    <Compile Include="Dto\SlideShow\SlideShowResult.cs" />
+    <Compile Include="Dto\AppointmentDairy\AppointmentDiaryRequest.cs" />
+    <Compile Include="Dto\AppointmentDairy\AppointmentDiaryResponse.cs" />
+    <Compile Include="Dto\AppointmentDairy\AppointmentDiaryResult.cs" />
+    <Compile Include="Dto\JadwalSiskamling\JadwalSiskamlingRequest.cs" />
+    <Compile Include="Dto\JadwalSiskamling\JadwalSiskamlingResponse.cs" />
+    <Compile Include="Dto\JadwalSiskamling\JadwalSiskamlingResult.cs" />
+    <Compile Include="Dto\Agama\AgamaRequest.cs" />
+    <Compile Include="Dto\Agama\AgamaResponse.cs" />
+    <Compile Include="Dto\Agama\AgamaResult.cs" />
+    <Compile Include="Dto\DetailJenisInformasi\DetailJenisInformasiRequest.cs" />
+    <Compile Include="Dto\DetailJenisInformasi\DetailJenisInformasiResponse.cs" />
+    <Compile Include="Dto\DetailJenisInformasi\DetailJenisInformasiResult.cs" />
+    <Compile Include="Dto\DetailJenisKegiatan\DetailJenisKegiatanRequest.cs" />
+    <Compile Include="Dto\DetailJenisKegiatan\DetailJenisKegiatanResponse.cs" />
+    <Compile Include="Dto\DetailJenisKegiatan\DetailJenisKegiatanResult.cs" />
+    <Compile Include="Dto\DokumentasiDetailJenisKegiatan\DokumentasiDetailJenisKegiatanRequest.cs" />
+    <Compile Include="Dto\DokumentasiDetailJenisKegiatan\DokumentasiDetailJenisKegiatanResponse.cs" />
+    <Compile Include="Dto\DokumentasiDetailJenisKegiatan\DokumentasiDetailJenisKegiatanResult.cs" />
+    <Compile Include="Dto\GolonganDarah\GolonganDarahRequest.cs" />
+    <Compile Include="Dto\GolonganDarah\GolonganDarahResponse.cs" />
+    <Compile Include="Dto\GolonganDarah\GolonganDarahResult.cs" />
+    <Compile Include="Dto\Jabatan\JabatanRequest.cs" />
+    <Compile Include="Dto\Jabatan\JabatanResponse.cs" />
+    <Compile Include="Dto\Jabatan\JabatanResult.cs" />
+    <Compile Include="Dto\JenisInformasi\JenisInformasiRequest.cs" />
+    <Compile Include="Dto\JenisInformasi\JenisInformasiResponse.cs" />
+    <Compile Include="Dto\JenisInformasi\JenisInformasiResult.cs" />
+    <Compile Include="Dto\JenisKegiatan\JenisKegiatanRequest.cs" />
+    <Compile Include="Dto\JenisKegiatan\JenisKegiatanResponse.cs" />
+    <Compile Include="Dto\JenisKegiatan\JenisKegiatanResult.cs" />
+    <Compile Include="Dto\JenisKelamin\JenisKelaminRequest.cs" />
+    <Compile Include="Dto\JenisKelamin\JenisKelaminResponse.cs" />
+    <Compile Include="Dto\JenisKelamin\JenisKelaminResult.cs" />
+    <Compile Include="Dto\JenisPekerjaan\JenisPekerjaanRequest.cs" />
+    <Compile Include="Dto\JenisPekerjaan\JenisPekerjaanResponse.cs" />
+    <Compile Include="Dto\JenisPekerjaan\JenisPekerjaanResult.cs" />
+    <Compile Include="Dto\Kecamatan\KecamatanRequest.cs" />
+    <Compile Include="Dto\Kecamatan\KecamatanResponse.cs" />
+    <Compile Include="Dto\Kecamatan\KecamatanResult.cs" />
+    <Compile Include="Dto\Kelurahan\KelurahanRequest.cs" />
+    <Compile Include="Dto\Kelurahan\KelurahanResponse.cs" />
+    <Compile Include="Dto\Kelurahan\KelurahanResult.cs" />
+    <Compile Include="Dto\Kewarganegaraan\KewarganegaraanRequest.cs" />
+    <Compile Include="Dto\Kewarganegaraan\KewarganegaraanResponse.cs" />
+    <Compile Include="Dto\Kewarganegaraan\KewarganegaraanResult.cs" />
+    <Compile Include="Dto\Kota\KotaRequest.cs" />
+    <Compile Include="Dto\Kota\KotaResponse.cs" />
+    <Compile Include="Dto\Kota\KotaResult.cs" />
+    <Compile Include="Dto\Ktp\KtpRequest.cs" />
+    <Compile Include="Dto\Ktp\KtpResponse.cs" />
+    <Compile Include="Dto\Ktp\KtpResult.cs" />
+    <Compile Include="Dto\Pendidikan\PendidikanRequest.cs" />
+    <Compile Include="Dto\Pendidikan\PendidikanResponse.cs" />
+    <Compile Include="Dto\Pendidikan\PendidikanResult.cs" />
+    <Compile Include="Dto\PhotoKtp\PhotoKtpRequest.cs" />
+    <Compile Include="Dto\PhotoKtp\PhotoKtpResponse.cs" />
+    <Compile Include="Dto\PhotoKtp\PhotoKtpResult.cs" />
+    <Compile Include="Dto\Provinsi\ProvinsiRequest.cs" />
+    <Compile Include="Dto\Provinsi\ProvinsiResponse.cs" />
+    <Compile Include="Dto\Provinsi\ProvinsiResult.cs" />
+    <Compile Include="Dto\SignatureKtp\SignatureKtpRequest.cs" />
+    <Compile Include="Dto\SignatureKtp\SignatureKtpResponse.cs" />
+    <Compile Include="Dto\SignatureKtp\SignatureKtpResult.cs" />
+    <Compile Include="Dto\StatusPerkawinan\StatusPerkawinanRequest.cs" />
+    <Compile Include="Dto\StatusPerkawinan\StatusPerkawinanResponse.cs" />
+    <Compile Include="Dto\StatusPerkawinan\StatusPerkawinanResult.cs" />
+    <Compile Include="Dto\Struktur\StrukturRequest.cs" />
+    <Compile Include="Dto\Struktur\StrukturResponse.cs" />
+    <Compile Include="Dto\Struktur\StrukturResult.cs" />
+    <Compile Include="IMasterManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AbidzarFrame.Core.Model.Business\AbidzarFrame.Core.Model.Business.vbproj">
+      <Project>{8c7126ad-4d1d-4788-a84e-f26d05a017a0}</Project>
+      <Name>AbidzarFrame.Core.Model.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AbidzarFrame.Core.Mvc.FrameWork\AbidzarFrame.Core.Mvc.FrameWork.csproj">
+      <Project>{2fc952a2-2843-47ee-95d6-1333c0332847}</Project>
+      <Name>AbidzarFrame.Core.Mvc.FrameWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AbidzarFrame.Domain\AbidzarFrame.Domain.csproj">
+      <Project>{aa4d2f20-bee5-4153-a044-f5df515aebec}</Project>
+      <Name>AbidzarFrame.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AbidzarFrame.Utils\AbidzarFrame.Utils.vbproj">
+      <Project>{e88b2524-3bbd-4159-9fe7-e183ee2033b4}</Project>
+      <Name>AbidzarFrame.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

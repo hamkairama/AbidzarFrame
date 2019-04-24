@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{8C7126AD-4D1D-4788-A84E-F26D05A017A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AbidzarFrame.Core.Model.Business</RootNamespace>
+    <AssemblyName>AbidzarFrame.Core.Model.Business</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>AbidzarFrame.Core.Model.Business.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>AbidzarFrame.Core.Model.Business.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>AbidzarFrame.APS.Biz.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=4.112.1.2, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SQLSeverDll\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.32.2608.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Syncfusion.Chart.Base, Version=10.204.0.75, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Chart.Wpf, Version=10.204.0.75, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Core, Version=10.204.0.75, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Gauge.Wpf, Version=10.204.0.75, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Base, Version=10.204.0.75, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Wpf, Version=10.204.0.75, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe">
+      <HintPath>..\..\..\Source_Upgrade\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessModelSetting.vb" />
+    <Compile Include="BusinessReport.vb" />
+    <Compile Include="BusinessSoapErrorVo.vb" />
+    <Compile Include="ChartData\ChartDataBase.vb" />
+    <Compile Include="ChartData\DataPointPointer.vb" />
+    <Compile Include="ChartData\DataRangeBase.vb" />
+    <Compile Include="ChartData\DataRangeGauge.vb" />
+    <Compile Include="ChartData\DataSeriesGauage.vb" />
+    <Compile Include="ChartData\DataSeriesNameWithValue.vb" />
+    <Compile Include="ChartData\DataPointBase.vb" />
+    <Compile Include="ChartData\DataPointNameWithValue.vb" />
+    <Compile Include="ChartData\DataSeriesBase.vb" />
+    <Compile Include="ChartData\DataPointXY.vb" />
+    <Compile Include="ChartData\DataSeriesXY.vb" />
+    <Compile Include="ChartProviders\MsChartProvider.vb" />
+    <Compile Include="ChartProviders\SyncfusionChartProvider.vb" />
+    <Compile Include="ChartProviders\Synfusion\IChartEngine.vb" />
+    <Compile Include="DocumentBuilder.vb" />
+    <Compile Include="DocumentDirector.vb" />
+    <Compile Include="DocumentElement.vb" />
+    <Compile Include="DocumentMaster.vb" />
+    <Compile Include="DocumentMerger.vb" />
+    <Compile Include="Factory\GenericDbFactory.vb" />
+    <Compile Include="Factory\SqlSrvDbFactory.vb" />
+    <Compile Include="GenericIterator.vb" />
+    <Compile Include="Helpers\OleHelper.vb" />
+    <Compile Include="Helpers\Zip\ZipStream.vb" />
+    <Compile Include="IChartImageProvider.vb" />
+    <Compile Include="IDbConnFactory.vb" />
+    <Compile Include="IDbCredential.vb" />
+    <Compile Include="IDocument.vb" />
+    <Compile Include="IOfflineDbConnFactory.vb" />
+    <Compile Include="Factory\GenericOfflineDbFactory.vb" />
+    <Compile Include="Factory\SqlCeDbFactory.vb" />
+    <Compile Include="Helpers\Zip\UnzipStream.vb" />
+    <Compile Include="Helpers\Zip\ZipItem.vb" />
+    <Compile Include="IStateService.vb" />
+    <Compile Include="Iterator.vb" />
+    <Compile Include="LocalizedString.vb" />
+    <Compile Include="LocalizedStringPhrase.vb" />
+    <Compile Include="ObservableBase.vb" />
+    <Compile Include="PrintingParameters.vb" />
+    <Compile Include="BusinessSoapErrors.vb" />
+    <Compile Include="BusinessSoapMessageContent.vb" />
+    <Compile Include="BusinessWarnings.vb" />
+    <Compile Include="Data\DbCredential.vb" />
+    <Compile Include="Data\EncryptedDbCredential.vb" />
+    <Compile Include="Factory\OleDbFactory.vb" />
+    <Compile Include="Factory\OracleDbFactory.vb" />
+    <Compile Include="BusinessMessageContent.vb" />
+    <Compile Include="Helpers\CipherUtility.vb" />
+    <Compile Include="Helpers\DataContractHelper.vb" />
+    <Compile Include="Helpers\DbHelper.vb" />
+    <Compile Include="Helpers\DosHelper.vb" />
+    <Compile Include="ErrorMessages.vb" />
+    <Compile Include="BusinessErrors.vb" />
+    <Compile Include="BusinessErrorVo.vb" />
+    <Compile Include="Helpers\EmailUtility.vb" />
+    <Compile Include="Helpers\Utils.vb" />
+    <Compile Include="IBusinessReport.vb" />
+    <Compile Include="IValidationRule.vb" />
+    <Compile Include="ModelConfigurationSetting.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RulesHandler.vb" />
+    <Compile Include="StateProvider.vb" />
+    <Compile Include="ValidationRule.vb" />
+    <Compile Include="BusinessWarningVo.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Design\Chart_Data_model.cd" />
+    <None Include="Design\Database_Model.cd" />
+    <None Include="Design\Error_Data_Model.cd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Design\Report_Design.cd" />
+    <None Include="AbidzarFrame.APS.Biz.snk" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Factory\OleDbToOracleLogic.txt" />
+    <Content Include="libs\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="libs\Ionic.Zip.dll" />
+    <Content Include="libs\PdfSharp.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,571 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.StrukturResult>
+@using AbidzarFrame.Web.Helpers
+@using AbidzarFrame.Master.Interface.Dto
+
+@{
+    ViewBag.Title = "Struktur Organisasi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/Content/plugins/orgchart/org-chart.css" rel="stylesheet" />
+<style>
+    .blank, .sekretaris, .ketua, .bendahara, .keamanan_0, .keamanan_1, .humas_0, .humas_1, .rohani, .penasehat {
+        /*float: left;*/
+        /*width: 100px;*/
+        /*height: 115px;*/
+        /*margin: 15px;
+        padding: 10px;*/
+        border: 1px solid #aaaaaa;
+        /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+        margin-top: 20px;
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-bottom: -20px;
+        /*cursor: move;*/
+    }
+</style>
+
+@{
+    <div class="portlet box red-soft" >
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-cogs"></i>@ViewBag.Title
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="collapse">
+                </a>
+                <a href="#portlet-config" data-toggle="modal" class="config">
+                </a>
+                <a href="javascript:;" class="reload">
+                </a>
+            </div>
+        </div>
+
+        <div class="portlet-body table-scrollable" style="background-image: url('../Content/Images/bg/card-grunge-blue-2.png');background-repeat:no-repeat;background-size: 100% 100%; ">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="pg-orgchart">
+                                <div class="org-chart">
+                                    <ul>
+                                        <li>
+                                            <div class="user">
+                                                Blank
+                                                <div class="blank">
+                                                    @{
+                                                        StrukturResult rsBlank = Model.Where(x => x.NamaJabatan.ToUpper() == "BLANK").FirstOrDefault();
+                                                        if (rsBlank != null)
+                                                        {
+                                                            <div draggable="true" id="@rsBlank.Nik">
+                                                                @if (rsBlank.NamaFile != null)
+                                                                {
+                                                                    <img src="@rsBlank.NamaFile" class="img-responsive" />
+                                                                }
+                                                                else
+                                                                {
+                                                                    <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                }
+                                                                <div class="name">@rsBlank.Nama</div>
+                                                                <div class="role">@rsBlank.AwalPeriode.Year \ @rsBlank.AkhirPeriode.Year</div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="pg-orgchart">
+                                <div class="org-chart">
+                                    <ul>
+                                        <li>
+                                            <div class="user">
+                                                Ketua
+                                                <div class="ketua">
+                                                    @{
+                                                        StrukturResult rsKetua = Model.Where(x => x.NamaJabatan.ToUpper() == "KETUA").FirstOrDefault();
+                                                        if (rsKetua != null)
+                                                        {
+                                                            <div draggable="true" id="@rsKetua.Nik">
+                                                                @if (rsKetua.NamaFile != null)
+                                                                {
+                                                                    <img src="@rsKetua.NamaFile" class="img-responsive" />
+                                                                }
+                                                                else
+                                                                {
+                                                                    <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                }
+                                                                <div class="name">@rsKetua.Nama</div>
+                                                                <div class="role">@rsKetua.AwalPeriode.Year \ @rsKetua.AkhirPeriode.Year</div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <div class="user">
+                                                        Sekretaris
+                                                        <div class="sekretaris">
+                                                            @{
+                                                                StrukturResult rsSekretaris = Model.Where(x => x.NamaJabatan.ToUpper() == "SEKRETARIS").FirstOrDefault();
+                                                                if (rsSekretaris != null)
+                                                                {
+                                                                    <div draggable="true" id="@rsSekretaris.Nik">
+                                                                        @if (rsSekretaris.NamaFile != null)
+                                                                        {
+                                                                            <img src="@rsSekretaris.NamaFile" class="img-responsive" />
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                        }
+
+                                                                        <div class="name">@rsSekretaris.Nama</div>
+                                                                        <div class="role">@rsSekretaris.AwalPeriode.Year \ @rsSekretaris.AkhirPeriode.Year</div>
+                                                                    </div>
+
+                                                                }
+                                                            }
+                                                        </div>
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="user">
+                                                        Bendahara
+                                                        <div class="bendahara">
+                                                            @{
+                                                                StrukturResult rsBendahara = Model.Where(x => x.NamaJabatan.ToUpper() == "BENDAHARA").FirstOrDefault();
+                                                                if (rsBendahara != null)
+                                                                {
+                                                                    <div draggable="true" id="@rsBendahara.Nik">
+                                                                        @if (rsBendahara.NamaFile != null)
+                                                                        {
+                                                                            <img src="@rsBendahara.NamaFile" class="img-responsive" />
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                        }                                                                    <div class="name">@rsBendahara.Nama</div>
+                                                                        <div class="role">@rsBendahara.AwalPeriode.Year \ @rsBendahara.AkhirPeriode.Year</div>
+                                                                    </div>
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    @{
+                                                        List<StrukturResult> rsKeamanan = Model.Where(x => x.NamaJabatan.ToUpper() == "KEAMANAN").ToList();
+                                                        <div class="user">
+                                                            Keamanan
+                                                            @if (rsKeamanan != null)
+                                                            {
+                                                                <div class="keamanan_0">
+                                                                    @if (rsKeamanan.Count > 0)
+                                                                    {
+                                                                        <div draggable="true" id="@rsKeamanan[0].Nik">
+                                                                            @if (rsKeamanan[0].NamaFile != null)
+                                                                            {
+                                                                                <img src="@rsKeamanan[0].NamaFile" class="img-responsive" />
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                            }
+                                                                            <div class="name">@rsKeamanan[0].Nama</div>
+                                                                            <div class="role">@rsKeamanan[0].AwalPeriode.Year \ @rsKeamanan[0].AkhirPeriode.Year</div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+
+                                                            }
+
+                                                        </div>
+                                                        <ul>
+                                                            @if (rsKeamanan != null)
+                                                            {
+                                                                if (rsKeamanan.Count > 1)
+                                                                {
+                                                                    for (int i = 1; i < rsKeamanan.Count; i++)
+                                                                    {
+
+                                                                        <li>
+                                                                            <div class="user">
+                                                                                Keamanan
+                                                                                <div class="keamanan_@i">
+                                                                                    <div draggable="true" id="@rsKeamanan[i].Nik">
+                                                                                        @if (rsKeamanan[i].NamaFile != null)
+                                                                                        {
+                                                                                            <img src="@rsKeamanan[i].NamaFile" class="img-responsive" />
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                                        }
+                                                                                        <div class="name">@rsKeamanan[i].Nama</div>
+                                                                                        <div class="role">@rsKeamanan[i].AwalPeriode.Year \ @rsKeamanan[i].AkhirPeriode.Year</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    <li>
+                                                                        <div class="user">
+                                                                            Keamanan
+                                                                            <div class="keamanan_1">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <li>
+                                                                    <div class="user">
+                                                                        Keamanan
+                                                                        <div class="keamanan_1">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    }
+
+                                                </li>
+                                                <li>
+                                                    @{
+                                                        List<StrukturResult> rsHumas = Model.Where(x => x.NamaJabatan.ToUpper() == "HUMAS").ToList();
+                                                        <div class="user">
+                                                            Humas
+                                                            @if (rsHumas != null)
+                                                            {
+                                                                <div class="humas_0">
+                                                                    @if (rsHumas.Count > 0)
+                                                                    {
+                                                                        <div draggable="true" id="@rsHumas[0].Nik">
+                                                                            @if (rsHumas[0].NamaFile != null)
+                                                                            {
+                                                                                <img src="@rsHumas[0].NamaFile" class="img-responsive" />
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                            }
+                                                                            <div class="name">@rsHumas[0].Nama</div>
+                                                                            <div class="role">@rsHumas[0].AwalPeriode.Year \ @rsHumas[0].AkhirPeriode.Year</div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            }
+
+                                                        </div>
+                                                        <ul>
+                                                            @if (rsHumas != null)
+                                                            {
+                                                                if (rsHumas.Count > 1)
+                                                                {
+                                                                    for (int i = 1; i < rsHumas.Count; i++)
+                                                                    {
+                                                                        <li>
+                                                                            <div class="user">
+                                                                                Humas
+                                                                                <div class="humas_@i">
+                                                                                    <div draggable="true" id="@rsHumas[i].Nik">
+                                                                                        @if (rsHumas[i].NamaFile != null)
+                                                                                        {
+                                                                                            <img src="@rsHumas[i].NamaFile" class="img-responsive" />
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                                        }
+                                                                                        <div class="name">@rsHumas[i].Nama</div>
+                                                                                        <div class="role">@rsHumas[i].AwalPeriode.Year \ @rsHumas[i].AkhirPeriode.Year</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    }
+                                                                }
+
+                                                                else
+                                                                {
+                                                                    <li>
+                                                                        <div class="user">
+                                                                            Humas
+                                                                            <div class="humas_1">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                }
+                                                            }
+
+                                                            else
+                                                            {
+                                                                <li>
+                                                                    <div class="user">
+                                                                        Humas
+                                                                        <div class="humas_1">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    }
+                                                </li>
+                                                <li>
+                                                    <div class="user">
+                                                        Rohani
+                                                        <div class="rohani">
+                                                            @{
+                                                                StrukturResult rsRohani = Model.Where(x => x.NamaJabatan.ToUpper() == "ROHANI").FirstOrDefault();
+                                                                if (rsRohani != null)
+                                                                {
+                                                                    <div draggable="true" id="@rsRohani.Nik">
+                                                                        @if (rsRohani.NamaFile != null)
+                                                                        {
+                                                                            <img src="@rsRohani.NamaFile" class="img-responsive" />
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                        }
+                                                                        <div class="name">@rsRohani.Nama</div>
+                                                                        <div class="role">@rsRohani.AwalPeriode.Year \ @rsRohani.AkhirPeriode.Year</div>
+                                                                    </div>
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="user">
+                                                        Penasehat
+                                                        <div class="penasehat">
+                                                            @{
+                                                                StrukturResult rsPenasehat = Model.Where(x => x.NamaJabatan.ToUpper() == "PENASEHAT").FirstOrDefault();
+                                                                if (rsPenasehat != null)
+                                                                {
+                                                                    <div draggable="true" id="@rsPenasehat.Nik">
+                                                                        @if (rsPenasehat.NamaFile != null)
+                                                                        {
+                                                                            <img src="@rsPenasehat.NamaFile" class="img-responsive" />
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <img src="~/Content/Layout/img/no-image.png" class="img-responsive" />
+                                                                        }
+                                                                        <div class="name">@rsPenasehat.Nama</div>
+                                                                        <div class="role">@rsPenasehat.AwalPeriode.Year \ @rsPenasehat.AkhirPeriode.Year</div>
+                                                                    </div>
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+
+<script>
+    /* Events fired on the drag target */
+
+    document.addEventListener("dragstart", function (event) {
+        event.dataTransfer.setData("Text", event.target.id);
+        event.target.style.opacity = "0.4";
+    });
+
+    document.addEventListener("drag", function (event) {
+    });
+
+    document.addEventListener("dragend", function (event) {
+        event.target.style.opacity = "1";
+    });
+
+
+    document.addEventListener("dragenter", function (event) {
+        if (event.target.className == "blank" || event.target.className == "ketua" || event.target.className == "sekretaris" ||
+           event.target.className == "bendahara" || event.target.className == "keamanan_0" || event.target.className == "keamanan_1" ||
+           event.target.className == "humas_0" || event.target.className == "humas_1" || event.target.className == "rohani" ||
+           event.target.className == "penasehat") {
+            event.target.style.border = "3px dotted red";
+        }
+    });
+
+    document.addEventListener("dragover", function (event) {
+        event.preventDefault();
+    });
+
+    document.addEventListener("dragleave", function (event) {
+        if (event.target.className == "blank" || event.target.className == "ketua" || event.target.className == "sekretaris" ||
+        event.target.className == "bendahara" || event.target.className == "keamanan_0" || event.target.className == "keamanan_1" ||
+        event.target.className == "humas_0" || event.target.className == "humas_1" || event.target.className == "rohani" ||
+        event.target.className == "penasehat") {
+            event.target.style.border = "";
+        }
+    });
+
+    document.addEventListener("drop", function (event, ui) {
+        event.preventDefault();
+        if (event.target.className == "blank") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+
+        if (event.target.className == "ketua") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+        if (event.target.className == "sekretaris") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+        if (event.target.className == "bendahara") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+        if (event.target.className == "keamanan_0") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+        if (event.target.className == "keamanan_1") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+        if (event.target.className == "humas_0") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+        if (event.target.className == "humas_1") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+        if (event.target.className == "rohani") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+        if (event.target.className == "penasehat") {
+            event.target.style.border = "";
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            Update(data, event.target.className);
+            //swal("Good job!", data + ' move to be ' + event.target.className, "success");
+        }
+    });
+</script>
+
+<script>
+    $(function () {
+        hideLoading();
+    })
+
+
+    function Update(idKtp, namaJabatan) {
+        var jsonRequest = {
+            IdKtp: idKtp,
+            NamaJabatan: namaJabatan,
+        };
+        $.ajax({
+            url: '@Url.Action("Update", "StrukturOrganisasi", new { area = "StrukturOrganisasi" })',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                model: jsonRequest,
+            }),
+
+            //untuk memunculkan pesan
+            success: function (ret) {                
+                swal("Good job!", idKtp + ' move to be ' + namaJabatan, "success");
+                hideLoading();
+                //if (ret.Msg != null && ret.Msg != "") {
+                //    swal("Good job!", data + ' move to be ' + event.target.className, "success");
+                //} else if (!ret.success) {
+                //    alertError(JSON.parse(ret.responseText).ErrorMessage);
+                //}
+                //else {
+                //    alertError(JSON.parse(ret.responseText).ErrorMessage);
+                //}
+
+            },
+            error: function (ret) {
+                alertError(JSON.parse(ret.responseText).ErrorMessage);
+            }
+        });
+    }
+
+    function saveCoords(x, y, el, id) {
+        $.ajax({
+            type: "POST",
+            url: "Services/Coordinates.asmx/SaveCoords",
+            data: "{x: '" + x + "', y: '" + y + "', element: '" + el + "', userid: '1'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response.d != '1') {
+                    alert('Not Saved!');
+                }
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+</script>

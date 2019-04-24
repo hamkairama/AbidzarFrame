@@ -1,0 +1,87 @@
+﻿@model AbidzarFrame.Domain.Models.BankCodeBaseModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Log in";
+}
+
+
+@Html.AntiForgeryToken()
+<form id="FormBankCode">
+    <fieldset>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.CODE)
+                    @Html.TextBoxFor(m => m.CODE, new { @class = "form-control", @style = "width:100%" })
+                    @Html.ValidationMessageFor(m => m.CODE, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.NAME)
+                    @Html.TextBoxFor(m => m.NAME, new { @class = "form-control", @style = "width:100%" })
+                    @Html.ValidationMessageFor(m => m.NAME, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.CONTACT)
+                    @Html.TextBoxFor(m => m.CONTACT, new { @class = "form-control", @style = "width:100%" })
+                    @Html.ValidationMessageFor(m => m.CONTACT, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.PHONE)
+                    @Html.TextBoxFor(m => m.PHONE, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.PHONE, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.ADDRESS_1)
+                    @Html.TextAreaFor(m => m.ADDRESS_1, new { @class = "form-control", @style = "width:100%" })
+                    @Html.ValidationMessageFor(m => m.ADDRESS_1, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.ADDRESS_2)
+                    @Html.TextAreaFor(m => m.ADDRESS_2, new { @class = "form-control", @style = "width:100%" })
+                    @Html.ValidationMessageFor(m => m.ADDRESS_2, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.ADDRESS_3)
+                    @Html.TextAreaFor(m => m.ADDRESS_3, new { @class = "form-control", @style = "width:100%" })
+                    @Html.ValidationMessageFor(m => m.ADDRESS_3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.FAX)
+                    @Html.TextBoxFor(m => m.FAX, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.FAX, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.RATING)
+                    @Html.TextBoxFor(m => m.RATING, new { @class = "form-control", @style = "width:100%" })
+                    @Html.ValidationMessageFor(m => m.RATING, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.RATING_F)
+                    @Html.TextBoxFor(m => m.RATING_F, new { @class = "form-control", @style = "width:100%" })
+                    @Html.ValidationMessageFor(m => m.RATING_F, "", new { @class = "text-danger" })
+                </div>
+                @*<div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.CATEGORY)
+                    @Html.DropDownListFor(model => model.CATEGORY, new SelectList(ViewBag.BankCategory, "COD_D", "DESC_1"), "", new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.CATEGORY, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.BANK_GROUP)
+                    @Html.DropDownListFor(model => model.BANK_GROUP, new SelectList(ViewBag.BankGroup, "COD_D", "DESC_1"), "", new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.BANK_GROUP, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.LMT_GROUP)
+                    @Html.DropDownListFor(model => model.LMT_GROUP, new SelectList(ViewBag.BankLimit, "COD_D", "DESC_1"), "", new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.LMT_GROUP, "", new { @class = "text-danger" })
+                </div>*@
+            </div>
+        </div>
+    </fieldset>
+</form>
+

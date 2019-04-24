@@ -1,0 +1,137 @@
+﻿@using AbidzarFrame.Web.Helpers
+@{
+    ViewBag.Title = "Rekap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/plugins/invoice/invoice-2.css" rel="stylesheet" />
+
+<div class="tabbable-line ">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#tab_1_1" onclick="GetDataByTab(1, '@CurrentUser.GetCurrentDateTime().ToString("MM/dd/yyyy")')" data-toggle="tab" aria-expanded="true">Pemasukan</a>
+        </li>
+        <li class="">
+            <a href="#tab_1_2" onclick="GetDataByTab(2, '@CurrentUser.GetCurrentDateTime().ToString("MM/dd/yyyy")')" data-toggle="tab" aria-expanded="true">Pengeluaran</a>
+        </li>
+        <li class="">
+            <a href="#tab_1_3" onclick="GetDataByTab(3, '@CurrentUser.GetCurrentDateTime().ToString("MM/dd/yyyy")')" data-toggle="tab" aria-expanded="true">Summary</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <a href="javascript:;" onclick="GetDataPrev()" style="text-decoration:none">
+            <span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Sebelumnya
+        </a>
+        ||
+        <a href="javascript:;" onclick="GetDataNext()" style="text-decoration:none">
+            Selanjutnya&nbsp;&nbsp;<span class="fa fa-arrow-right"></span>
+        </a>
+        <input id="dtInput" hidden  value="@DateTime.Now.ToString("MM/dd/yyyy")" />
+        <input id="txtTab" hidden  value="1" />
+
+        <div class="invoice-content-2 bordered" id="divLaporanKas">
+            <div class="tab-pane active" id="tab_1_1">
+                @Html.Partial("_Pemasukan")
+            </div>
+            <div class="tab-pane " id="tab_1_2">
+                @Html.Partial("_Pengeluaran")
+            </div>
+            <div class="tab-pane " id="tab_1_3">
+                @Html.Partial("_Summary")
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        hideLoading();
+    });
+
+    function GetDataNext() { 
+        var tab = document.getElementById("txtTab");
+        SetDateNext(tab.value);
+    }
+
+    function GetDataPrev() {
+        var tab = document.getElementById("txtTab");
+        SetDatePrev(tab.value);
+    }
+
+    function GetDataByTab(tab, dtx) { 
+        var newDateCurrent = new Date();
+        $("#dtInput").val('@CurrentUser.GetCurrentDateTime().ToString("MM/dd/yyyy")');
+        GetData(tab, dtx);
+    }
+
+    function GetData(tab, dtx) {
+        var path;
+        if (tab == 1) {
+            path = location.origin + "/RekapLaporanKas/GetPemasukan/";
+        }
+        else if (tab == 2) {
+            path = location.origin + "/RekapLaporanKas/GetPengeluaran/";
+        } else {
+            path = location.origin + "/RekapLaporanKas/GetSummary/";
+        }
+
+        $("#txtTab").val(tab);
+
+        $.ajax({
+            data: {
+                dt: dtx,
+                //nama: txtNama
+            },
+            cache: false,
+            url: path,
+            async: true,
+            success: function (data) {
+                $("#divLaporanKas").html(data);
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+
+    }
+</script>
+
+<script>
+    function SetDateNext(tabNext) {
+        var now = new Date($("#dtInput").val());
+        var current;
+        if (tabNext == 3) {
+            current = new Date(now.getFullYear() + 1, 0, 1);
+        } else {
+            if (now.getMonth() == 11) {
+                current = new Date(now.getFullYear() + 1, 0, 1);
+            } else {
+                current = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+            }
+        }
+
+        var newCurrent = current.toDateString();
+        $("#dtInput").val(newCurrent);
+        GetData(tabNext, newCurrent);
+    }
+
+    function SetDatePrev(tabPrev) {
+        var now = new Date($("#dtInput").val());
+        var current;
+        if (tabPrev == 3) {
+            current = new Date(now.getFullYear() - 1, 0, 1);
+        } else {
+            if (now.getMonth() == 12) {
+                current = new Date(now.getFullYear() - 1, 0, 1);
+            } else {
+                current = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+            }
+        }
+
+        var newCurrent = current.toDateString();
+        $("#dtInput").val(newCurrent);
+        GetData(tabPrev, newCurrent);
+    }
+
+
+</script>

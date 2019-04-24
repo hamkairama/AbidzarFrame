@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f236ea98-c0b2-4cda-8060-563f42947161" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55553/BOAJMIParametersService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BOAJMIParametersService.xsd" MetadataType="Schema" ID="3148eb26-59ec-43f0-b86b-66d9c0d2f76e" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BOAJMIParametersService.wsdl" MetadataType="Wsdl" ID="2b007e17-f387-4018-974c-21f21f1e9bf7" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIParametersService.svc?wsdl" />
+    <MetadataFile FileName="BOAJMIParametersService.disco" MetadataType="Disco" ID="31752b60-aa22-4b65-8fcd-145e992c5316" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIParametersService.svc?disco" />
+    <MetadataFile FileName="BOAJMIParametersService1.xsd" MetadataType="Schema" ID="a1bebce6-6c8d-481a-9b8c-02dfff7dd911" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BOAJMIParametersService2.xsd" MetadataType="Schema" ID="14748605-ddcb-4eb4-a5f5-3eab49901596" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BOAJMIParametersService5.xsd" MetadataType="Schema" ID="26a7e4a5-3379-4c90-8c8c-47cd7841a611" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BOAJMIParametersService3.xsd" MetadataType="Schema" ID="1079b36b-86d7-4f30-b058-0cb98831e8e1" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BOAJMIParametersService4.xsd" MetadataType="Schema" ID="d69fdb23-77e3-488d-8020-5f6055e48649" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIParametersService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,97 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.KtpResult>
+
+@{
+    ViewBag.Title = "Cari Warga";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row search-form-default">
+            <div class="col-md-12">
+                @*<div class="mt-radio-inline">
+                    <label class="mt-radio">
+                        <input type="radio" name="optionsRadios" id="rbNik" value="option1" checked=""> Nik
+                    </label>
+                    <label class="mt-radio">
+                        <input type="radio" name="optionsRadios" id="rbNama" value="option2"> Nama
+                    </label>
+                </div>*@
+
+                <div class="form-group form-md-radios">
+                    <label>Cari Berdasarkan</label>
+                    <div class="md-radio-inline">
+                        <div class="md-radio has-success">
+                            <input name="optionsRadios" class="md-radiobtn" id="rbNik" type="radio">
+                            <label for="rbNik">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span>
+                                Nik
+                            </label>
+                        </div>
+                        <div class="md-radio has-error">
+                            <input name="optionsRadios" class="md-radiobtn" id="rbNama" type="radio">
+                            <label for="rbNama">
+                                <span></span>
+                                <span class="check"></span>
+                                <span class="box"></span>
+                                Nama
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-cont">
+                        <input type="text" id="txtInput" placeholder="Search..." class="form-control" />
+                    </div>
+                    <span class="input-group-btn">
+                        <button class="btn green-haze" onclick="SearchWarga()">
+                            Search &nbsp; <i class="m-icon-swapright m-icon-white"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="portlet box light">
+            @Html.Partial("_Warga")
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        hideLoading();
+    });
+
+    function SearchWarga() {
+        var path = location.origin + "/CariWarga/GetWarga/";
+        var txtNik;
+        $("#rbNik").is(":checked") ? txtNik = $("#txtInput").val() : txtNik = '';
+
+        var txtNama;
+        $("#rbNama").is(":checked") ? txtNama = $("#txtInput").val() : txtNama = '';
+
+        $.ajax({
+            data: {
+                nik: txtNik,
+                nama: txtNama
+            },
+            cache: false,
+            url: path,
+            //traditional: true,
+            //type: 'POST',
+            //dataType: "json",
+            async: true,
+            success: function (data) {
+                $("#divWarga").html(data);
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+
+    }
+</script>

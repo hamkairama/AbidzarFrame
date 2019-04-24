@@ -1,0 +1,56 @@
+﻿@using AbidzarFrame.Web.Helpers
+@{
+    ViewBag.Title = "Rekap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tabbable-line ">
+    <ul class="nav nav-tabs">
+        <li class="">
+            <a href="#tab_1_1" onclick="GetDataBy('1')" data-toggle="tab" aria-expanded="true">ByDate</a>
+        </li>
+        <li class="">
+            <a href="#tab_1_2" onclick="GetDataBy('2')" data-toggle="tab" aria-expanded="true">ByMonth</a>
+        </li>
+        <li class="">
+            <a href="#tab_1_3" onclick="GetDataBy('3')" data-toggle="tab" aria-expanded="true">ByYear</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <input id="txtTab" hidden  value="1" />
+
+        <div class="bordered" id="divHistorical">
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/plugins/chart/core.js"></script>
+<script src="~/Content/plugins/chart/charts.js"></script>
+<script src="~/Content/plugins/chart/animated.js"></script>
+
+<script>
+    $(document).ready(function () {
+        hideLoading();
+    });
+
+    function GetDataBy(tab) {
+        var path = location.origin + "/HistoricalUserLogin/GetDataBy/";
+
+        $.ajax({
+            data: {
+                byValue: tab,
+            },
+            cache: false,
+            url: path,
+            async: true,
+            success: function (data) {
+                $("#divHistorical").html(data);
+            },
+            error: function (jqXHR, textStatus, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+
+    }
+</script>
+

@@ -1,0 +1,122 @@
+﻿@model List<AbidzarFrame.Questioner.Interface.Dto.DetailPemiluResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+    ViewBag.Title = "DetailPemilu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.MsgScs != null)
+{
+    <div class="alert alert-success" style="display: block;">
+        <button class="close" data-close="alert">X</button>
+        @ViewBag.MsgScs
+    </div>
+}
+
+@if ((bool)ViewBag.IsUserHasBeenSelected)
+{
+    <a href="javascript:;" class="btn default blue-stripe">Anda telah memilih. Terimakasih.</a>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-body">
+                <div class="row">
+                    <a class="btn btn-sm red" href="@Url.Action("Index", "Pemilu", new {area = "Questioner"})">
+                        <i class="fa fa-arrow-left"></i> Kembali
+                    </a>
+                    @if (CurrentUser.IsAdmin())
+                    {
+                        <button id="btnAdd" class="btn btn-sm green" data-toggle="modal" data-target="#AbidzarFrameModalFormEditWithFile"
+                                data-item-description="Add" data-item-id="@ViewBag.IdPemilu" data-backdrop="static" data-keyboard="false"
+                                data-url=@Url.Action("EditorFormPartialCreate", "DetailPemilu", new { area = "Questioner" })
+                                data-url-action=@Url.Action("Create", "DetailPemilu", new { area = "Questioner" })>
+                            Tambah <i class="fa fa-plus"></i>
+                        </button>
+                    }
+                </div>
+                @*<div class="table-responsive">*@
+                <div class="row">
+                    @{
+                        if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="col-md-2 col-md-2 col-xs-6">
+                                    <div class="thumbnail">
+                                        <a style="text-decoration:none" href="@Url.Action("Index", "DetailDetailPemilu", new { area = "Questioner", idDetailJenisKegiatan = item.Id})">
+                                            @if (item.FileName == null)
+                                            {
+                                                <img src="~/Content/Layout/img/no-image.png" />
+                                            }
+                                            else
+                                            {
+                                                <img src="@item.FileName" @*alt="100%x200" style="width: 100%; height: 200px;*@ display block;" data-src="../assets/global/plugins/holder.js/100%x200">
+                                            }
+                                            <div class="caption" style="text-align:center;">
+                                                <h3>@item.NoUrut</h3>
+                                                <h4>@item.Kandidat</h4>
+                                            </div>
+                                        </a>
+
+                                        @if (CurrentUser.IsAdmin())
+                                        {
+                                            <div class="" style="text-align:center">
+                                                <button class="btn btn-info" data-toggle="modal" data-target="#AbidzarFrameModalFormEditWithFile"
+                                                        data-item-description="Edit" data-item-id="@item.Id" data-backdrop="static" data-keyboard="false"
+                                                        data-url=@Url.Action("EditorFormPartialEdit", "DetailPemilu", new { area = "Questioner" })
+                                                        data-url-action=@Url.Action("Update", "DetailPemilu", new { area = "Questioner" })>
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete-refresh"
+                                                        data-item-description="Edit" data-item-id="@item.Id" data-backdrop="static" data-keyboard="false"
+                                                        data-url=@Url.Action("Delete", "DetailPemilu", new { area = "Questioner" })>
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        }
+
+
+                                        @if (!(bool)ViewBag.IsUserHasBeenSelected)
+                                        {
+                                            <div style="text-align:center;">
+                                                <button class="btn btn-success" style="width:100%;" data-toggle="modal" data-target="#confirm-polling-pemilu"
+                                                        data-item-description="Edit" data-item-id="@item.Id" data-backdrop="static" data-keyboard="false"
+                                                        data-url=@Url.Action("Create", "PollingPemilu", new { area = "Questioner" })>
+                                                    Pilih
+                                                </button>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span>
+                            <b>Catatan :</b>
+                        </span><br />
+                        <span>
+                            <i>polling ini dilakukan dalam ruang lingkup RT.</i>
+                        </span><br />
+                        <span>
+                            <i>Pasangan yang anda pilih di applikasi ini tidak mengikat anda pada pemihan yang dilakukan secara resmi oleh negara.</i>
+                        </span>
+                    </div>
+
+                </div>
+                @*</div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        hideLoading();
+    })
+</script>
+

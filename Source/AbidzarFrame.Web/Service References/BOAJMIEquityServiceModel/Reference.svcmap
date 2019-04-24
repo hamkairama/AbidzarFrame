@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bc37d243-aec8-450b-b05b-fba70aec7b45" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55553/BOAJMIEquityService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BOAJMIEquityService.disco" MetadataType="Disco" ID="c5a8ec5b-89ef-49d4-83fd-62d861d2e586" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIEquityService.svc?disco" />
+    <MetadataFile FileName="BOAJMIEquityService.xsd" MetadataType="Schema" ID="993fb024-0781-4b6f-a07b-346e02e826a9" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BOAJMIEquityService1.xsd" MetadataType="Schema" ID="a4c47526-f5a3-4561-bf80-58512bc15076" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BOAJMIEquityService2.xsd" MetadataType="Schema" ID="adb3ccbf-6a57-4d5e-bcc2-b45cf5f6a4a6" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BOAJMIEquityService.wsdl" MetadataType="Wsdl" ID="6a57625f-8619-4009-bcb4-fd3cf33a2361" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIEquityService.svc?wsdl" />
+    <MetadataFile FileName="BOAJMIEquityService3.xsd" MetadataType="Schema" ID="ae61b659-3919-419f-bf25-37d3ec7a6165" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BOAJMIEquityService4.xsd" MetadataType="Schema" ID="46b19f83-d6ff-4383-93b5-01c2abeb3cdd" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BOAJMIEquityService5.xsd" MetadataType="Schema" ID="d0e0401f-3049-4591-b5a9-abf3f1adcd90" SourceId="1" SourceUrl="http://localhost:55553/BOAJMIEquityService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

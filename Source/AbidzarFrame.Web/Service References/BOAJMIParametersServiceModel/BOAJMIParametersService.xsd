@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AumGrpBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AUM_GRP_GROUP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INCLUDE" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MISGROUP_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="SGRP" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AumGrpBaseModel" nillable="true" type="tns:AumGrpBaseModel" />
+  <xs:complexType name="BegBalBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BAL_1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BAL_2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BAL_3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BAL_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BEGBAL_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BEGBAL_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BEGBAL_EXISTS" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BEGBAL_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCY_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OLD_BAL_1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OLD_BAL_2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OLD_BAL_3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BegBalBaseModel" nillable="true" type="tns:BegBalBaseModel" />
+  <xs:complexType name="BegBalDetBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BEG_BAL_DET_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BEG_BAL_DET_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="BEG_BAL_DET_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DET_BAL_1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DET_BAL_2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GROUP_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ORDER_TP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SETTLE_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TRAN_DATE" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BegBalDetBaseModel" nillable="true" type="tns:BegBalDetBaseModel" />
+  <xs:complexType name="SharesCodeModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BBGIND" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCY_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSIP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXCH_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GSINDB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GSINDG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GSINDS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GSSCTR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LIMIT_1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LIMIT_2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MSCI" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SEDOL_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SHARES_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SHARES_TYPE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SYARIAH" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SharesCodeModel" nillable="true" type="tns:SharesCodeModel" />
+  <xs:complexType name="CashMoveBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AMOUNT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BANK_ACC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCY_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMMENTARY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEAL_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DIP" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DIPBool" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GROUP_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ORDER_TP" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PTRNTYP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SETTLE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SETTLE_DT_STR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRAN_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TRAN_DT_String" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER_ID_A" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CashMoveBaseModel" nillable="true" type="tns:CashMoveBaseModel" />
+  <xs:complexType name="BankAccountBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACC_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ACC_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BANK_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCY_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GROUP_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IN_ACTIVE" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PREM_ACC" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SPEC_ACC" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankAccountBaseModel" nillable="true" type="tns:BankAccountBaseModel" />
+  <xs:complexType name="BankCodeBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADDRESS_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADDRESS_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADDRESS_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BANK_GROUP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONTACT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FAX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IN_ACTIVE" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LMT_GROUP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RATING" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RATING_F" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankCodeBaseModel" nillable="true" type="tns:BankCodeBaseModel" />
+  <xs:complexType name="CombinedDBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AST_ALC_SET_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AST_ALC_SET_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_D" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_H" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMBINED_H_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC_4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC_5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC_6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IN_ACTIVE" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUM_1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CombinedDBaseModel" nillable="true" type="tns:CombinedDBaseModel" />
+  <xs:complexType name="CombinedHBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COD_H" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMBINED_H_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IN_ACTIVE" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CombinedHBaseModel" nillable="true" type="tns:CombinedHBaseModel" />
+  <xs:complexType name="HolidayBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HOLIDAY_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HOLIDAY_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidayBaseModel" nillable="true" type="tns:HolidayBaseModel" />
+  <xs:complexType name="SyariahParameterBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BANK_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BNK_GRP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="METHOD" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NISBAH" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SyariahParameterBaseModel" nillable="true" type="tns:SyariahParameterBaseModel" />
+  <xs:complexType name="MoneyMarketProductBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BANK_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BANK_DESCR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCY_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCY_DESCR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEP_TYPE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DESC_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOAT_RATE" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="INT_CALC" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="INT_DAYS" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="INT_PAY" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="INT_RT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ISIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISSUE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MM_PROD_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPN" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SYARIAH" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SYR_SIM" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TAX_RT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="YEAR_BS" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoneyMarketProductBaseModel" nillable="true" type="tns:MoneyMarketProductBaseModel" />
+  <xs:complexType name="FundSettingBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ABBREVIATE_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ACCRUED_INT_FIRST_DAY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AMORT_BOND_MKT_PRICE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ANNUAL_AUDIT_FEE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BLOOMBERG_FUND_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BN1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BN2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BN3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BN4" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BN5" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BN6" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BOND_AMORT_DATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BOND_AMORT_METHOD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BOND_MKT_PRC_ADJ_FREQ" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BOND_PROV_CAP_GAIN_TX" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BOND_TAXABLE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BOOK_COST_CLC_METHOD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CAPITAL_LOSS_BOND_PROV" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CUSTODIAN_BANK_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTODIAN_FEE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CUSTODY_ACC_NUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTODY_FUND_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DISABLE_EQ_TAX_CALC" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EQ1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EQ2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EXCLUDE_CASH_POSITION" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EXCLUDE_MGT_FEE_VAL" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EXCLUDE_TRX_COST_EQ_BOOK" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FC1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FC2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FEE_YEARBASE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_BASE_CURRENCY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_GROUP_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_STATUS" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GEN_MF_OUT_PAYMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GEN_MGT_FEE_REBATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GEN_OUT_SETTLE_BOND" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GUARANTEE_NAV_GROWTH" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GUARANTEE_NAV_GRW_MTH" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IBN1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IBN2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IBN3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IBN4" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IBN5" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IBN6" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IEQ1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IEQ2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IMM1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IMM2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="INCEPTION_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LAST_USED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LAUNCHING_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LEGAL_ENTITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MANAGEMENT_FEE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MAXIMUM_UNIT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MIS_RPT_GROUP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MM1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MM2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MULTI_TIER_CUST_FEE_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MULTI_TIER_MGT_FEE_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MUTUAL_FUND_ENABLE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAV_BASED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAV_CURRENCY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAV_PRINT_ENABLE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAV_UNIT_UPDATE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PCT_VAT_FEE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PCT_WARNING_MAX_UNIT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SEEDING_UNIT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SELL_MARK_UP_FACTOR" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SYARIAH_FLAG" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TAX_SBI_MARKET_PRICE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YIELD_CALC_METHOD" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FundSettingBaseModel" nillable="true" type="tns:FundSettingBaseModel" />
+  <xs:complexType name="ControlBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AACPU" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="APPROVEDBN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPROVEDEQ" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPROVEDMF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPROVEDMM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPROVEDR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BALMTH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BASECCY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BN1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BN2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BN3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BN4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BN5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCYFUND" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCYMME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOADD1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOADD2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOADD3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOBANK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOCP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOFAX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOPHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DINS" type="xs:int" />
+      <xs:element minOccurs="0" name="DIR1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DIR2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DIR3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DMF" type="xs:int" />
+      <xs:element minOccurs="0" name="DRIVE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DTF_B" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DTF_E" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DTF_F" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DTF_M" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DTF_M2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMADRIVE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EQ1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EQ2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EQ3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EQ4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EQ5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXCELDIR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXECUTEDBN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXECUTEDEQ" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXECUTEDMF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXECUTEDMM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FAX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MF1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MF2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MF3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MF4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MF5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MISREPH1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MISREPH2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MM1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MM2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MM3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MM4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MM5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAVFILE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOTEDBN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOTEDEQ" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOTEDMF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOTEDMM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OLDBALMTH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PREPARED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SR_FNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBCOY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUNDATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TKT_B" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TKT_E" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TKT_F" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TKT_M" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRNDT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WAIT" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ControlBaseModel" nillable="true" type="tns:ControlBaseModel" />
+  <xs:complexType name="MaximisGrpBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DIV_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INCLUDE" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaximisGrpBaseModel" nillable="true" type="tns:MaximisGrpBaseModel" />
+  <xs:complexType name="TierBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FIXED_1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FIXED_2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FIXED_3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FIXED_4" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FIXED_5" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LIMIT_1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LIMIT_2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LIMIT_3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LIMIT_4" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LIMIT_5" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="METHOD" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RATE_1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RATE_2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RATE_3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RATE_4" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RATE_5" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TIER_DESC" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TierBaseModel" nillable="true" type="tns:TierBaseModel" />
+  <xs:complexType name="SgrpHBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGRPH_DESC" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SgrpHBaseModel" nillable="true" type="tns:SgrpHBaseModel" />
+  <xs:complexType name="SgrpDBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_D" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUND_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INCLUDE" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SgrpDBaseModel" nillable="true" type="tns:SgrpDBaseModel" />
+  <xs:complexType name="CustodianBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADD_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADD_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADD_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BANK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CASH_FNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CP_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CP_F_1" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CP_F_2" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CP_F_3" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CP_F_4" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CP_F_5" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CP_F_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FAX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_FLG" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="INCLUDE" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LEAD_ZERO" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="M_FILES" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POS_1" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="POS_2" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="POS_3" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="POS_4" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="R_JUST" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SCUS" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SPEC_CHAR" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TYPE_FNAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustodianBaseModel" nillable="true" type="tns:CustodianBaseModel" />
+  <xs:complexType name="ExCurrencyConvRateBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CCY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="E_CCY_RATE_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RATE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SCOPE" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExCurrencyConvRateBaseModel" nillable="true" type="tns:ExCurrencyConvRateBaseModel" />
+  <xs:complexType name="CashPayableMapBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AC_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AC_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CP_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTO_CD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CashPayableMapBaseModel" nillable="true" type="tns:CashPayableMapBaseModel" />
+  <xs:complexType name="MisGroupBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRANDTOT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_DELETED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LEVEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="L_UPD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="L_USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MISGROUP_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PORTFOLIO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MisGroupBaseModel" nillable="true" type="tns:MisGroupBaseModel" />
+</xs:schema>

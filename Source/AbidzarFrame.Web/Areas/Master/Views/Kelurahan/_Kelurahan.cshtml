@@ -1,0 +1,130 @@
+﻿@model AbidzarFrame.Master.Interface.Dto.KelurahanResult
+@{
+    Layout = null;
+}
+
+@Html.AntiForgeryToken()
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+
+<form id="FormObject">
+    <fieldset>
+        <div class="col-md-12">
+            @{
+                if ((object)ViewBag.ActionGrid == "Edit")
+                {
+                    <div class="row hidden">
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                        </div>
+                    </div>
+                }
+            }
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdProvinsi)
+                    @Html.DropDownListFor(m => m.IdProvinsi, (IEnumerable<SelectListItem>)ViewBag.ProvinsiList, "Select :", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.IdProvinsi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdKota)
+                    @Html.DropDownListFor(m => m.IdKota, (IEnumerable<SelectListItem>)ViewBag.KotaList, "Select :", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.IdKota, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdKecamatan)
+                    @Html.DropDownListFor(m => m.IdKecamatan, (IEnumerable<SelectListItem>)ViewBag.KecamatanList, "Select :", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.IdKecamatan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.KodeKelurahan)
+                    @Html.TextBoxFor(m => m.KodeKelurahan, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                    @Html.ValidationMessageFor(m => m.KodeKelurahan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.NamaKelurahan)
+                    @Html.TextBoxFor(m => m.NamaKelurahan, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                    @Html.ValidationMessageFor(m => m.NamaKelurahan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+<script>
+    $(function () {
+        $('#IdProvinsi').change(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListByIdProvinsi/";
+            $.ajax({
+                url: path,
+                cache: false,
+                traditional: true,
+                type: 'POST',
+                data: {
+                    idProvinsi: idSelected
+                },
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    var markup, responseText, responseValue;
+                    responseText = "Select :";
+                    responseValue = "";
+                    markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                    for (var x = 0; x < response.length; x++) {
+                        var responseText = response[x].Text;
+                        var responseValue = response[x].Value;
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                    }
+                    $("#IdKota").html(markup).show();
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+
+        })
+
+        $('#IdKota').change(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListByIdKota/";
+            $.ajax({
+                url: path,
+                cache: false,
+                traditional: true,
+                type: 'POST',
+                data: {
+                    idKota: idSelected
+                },
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    var markup, responseText, responseValue;
+                    responseText = "Select :";
+                    responseValue = "";
+                    markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                    for (var x = 0; x < response.length; x++) {
+                        var responseText = response[x].Text;
+                        var responseValue = response[x].Value;
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                    }
+                    $("#IdKecamatan").html(markup).show();
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+
+        })
+
+    })
+</script>

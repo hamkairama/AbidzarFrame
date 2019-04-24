@@ -1,0 +1,28 @@
+﻿@using AbidzarFrame.Web.Helpers
+@using AbidzarFrame.Security.Interface.Dto
+
+@{
+    ViewBag.Title = "";
+}
+
+<style>
+    #chartdiv {
+        width: 100%;
+        max-height: 600px;
+        height: 100vh;
+    }
+</style>
+
+@{
+    if (ViewBag.ByValue == "3")
+    {
+        <div id="divSummary">
+            <div class="row">
+                <div id="chartdiv"></div>
+            </div>
+        </div>
+        <script src="~/Scripts/controller/HistoricalUserLoginByYear.js"></script>
+    }
+}
+
+

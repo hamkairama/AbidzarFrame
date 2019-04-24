@@ -1,0 +1,58 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.DokumentasiDetailJenisKegiatanResult>
+@{
+    ViewBag.Title = "Dokumentasi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@Styles.Render("~/AbidzarFrame/bundles/dropzone/css")*@
+<link href="~/Content/plugins/dropzone/css/dropzone.css" rel="stylesheet" />
+
+@Html.AntiForgeryToken()
+@Html.Hidden("hiddenIdDetailJenisKegiatan", (int)ViewBag.IdDetailJenisKegiatan)
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+
+<form id="FormObject">
+    <fieldset>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="form-group">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                            <section action="#" class="dropzone" id="my-dropzone"></section>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top-10">
+                    <a class="btn green" href="@Url.Action("CreateDokumentasiDetailJenisKegiatan", "Dokumentasi", new { area = "Kegiatan", idDetailJenisKegiatan = (int)ViewBag.IdDetailJenisKegiatan })">Submit Photo</a>
+                    <button onclick="Refresh()" class="btn default">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+@*@Scripts.Render("~/AbidzarFrame/bundles/dropzone/js")*@
+
+<script src="~/Content/plugins/dropzone/metronic.js"></script>
+<script src="~/Content/plugins/dropzone/dropzone.js"></script>
+<script src="~/Content/plugins/dropzone/form-dropzone.js"></script>
+<script>
+    $(function () {
+        hideLoading();
+    })
+
+    FormDropzone.init(); //call custom dropzone
+    //Dropzone.prototype.defaultOptions.maxFiles = 2;//set dropzone only one
+
+    function Refresh() {
+        window.location.reload(true);
+    }
+</script>
+<style>
+    .dropzone .dz-preview,
+    .dropzone-previews .dz-preview {
+        margin: 2px;
+    }
+</style>

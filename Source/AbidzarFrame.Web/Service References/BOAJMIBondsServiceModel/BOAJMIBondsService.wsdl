@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BOAJMIBondsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Bonds.Interface.Dto" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Manulife.Id.BOAJMI.Domain.Models" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Manulife.Core.Model.Business" />
+      <xsd:import schemaLocation="http://localhost:55553/BOAJMIBondsService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBondsManager_GetBondMastFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBondMastFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_GetBondMastFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBondMastFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_GetBondMastList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBondMastList" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_GetBondMastList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBondMastListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_InsertBondMast_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBondMast" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_InsertBondMast_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBondMastResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_UpdateBondMast_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBondMast" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_UpdateBondMast_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBondMastResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_DeleteBondMast_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBondMast" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_DeleteBondMast_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBondMastResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_GetBondProdFindBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBondProdFindBy" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_GetBondProdFindBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBondProdFindByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_GetBondProdList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBondProdList" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_GetBondProdList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBondProdListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_InsertBondProd_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBondProd" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_InsertBondProd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBondProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_UpdateBondProd_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBondProd" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_UpdateBondProd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBondProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_DeleteBondProd_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBondProd" />
+  </wsdl:message>
+  <wsdl:message name="IBondsManager_DeleteBondProd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBondProdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBondsManager">
+    <wsdl:operation name="GetBondMastFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/GetBondMastFindBy" message="tns:IBondsManager_GetBondMastFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/GetBondMastFindByResponse" message="tns:IBondsManager_GetBondMastFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBondMastList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/GetBondMastList" message="tns:IBondsManager_GetBondMastList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/GetBondMastListResponse" message="tns:IBondsManager_GetBondMastList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBondMast">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/InsertBondMast" message="tns:IBondsManager_InsertBondMast_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/InsertBondMastResponse" message="tns:IBondsManager_InsertBondMast_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBondMast">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/UpdateBondMast" message="tns:IBondsManager_UpdateBondMast_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/UpdateBondMastResponse" message="tns:IBondsManager_UpdateBondMast_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBondMast">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/DeleteBondMast" message="tns:IBondsManager_DeleteBondMast_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/DeleteBondMastResponse" message="tns:IBondsManager_DeleteBondMast_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBondProdFindBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/GetBondProdFindBy" message="tns:IBondsManager_GetBondProdFindBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/GetBondProdFindByResponse" message="tns:IBondsManager_GetBondProdFindBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBondProdList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/GetBondProdList" message="tns:IBondsManager_GetBondProdList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/GetBondProdListResponse" message="tns:IBondsManager_GetBondProdList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBondProd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/InsertBondProd" message="tns:IBondsManager_InsertBondProd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/InsertBondProdResponse" message="tns:IBondsManager_InsertBondProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBondProd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/UpdateBondProd" message="tns:IBondsManager_UpdateBondProd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/UpdateBondProdResponse" message="tns:IBondsManager_UpdateBondProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBondProd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBondsManager/DeleteBondProd" message="tns:IBondsManager_DeleteBondProd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBondsManager/DeleteBondProdResponse" message="tns:IBondsManager_DeleteBondProd_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBondsManager" type="tns:IBondsManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBondMastFindBy">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/GetBondMastFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBondMastList">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/GetBondMastList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBondMast">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/InsertBondMast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBondMast">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/UpdateBondMast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBondMast">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/DeleteBondMast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBondProdFindBy">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/GetBondProdFindBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBondProdList">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/GetBondProdList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBondProd">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/InsertBondProd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBondProd">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/UpdateBondProd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBondProd">
+      <soap:operation soapAction="http://tempuri.org/IBondsManager/DeleteBondProd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BOAJMIBondsService">
+    <wsdl:port name="BasicHttpBinding_IBondsManager" binding="tns:BasicHttpBinding_IBondsManager">
+      <soap:address location="http://localhost:55553/BOAJMIBondsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

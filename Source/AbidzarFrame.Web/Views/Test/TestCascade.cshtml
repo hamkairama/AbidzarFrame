@@ -1,0 +1,71 @@
+﻿@model AbidzarFrame.Web.Areas.Parameters.Models.CombinedDViewModel
+@{
+    ViewBag.Title = "Test Cascade Dropdown";
+}
+
+@Html.AntiForgeryToken()
+
+
+@Html.DropDownListFor(model => model.COD_H, new SelectList(ViewBag.GroupCombined, "COD_H", "COMBINED_H_DESC"), "", new { @class = "selectpicker form-control" })
+
+@Html.DropDownListFor(model => model.COD_D, new SelectList(string.Empty, "Value", "Text"), "--Select Detail--", new { @class = "form-control" })
+
+
+<div class="input-group">
+    <input type="text" class="form-control input-sm" placeholder="Search..." id="searchInput">
+    <span class="input-group-btn">
+        <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+    </span>
+</div>
+
+@section Scripts{
+    <script>
+        $('#searchInput').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetQuickSearchMenus", "Test", new { area = ""})',
+                    dataType: "json",
+                    data: { search: $('#searchInput').val() },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Text, value: item.Value };
+                        }));
+                    },
+                    error: function (xhr, status, error) {
+                        alert('error');
+                    }
+                });
+            }
+        });
+    </script>
+
+}
+
+<script type="text/javascript">
+    var dataTable;
+
+    $(document).ready(function () {
+        hideLoading();
+        $("#COD_H").change(function () {
+            $("#COD_D").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetDetail", "Test", new { area=""})',
+                dataType: 'json',
+                data: { key: $("#COD_H").val() },
+                success: function (ret) {
+
+                    $.each(ret, function (i, ret) {
+                        $("#COD_D").append('<option value="' + ret.Value + '">' + ret.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alertError('Failed.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+
+
+</script>

@@ -1,0 +1,1682 @@
+﻿@*@if (Request.IsAuthenticated)
+    {*@
+<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+@*<script data-pace-options='{ "restartOnRequestAfter": true }' src="~/scripts/plugin/pace/pace.min.js"></script>*@
+<!-- Demo purpose only! -->
+@*<script src="@Url.Content("~/Scripts/demo.min.js")"></script>*@
+@*}*@
+
+<!-- KENDO -->
+<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+<!-- Voice command : plugin -->
+@*<script src="~/scripts/speech/voicecommand.min.js"></script>*@
+<!-- SmartChat UI : plugin -->
+@*@Scripts.Render("~/bundles/smart-chat")*@
+<!-- DataTables : plugin -->
+@*@Scripts.Render("~/bundles/datatables")*@
+<!-- jQGrid : plugin -->
+@*@Scripts.Render("~/bundles/jq-grid")*@
+<!-- Forms : plugin -->
+<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip, Morris, Sparkline, EasyPie -->
+@*@Scripts.Render("~/bundles/charts")*@
+<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
+@*@Scripts.Render("~/bundles/vector-map")*@
+<!-- Full Calendar -->
+@*@Scripts.Render("~/bundles/full-calendar")*@
+<!-- DO NOT REMOVE : GLOBAL FUNCTIONS! -->
+
+<script>
+    // Fungsi loading muncul sebelum halaman terbuka
+    window.onbeforeunload = function() {
+        showLoading();
+    };
+    // Fungsi loading saat halaman DOM sedang dipopulate
+    window.onLoad = function() {
+        showLoading();
+    };
+
+    // Fungsi hide loading saat struktur dan DOM selesai dipopulate
+    $(window).load(function() { hideLoading(); });
+
+    $(function() {
+        var hubStart = null;
+
+        window.startHub = function() {
+            if (hubStart === null) {
+                hubStart = $.connection.hub.start();
+            }
+            return hubStart;
+        };
+    });
+
+    $(document).ready(function() {
+        pageSetUp();
+        $('#hiddenbreadcrumb').val($('.breadcrumb').text());
+        drawBreadCrumb();
+        var menuName = $("nav li.active > a").text();
+        $.ajax({
+            url: '@Url.Action("UserActivityMenu", "UserActivity", new {Area = "Reference"})',
+            type: 'post',
+            dataType: 'json',
+            data: JSON.stringify({
+                menuName: menuName
+            }),
+            contentType: "application/json; charset=utf-8",
+            success: function(ret) {
+            },
+            error: function(ret) {
+                //alerts.error(JSON.parse(ret.responseText).ErrorMessage);
+            }
+        });
+
+        $('div.project-context ul.dropdown-menu li a').click(function(e) {
+            var $div = $(this).parent().parent().parent();
+            var $btn = $div.find('.project-selector');
+            $btn.html($(this).text() + ' <i class="fa fa-angle-down"></i>');
+            $div.removeClass('open');
+            e.preventDefault();
+        });
+
+    });
+    //Mengambil data untuk employee profile
+    $(document).on('click',
+        '#clickInfo',
+        function(e) {
+            var url =
+                '@Url.Action("_EmployeeProfileInfo", "EmployeeProfileInfo", new {area = "NewEmployeeSelfService"})';
+            url = url + '?erCode=' + $('#ErCode').val() + '&eeNo=' + $('#EeNo').val();
+            $("#ModalPopupEmployeeProfile").kendoWindow({
+                width: "850px",
+                height: "450px",
+                title: "Employee Information",
+                content: url,
+                visible: false,
+                modal: true
+            });
+            $("#ModalPopupEmployeeProfile").data("kendoWindow").center().open();
+            $("#ModalPopupEmployeeProfile_wnd_title").text($('#EeNo').text());
+        });
+</script>
+
+@if (@Model is HelperResult)
+{
+    @Model
+}
+<script type="text/kendo-template" id="message">
+    <div class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" style="margin: 0.5em; display: block; " data-for="#=field#" data-valmsg-for="#=field#" id="#=field#_validationMessage">
+        <span class="k-icon k-warning"> </span>#=message#<div class="k-callout k-callout-n"></div>
+    </div>
+</script>
+
+<script>
+    function gridEndRequest(e) {
+        if (e.type === undefined) return;
+        if (e.type != "read" && e.response.SuccessMessage != null && !e.response.Errors)
+            alerts.success(e.response.SuccessMessage);
+    }
+
+    function showMessageGridError(container, name, errors, validationMessageTmpl) {
+        //add the validation message to the form
+        container.find("[data-valmsg-for=" + name + "]")
+            .replaceWith($(validationMessageTmpl({ field: name, message: errors[0] })));
+    }
+
+    function gridError(args) {
+        if (args.status == 'error') {
+            var errorMsg = args.errorThrown;
+            var jsonErrorMsg = args.xhr;
+
+            if (jsonErrorMsg.length > 0) {
+                errorMsg = '';
+
+                var getMsg = jsonErrorMsg.responseJSON.ErrorMessages;
+                getMsg.forEach(function(errMessage) {
+                    errorMsg += errMessage + "</br>";
+                });
+            }
+
+            alerts.error(errorMsg);
+            return;
+        }
+
+        // empty name for delete action (show alert)
+        if (Object.keys(args.errors)[0] == "") {
+            this.cancelChanges();
+            var message = "";
+            var alertMessages = args.errors[""].errors;
+            alertMessages.forEach(function(errMessage) {
+                message += errMessage + "</br>";
+            });
+
+            if (args.errors != undefined && args.errors != '') {
+                message = '';
+
+                for (var error in args.errors) {
+                    message += (error.length > 0 ? error + ': ' : '') + args.errors[error].errors + "</br>";
+                }
+            }
+
+            alerts.error(message);
+        } else {
+            // other than delete action! (update / create)
+            var validationMessageTmpl = kendo.template($("#message").html());
+            if (args.errors) {
+                $(".k-grid").each(function() {
+                    var grid = $(this).data("kendoGrid");
+                    if (grid !== null && grid.dataSource == args.sender) {
+                        grid.one("dataBinding",
+                            function(e) {
+                                e.preventDefault();
+                                if (grid.editable != undefined) {
+                                    for (var error in args.errors) {
+                                        showMessageGridError(grid.editable.element,
+                                            error,
+                                            args.errors[error].errors,
+                                            validationMessageTmpl);
+                                    }
+                                }
+                            });
+                    }
+                });
+            }
+        }
+    }
+
+    $.fn.hasAttr = function(name) {
+        return (typeof this.attr(name) !== typeof undefined && this.attr(name) !== false);
+    };
+
+    // Clear (just) lookup on change
+    function clearOnCascadeChange(argId) {
+        var id;
+        if (Object.prototype.toString.call(argId) !== '[object Object]' && (argId !== undefined || argId.length > 0)) {
+            id = argId;
+        } else if ($(this).hasAttr('id')) {
+            id = $(this).attr('id');
+        } else {
+            if (this.element) {
+                id = this.element.attr('id');
+            }
+        }
+
+        var form = $('#' + id).closest('form');
+
+        var rootElement = $('#' + id);
+        if (id.length > 0 && !rootElement.prop('readonly')) {
+            clearChildQbe(id, form);
+        }
+    }
+
+    function clearChildQbe(id, form) {
+        var childId;
+        var childQbe;
+
+        $('[qbe*="' + id + '"]:not(#' + id + ')', form).each(function() {
+            childId = $(this).attr('id');
+            childId = childId.replace('_ButtonLookup', '');
+            childQbe = $('#' + childId + '_ButtonLookup').attr('qbe');
+
+            //if (typeof childQbe !== typeof undefined && childQbe !== false) {
+            //if ($(this).hasAttr('qbe')) {
+            //    if (childQbe.toLowerCase().indexOf(id) >= 0) {
+            $('#' + childId + '_ButtonLookupClear').click();
+            clearChildQbe(childId, form);
+            //    }
+            //}
+        });
+    }
+</script>
+
+<!-- IMPORTANT: SmartAdmin Core -->
+@*@Scripts.Render("~/bundles/lookupgrid")*@
+@Scripts.Render("~/bundles/kendo-components")
+@Scripts.Render("~/bundles/wizard")
+@Scripts.Render("~/bundles/smartadmin")
+@Scripts.Render("~/bundles/forms")
+@Scripts.Render("~/bundles/kendo-cultures")
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+@*<script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+
+    </script>*@
+
+<script>
+    function ToJavaScriptDate(value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return dt.getDate() + "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
+    }
+</script>
+
+<!-- KENDO ENHANCEMENT, Add Client Side Validation for Date Range -->
+<script>
+    (function($, kendo) {
+        $.extend(true,
+            kendo.ui.validator,
+            {
+                rules: {
+                    greaterdate: function(input) {
+                        if (input.is("[data-val-greaterdate]") && input.val() != "") {
+                            var date = kendo.parseDate(input.val()),
+                                earlierDate =
+                                    kendo.parseDate($("[name='" + input.attr("data-val-greaterdate-earlierdate") + "']")
+                                        .val());
+                            return !date || !earlierDate || earlierDate.getTime() < date.getTime();
+                        }
+
+                        return true;
+                    }
+                },
+                messages: {
+                    greaterdate: function(input) {
+                        return input.attr("data-val-greaterdate");
+                    }
+                }
+            });
+    })(jQuery, kendo);
+</script>
+
+<!--make form readonly, remove id, reset form -->
+<script>
+    function disabledAllField() {
+        $('fieldset').each(function(e) {
+            $(this).prop('disabled', true);
+            $('[id$=_ButtonLookup]').addClass('disabled');
+            $('[id$=_ButtonLookupClear]').addClass('disabled');
+            $('[type="submit"]').remove();
+            $('.btn-submit').remove();
+        });
+
+        $('form input, .k-grid input, .k-edit-form-container input').each(function() {
+            $(this).prop('disabled', true);
+
+            var kendoDropDownList = $(this).data("kendoDropDownList");
+            if (kendoDropDownList) {
+                kendoDropDownList.enable(false);
+                // cascade
+                kendoDropDownList.bind('dataBound',
+                    function(e) {
+                        this.enable(false);
+                    });
+            }
+
+            var kendoComboBox = $(this).data("kendoComboBox");
+            if (kendoComboBox) {
+                kendoComboBox.enable(false);
+                // cascade
+                kendoComboBox.bind('dataBound',
+                    function(e) {
+                        this.enable(false);
+                    });
+            }
+
+            var kendoNumericTexBox = $(this).data("kendoNumericTextBox");
+            if (kendoNumericTexBox) {
+                kendoNumericTexBox.enable(false);
+            }
+
+            var kendoDatePicker = $(this).data("kendoDatePicker");
+            if (kendoDatePicker) {
+                kendoDatePicker.enable(false);
+            }
+        });
+    }
+
+    function disabledAllFieldWrapper(div) {
+        $(div).find('fieldset').each(function(e) {
+            $(this).prop('disabled', true);
+            $(this).find('[id$=_ButtonLookup]').addClass('disabled');
+            $(this).find('[id$=_ButtonLookupClear]').addClass('disabled');
+            $(this).find('[type="submit"]').remove();
+            $(this).find('.btn-submit').remove();
+        });
+
+        $(div + ' input').each(function() {
+            $(this).prop('disabled', true);
+
+            var kendoDropDownList = $(this).data("kendoDropDownList");
+            if (kendoDropDownList) {
+                kendoDropDownList.enable(false);
+                // cascade
+                kendoDropDownList.bind('dataBound',
+                    function(e) {
+                        this.enable(false);
+                    });
+            }
+
+            var kendoComboBox = $(this).data("kendoComboBox");
+            if (kendoComboBox) {
+                kendoComboBox.enable(false);
+                // cascade
+                kendoComboBox.bind('dataBound',
+                    function(e) {
+                        this.enable(false);
+                    });
+            }
+
+            var kendoNumericTexBox = $(this).data("kendoNumericTextBox");
+            if (kendoNumericTexBox) {
+                kendoNumericTexBox.enable(false);
+            }
+
+            var kendoDatePicker = $(this).data("kendoDatePicker");
+            if (kendoDatePicker) {
+                kendoDatePicker.enable(false);
+            }
+
+            var kendoUpload = $(this).data("kendoUpload");
+            if (kendoUpload) {
+                kendoUpload.enable(false);
+            }
+        });
+    }
+
+    function readOnlyAllFieldWrapper(div) {
+        $(div).find('fieldset').each(function(e) {
+            $(this).prop('readonly', true);
+            $(this).find('[id$=_ButtonLookup]').addClass('disabled');
+            $(this).find('[id$=_ButtonLookupClear]').addClass('disabled');
+            $(this).find('[type="submit"]').remove();
+            $(this).find('.btn-submit').remove();
+        });
+
+        $(div + ' input').each(function() {
+            $(this).prop('readonly', true);
+
+            var kendoDropDownList = $(this).data("kendoDropDownList");
+            if (kendoDropDownList) {
+                kendoDropDownList.readonly();
+                // cascade
+                kendoDropDownList.bind('dataBound',
+                    function(e) {
+                        this.readonly();
+                    });
+            }
+
+            var kendoComboBox = $(this).data("kendoComboBox");
+            if (kendoComboBox) {
+                kendoComboBox.readonly();
+                // cascade
+                kendoComboBox.bind('dataBound',
+                    function(e) {
+                        this.readonly();
+                    });
+            }
+
+            var kendoNumericTexBox = $(this).data("kendoNumericTextBox");
+            if (kendoNumericTexBox) {
+                kendoNumericTexBox.readonly();
+            }
+
+            var kendoDatePicker = $(this).data("kendoDatePicker");
+            if (kendoDatePicker) {
+                kendoDatePicker.readonly();
+            }
+
+            var kendoUpload = $(this).data("kendoUpload");
+            if (kendoUpload) {
+                //kendoUpload.readonly();
+                kendoUpload.enable(false);
+            }
+
+            var kendoMultiSelect = $(this).data("kendoMultiSelect");
+            if (kendoMultiSelect) {
+                kendoMultiSelect.readonly();
+            }
+        });
+    }
+
+    function enabledAllFieldWrapper(div) {
+        $(div).find('fieldset').each(function(e) {
+            $(this).prop('disabled', false);
+            $(this).find('[id$=_ButtonLookup]').removeClass('disabled');
+            $(this).find('[id$=_ButtonLookupClear]').removeClass('disabled');
+        });
+
+        $(div + ' input').each(function() {
+            $(this).prop('disabled', false);
+
+            var kendoDropDownList = $(this).data("kendoDropDownList");
+            if (kendoDropDownList) {
+                kendoDropDownList.enable(true);
+                // cascade
+                kendoDropDownList.bind('dataBound',
+                    function(e) {
+                        this.enable(true);
+                    });
+            }
+
+            var kendoComboBox = $(this).data("kendoComboBox");
+            if (kendoComboBox) {
+                kendoComboBox.enable(true);
+                // cascade
+                kendoComboBox.bind('dataBound',
+                    function(e) {
+                        this.enable(true);
+                    });
+            }
+
+            var kendoNumericTexBox = $(this).data("kendoNumericTextBox");
+            if (kendoNumericTexBox) {
+                kendoNumericTexBox.enable(true);
+            }
+
+            var kendoDatePicker = $(this).data("kendoDatePicker");
+            if (kendoDatePicker) {
+                kendoDatePicker.enable(true);
+            }
+
+            var kendoMultiSelect = $(this).data("kendoMultiSelect");
+            if (kendoMultiSelect) {
+                kendoMultiSelect.enable(true);
+            }
+        });
+    }
+
+    function removeId(div) {
+        $(div + ' input, ' + div + ' textarea').each(function() {
+            $(this).removeAttr('id');
+            $(this).removeAttr('name');
+            // validation
+            var attrs = this.attributes;
+            var toRemove = [];
+            var element = $(this);
+
+            // iterate the attributes
+            for (attr in attrs) {
+                if (typeof attrs[attr] === 'object' &&
+                    typeof attrs[attr].name === 'string' &&
+                    (/^data-val/).test(attrs[attr].name)) {
+
+                    toRemove.push(attrs[attr].name);
+                }
+            }
+
+            for (var i = 0; i < toRemove.length; i++) {
+                element.removeAttr(toRemove[i]);
+            }
+        });
+
+        $(div + ' span').each(function() {
+            // validation
+            var attrs = this.attributes;
+            var toRemove = [];
+            var element = $(this);
+
+            // iterate the attributes
+            for (attr in attrs) {
+                if (typeof attrs[attr] === 'object' &&
+                    typeof attrs[attr].name === 'string' &&
+                    (/^data-valmsg-for/).test(attrs[attr].name)) {
+
+                    toRemove.push(attrs[attr].name);
+                }
+            }
+
+            for (var i = 0; i < toRemove.length; i++) {
+                element.removeAttr(toRemove[i]);
+            }
+        });
+    }
+
+    $.extend(window.kendo.ui.NumericTextBox.fn,
+        {
+            clear: function() {
+                this._old = this._value;
+                this._value = null;
+                this._text.val(this._value);
+                this.element.val(this._value);
+            }
+        });
+
+    function resetFieldWrapper(div) {
+        //$(div).find('input').each(function () {
+        $(div + ' input, ' + div + ' textarea').each(function() {
+            $(this).val(null);
+
+            var kendoDropDownList = $(this).data("kendoDropDownList");
+            if (kendoDropDownList) {
+                kendoDropDownList.value(-1);
+            }
+
+            var kendoComboBox = $(this).data("kendoComboBox");
+            if (kendoComboBox) {
+                kendoComboBox.value(null);
+
+                kendoComboBox.bind('dataBound',
+                    function(e) {
+                        this.data("kendoComboBox").value(null);
+                    });
+            }
+
+            var kendoNumericTexBox = $(this).data("kendoNumericTextBox");
+            if (kendoNumericTexBox) {
+                kendoNumericTexBox.value(0);
+            }
+
+            var kendoDatePicker = $(this).data("kendoDatePicker");
+            if (kendoDatePicker) {
+                kendoDatePicker.value(null);
+            }
+
+            var kendoUpload = $(this).data("kendoUpload");
+            if (kendoUpload) {
+                kendoUpload.value(null);
+            }
+
+            var kendoMultiSelect = $(this).data("kendoMultiSelect");
+            if (kendoMultiSelect) {
+                kendoMultiSelect.value(null);
+            }
+        });
+    }
+
+    //membuat isi dropdownlist terisi default apabila hanya ada 1 data
+    function automateDropDownValue() {
+        $('.k-dropdown').each(function() {
+            var id = this.lastChild.id;
+            var dataDropDown = $("#" + id).data("kendoDropDownList");
+            debugger;
+            if (dataDropDown) {
+                dataDropDown.bind('dataBound',
+                function (e) {
+                    if ($("#" + id).val() == "") {
+                       var dropDown = $("#" + id).data('kendoDropDownList').dataSource._data.length;
+                       if (dropDown == 1) {
+                            var data = $("#" + id).data('kendoDropDownList').dataSource._data[0]["Value"];
+                            dataDropDown.value(data);
+                       }
+                    }
+                });
+            }
+        });
+    }
+</script>
+
+<!--make grid mark required annotation-->
+<script>
+    $(document).ready(function() {
+        markRequired();
+
+        $(".k-grid").each(function() {
+            var grid = $(this).data("kendoGrid");
+            if (grid !== null) {
+                grid.bind("edit",
+                    function() {
+                        markRequired();
+                    });
+            }
+        });
+
+        $(".k-splitter").each(function() {
+            var splitter = $(this).data("kendoSplitter");
+
+            if (splitter !== null) {
+                splitter.bind('contentLoad',
+                    function(e) {
+                        $(".k-grid").each(function() {
+                            var grid = $(this).data("kendoGrid");
+                            if (grid !== null) {
+                                grid.bind("edit",
+                                    function() {
+                                        markRequired();
+                                    });
+                            }
+                        });
+                    });
+            }
+        });
+    });
+
+    function markRequired() {
+        //('input[type=text]').each(function () {
+        $('input, textarea').each(function() {
+            var req = $(this).attr('data-val-required');
+
+            if (undefined != req) {
+                var label = $('label[for="' + $(this).attr('id') + '"]');
+
+                if (label.length > 0) {
+                    label = label.first();
+                }
+
+                var text = label.text().replace('*', '').trim();
+                if (text.length > 0) {
+                    label.html(text + '<span style="color:red"> *</span>');
+                }
+            }
+        });
+    }
+
+    function markRequiredWrapper(div) {
+        //('input[type=text]').each(function () {
+        $(div + ' input, ' + div + ' textarea').each(function() {
+            var req = $(this).attr('data-val-required');
+
+            if (undefined != req) {
+                var label = $('label[for="' + $(this).attr('id') + '"]');
+
+                if (label.length > 0) {
+                    label = label.first();
+                }
+
+                var text = label.text().replace('*', '').trim();
+                if (text.length > 0) {
+                    label.html(text + '<span style="color:red"> *</span>');
+                }
+            }
+        });
+    }
+</script>
+
+<!-- tooltip -->
+<script>
+    $(function() {
+        $("[rel='tooltip']").tooltip();
+    });
+</script>
+
+<!-- kendo culture -->
+<script>
+    var culture = '@System.Globalization.CultureInfo.CurrentCulture.ToString()';
+    var cultureUI = '@System.Globalization.CultureInfo.CurrentUICulture.ToString()';
+    var dateFormat = 'dd-MMM-yyyy';
+
+    culture = "en-GB";
+    kendo.culture(culture);
+
+    $(document).ready(function() {
+        kendo.culture(culture);
+        var cultureKendo = kendo.culture();
+        cultureKendo.calendar.patterns.F = dateFormat;
+        cultureKendo.calendar.patterns.d = dateFormat;
+
+        formatDatePicker();
+
+        $(".k-grid").each(function() {
+            var grid = $(this).data("kendoGrid");
+            if (grid !== null) {
+                grid.bind("edit",
+                    function() {
+                        formatDatePicker();
+                    });
+                //grid.bind("read",
+                //    function () {
+                //        formatGrid();
+                //    });
+            }
+        });
+    });
+
+    function formatGrid() {
+        $('[data-role="grid"]').each(function () {
+            var gridMain = $(this).data("kendoGrid");
+            var options = gridMain.options;
+
+            if (options.field.value.contains('/Date(')) {
+                $(this).kendoGrid({
+                    culture: culture,
+                    format: dateFormat,
+                    parseFormats: ["dd-MMM-yyyy", "dd/MM/yyyy", "dd-MM-yyyy"]
+                }).data("kendoGrid");
+            }
+        });
+    }
+
+    function formatDatePicker() {
+        $('[data-role="datepicker"]').each(function() {
+            var datepicker = $(this).data("kendoDatePicker");
+            var options = datepicker.options;
+
+            if (options.depth == 'month') {
+                $(this).kendoDatePicker({
+                    culture: culture,
+                    format: dateFormat,
+                    parseFormats: ["dd-MMM-yyyy", "dd/MM/yyyy", "dd-MM-yyyy"],
+                }).data("kendoDatePicker");
+            }
+        });
+    }
+</script>
+
+<!-- hide action button by session -->
+<script>
+    $(document).ready(function() {
+        var pageAddAuth = '@HttpContext.Current.Session["PageAddAuth"]';
+        var pageChgAuth = '@HttpContext.Current.Session["PageChgAuth"]';
+        var pageDelAuth = '@HttpContext.Current.Session["PageDelAuth"]';
+
+        //pageAddAuth = '0';
+        //pageChgAuth = '0';
+        //pageDelAuth = '0';
+
+        if (pageChgAuth == '0') {
+            disabledAllField();
+        }
+
+        $(".k-grid").each(function() {
+            var grid = $(this).data("kendoGrid");
+            gridReadOnly(grid);
+        });
+
+        //TODO:untuk sementara dicomment, krn kendala cascade pada dropdownlist
+        //$('.k-dropdown').each(function() {
+        //        console.log("Agus Sulaiman");
+        //        //var cb = $(this).data("kendoDropDownList");
+        //        var id = this.lastChild.id;
+        //        var dataDropDown = $("#" + id).data("kendoDropDownList");
+        //        debugger;
+        //        if (dataDropDown) {
+        //            dataDropDown.bind('dataBound',
+        //                function (e) {
+        //                    if ($("#" + id).val() == "") {
+        //                        var dropDown = $("#" + id).data('kendoDropDownList').dataSource._data.length;
+        //                        if (dropDown == 1) {
+        //                            var data = $("#" + id).data('kendoDropDownList').dataSource._data[0]["Value"];
+        //                            dataDropDown.value(data);
+        //                        }
+        //                    }
+        //                });
+        //        }
+        //});
+
+        $(".k-splitter").each(function() {
+            var splitter = $(this).data("kendoSplitter");
+
+            if (splitter !== null) {
+                splitter.bind('contentLoad',
+                    function(e) {
+                        $(".k-grid").each(function() {
+                            var grid = $(this).data("kendoGrid");
+                            gridReadOnly(grid);
+                        });
+                    });
+            }
+        });
+
+        $(".k-tabstrip").each(function() {
+            var tabStrip = $(this).data("kendoTabStrip");
+
+            tabStripReadOnly(tabStrip);
+        });
+    });
+
+    function tabStripReadOnly(tabStrip) {
+        var pageChgAuth = '@HttpContext.Current.Session["PageChgAuth"]';
+
+        //pageChgAuth = '0';
+        if (tabStrip !== null && tabStrip !== undefined) {
+            tabStrip.bind('contentLoad',
+                function(e) {
+                    if (pageChgAuth == '0') {
+                        disabledAllField();
+                    }
+
+                    $(".k-grid").each(function() {
+                        var grid = $(this).data("kendoGrid");
+                        gridReadOnly(grid);
+                    });
+                });
+        }
+    }
+
+    function gridReadOnly(grid) {
+        var pageAddAuth = '@HttpContext.Current.Session["PageAddAuth"]';
+        var pageChgAuth = '@HttpContext.Current.Session["PageChgAuth"]';
+        var pageDelAuth = '@HttpContext.Current.Session["PageDelAuth"]';
+
+        //pageAddAuth = '0';
+        //pageChgAuth = '0';
+        //pageDelAuth = '0';
+
+        if (grid !== null && grid !== undefined) {
+            grid.bind('dataBound',
+                function(e) {
+                    if (pageAddAuth == '0') {
+                        this.element.find('.k-grid-add').remove();
+                        this.element.find('.k-grid-custom-add').remove();
+                    }
+                    if (pageChgAuth == '0') {
+                        this.element.find('.k-grid-edit').html('Detail');
+                        this.element.find('.k-grid-custom-edit').html('Detail');
+                        this.element.find('.k-grid-save-changes').remove();
+                        this.element.find('.k-grid-cancel-changes').remove();
+                    }
+                    if (pageDelAuth == '0') {
+                        this.element.find('.k-grid-delete').remove();
+                    }
+                });
+            grid.bind('cancel',
+                function(e) {
+                    setTimeout(function() {
+                        var row = e.sender.wrapper.find("tr[data-uid='" + e.model.uid + "']");
+                        if (pageChgAuth == '0') {
+                            row.find('.k-grid-edit').html('Detail');
+                        }
+                        if (pageDelAuth == '0') {
+                            row.find('.k-grid-delete').remove();
+                        }
+                    });
+                });
+            grid.bind("edit",
+                function() {
+                    if (pageChgAuth == '0') {
+                        disabledAllField();
+                        $('.k-window-title').html('Details');
+                        $('.k-grid-update').remove();
+                    }
+                });
+        }
+    }
+
+    function checkChangeAuth() {
+        var pageChgAuth = '@HttpContext.Current.Session["PageChgAuth"]';
+        //pageChgAuth = '0';
+
+        return pageChgAuth;
+    }
+</script>
+
+<!-- Prevent non-list value checkbox -->
+<script>
+    $(document).ready(function() {
+        limitComboBox();
+
+        $(".k-grid").each(function() {
+            var grid = $(this).data("kendoGrid");
+            if (grid !== null) {
+                grid.bind("edit",
+                    function() {
+                        limitComboBox();
+                    });
+                //if (grid.dataSource.options.schema.model.fields === 'date') {
+                //    console.log(grid.dataSource.options.schema.model.format);
+                //    grid.dataSource.options.schema.model.format("{0:dd-MMM-yyyy}");
+                //}
+                //var gridData = grid.dataSource.options.schema.model.fields;
+                //console.log(grid.dataSource.options.schema.model.fields);
+                //console.log(grid.dataSource.options.schema.model.fields);
+                //var dataItem = grid.dataItem($(this).closest('tr'));
+                //console.log(grid.dataItem);
+                //for (var i = 0; i < grid.dataItem.length; i++) {
+                //    //console.log('test = ' + grid.dataItem[i].uid);
+                //    //if (dataView[i].name === "Jane Doe") {
+                //    //    var uid = dataView[i].uid;
+                //    //    $("#grid tbody").find("tr[data-uid=" + uid + "]").addClass("greenBG");
+                //    //}
+                //    //else {
+                //    //    var uid2 = dataView[i].uid;
+                //    //    $("#grid tbody").find("tr[data-uid=" + uid2 + "]").addClass("redBG");
+                //    //}
+                //}
+
+            }
+        });
+
+        $(".k-tabstrip").each(function() {
+            var tabStrip = $(this).data("kendoTabStrip");
+
+            if (tabStrip !== null && tabStrip !== undefined) {
+                tabStrip.bind('contentLoad',
+                    function(e) {
+                        $(".k-grid").each(function() {
+                            var grid = $(this).data("kendoGrid");
+                            if (grid !== null && grid !== undefined) {
+                                grid.bind("edit",
+                                    function() {
+                                        limitComboBox();
+                                    });
+                            }
+                        });
+                    });
+            }
+        });
+    });
+
+    function limitComboBox() {
+        $('[data-role="combobox"]').each(function() {
+            var comboBox = $(this).data("kendoComboBox");
+            comboBox.bind('change',
+                function(e) {
+                    if (this.value() && this.selectedIndex == -1) {
+                        var dt = this.dataSource._data[0];
+                        this.text(dt[this.options.dataTextField]);
+                        this.select();
+                    }
+                });
+        });
+    }
+</script>
+
+<!-- Kendo grid editable popup title -->
+<script>
+    $(document).ready(function() {
+        $(".k-grid").each(function() {
+            var grid = $(this).data("kendoGrid");
+            if (grid !== null) {
+                grid.bind("edit",
+                    function(e) {
+                        setWindowTitle(e);
+                    });
+            }
+        });
+
+        $(".k-tabstrip").each(function() {
+            var tabStrip = $(this).data("kendoTabStrip");
+
+            if (tabStrip !== null && tabStrip !== undefined) {
+                tabStrip.bind('contentLoad',
+                    function() {
+                        $(".k-grid").each(function() {
+                            var grid = $(this).data("kendoGrid");
+                            if (grid !== null && grid !== undefined) {
+                                grid.bind("edit",
+                                    function(e) {
+                                        setWindowTitle(e);
+                                    });
+                            }
+                        });
+                    });
+            }
+        });
+    });
+
+    function setWindowTitle(e) {
+
+        @*if (e.model.isNew()) {
+            $('.k-window-title').text('@Resources.Resources.GenAdd');
+            $('.k-grid-update').html('<span class="k-icon k-i-check"></span>@Resources.Resources.GenButtonCreate');
+        } else {
+            $('.k-window-title').text('@Resources.Resources.GenUpdate');
+            $('.k-grid-update').html('<span class="k-icon k-i-check"></span>@Resources.Resources.GenButtonSaveChanges');
+
+        }
+        $('.k-grid-cancel').html('<span class="k-icon k-i-cancel"></span>@Resources.Resources.GenButtonCancel');
+        $('.k-grid-cancel-changes')
+            .html('<span class="k-icon k-i-cancel"></span>@Resources.Resources.GenButtonCancelChanges');*@
+    }
+</script>
+
+<!-- Get kendo multiselect -->
+<script>
+    function getMultiSelectValue(fieldName) {
+        var values = [];
+        $('#' + fieldName + ' :selected').each(function(i, selected) {
+            values[i] = $(selected).val();
+        });
+        return values;
+    }
+
+    function getMultiSelectText(fieldName) {
+        var textvalues = [];
+        $('#' + fieldName + ' :selected').each(function(i, selected) {
+            textvalues[i] = $(selected).text();
+        });
+        return textvalues;
+    }
+</script>
+<!--on Periode Day Month Change-->
+<script>
+    function onPeriodeDayMonthChanges() {
+        if ($('#StartDay').val() != "" &&
+            $('#StartMonth').val() != "" &&
+            $('#EndDay').val() != "" &&
+            $('#EndMonth').val() != "") {
+            $('#StartDay').data('kendoDropDownList').enable(false);
+            $('#StartMonth').data('kendoDropDownList').enable(false);
+            $('#EndDay').data('kendoDropDownList').enable(false);
+            $('#EndMonth').data('kendoDropDownList').enable(false);
+        } else if ($('#StartDay').val() != "" && $('#StartMonth').val() != "" && $('#EndDay').val() != "") {
+            $('#StartMonth').data('kendoDropDownList').enable(false);
+            $('#EndDay').data('kendoDropDownList').enable(false);
+            $('#EndMonth').data('kendoDropDownList').enable(true);
+
+            if ($('#EndDay').val() == "31") {
+                $('#EndMonth').data('kendoDropDownList').dataSource
+                    .remove($('#EndMonth').data('kendoDropDownList').dataSource._data[1]);
+                $('#EndMonth').data('kendoDropDownList').dataSource
+                    .remove($('#EndMonth').data('kendoDropDownList').dataSource._data[2]);
+                $('#EndMonth').data('kendoDropDownList').dataSource
+                    .remove($('#EndMonth').data('kendoDropDownList').dataSource._data[3]);
+                $('#EndMonth').data('kendoDropDownList').dataSource
+                    .remove($('#EndMonth').data('kendoDropDownList').dataSource._data[5]);
+                $('#EndMonth').data('kendoDropDownList').dataSource
+                    .remove($('#EndMonth').data('kendoDropDownList').dataSource._data[6]);
+            } else if ($('#EndDay').val() == "30") {
+                $('#EndMonth').data('kendoDropDownList').dataSource
+                    .remove($('#EndMonth').data('kendoDropDownList').dataSource._data[1]);
+            }
+        } else if ($('#StartDay').val() != "" && $('#StartMonth').val() != "") {
+            $('#StartMonth').data('kendoDropDownList').enable(false);
+            $('#EndDay').data('kendoDropDownList').enable(true);
+        } else if ($('#StartDay').val() != "") {
+            $('#StartDay').data('kendoDropDownList').enable(false);
+            $('#StartMonth').data('kendoDropDownList').enable(true);
+
+            if ($('#StartDay').val() == "31") {
+                $('#StartMonth').data('kendoDropDownList').dataSource
+                    .remove($('#StartMonth').data('kendoDropDownList').dataSource._data[1]);
+                $('#StartMonth').data('kendoDropDownList').dataSource
+                    .remove($('#StartMonth').data('kendoDropDownList').dataSource._data[2]);
+                $('#StartMonth').data('kendoDropDownList').dataSource
+                    .remove($('#StartMonth').data('kendoDropDownList').dataSource._data[3]);
+                $('#StartMonth').data('kendoDropDownList').dataSource
+                    .remove($('#StartMonth').data('kendoDropDownList').dataSource._data[5]);
+                $('#StartMonth').data('kendoDropDownList').dataSource
+                    .remove($('#StartMonth').data('kendoDropDownList').dataSource._data[6]);
+            } else if ($('#StartDay').val() == "30") {
+                $('#StartMonth').data('kendoDropDownList').dataSource
+                    .remove($('#StartMonth').data('kendoDropDownList').dataSource._data[1]);
+            }
+        }
+    }
+</script>
+<!--Save or Load Grid Setting-->
+<script>
+    $(document).ready(function() {
+        $(".k-grid").each(function() {
+            var grid = $(this).data("kendoGrid");
+            if (grid !== null) {
+                var gridId = $(this).attr("id");
+                //var ds = $("#" + gridId).data("kendoGrid").dataSource;
+                //$("#" + gridId).kendoGrid({
+                //    toolbar: ["excel"],
+                //    excel: {
+                //        fileName: "Export.xlsx",
+                //        allPages: true
+                //    },
+                //    dataSource :ds,
+                //    height: 550,
+                //    groupable: true,
+                //    pageable: {
+                //        refresh: true,
+                //        pageSizes: true,
+                //        buttonCount: 5
+                //    }
+                //});
+                $.ajax({
+                    url: '@Url.Action("ReadSetting", "GridSetting", new {Area = "Reference"})',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: { gridName: gridId },
+                    contentType: "application/json",
+                    success: function(ret) {
+                        if (ret != null && ret !== "") {
+                            var options = grid.options;
+                            options.columns = JSON.parse(ret.columns);
+
+                            options.dataSource.page = ret.page;
+                            options.dataSource.pageSize = ret.pageSize;
+                            options.dataSource.sort = JSON.parse(ret.sort);
+                            options.dataSource.filter = JSON.parse(ret.filter);
+                            options.dataSource.group = JSON.parse(ret.group);
+                            grid.dataSource.query({
+                                page: ret.page,
+                                pageSize: ret.pageSize,
+                                group: JSON.parse(ret.group),
+                                filter: JSON.parse(ret.filter),
+                                sort: JSON.parse(ret.sort)
+                            });
+
+                        }
+                    },
+                    error: function(ret) {
+                        //alerts.error(JSON.parse(ret.responseText).ErrorMessage);
+                    },
+                    complete: function() {
+
+                    }
+                });
+                //if ($("#" + gridId).length != 0) {
+                //    $("#" + gridId).data("kendoGrid").dataSource.read();
+                //    $("#" + gridId).data("kendoGrid").refresh();
+                //}
+            }
+        });
+    });
+    //Dialog Submit
+    @*var dialogSubmit =
+        function submitDialog(validationText, headerTitle, mnHeight, mnWidth) {
+            var def = $.Deferred();
+            $("#submit-text").html(validationText);
+            $("#submit-dialog").dialog({
+                open: function() { $(".ui-dialog-titlebar-close").hide(); },
+                title: headerTitle,
+                //maxHeight: mxHeight,
+                minHeight: mnHeight,
+                //maxWidth: mxWidth,
+                minWidth: mnWidth,
+                resizable: true,
+                draggable: false,
+                modal: true,
+                buttons: [
+                    {
+                        text: "@Resources.Resources.GenConfirmYesRequest",
+                        click: function() {
+                            def.resolve(true);
+                            $(this).dialog("close");
+                        }
+
+                    },
+                    {
+                        text: "@Resources.Resources.GenConfirmNoRequest",
+                        click: function() {
+                            def.resolve(false);
+                            $(this).dialog("close");
+                        }
+
+                    }
+                ]
+            });
+            return def.promise();
+        };*@
+    //Dialog Call Back
+    @*var dialogCallBack =
+        function submitdialogCallBack(callBackText, headerTitle, mnHeight, mnWidth) {
+            var def = $.Deferred();
+            $("#callback-text").text(callBackText);
+            $("#callback-dialog").dialog({
+                open: function() { $(".ui-dialog-titlebar-close").hide(); },
+                title: headerTitle,
+                //maxHeight: mxHeight,
+                minHeight: mnHeight,
+                //maxWidth: mxWidth,
+                minWidth: mnWidth,
+                resizable: true,
+                draggable: false,
+                modal: true,
+                buttons: [
+                    {
+                        text: "@Resources.Resources.GenConfirmYesRequest",
+                        click: function() {
+                            $(this).dialog("close");
+                            def.resolve(true);
+                        }
+
+                    },
+                    {
+                        text: "@Resources.Resources.GenConfirmNoRequest",
+                        click: function() {
+                            $(this).dialog("close");
+                            def.resolve(false);
+                        }
+
+                    }
+                ]
+            });
+            return def.promise();
+        };*@
+    //Dialog Error
+    @*var dialogError =
+        function submitdialogError(errorText, headerTitle, mnHeight, mnWidth) {
+            var def = $.Deferred();
+            $("#callback-text").text(errorText);
+            $("#callback-dialog").dialog({
+                open: function() { $(".ui-dialog-titlebar-close").hide(); },
+                title: headerTitle,
+                //maxHeight: mxHeight,
+                minHeight: mnHeight,
+                //maxWidth: mxWidth,
+                minWidth: mnWidth,
+                resizable: true,
+                draggable: false,
+                modal: true,
+                buttons: [
+                    {
+                        text: "@Resources.Resources.GenConfirmYesRequest",
+                        click: function() {
+                            $(this).dialog("close");
+                            def.resolve(true);
+                        }
+
+                    }
+                ]
+            });
+            return def.promise();
+        };*@
+
+//Hide Loading Overlay
+    function hideLoading() {
+        $('.loading').hide();
+    }
+
+//Show Loading Overlay
+    function showLoading() {
+        $('.loading').show();
+    }
+
+    $(document).ajaxStart(function() {
+        showLoading();
+    });
+
+    $(document).ajaxComplete(function() {
+        hideLoading();
+    });
+
+    $(document).ajaxStop(function () {
+        hideLoading();
+    });
+    //TODO: MODAL POPUP MESSAGE BARU
+    //dialog with modal
+    $.dialogWarning = {
+        confirm: function (options) {
+            var $modal = $('#modalWarningMessages');
+            $modal.find('.modal-header').html(options.title);
+            $modal.find('.modal-body').html(options.message);
+
+            $modal.off('click.dialog', '.btn, .close')
+                .off('hidden')
+                .on('click.dialog', '.btn, .close', function () {
+                    $(this).addClass('modal-result');
+                }).on('hidden.bs.modal', function () {
+                    var result = $(this).find('.modal-result').filter('.btn-primary').length > 0;
+                    $(this).find('.modal-result').removeClass('modal-result');
+                    options.callback(result);
+                });
+
+            $modal.modal();
+        }
+    };
+
+    //dialog with modal
+    $.dialogError = {
+        confirm: function (options) {
+            var $modal = $('#modalErrorMessages');
+            $modal.find('.modal-header').html(options.title);
+            $modal.find('.modal-body').html(options.message);
+
+            $modal.modal();
+        }
+    };
+</script>
+
+<!--Check All and Uncheck All-->
+<script>
+    function checkAll(gridName) {
+        if (gridName == null) {
+            $(".k-grid").each(function() {
+                var grid = $(this).data("kendoGrid");
+                filteredCheckAll(grid);
+            });
+        } else {
+            var grid = $(gridName).data("kendoGrid");
+            filteredCheckAll(grid);
+        }
+    }
+
+    function filteredCheckAll(grid) {
+        var totalPage = Math.ceil(parseFloat(grid.dataSource._data.length / 10, 10)) + 1;
+        for (var i = 0; i < totalPage; i++) {
+            grid.dataSource.page(i);
+        }
+
+        var dataSource = grid.dataSource;
+        var filters = dataSource.filter();
+        var allData = dataSource.data();
+        var query = new kendo.data.Query(allData);
+        var data = query.filter(filters).data;
+        var length = grid.dataSource._data.length;
+
+        var dict = {};
+        for (var i = 0; i < length; i++) {
+            dict[grid.dataSource._data[i]['uid']] = i;
+        }
+        for (var i = 0; i < data.length; i++) {
+            var indexes = (dict[data[i].uid]);
+            if (grid.dataSource._data[indexes]['ActiveFlag'] == false) {
+                grid.dataSource._data[indexes]['ActiveFlag'] = true;
+                grid.dataSource._data[indexes]['dirty'] = true;
+            }
+            $('#CheckAll').hide();
+            $('#UncheckAll').hide();
+        }
+        var elem = document.getElementById("myBar");
+        var width = 1;
+        var id = setInterval(frame, data.length);
+
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+                $('#myProgress').hide();
+                $('#CheckAll').show();
+                $('#UncheckAll').show();
+                grid.dataSource.page(1);
+            } else {
+                //width++;
+                width = width + 2;
+                elem.style.width = width + '%';
+            }
+        }
+
+        grid.refresh();
+        $('#myProgress').show();
+    }
+
+    function uncheckAll(gridName) {
+        if (gridName == null) {
+            $(".k-grid").each(function() {
+                var grid = $(this).data("kendoGrid");
+                filteredUncheckAll(grid);
+            });
+        } else {
+            var grid = $(gridName).data("kendoGrid");
+            filteredUncheckAll(grid);
+        }
+    }
+
+    function filteredUncheckAll(grid) {
+        var totalPage = Math.ceil(parseFloat(grid.dataSource._data.length / 10, 10)) + 1;
+        for (var i = 0; i < totalPage; i++) {
+            grid.dataSource.page(i);
+        }
+
+        var dataSource = grid.dataSource;
+        var filters = dataSource.filter();
+        var allData = dataSource.data();
+        var query = new kendo.data.Query(allData);
+        var data = query.filter(filters).data;
+        var length = grid.dataSource._data.length;
+
+        var dict = {};
+        for (var i = 0; i < length; i++) {
+            dict[grid.dataSource._data[i]['uid']] = i;
+        }
+        for (var i = 0; i < data.length; i++) {
+            var indexes = (dict[data[i].uid]);
+            if (grid.dataSource._data[indexes]['ActiveFlag'] == true) {
+                grid.dataSource._data[indexes]['ActiveFlag'] = false;
+                grid.dataSource._data[indexes]['dirty'] = true;
+            }
+            $('#Save').hide();
+            $('#CheckAll').hide();
+            $('#UncheckAll').hide();
+        }
+        var elem = document.getElementById("myBar");
+        var width = 0;
+        var id = setInterval(frame, data.length % 10);
+
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+                $('#myProgress').hide();
+                $('#CheckAll').show();
+                $('#UncheckAll').show();
+                grid.dataSource.page(1);
+                elem.style.width = 0;
+            } else {
+                //width++;
+                width = width + 1;
+                elem.style.width = width + '%';
+            }
+        }
+
+        grid.refresh();
+        $('#myProgress').show();
+    }
+</script>
+
+<!--Multiple Check All and Uncheck All-->
+<script>
+    function checkAll(gridName, progressName, barName, checkName, uncheckName) {
+        if (gridName == null) {
+            $(".k-grid").each(function() {
+                var grid = $(this).data("kendoGrid");
+                filteredCheckAll(grid, progressName, barName, checkName, uncheckName);
+            });
+        } else {
+            var grid = $(gridName).data("kendoGrid");
+            filteredCheckAll(grid, progressName, barName, checkName, uncheckName);
+        }
+    }
+
+    function filteredCheckAll(grid, progressName, barName, checkName, uncheckName) {
+        var totalPage = Math.ceil(parseFloat(grid.dataSource._data.length / 10, 10)) + 1;
+        for (var i = 0; i < totalPage; i++) {
+            grid.dataSource.page(i);
+        }
+
+        var dataSource = grid.dataSource;
+        var filters = dataSource.filter();
+        var allData = dataSource.data();
+        var query = new kendo.data.Query(allData);
+        var data = query.filter(filters).data;
+        var length = grid.dataSource._data.length;
+
+        var dict = {};
+        for (var i = 0; i < length; i++) {
+            dict[grid.dataSource._data[i]['uid']] = i;
+        }
+        for (var i = 0; i < data.length; i++) {
+            var indexes = (dict[data[i].uid]);
+            if (grid.dataSource._data[indexes]['ActiveFlag'] == false) {
+                grid.dataSource._data[indexes]['ActiveFlag'] = true;
+                grid.dataSource._data[indexes]['dirty'] = true;
+            }
+            $(checkName).hide();
+            $(uncheckName).hide();
+        }
+        var elem = document.getElementById(barName);
+        var width = 0;
+        var id = setInterval(frame, data.length % 10);
+
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+                $(progressName).hide();
+                $(checkName).show();
+                $(uncheckName).show();
+                grid.dataSource.page(1);
+                elem.style.width = 0;
+            } else {
+                //width++;
+                width = width + 1;
+                elem.style.width = width + '%';
+            }
+        }
+
+        grid.refresh();
+        $(progressName).show();
+    }
+
+    function uncheckAll(gridName, progressName, barName, checkName, uncheckName) {
+        if (gridName == null) {
+            $(".k-grid").each(function() {
+                var grid = $(this).data("kendoGrid");
+                filteredUncheckAll(grid, progressName, barName, checkName, uncheckName);
+            });
+        } else {
+            var grid = $(gridName).data("kendoGrid");
+            filteredUncheckAll(grid, progressName, barName, checkName, uncheckName);
+        }
+    }
+
+    function filteredUncheckAll(grid, progressName, barName, checkName, uncheckName) {
+        var totalPage = Math.ceil(parseFloat(grid.dataSource._data.length / 10, 10)) + 1;
+        for (var i = 0; i < totalPage; i++) {
+            grid.dataSource.page(i);
+        }
+
+        var dataSource = grid.dataSource;
+        var filters = dataSource.filter();
+        var allData = dataSource.data();
+        var query = new kendo.data.Query(allData);
+        var data = query.filter(filters).data;
+        var length = grid.dataSource._data.length;
+
+        var dict = {};
+        for (var i = 0; i < length; i++) {
+            dict[grid.dataSource._data[i]['uid']] = i;
+        }
+        for (var i = 0; i < data.length; i++) {
+            var indexes = (dict[data[i].uid]);
+            if (grid.dataSource._data[indexes]['ActiveFlag'] == true) {
+                grid.dataSource._data[indexes]['ActiveFlag'] = false;
+                grid.dataSource._data[indexes]['dirty'] = true;
+            }
+            $('#Save').hide();
+            $(checkName).hide();
+            $(uncheckName).hide();
+        }
+        var elem = document.getElementById(barName);
+        var width = 0;
+        var id = setInterval(frame, data.length % 10);
+
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+                $(progressName).hide();
+                $(checkName).show();
+                $(uncheckName).show();
+                grid.dataSource.page(1);
+                elem.style.width = 0;
+            } else {
+                //width++;
+                width = width + 1;
+                elem.style.width = width + '%';
+            }
+        }
+
+        grid.refresh();
+        $(progressName).show();
+    }
+</script>
+
+<!-- Upload function with path -->
+<script>
+
+</script>
+
+<!-- Validate Access, input certain password on listed protected area -->
+<script>
+    function setCookieValue(cookieName, cookieValue) {
+        var url = window.location.href;
+        var arrUrl = url.split("/");
+
+        var d = new Date();
+        var hour = 48;
+        d.setTime(d.getTime() + (hour * 60 * 60 * 1000));
+        var cookieExpireDate = "expires=" + d.toString();
+        document.cookie = cookieName + "=" + cookieValue + "; " + cookieExpireDate + ';path=/';
+    }
+
+    function getCookieValue(name) {
+        cookieList = document.cookie.split('; ');
+        cookies = {};
+        for (i = cookieList.length - 1; i >= 0; i--) {
+            cookie = cookieList[i].split('=');
+            cookies[cookie[0]] = cookie[1];
+        }
+        return cookies[name];
+    }
+
+    function deleteCookieValue(cookieName) {
+        var d = new Date();
+        d.setTime(d.getTime());
+        var cookieExpireDate = "expires=" + d.toString();
+        document.cookie = cookieName + "=expired;" + cookieExpireDate + ';path=/';
+    }
+
+    $(function() {
+        checkRestrictedArea();
+    });
+
+    function checkRestrictedArea() {
+        var hubArea = $.connection.validateAccessService;
+        //debugger;
+        // return data
+        hubArea.client.getCheckValidateAccess = function(ret) {
+            if (ret.status == 'FAIL') {
+                $('#main').css('filter', 'blur(5px)');
+
+                $.SmartMessageBox({
+                        title: "Validate Access",
+                        content: "Please input password",
+                        buttons: "[Cancel][Accept]",
+                        input: "password",
+                        placeholder: "Input password",
+                    },
+                    function(ButtonPress, Value) {
+                        //$.connection.hub.stop();
+                        if (ButtonPress == "Cancel") {
+                            showLoadingBox();
+
+                            var url = '@Url.Action("Index", "Home", new {area = ""})';
+                            window.location.replace(url);
+                        }
+                        if (ButtonPress == "Accept") {
+                            showLoadingBox();
+
+                            var url =
+                                '@Url.Action("CheckValidateAccess", "PayrollAccount", new {area = "NewPayroll"})';
+
+                            $.ajax({
+                                url: url,
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    pass: Value,
+                                },
+                            }).fail(function(ret) {
+                                location.reload();
+                            }).done(function(ret) {
+                                if (ret.length > 0) {
+                                    window.location.replace(ret);
+                                } else {
+                                    location.reload();
+                                }
+                            });
+                        }
+                    });
+            } else {
+                if (ret.redirectTo == 'Login') {
+                    var url = '@Url.Action("Index", "Home", new {area = string.Empty})';
+                    window.location.replace(url);
+                }
+            }
+            //$.connection.hub.stop();
+        };
+
+        var moduleName = '@Session["module"]';
+        var areaName = '@ViewContext.RouteData.DataTokens["area"]';
+        var controllerName = '@ViewContext.RouteData.DataTokens["controller"]';
+        var validateAccessSession = '@Session["ValidateAccess"]';
+
+        window.startHub().done(function() {
+            //console.log(connection.state());
+            hubArea.server.checkValidateAccess(moduleName, areaName, controllerName, validateAccessSession);
+        }).fail(function(error) {
+            console.log('Invocation of start failed. Error:' + error);
+            //$.connection.hub.stop();
+        });
+    }
+
+    function showLoadingBox() {
+        $.SmartMessageBox({
+            title: "<i class='fa fa-spinner fa-pulse'></i> Loading",
+            buttons: "",
+        });
+    }
+</script>
+
+<!-- Date function without time -->
+<script>
+    Date.prototype.withoutTime = function() {
+        var d = new Date(this);
+        d.setHours(0, 0, 0, 0);
+        return d;
+    }
+</script>
+    

@@ -1,0 +1,44 @@
+﻿@model AbidzarFrame.Security.Interface.Dto.RoleResult
+@{
+    Layout = null;
+}
+
+@Html.AntiForgeryToken()
+@Html.Hidden("hiddenActionGrid", (object)ViewBag.ActionGrid)
+
+<form id="FormObject">
+    <fieldset>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdRole)
+                    @Html.TextBoxFor(m => m.IdRole, new { @class = "form-control", @style = "width:100%", @maxlength = "20" })
+                    @Html.ValidationMessageFor(m => m.IdRole, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.NamaRole)
+                    @Html.TextBoxFor(m => m.NamaRole, new { @class = "form-control", @style = "width:100%", @maxlength = "100" })
+                    @Html.ValidationMessageFor(m => m.NamaRole, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Deskripsi)
+                    @Html.TextBoxFor(m => m.Deskripsi, new { @class = "form-control", @style = "width:100%", @maxlength = "500" })
+                    @Html.ValidationMessageFor(m => m.Deskripsi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.OrderRole)
+                    @Html.TextBoxFor(m => m.OrderRole, new { @class = "form-control", @style = "width:100%"})
+                    @Html.ValidationMessageFor(m => m.OrderRole, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+

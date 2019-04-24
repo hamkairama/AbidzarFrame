@@ -1,0 +1,57 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.KtpResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+    ViewBag.Title = "";
+    //Layout = null;
+}
+
+<link href="~/Content/Layout/css/component-card.css" rel="stylesheet" />
+
+<div class="portlet light portlet-fit bordered" id="divWarga">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-layers font-green"></i>
+            <span class="caption-subject font-green bold uppercase">Hasil Pencarian</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="mt-element-card mt-element-overlay">
+            <div class="row">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="@item.NamaFilePhoto">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                @*<a class="btn default btn-outline" href="javascript:;">
+                                                    <i class="icon-magnifier"></i>
+                                                </a>*@
+                                                <button class="btn default btn-outline" data-toggle="modal" data-target="#AbidzarFrameModalFormView"
+                                                        data-item-description="View" data-item-id="@item.Nik" data-backdrop="static" data-keyboard="false"
+                                                        data-url=@Url.Action("EditorFormPartial", "CariWarga", new { area = "Kependudukan" })><i class="icon-magnifier"></i>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">@item.Nama</h3>
+                                    <p class="mt-card-desc font-grey-mint">@item.Nik</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

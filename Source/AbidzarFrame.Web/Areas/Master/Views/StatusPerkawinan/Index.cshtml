@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "StatusPerkawinan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/AbidzarFrame/bundles/datatables/css")
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box red-soft">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-list"></i>@ViewBag.Title
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="javascript:;" class="reload">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <button id="btnAdd" class="btn btn-circle green" data-toggle="modal" data-target="#AbidzarFrameModalFormEdit"
+                                data-item-description="Add" data-item-id="0" data-backdrop="static" data-keyboard="false"
+                                data-url=@Url.Action("EditorFormPartial", "StatusPerkawinan", new { area = "Master" })
+                                data-url-action=@Url.Action("Create", "StatusPerkawinan", new { area = "Master" })>
+                                Tambah <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group pull-right">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                    Tools <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="javascript:;" class="datatable-action-print">
+                                            <i class="icon-printer"></i> Print Data Table
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="datatable-action-pdf">
+                                            <i class="fa fa-file-pdf-o"></i> Save as PDF
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="datatable-action-excel">
+                                            <i class="fa fa-file-excel-o"></i> Export to Excel
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="gridStatusPerkawinan" class="table table-striped table-bordered table-responsive" cellspacing="0" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>StatusPerkawinan</th>
+                                <th>Dibuat Oleh</th>
+                                <th>Dibuat Tgl</th>
+                                <th>Diedit Oleh</th>
+                                <th>Diedit Tgl</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*@Html.Partial("_List")*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/AbidzarFrame/bundles/datatables/js")
+<script>
+    var dataTable;
+    $(document).ready(function () {
+        dataTable = $('#gridStatusPerkawinan').DataTable({
+            deferRender: true,
+            ajax: {
+                url: '@Url.Action("Read", "StatusPerkawinan", new { area = "Master"})',
+                type: 'POST',
+                contentType: 'application/json'
+            },
+            columnDefs: [
+                {
+                    "targets": [5],
+                    //"visible": false,
+                    "searchable": false,
+                    "orderable": false
+                },
+                {
+                    "targets": [6],
+                    //"visible": false,
+                    "searchable": false,
+                    "orderable": false
+                }
+            ],
+            columns: [
+                { "data": "StatusPerkawinan", "autoWidth": true, "orderable": true },
+                { "data": "DibuatOleh", "autoWidth": true, "orderable": true },
+                {
+                    "data": "DibuatTanggal",
+                    "autoWidth": true,
+                    "orderable": true,
+                    "render": function (value) {
+                        if (value === null) return "";
+
+                        var pattern = /Date\(([^)]+)\)/;
+                        var results = pattern.exec(value);
+                        var dt = new Date(parseFloat(results[1]));
+
+                        return getFormattedDate(dt);
+                    }
+                },
+                { "data": "DieditOleh", "autoWidth": true, "orderable": true },
+                {
+                    "data": "DieditTanggal",
+                    "autoWidth": true,
+                    "orderable": true,
+                    "render": function (value) {
+                        if (value === null) return "";
+
+                        var pattern = /Date\(([^)]+)\)/;
+                        var results = pattern.exec(value);
+                        var dt = new Date(parseFloat(results[1]));
+
+                        return getFormattedDate(dt);
+                    }
+                },
+                {
+                    "data": "Id", "width": "50px", "render": function (data) {
+                        return '<button type="button" class="btn btn-circle btn-icon-only btn-info" data-item-description="Edit" data-backdrop="static" data-keyboard="false" data-item-id="' + data +
+                             '" data-toggle="modal" data-target="#AbidzarFrameModalFormEdit" data-url="' + '@Url.Action("EditorFormPartial", "StatusPerkawinan", new { area = "Master" })' +
+                             '" data-url-action="' + '@Url.Action("Update", "StatusPerkawinan", new { area = "Master" })' + '"><i class="glyphicon glyphicon-pencil" title="Update"></button>';
+                    }
+                },
+                 {
+                     "data": "Id", "width": "50px", "render": function (data) {
+                         return '<button type="button" class="btn btn-circle btn-icon-only btn-danger" data-item-description="" data-item-id="' + data +
+                             '" data-toggle="modal" data-target="#confirm-delete" data-url="' + '@Url.Action("Delete", "StatusPerkawinan", new { area = "Master" })' +
+                             '"><i class="glyphicon glyphicon-trash" title="Delete"></button>';
+                     }
+                 }
+            ],
+        });
+        // catch error datatable
+        $.fn.dataTable.ext.errMode = function (xhr, error, thrown) { alertError(xhr.jqXHR.responseText); };
+    });
+</script>
+

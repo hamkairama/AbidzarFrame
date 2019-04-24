@@ -1,0 +1,217 @@
+﻿@using AbidzarFrame.Master.Interface.Dto
+@using AbidzarFrame.Web.Helpers
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<link href="~/Content/Layout/css/about.css" rel="stylesheet" />
+<style>
+    .scrolling-wrapper {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+    .scrolling-card {
+        display: inline-block;
+    }
+</style>
+@Html.Hidden("hiddenErrorMessage", (string)ViewBag.ErrorMessage)
+
+@{
+    List<SlideShowResult> listSlideShow = new List<SlideShowResult>();
+    List<SlideShowResult> listScrollShow = new List<SlideShowResult>();
+
+    listSlideShow = Common.GetSlideShow(CurrentUser.GetCurrentKodeRt(), 0, 0);
+    listScrollShow = Common.GetSlideShow(CurrentUser.GetCurrentKodeRt(), 1, 0);
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="myCarousel" class="carousel image-carousel slide">
+                <div class="carousel-inner">
+                    @if (listSlideShow.Count() > 0)
+                    {
+                        for (int i = 0; i < listSlideShow.Count(); i++)
+                        {
+                            if (i == 0)
+                            {
+                                <div class="item active">
+                                    <img src="@listSlideShow[i].FileName" class="img-responsive" alt="" style="width:100%;height:150px" />
+                                    <div class="carousel-caption" style="background:rgba(0, 0, 0, 0)">
+                                        <h4>
+                                            <a href="page_news_item.html">
+                                                @listSlideShow[i].Judul
+                                            </a>
+                                        </h4>
+                                        <p>
+                                            @listSlideShow[i].Deskripsi
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item">
+                                    <img src="@listSlideShow[i].FileName" class="img-responsive" alt="" style="width:100%;height:150px;" />
+                                    <div class="carousel-caption" style="background:rgba(0, 0, 0, 0)">
+                                        <h4>
+                                            <a href="page_news_item.html">
+                                                @listSlideShow[i].Judul
+                                            </a>
+                                        </h4>
+                                        <p>
+                                            @listSlideShow[i].Deskripsi
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <i class="m-icon-big-swapleft m-icon-white"></i>
+                </a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                    <i class="m-icon-big-swapright m-icon-white"></i>
+                </a>
+
+                <ol class="carousel-indicators">
+                    @if (listSlideShow.Count() > 0)
+                    {
+                        for (int i = 0; i < listSlideShow.Count(); i++)
+                        {
+                            if (i == 0)
+                            {
+                                <li data-target="#myCarousel" data-slide-to="@i" class="active"></li>
+                            }
+                            else
+                            {
+                                <li data-target="#myCarousel" data-slide-to="@i" class=""></li>
+                            }
+                        }
+                    }
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row margin-top-20 margin-bottom-20">
+        <a href="@Url.Action("Index", "AppointmentDiary", new { area = "Kegiatan" })">
+            <div class="col-md-2 col-md-2 col-xs-6">
+                <div class="portlet light" style="background-image: url('../Content/Images/bg/card-islamic-1.jpg'); background-repeat:no-repeat;
+            text-shadow: 1px 1px 2px black, 0 0 5px red, 0 0 5px darkblue; background-size: 100% 100%;">
+                    <div class="card-icon">
+                        <i class="icon-user-follow font-red-sunglo theme-font"></i>
+                    </div>
+                    <div class="card-title">
+                        <span> Siskamling </span>
+                    </div>
+                    @*<div class="card-desc">
+                            <span>
+                                Jadwal Siskamling periode @DateTime.Now.ToString("MMMM yyyy")
+                            </span>
+                    </div>*@
+                </div>
+            </div>
+        </a>
+        <div class="col-md-2 col-md-2 col-xs-6">
+            <div class="portlet light" style="background-image: url('../Content/Images/bg/card-islamic-1.jpg'); background-repeat:no-repeat;
+        text-shadow: 1px 1px 2px black, 0 0 5px red, 0 0 5px darkblue; background-size: 100% 100%;">
+                @*<div class="card-icon">
+                        <i class="icon-trophy font-green-haze theme-font"></i>
+                    </div>*@
+                <div class="card-desc" style="height:120px;padding-top:20px;">
+                    <span>
+                        Subuh : <span id="tmSubuh"></span><br />
+                        Dzuhur : <span id="tmDzuhur"></span>  <br />
+                        Ashar : <span id="tmAshar"></span> <br />
+                        Maghrib : <span id="tmMaghrib"></span> <br />
+                        Isya : <span id="tmIsya"></span><br />
+                    </span>
+                </div>
+
+                <div class="card-title" style="color:white">
+                    <span>Sholat</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-md-2 col-xs-6">
+            <div class="portlet light" style="background-image: url('../Content/Images/bg/card-islamic-1.jpg'); background-repeat:no-repeat;
+        text-shadow: 1px 1px 2px black, 0 0 5px red, 0 0 5px darkblue; background-size: 100% 100%;">
+                <div class="card-icon">
+                    <i class="icon-basket font-purple-wisteria theme-font"></i>
+                </div>
+                <div class="card-title">
+                    <span>eCommerce</span>
+                </div>
+                @*<div class="card-desc">
+                        <span>
+                            The best way to find yourself is
+                            <br> to lose yourself in the service of others
+                        </span>
+                    </div>*@
+            </div>
+        </div>
+        <div class="col-md-2 col-md-2 col-xs-6">
+            <div class="portlet light" style="background-image: url('../Content/Images/bg/card-islamic-1.jpg'); background-repeat:no-repeat;
+        text-shadow: 1px 1px 2px black, 0 0 5px red, 0 0 5px darkblue; background-size: 100% 100%;">
+                <div class="card-icon">
+                    <i class="icon-layers font-blue theme-font"></i>
+                </div>
+                <div class="card-title">
+                    <span>Components</span>
+                </div>
+                @*<div class="card-desc">
+                        <span>
+                            The best way to find yourself is
+                            <br> to lose yourself in the service of others
+                        </span>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="note note-info" style="text-shadow: 1px 1px 2px black, 0 0 5px red, 0 0 5px darkblue;">
+                <h4>scroll horizontal mobile </h4>
+            </div>
+        </div>
+    </div>
+    <div class="row scrolling-wrapper">
+        @if (listScrollShow.Count() > 0)
+        {
+            for (int i = 0; i < listScrollShow.Count(); i++)
+            {
+                <a href="@listScrollShow[i].PathUrl">
+                    <div class="col-md-2 scrolling-card">
+                        <div class="portlet light" style="background-image: url('@listScrollShow[i].FileName'); background-repeat:no-repeat;
+                        text-shadow: 1px 1px 2px black, 0 0 5px red, 0 0 5px darkblue; width:200px; height:100px; background-size: 100% 100%;">
+                            @*<div class="card-icon">
+                                    <i class="icon-user-follow font-red-sunglo theme-font"></i>
+                                </div>*@
+                            <div class="card-title">
+                                    <span> @listScrollShow[i].Judul </span>
+                                </div>
+                            <div class="card-desc">
+                                    <span>
+                                        @listScrollShow[i].Deskripsi
+                                    </span>
+                                </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        }
+    </div>
+}
+
+
+<script>
+    if ($('#hiddenErrorMessage').val().length > 1) {
+        setTimeout(function () { alertError($('#hiddenErrorMessage').val()) }, 1000);
+    }
+</script>
+<script src="~/Scripts/controller/AdditionalController.js"></script>
+

@@ -1,0 +1,101 @@
+﻿@using AbidzarFrame.Web.Helpers
+
+@{
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="@Url.Action("Index", "Home", new { area=""})">
+                    <img src="~/Content/Images/rukuntangga_logo_2.jpg" alt="logo" class="logo-default" style="max-width:190px;max-height:180px;background-size:100% 100%" />
+                </a>
+                <div class="menu-toggler sidebar-toggler">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <div class="page-actions">
+                @*@{
+                    if (Session["GlobalUserVariable"] != null)
+                    {
+                        @*<div id="GeneralBosDate" class="pull-right tooltips btn btn-sm btn-default margin-bottom-10" data-container="body" data-placement="bottom" data-original-title="Back Office System Date">
+                            <i class="icon-calendar"></i>&nbsp; <span class="thin uppercase visible-lg-inline-block">@DateTime.Today.ToString("dd-MM-yyyy")</span>
+                        </div>*@
+                @*}
+                    }*@
+            </div>
+            <!-- BEGIN PAGE TOP -->
+            <div class="page-top">
+                <!-- BEGIN HEADER SEARCH BOX -->
+                <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+                <form class="search-form" action="javascript:void(0);" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" placeholder="Search..." id="searchQuickMenu">
+                        <span class="input-group-btn">
+                            <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+                        </span>
+                    </div>
+                </form>
+                <!-- END HEADER SEARCH BOX -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="separator hide">
+                        </li>
+                        <li class="separator hide">
+                        </li>
+                        <!-- BEGIN USER LOGIN DROPDOWN -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte src="~/Content/Layout/img/avatar.png" -->
+                        <li class="dropdown dropdown-user dropdown-dark">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <img alt="" class="img-circle" src="@CurrentUser.GetCurrentPhoto()" />
+                                <span class="username username-hide-on-mobile">
+                                    @CurrentUser.GetCurrentUserName()
+                                </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <a href="@Url.Action("Index", "KtpKu", new { area = "Kependudukan" })">
+                                        <i class="icon-user"></i> Ktp-ku
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "AppointmentDiary", new { area = "Kegiatan" })">
+                                        <i class="icon-calendar"></i> Jadwal Siskamling
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("DetailJenisInformasiTerbaru", "DetailJenisInformasi", new { area = "Informasi" })">
+                                        <i class="icon-envelope-open"></i> Informasi
+                                        <span class="badge badge-danger">@Common.GetDetailJenisInformasiNewest(CurrentUser.GetCurrentKodeRt()).Count() </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "TanyaRt", new { area = "Questioner" })">
+                                        <i class="icon-question"></i> Tanya RT
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="@Url.Action("LogOff", "Account", new { area = "" })">
+                                        <i class="icon-key"></i> Log Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END PAGE TOP -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+
+}

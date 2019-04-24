@@ -1,0 +1,199 @@
+Private Sub CommandButton1_Click()
+    For i = 2 To 3781
+        If Sheet1.Range("A" & i).Value = "K O D E" Or Sheet1.Range("A" & i).Value = "" Then
+            Sheet1.Rows(i).EntireRow.Delete
+        End If
+        
+        If Sheet1.Range("C" & i).Value = "KECAMATAN" Then
+            Sheet1.Rows(i).EntireRow.Delete
+        End If
+        
+        If Sheet1.Range("A" & i).Value = "" And _
+        Sheet1.Range("D" & i).Value <> "" Then
+            Sheet1.Rows(i).EntireRow.Delete
+        End If
+        
+        If Sheet1.Range("D" & i).Value = "" Then
+            Sheet1.Range("D" & i).Value = Sheet1.Range("E" & i).Value
+        End If
+        
+        Sheet1.Range("E2:I319").Columns.Delete
+
+	LString = Sheet1.Range("C" & i).Value
+        LArray = Split(LString, " ")
+        If LString <> "" Then
+            Sheet1.Range("C" & i).Value = Replace(LString, LArray(0) + " ", "")
+        End If
+    Next
+
+
+    For i = 2 To 1661
+        LString = Sheet1.Range("B" & i).Value
+        LArray = Split(LString, " ")
+        If LString <> "" Then
+            Sheet1.Range("B" & i).Value = Replace(LString, LArray(0) + " ", "")
+        End If
+     Next
+
+    For i = 2 To 1661
+	LString = Sheet1.Range("C" & i).Value
+        LArray = Split(LString, " ")
+        If LString <> "" Then
+            Sheet1.Range("C" & i).Value = Replace(LString, LArray(0) + " ", "")
+        End If
+     Next
+
+     For i = 2 To 1661
+        LString = Sheet1.Range("D" & i).Value
+        LArray = Split(LString, " ")
+        If LString <> "" Then
+            Sheet1.Range("D" & i).Value = Replace(LString, LArray(0) + " ", "")
+        End If
+     Next
+
+     For i = 2 To 1661
+        LString = Sheet1.Range("E" & i).Value
+        LArray = Split(LString, " ")
+        If LString <> "" Then
+            Sheet1.Range("E" & i).Value = Replace(LString, LArray(0) + " ", "")
+        End If
+     Next
+
+
+For i = 2 To 1530
+        Data = Sheet1.Range("A" & i).Value
+        Length = Len(Data)
+        If Length = 10 Then
+             Sheet1.Range("A" & i).Value = Right(Data, 3)
+        End If
+        
+        Data = Sheet1.Range("A" & i).Value
+        Length = Len(Data)
+        If Length = 4 Then
+             Sheet1.Range("A" & i).Value = Right(Data, 2)
+        End If
+        
+        Data = Sheet1.Range("A" & i).Value
+        Length = Len(Data)
+        If Length = 5 Then
+             Sheet1.Range("A" & i).Value = Right(Data, 2)
+        End If
+
+	Data = Sheet1.Range("A" & i).Value
+        If Data = "" Then
+            Sheet1.Rows(i).EntireRow.Delete
+        End If
+
+     Next
+  
+End Sub
+
+
+Private Sub MappingData_Click()
+ Provinsi = ""
+    Kabupaten = ""
+    Kecamatan = ""
+    Kelurahan = ""
+    For i = 2 To 320
+        If Sheet1.Range("B" & i, "B" & i).Value <> Provinsi And _
+        Sheet1.Range("B" & i, "B" & i).Value <> "" Then
+            Provinsi = Sheet1.Range("B" & i, "B" & i).Value
+        End If
+        Sheet1.Range("B" & i, "B" & i).Value = Provinsi
+        
+        If Sheet1.Range("C" & i, "C" & i).Value <> Kabupaten And _
+        Sheet1.Range("C" & i, "C" & i).Value <> "" Then
+            Kabupaten = Sheet1.Range("C" & i, "C" & i).Value
+        End If
+        Sheet1.Range("C" & i, "C" & i).Value = Kabupaten
+        
+        If Sheet1.Range("D" & i, "D" & i).Value <> Kecamatan And _
+        Sheet1.Range("D" & i, "D" & i).Value <> "" Then
+            Kecamatan = Sheet1.Range("D" & i, "D" & i).Value
+        End If
+        Sheet1.Range("D" & i, "D" & i).Value = Kecamatan
+        
+        If Sheet1.Range("E" & i, "E" & i).Value <> Kelurahan And _
+        Sheet1.Range("E" & i, "E" & i).Value <> "" Then
+            Kelurahan = Sheet1.Range("E" & i, "E" & i).Value
+        End If
+        Sheet1.Range("E" & i, "E" & i).Value = Kelurahan
+    Next
+    MsgBox ("Berhasil")
+End Sub
+
+Private Sub CommandButton3_Click()
+Provinsi = ""
+    Kabupaten = ""
+    Kecamatan = ""
+    Kelurahan = ""
+    Sheet1.Range("F2:I319").Columns.Delete
+    For i = 2 To 1530
+        'Provinsi
+        If Sheet1.Range("C" & i, "C" & i).Value = "" And _
+        Sheet1.Range("D" & i, "D" & i).Value = "" And _
+        Sheet1.Range("E" & i, "E" & i).Value = "" Then
+            Provinsi = Sheet1.Range("A" & i, "A" & i).Value
+            Sheet1.Range("F" & i, "F" & i).Value = "EXEC SPPROVINSIINSERT '" & Provinsi & "', '" & Sheet1.Range("B" & i, "B" & i).Value & "', 'SYSTEM'"
+        End If
+        
+        'Kota / Kabupaten
+        If IsNumeric(Sheet1.Range("D" & i, "D" & i).Value) = True And _
+        IsNumeric(Sheet1.Range("E" & i, "E" & i).Value) = True And _
+        Sheet1.Range("D" & i, "D" & i).Value <> "" And _
+        Sheet1.Range("E" & i, "E" & i).Value <> "" Then
+            Kabupaten = Sheet1.Range("A" & i, "A" & i).Value
+            Sheet1.Range("G" & i, "G" & i).Value = "DECLARE @KABUPATEN" & i & " INT" & vbCrLf & _
+            "SELECT @KABUPATEN" & i & " = Id FROM (SELECT MAX(Id) AS Id FROM TbProvinsi WHERE KodeProvinsi = '" & Provinsi & "') a" & vbCrLf & _
+            "EXEC SPKOTAINSERT @KABUPATEN" & i & ", '" & Kabupaten & "', '" & Sheet1.Range("C" & i, "C" & i).Value & "', 'SYSTEM'"
+        End If
+        
+        'Kecamatan
+        If IsNumeric(Sheet1.Range("D" & i, "D" & i).Value) = False And _
+        IsNumeric(Sheet1.Range("E" & i, "E" & i).Value) Then
+            Kecamatan = Sheet1.Range("A" & i, "A" & i).Value
+            Sheet1.Range("H" & i, "H" & i).Value = "DECLARE @KECAMATAN" & i & " INT" & vbCrLf & _
+            "SELECT @KECAMATAN" & i & " = Id FROM (SELECT MAX(Id) AS Id FROM TbKota WHERE IdProvinsi = (SELECT MAX(Id) FROM TbProvinsi WHERE KodeProvinsi = '" & Provinsi & "') AND KodeKota = '" & Kabupaten & "') a" & vbCrLf & _
+            "EXEC SPKECAMATANINSERT @KECAMATAN" & i & ", '" & Kecamatan & "', '" & Sheet1.Range("D" & i, "D" & i).Value & "', 'SYSTEM'"
+        End If
+        
+        'Kelurahan
+        If IsNumeric(Sheet1.Range("D" & i, "D" & i).Value) = False And _
+        IsNumeric(Sheet1.Range("E" & i, "E" & i).Value) = False And _
+        Sheet1.Range("D" & i, "D" & i).Value <> "" And _
+        Sheet1.Range("E" & i, "E" & i).Value <> "" Then
+            Kelurahan = Sheet1.Range("A" & i, "A" & i).Value
+            Sheet1.Range("I" & i, "I" & i).Value = "DECLARE @KELURAHAN" & i & " INT" & vbCrLf & _
+            "SELECT @KELURAHAN" & i & " = Id FROM (SELECT MAX(Id) AS Id FROM TbKecamatan WHERE IdKota = (SELECT MAX(Id) FROM TbKota WHERE IdProvinsi = (SELECT MAX(Id) FROM TbProvinsi WHERE KodeProvinsi = '" & Provinsi & "') AND KodeKota = '" & Kabupaten & "') AND KodeKecamatan = '" & Kecamatan & "') a" & vbCrLf & _
+            "EXEC SPKELURAHANINSERT @KELURAHAN" & i & ", '" & Kelurahan & "', '" & Sheet1.Range("E" & i, "E" & i).Value & "', 'SYSTEM'"
+        End If
+    Next
+End Sub
+
+
+
+
+delete TbKelurahan where IdKecamatan in (select id from TbKecamatan where IdKota  in (select id from TbKota where IdProvinsi in (select id from TbProvinsi where NamaProvinsi = 'ACEH') ))
+delete TbKecamatan where IdKota  in (select id from TbKota where IdProvinsi in (select id from TbProvinsi where NamaProvinsi = 'ACEH') )
+delete TbKota where IdProvinsi in (select id from TbProvinsi where NamaProvinsi = 'ACEH')
+delete TbProvinsi where NamaProvinsi = 'ACEH'
+
+
+select * from TbProvinsi where NamaProvinsi = 'ACEH'
+select * from TbKota where IdProvinsi in (select id from TbProvinsi where NamaProvinsi = 'ACEH')
+select * from TbKecamatan where IdKota  in (select id from TbKota where IdProvinsi in (select id from TbProvinsi where NamaProvinsi = 'ACEH') )
+select * from TbKelurahan where IdKecamatan in (select id from TbKecamatan where IdKota  in (select id from TbKota where IdProvinsi in (select id from TbProvinsi where NamaProvinsi = 'ACEH') ))
+
+
+select * from TbProvinsi 
+select * from TbKota 
+select * from TbKecamatan
+select * from TbKelurahan 
+
+
+
+
+SELECT IDENT_CURRENT('tbprovinsi')
+SELECT IDENT_CURRENT('tbkota')
+SELECT IDENT_CURRENT('tbkecamatan')
+SELECT IDENT_CURRENT('tbkelurahan')

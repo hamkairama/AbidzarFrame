@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<EncryptedDbCredential xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserId>/uSsO/c4FYOx3mjvbyP2GG20XWY0inOX</UserId>
+  <Password>HGW4SvXO4epUq8Mz7TKskHjLbCTdEEQy</Password>
+  <Database>/uSsO/c4FYMHUR/rlBZ86LQkicL0T408</Database>
+  <ConnectionString>Initial Catalog={2};User ID={0}; Password={1}; Data Source=idwdev46</ConnectionString>
+</EncryptedDbCredential>
+
+<DbCredential xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserId></UserId>
+  <Password></Password>
+  <Database>RUKUNTANGGA</Database>
+   <Datasource>(localdb)\MyInstance</Datasource>
+  <ConnectionString>Initial Catalog={2};User ID={0}; Password={1}; Data Source={3};</ConnectionString>
+</DbCredential>
+
+<DbCredential xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserId>elboz79_rukuntan</UserId>
+  <Password>4oxaNgs#erUw1</Password>
+  <Database>elboz79_rukuntangga</Database>
+  <Datasource>198.38.83.33</Datasource>
+  <ConnectionString>Initial Catalog={2};User ID={0}; Password={1}; Data Source={3};</ConnectionString>
+</DbCredential>

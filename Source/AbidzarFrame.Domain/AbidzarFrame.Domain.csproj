@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AbidzarFrame.Domain</RootNamespace>
     <AssemblyName>AbidzarFrame.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -45,6 +45,13 @@
   <ItemGroup>
     <Compile Include="Common\ResultStatus.cs" />
     <Compile Include="Models\Base\BaseModel.cs" />
+    <Compile Include="Models\Master\TestimoniBaseModel.cs" />
+    <Compile Include="Models\Master\BiodataBaseModel.cs" />
+    <Compile Include="Models\Master\LandingPageLevelPropertyBaseModel.cs" />
+    <Compile Include="Models\Master\LandingPageLevelBaseModel.cs" />
+    <Compile Include="Models\Master\ListOfValueBaseModel.cs" />
+    <Compile Include="Models\Master\RwBaseModel.cs" />
+    <Compile Include="Models\Master\RtBaseModel.cs" />
     <Compile Include="Models\Master\ParameterBaseModel.cs" />
     <Compile Include="Models\Master\SlideShowBaseModel.cs" />
     <Compile Include="Models\Master\AppointmentDiaryBaseModel.cs" />

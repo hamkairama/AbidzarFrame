@@ -1,0 +1,54 @@
+﻿@model AbidzarFrame.Master.Interface.Dto.DetailJenisInformasiResult
+@using AbidzarFrame.Web.Helpers
+
+@{
+    Layout = "~/Views/Shared/_LayoutAreaRw.cshtml";
+    ViewBag.Title = "Personal";
+}
+<style>
+    .overflow {
+        height: 106px;
+        overflow: hidden;
+        text-overflow: "---";
+    }
+</style>
+<div class="whole-wrap">
+    <div class="container">
+        <div class="section-top-border">
+
+            <div class="row">
+                <div class="col-lg-8 mt-50">
+                    <div class="widget-wrap mb-10" style="padding-top:0px;">
+                        <div class="single-sidebar-widget user-info-widget " style="text-align:justify">
+                            <h4>@Model.Judul</h4>
+                            <div class="" style="font-size:12px;text-align:justify;">
+                                @Html.Raw(HttpUtility.HtmlDecode(Model.Deskripsi));
+                            </div>
+
+                            <a href="@Url.Action("News","AreaRw")" class="primary-btn text-uppercase">Back</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 sidebar-widgets mt-50">
+                    <div class="widget-wrap">
+
+                        <div class="single-sidebar-widget ads-widget">
+                            <a href="#"><img class="img-fluid" src="~/Content/Images/area_rw/Ad-adidas.jpg" @*width="300" height="250"*@ alt=""></a>
+                        </div>
+                        <div class="single-sidebar-widget ads-widget">
+                            <a href="#"><img class="img-fluid" src="~/Content/plugins/personal/img/blog/ads-banner.jpg" alt=""></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+

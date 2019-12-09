@@ -44,7 +44,7 @@ namespace AbidzarFrame.Master.Manager
 
         protected DokumentasiDetailJenisKegiatanDao _DokumentasiDetailJenisKegiatanDao
         {
-            get { return new DokumentasiDetailJenisKegiatanDao(); }            
+            get { return new DokumentasiDetailJenisKegiatanDao(); }
         }
 
         protected GolonganDarahDao _GolonganDarahDao
@@ -153,8 +153,40 @@ namespace AbidzarFrame.Master.Manager
             get { return new ParameterDao(); }
         }
 
+        protected RtDao _RtDao
+        {
+            get { return new RtDao(); }
+        }
 
+        protected RwDao _RwDao
+        {
+            get { return new RwDao(); }
+        }
 
+        protected ListOfValueDao _ListOfValueDao
+        {
+            get { return new ListOfValueDao(); }
+        }
+
+        protected LandingPageLevelDao _LandingPageLevelDao
+        {
+            get { return new LandingPageLevelDao(); }
+        }
+
+        protected LandingPageLevelPropertyDao _LandingPageLevelPropertyDao
+        {
+            get { return new LandingPageLevelPropertyDao(); }
+        }
+                       
+        protected BiodataDao _BiodataDao
+        {
+            get { return new BiodataDao(); }
+        }
+
+        protected TestimoniDao _TestimoniDao
+        {
+            get { return new TestimoniDao(); }
+        }
         #endregion
 
         #region Implementation
@@ -203,7 +235,7 @@ namespace AbidzarFrame.Master.Manager
             try
             {
                 _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
-                List<AgamaResult> refData = new List<AgamaResult>(); 
+                List<AgamaResult> refData = new List<AgamaResult>();
                 bussinessError.Add(_AgamaDao.GetAgamaList(ref refData));
                 response.AgamaResultList = refData;
                 response.Count = refData.Count;
@@ -360,7 +392,7 @@ namespace AbidzarFrame.Master.Manager
             response.Errors = bussinessError;
             return response;
         }
-        
+
         public DetailJenisInformasiResponse GetDetailJenisInformasiList(DetailJenisInformasiRequest request)
         {
             string method = MethodBase.GetCurrentMethod().Name;
@@ -497,6 +529,35 @@ namespace AbidzarFrame.Master.Manager
             }
             response.Errors = bussinessError;
             response.ResultStatus = result;
+            return response;
+        }
+        public DetailJenisInformasiResponse SpGetDetailJenisInformasiByIdRw(DetailJenisInformasiRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new DetailJenisInformasiResponse()
+            {
+                Errors = new BusinessErrors(),
+                DetailJenisInformasiResultList = new List<DetailJenisInformasiResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<DetailJenisInformasiResult> refData = new List<DetailJenisInformasiResult>();
+                bussinessError.Add(_DetailJenisInformasiDao.SpGetDetailJenisInformasiByIdRw(request, ref refData));
+                response.DetailJenisInformasiResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
             return response;
         }
 
@@ -2983,7 +3044,7 @@ namespace AbidzarFrame.Master.Manager
             try
             {
                 _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
-                List<StatusPerkawinanResult> refData = new List<StatusPerkawinanResult>() ;
+                List<StatusPerkawinanResult> refData = new List<StatusPerkawinanResult>();
                 bussinessError.Add(_StatusPerkawinanDao.GetStatusPerkawinanList(ref refData));
                 response.StatusPerkawinanResultList = refData;
                 response.Count = refData.Count;
@@ -3543,7 +3604,7 @@ namespace AbidzarFrame.Master.Manager
         //}
 
         //#endregion
-        
+
         #region AppointmentDiary
         public AppointmentDiaryResponse GetAppointmentDiarySelectByDateRange(AppointmentDiaryRequest request)
         {
@@ -3556,7 +3617,7 @@ namespace AbidzarFrame.Master.Manager
             };
 
             try
-            {               
+            {
                 _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
                 List<AppointmentDiaryResult> refData = new List<AppointmentDiaryResult>();
                 bussinessError.Add(_AppointmentDiaryDao.GetAppointmentDiarySelectByDateRange(request, ref refData));
@@ -3971,6 +4032,1159 @@ namespace AbidzarFrame.Master.Manager
             response.ResultStatus = result;
             return response;
         }
+
+        #endregion
+
+        #region Rt
+        public RtResponse GetRtFindBy(RtRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RtResponse()
+            {
+                Errors = new BusinessErrors(),
+                RtResult = new RtResult(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                RtResponse data = new RtResponse();
+                var refData = data.RtResult;
+                bussinessError.Add(_RtDao.GetRtFindBy(request, ref refData));
+                response.RtResult = refData;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public RtResponse GetRtList(RtRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RtResponse()
+            {
+                Errors = new BusinessErrors(),
+                RtResultList = new List<RtResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<RtResult> refData = new List<RtResult>();
+                bussinessError.Add(_RtDao.GetRtList(ref refData));
+                response.RtResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public RtResponse InsertRt(RtRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RtResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_RtDao.InsertRt(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public RtResponse UpdateRt(RtRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RtResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_RtDao.UpdateRt(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public RtResponse DeleteRt(RtRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RtResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_RtDao.DeleteRt(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public RtResponse GetRtByIdRw(RtRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RtResponse()
+            {
+                Errors = new BusinessErrors(),
+                RtResultList = new List<RtResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<RtResult> refData = new List<RtResult>();
+                bussinessError.Add(_RtDao.GetRtByIdRw(request, ref refData));
+                response.RtResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+
+        #endregion
+
+        #region Rw
+        public RwResponse GetRwFindBy(RwRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RwResponse()
+            {
+                Errors = new BusinessErrors(),
+                RwResult = new RwResult(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                RwResponse data = new RwResponse();
+                var refData = data.RwResult;
+                bussinessError.Add(_RwDao.GetRwFindBy(request, ref refData));
+                response.RwResult = refData;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public RwResponse GetRwList(RwRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RwResponse()
+            {
+                Errors = new BusinessErrors(),
+                RwResultList = new List<RwResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<RwResult> refData = new List<RwResult>();
+                bussinessError.Add(_RwDao.GetRwList(ref refData));
+                response.RwResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public RwResponse InsertRw(RwRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RwResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_RwDao.InsertRw(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public RwResponse UpdateRw(RwRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RwResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_RwDao.UpdateRw(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public RwResponse DeleteRw(RwRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RwResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_RwDao.DeleteRw(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+        public RwResponse GetRwByKodeRt(RwRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new RwResponse()
+            {
+                Errors = new BusinessErrors(),
+                RwResult = new RwResult(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                RwResponse data = new RwResponse();
+                var refData = data.RwResult;
+                bussinessError.Add(_RwDao.GetRwByKodeRt(request, ref refData));
+                response.RwResult = refData;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        #endregion
+
+        #region ListOfValue
+        public ListOfValueResponse GetListOfValueFindBy(ListOfValueRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new ListOfValueResponse()
+            {
+                Errors = new BusinessErrors(),
+                ListOfValueResult = new ListOfValueResult(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                ListOfValueResponse data = new ListOfValueResponse();
+                var refData = data.ListOfValueResult;
+                bussinessError.Add(_ListOfValueDao.GetListOfValueFindBy(request, ref refData));
+                response.ListOfValueResult = refData;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public ListOfValueResponse GetListOfValueList(ListOfValueRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new ListOfValueResponse()
+            {
+                Errors = new BusinessErrors(),
+                ListOfValueResultList = new List<ListOfValueResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<ListOfValueResult> refData = new List<ListOfValueResult>();
+                bussinessError.Add(_ListOfValueDao.GetListOfValueList(ref refData));
+                response.ListOfValueResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public ListOfValueResponse InsertListOfValue(ListOfValueRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new ListOfValueResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_ListOfValueDao.InsertListOfValue(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public ListOfValueResponse UpdateListOfValue(ListOfValueRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new ListOfValueResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_ListOfValueDao.UpdateListOfValue(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public ListOfValueResponse DeleteListOfValue(ListOfValueRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new ListOfValueResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_ListOfValueDao.DeleteListOfValue(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        #endregion
+
+        #region LandingPageLevel
+        public LandingPageLevelResponse GetLandingPageLevelFindBy(LandingPageLevelRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelResponse()
+            {
+                Errors = new BusinessErrors(),
+                LandingPageLevelResult = new LandingPageLevelResult(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                LandingPageLevelResponse data = new LandingPageLevelResponse();
+                var refData = data.LandingPageLevelResult;
+                bussinessError.Add(_LandingPageLevelDao.GetLandingPageLevelFindBy(request, ref refData));
+                response.LandingPageLevelResult = refData;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public LandingPageLevelResponse GetLandingPageLevelList(LandingPageLevelRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelResponse()
+            {
+                Errors = new BusinessErrors(),
+                LandingPageLevelResultList = new List<LandingPageLevelResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<LandingPageLevelResult> refData = new List<LandingPageLevelResult>();
+                bussinessError.Add(_LandingPageLevelDao.GetLandingPageLevelList(ref refData));
+                response.LandingPageLevelResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public LandingPageLevelResponse InsertLandingPageLevel(LandingPageLevelRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_LandingPageLevelDao.InsertLandingPageLevel(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public LandingPageLevelResponse UpdateLandingPageLevel(LandingPageLevelRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_LandingPageLevelDao.UpdateLandingPageLevel(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public LandingPageLevelResponse DeleteLandingPageLevel(LandingPageLevelRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_LandingPageLevelDao.DeleteLandingPageLevel(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        #endregion
+
+        #region LandingPageLevelProperty
+        public LandingPageLevelPropertyResponse GetLandingPageLevelPropertyFindBy(LandingPageLevelPropertyRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelPropertyResponse()
+            {
+                Errors = new BusinessErrors(),
+                LandingPageLevelPropertyResult = new LandingPageLevelPropertyResult(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                LandingPageLevelPropertyResponse data = new LandingPageLevelPropertyResponse();
+                var refData = data.LandingPageLevelPropertyResult;
+                bussinessError.Add(_LandingPageLevelPropertyDao.GetLandingPageLevelPropertyFindBy(request, ref refData));
+                response.LandingPageLevelPropertyResult = refData;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public LandingPageLevelPropertyResponse GetLandingPageLevelPropertyList(LandingPageLevelPropertyRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelPropertyResponse()
+            {
+                Errors = new BusinessErrors(),
+                LandingPageLevelPropertyResultList = new List<LandingPageLevelPropertyResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<LandingPageLevelPropertyResult> refData = new List<LandingPageLevelPropertyResult>();
+                bussinessError.Add(_LandingPageLevelPropertyDao.GetLandingPageLevelPropertyList(ref refData));
+                response.LandingPageLevelPropertyResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public LandingPageLevelPropertyResponse InsertLandingPageLevelProperty(LandingPageLevelPropertyRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelPropertyResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_LandingPageLevelPropertyDao.InsertLandingPageLevelProperty(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public LandingPageLevelPropertyResponse UpdateLandingPageLevelProperty(LandingPageLevelPropertyRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelPropertyResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_LandingPageLevelPropertyDao.UpdateLandingPageLevelProperty(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public LandingPageLevelPropertyResponse DeleteLandingPageLevelProperty(LandingPageLevelPropertyRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new LandingPageLevelPropertyResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_LandingPageLevelPropertyDao.DeleteLandingPageLevelProperty(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        #endregion
+
+        #region Biodata
+        public BiodataResponse GetBiodataFindBy(BiodataRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new BiodataResponse()
+            {
+                Errors = new BusinessErrors(),
+                BiodataResult = new BiodataResult(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                BiodataResponse data = new BiodataResponse();
+                var refData = data.BiodataResult;
+                bussinessError.Add(_BiodataDao.GetBiodataFindBy(request, ref refData));
+                response.BiodataResult = refData;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public BiodataResponse GetBiodataList(BiodataRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new BiodataResponse()
+            {
+                Errors = new BusinessErrors(),
+                BiodataResultList = new List<BiodataResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<BiodataResult> refData = new List<BiodataResult>();
+                bussinessError.Add(_BiodataDao.GetBiodataList(ref refData));
+                response.BiodataResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public BiodataResponse InsertBiodata(BiodataRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new BiodataResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_BiodataDao.InseBiodataBiodata(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public BiodataResponse UpdateBiodata(BiodataRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new BiodataResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_BiodataDao.UpdateBiodata(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public BiodataResponse DeleteBiodata(BiodataRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new BiodataResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_BiodataDao.DeleteBiodata(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public BiodataResponse GetBiodataByNik(BiodataRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new BiodataResponse()
+            {
+                Errors = new BusinessErrors(),
+                BiodataResultList = new List<BiodataResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<BiodataResult> refData = new List<BiodataResult>();
+                bussinessError.Add(_BiodataDao.GetBiodataByNik(request, ref refData));
+                response.BiodataResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+
+
+        #endregion
+
+        #region Testimoni
+        public TestimoniResponse GetTestimoniFindBy(TestimoniRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new TestimoniResponse()
+            {
+                Errors = new BusinessErrors(),
+                TestimoniResult = new TestimoniResult(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                TestimoniResponse data = new TestimoniResponse();
+                var refData = data.TestimoniResult;
+                bussinessError.Add(_TestimoniDao.GetTestimoniFindBy(request, ref refData));
+                response.TestimoniResult = refData;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public TestimoniResponse GetTestimoniList(TestimoniRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new TestimoniResponse()
+            {
+                Errors = new BusinessErrors(),
+                TestimoniResultList = new List<TestimoniResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<TestimoniResult> refData = new List<TestimoniResult>();
+                bussinessError.Add(_TestimoniDao.GetTestimoniList(ref refData));
+                response.TestimoniResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+        public TestimoniResponse InsertTestimoni(TestimoniRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new TestimoniResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_TestimoniDao.InsertTestimoni(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public TestimoniResponse UpdateTestimoni(TestimoniRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new TestimoniResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_TestimoniDao.UpdateTestimoni(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public TestimoniResponse DeleteTestimoni(TestimoniRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new TestimoniResponse()
+            {
+                Errors = new BusinessErrors(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                bussinessError.Add(_TestimoniDao.DeleteTestimoni(request, ref result));
+            }
+            catch (Exception ex)
+            {
+                response.ResultStatus = result;
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            response.ResultStatus = result;
+            return response;
+        }
+
+        public TestimoniResponse GetTestimoniByIdRw(TestimoniRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new TestimoniResponse()
+            {
+                Errors = new BusinessErrors(),
+                TestimoniResultList = new List<TestimoniResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<TestimoniResult> refData = new List<TestimoniResult>();
+                bussinessError.Add(_TestimoniDao.GetTestimoniByIdRw(request, ref refData));
+                response.TestimoniResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+
 
         #endregion
 

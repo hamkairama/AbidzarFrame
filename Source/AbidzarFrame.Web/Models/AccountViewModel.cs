@@ -21,6 +21,19 @@ namespace AbidzarFrame.Web.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        //[Required]
+        //[DataType(DataType.Password)]
+        //[Display(Name = "KodeRt")]
+        //public string KodeRt { get; set; }
+    }
+
+    public class LoginViewModelAreaRw
+    {
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "KodeRt")]
+        public string KodeRt { get; set; }
     }
 
     public class RegisterViewModel 

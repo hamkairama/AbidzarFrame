@@ -319,6 +319,48 @@ namespace AbidzarFrame.Master.Dao
 
             return messageResult;
         }
-        
+
+        public BusinessErrors SpGetDetailJenisInformasiByIdRw(DetailJenisInformasiRequest request, ref List<DetailJenisInformasiResult> DetailJenisInformasiResultList)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors messageResult = new BusinessErrors();
+            IDbConnection conn = null;
+            List<DetailJenisInformasiResult> listDetailJenisInformasi = new List<DetailJenisInformasiResult>();
+            DataTable dt = new DataTable();
+            try
+            {
+                conn = _dbSql.CreateConnection();
+                IDbCommand cmd = _dbSql.CreateCommand(ref conn, CommandType.StoredProcedure, "SpGetDetailJenisInformasiByIdRw");
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@IdRw", request.IdRw));
+
+                cmd.CommandTimeout = 3600;
+                cmd.ExecuteNonQuery();
+                dt = _dbSql.OpenDataTable(ref cmd);
+                if (dt.Rows.Count > 0)
+                {
+                    listDetailJenisInformasi = ModelMapper.FillModelFromDatatable<DetailJenisInformasiResult>(dt);
+                }
+                DetailJenisInformasiResultList = listDetailJenisInformasi;
+                cmd.Dispose();
+            }
+            catch (SqlException ex)
+            {
+                _logger.WriteFunctionException(serviceName, method, 2, ref ex, "", typeof(string));
+                messageResult = _errHand.FillError(ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.WriteFunctionException(serviceName, method, 2, ref ex, "", typeof(string));
+                messageResult = _errHand.FillError(ex);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+
+            return messageResult;
+        }
+
     }
 }

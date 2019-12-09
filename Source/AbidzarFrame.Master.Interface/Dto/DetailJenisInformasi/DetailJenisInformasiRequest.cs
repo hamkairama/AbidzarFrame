@@ -15,5 +15,8 @@ namespace AbidzarFrame.Master.Interface.Dto
 
         [DataMember()]
         public int LamaHari { get; set; }
+
+        [DataMember()]
+        public int IdRw { get; set; }
     }
 }

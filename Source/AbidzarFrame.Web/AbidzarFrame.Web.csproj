@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AbidzarFrame.Web</RootNamespace>
     <AssemblyName>AbidzarFrame.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,7 +84,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -92,7 +92,6 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -135,7 +134,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -178,6 +176,11 @@
     <Compile Include="Areas\Kependudukan\Controllers\KtpKuController.cs" />
     <Compile Include="Areas\Kependudukan\KependudukanAreaRegistration.cs" />
     <Compile Include="Areas\Informasi\Controllers\DetailJenisInformasiController.cs" />
+    <Compile Include="Areas\Master\Controllers\LandingPageLevelPropertyController.cs" />
+    <Compile Include="Areas\Master\Controllers\LandingPageLevelController.cs" />
+    <Compile Include="Areas\Master\Controllers\ListOfValueController.cs" />
+    <Compile Include="Areas\Master\Controllers\RwController.cs" />
+    <Compile Include="Areas\Master\Controllers\RtController.cs" />
     <Compile Include="Areas\Master\Controllers\ParameterController.cs" />
     <Compile Include="Areas\Master\Controllers\SlideShowController.cs" />
     <Compile Include="Areas\Master\Controllers\KtpController.cs" />
@@ -217,6 +220,7 @@
     <Compile Include="Areas\StrukturOrganisasi\StrukturOrganisasiAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DataFileController.cs" />
+    <Compile Include="Controllers\AreaRwController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageLayoutController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
@@ -242,14 +246,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Report\DSReport.cs">
-      <DependentUpon>DSReport.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Report\DSReport.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSReport.xsd</DependentUpon>
-    </Compile>
     <Compile Include="WebApiLocal\WebLogManager.cs" />
     <Compile Include="Wrappers\ServiceWrapper.cs" />
   </ItemGroup>
@@ -261,6 +257,7 @@
     <Content Include="Content\Data\card-gear-1.png" />
     <Content Include="Content\Data\Chrysanthemum.jpg" />
     <Content Include="Content\Data\Desert.jpg" />
+    <Content Include="Content\Data\hero-img.png" />
     <Content Include="Content\Data\Hydrangeas.jpg" />
     <Content Include="Content\Data\image1.jpg" />
     <Content Include="Content\Data\image11.jpg" />
@@ -280,6 +277,11 @@
     <Content Include="Content\Data\rukuntangga-logo-3.jpeg" />
     <Content Include="Content\Data\rukuntangga-logo.png" />
     <Content Include="Content\Data\Tulips.jpg" />
+    <Content Include="Content\Images\area_rw\Ad-adidas.jpg" />
+    <Content Include="Content\Images\area_rw\greencove.PNG" />
+    <Content Include="Content\Images\area_rw\layanan-bukupetunjuk.PNG" />
+    <Content Include="Content\Images\area_rw\layanan-gerbangcluster.PNG" />
+    <Content Include="Content\Images\area_rw\layanan-sportclub.PNG" />
     <Content Include="Content\Images\bg\1.jpg" />
     <Content Include="Content\Images\bg\2.jpg" />
     <Content Include="Content\Images\bg\3.jpg" />
@@ -289,16 +291,210 @@
     <Content Include="Content\Images\bg\bg-white-lock.png" />
     <Content Include="Content\Images\bg\bg-white.png" />
     <Content Include="Content\Images\bg\card-gear-1.png" />
+    <Content Include="Content\plugins\personal\img\card-grunge-blue-1.png" />
     <Content Include="Content\Images\bg\card-grunge-blue-1.png" />
     <Content Include="Content\Images\bg\card-grunge-blue-2.png" />
     <Content Include="Content\Images\bg\card-grunge-blue-3.png" />
     <Content Include="Content\Images\bg\card-islamic-1.jpg" />
     <Content Include="Content\Images\bg\card-islamic-2.jpg" />
     <Content Include="Content\Images\bg\index.jpg" />
+    <Content Include="Content\Images\landing_page\1.jpg" />
+    <Content Include="Content\Images\landing_page\2.jpg" />
+    <Content Include="Content\Images\landing_page\3.jpg" />
+    <Content Include="Content\Images\landing_page\4.jpg" />
+    <Content Include="Content\Images\landing_page\5.jpg" />
     <Content Include="Content\Images\rukuntangga-logo-1.jpeg" />
     <Content Include="Content\Images\rukuntangga-logo-2.jpeg" />
     <Content Include="Content\Images\rukuntangga_logo_22.jpg" />
     <Content Include="Content\Layout\scripts\quick-sidebar.js" />
+    <Content Include="Content\plugins\personal\about.html" />
+    <Content Include="Content\plugins\personal\blog-home.html" />
+    <Content Include="Content\plugins\personal\blog-single.html" />
+    <Content Include="Content\plugins\personal\contact.html" />
+    <Content Include="Content\plugins\personal\css\animate.min.css" />
+    <Content Include="Content\plugins\personal\css\bootstrap.css" />
+    <Content Include="Content\plugins\personal\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\plugins\personal\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\plugins\personal\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\plugins\personal\css\font-awesome.min.css" />
+    <Content Include="Content\plugins\personal\css\linearicons.css" />
+    <Content Include="Content\plugins\personal\css\magnific-popup.css" />
+    <Content Include="Content\plugins\personal\css\progress-flow.css" />
+    <Content Include="Content\plugins\personal\css\main.css" />
+    <Content Include="Content\plugins\personal\css\nice-select.css" />
+    <Content Include="Content\plugins\personal\css\owl.carousel.css" />
+    <Content Include="Content\plugins\personal\elements.html" />
+    <Content Include="Content\plugins\personal\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\plugins\personal\fonts\Linearicons-Free.svg" />
+    <Content Include="Content\plugins\personal\img\about-img.png" />
+    <Content Include="Content\plugins\personal\img\about\c-logo.png" />
+    <Content Include="Content\plugins\personal\img\b1.jpg" />
+    <Content Include="Content\plugins\personal\img\b2.jpg" />
+    <Content Include="Content\plugins\personal\img\b3.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\ads-banner.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\blog-home-banner.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\c1.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\c2.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\c3.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\c4.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\c5.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\c6.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\cat-widget1.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\cat-widget2.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\cat-widget3.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\feature-img1.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\feature-img2.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\feature-img3.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\feature-img4.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\feature-img5.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\next.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\post-img1.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\post-img2.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\pp1.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\pp2.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\pp3.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\pp4.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\prev.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\s-img.jpg" />
+    <Content Include="Content\plugins\personal\img\blog\user-info.png" />
+    <Content Include="Content\plugins\personal\img\elements\a.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\a2.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\d.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\disabled-check.png" />
+    <Content Include="Content\plugins\personal\img\elements\disabled-radio.png" />
+    <Content Include="Content\plugins\personal\img\elements\f1.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\f2.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\f3.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\f4.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\f5.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\f6.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\f7.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\f8.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\g1.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\g2.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\g3.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\g4.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\g5.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\g6.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\g7.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\g8.jpg" />
+    <Content Include="Content\plugins\personal\img\elements\primary-check.png" />
+    <Content Include="Content\plugins\personal\img\elements\primary-radio.png" />
+    <Content Include="Content\plugins\personal\img\elements\success-check.png" />
+    <Content Include="Content\plugins\personal\img\elements\success-radio.png" />
+    <Content Include="Content\plugins\personal\img\elements\user1.png" />
+    <Content Include="Content\plugins\personal\img\elements\user2.png" />
+    <Content Include="Content\plugins\personal\img\person.png" />
+    <Content Include="Content\plugins\personal\img\hero-img.png" />
+    <Content Include="Content\plugins\personal\img\bingkai.png" />
+    <Content Include="Content\plugins\personal\img\l1.png" />
+    <Content Include="Content\plugins\personal\img\l2.png" />
+    <Content Include="Content\plugins\personal\img\l3.png" />
+    <Content Include="Content\plugins\personal\img\l4.png" />
+    <Content Include="Content\plugins\personal\img\l5.png" />
+    <Content Include="Content\plugins\personal\img\logo.png" />
+    <Content Include="Content\plugins\personal\img\p1.jpg" />
+    <Content Include="Content\plugins\personal\img\p2.jpg" />
+    <Content Include="Content\plugins\personal\img\p3.jpg" />
+    <Content Include="Content\plugins\personal\img\p4.jpg" />
+    <Content Include="Content\plugins\personal\img\p5.jpg" />
+    <Content Include="Content\plugins\personal\img\p6.jpg" />
+    <Content Include="Content\plugins\personal\img\preview.png" />
+    <Content Include="Content\plugins\personal\img\user.png" />
+    <Content Include="Content\plugins\personal\index.html" />
+    <Content Include="Content\plugins\personal\js\easing.min.js" />
+    <Content Include="Content\plugins\personal\js\hoverIntent.js" />
+    <Content Include="Content\plugins\personal\js\isotope.pkgd.min.js" />
+    <Content Include="Content\plugins\personal\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Content\plugins\personal\js\jquery.counterup.min.js" />
+    <Content Include="Content\plugins\personal\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\plugins\personal\js\jquery.nice-select.min.js" />
+    <Content Include="Content\plugins\personal\js\jquery.tabs.min.js" />
+    <Content Include="Content\plugins\personal\js\mail-script.js" />
+    <Content Include="Content\plugins\personal\js\main.js" />
+    <Content Include="Content\plugins\personal\js\progress-flow.js" />
+    <Content Include="Content\plugins\personal\js\owl.carousel.min.js" />
+    <Content Include="Content\plugins\personal\js\popper.min.js" />
+    <Content Include="Content\plugins\personal\js\simple-skillbar.js" />
+    <Content Include="Content\plugins\personal\js\superfish.min.js" />
+    <Content Include="Content\plugins\personal\js\vendor\bootstrap.min.js" />
+    <Content Include="Content\plugins\personal\js\vendor\jquery-2.2.4.min.js" />
+    <Content Include="Content\plugins\personal\js\waypoints.min.js" />
+    <Content Include="Content\plugins\personal\mail.php" />
+    <Content Include="Content\plugins\personal\Personal - Doc\css\font-awesome.min.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\css\main.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\css\normalize.min.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\plugins\personal\Personal - Doc\img\logo.png" />
+    <Content Include="Content\plugins\personal\Personal - Doc\index.html" />
+    <Content Include="Content\plugins\personal\Personal - Doc\js\custom.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\js\jquery-1.11.0.min.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\js\jquery.nav.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shAutoloader.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushAS3.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushBash.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushCpp.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushCSharp.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushCss.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushDelphi.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushDiff.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushErlang.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushGroovy.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushJava.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushJScript.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushPerl.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushPhp.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushPlain.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushPython.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushRuby.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushSass.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushScala.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushSql.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushVb.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shBrushXml.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shCore.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\scripts\shLegacy.js" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCore.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCoreDefault.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCoreDjango.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCoreEclipse.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCoreEmacs.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCoreMDUltra.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCoreMidnight.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shCoreRDark.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shThemeDefault.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shThemeDjango.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shThemeEclipse.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shThemeEmacs.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shThemeMDUltra.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shThemeMidnight.css" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="Content\plugins\personal\portfolio.html" />
+    <Content Include="Content\plugins\personal\price.html" />
+    <Content Include="Content\plugins\personal\services.html" />
+    <Content Include="Content\plugins\vegas\dist\index.html" />
+    <Content Include="Content\plugins\vegas\license.txt" />
+    <Content Include="Content\plugins\vegas\src\font.css" />
+    <Content Include="Content\plugins\vegas\src\jquery.min.js" />
+    <Content Include="Content\plugins\vegas\src\overlays\01.png" />
+    <Content Include="Content\plugins\vegas\src\overlays\02.png" />
+    <Content Include="Content\plugins\vegas\src\overlays\03.png" />
+    <Content Include="Content\plugins\vegas\src\overlays\04.png" />
+    <Content Include="Content\plugins\vegas\src\overlays\05.png" />
+    <Content Include="Content\plugins\vegas\src\overlays\06.png" />
+    <Content Include="Content\plugins\vegas\src\overlays\07.png" />
+    <Content Include="Content\plugins\vegas\src\overlays\08.png" />
+    <Content Include="Content\plugins\vegas\src\overlays\09.png" />
+    <Content Include="Content\plugins\vegas\src\script.js" />
+    <Content Include="Content\plugins\vegas\src\style.css" />
+    <Content Include="Content\plugins\vegas\src\vegas.css" />
+    <Content Include="Content\plugins\vegas\src\vegas.js" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Images\rukuntangga-logo-3.jpeg" />
     <Content Include="Content\Images\rukuntangga-logo.png" />
@@ -692,6 +888,15 @@
     <Content Include="Scripts\controller\PemiluGrafik.js" />
     <Content Include="Scripts\controller\HistoricalUserLoginByYear.js" />
     <Content Include="Scripts\helper\Common.js" />
+    <None Include="Views\AreaRw\About.cshtml" />
+    <Content Include="Views\AreaRw\Team.cshtml" />
+    <None Include="Views\AreaRw\BlogHome.cshtml" />
+    <None Include="Views\AreaRw\BlogSingle.cshtml" />
+    <None Include="Views\AreaRw\Contact.cshtml" />
+    <Content Include="Views\AreaRw\News.cshtml" />
+    <None Include="Views\AreaRw\Element.cshtml" />
+    <Content Include="Views\AreaRw\Index.cshtml" />
+    <None Include="Views\Account\Rw.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Areas\Kegiatan\Views\web.config" />
     <Content Include="Areas\Informasi\Views\web.config" />
@@ -752,6 +957,16 @@
     <Content Include="Areas\Master\Views\Parameter\_Parameter.cshtml" />
     <Content Include="Areas\Master\Views\Parameter\Index.cshtml" />
     <Content Include="Areas\Informasi\Views\DetailJenisInformasi\DetailJenisInformasiTerbaru.cshtml" />
+    <Content Include="Areas\Master\Views\LandingPageLevelProperty\_LandingPageLevelProperty.cshtml" />
+    <Content Include="Areas\Master\Views\LandingPageLevelProperty\Index.cshtml" />
+    <Content Include="Areas\Master\Views\LandingPageLevel\_LandingPageLevel.cshtml" />
+    <Content Include="Areas\Master\Views\LandingPageLevel\Index.cshtml" />
+    <Content Include="Areas\Master\Views\ListOfValue\_ListOfValue.cshtml" />
+    <Content Include="Areas\Master\Views\ListOfValue\Index.cshtml" />
+    <Content Include="Areas\Master\Views\Rw\_Rw.cshtml" />
+    <Content Include="Areas\Master\Views\Rw\Index.cshtml" />
+    <Content Include="Areas\Master\Views\Rt\_Rt.cshtml" />
+    <Content Include="Areas\Master\Views\Rt\Index.cshtml" />
     <None Include="Content\plugins\jquery-validation\js\jquery.validate-vsdoc.js" />
     <Content Include="Content\plugins\jquery-ui\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\plugins\jquery-ui\images\ui-icons_555555_256x240.png" />
@@ -872,6 +1087,134 @@
     <Content Include="Content\plugins\tinymce\skins\lightgray\ToolTip.less" />
     <Content Include="Content\plugins\tinymce\skins\lightgray\Variables.less" />
     <Content Include="Content\plugins\tinymce\skins\lightgray\Window.less" />
+    <Content Include="Content\plugins\vegas\README.markdown" />
+    <Content Include="Content\plugins\personal\.DS_Store" />
+    <Content Include="Content\plugins\personal\css\.DS_Store" />
+    <Content Include="Content\plugins\personal\css\bootstrap.map" />
+    <Content Include="Content\plugins\personal\css\main.map" />
+    <Content Include="Content\plugins\personal\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\plugins\personal\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\plugins\personal\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\plugins\personal\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\plugins\personal\fonts\FontAwesome.otf" />
+    <Content Include="Content\plugins\personal\fonts\Linearicons-Free.eot" />
+    <Content Include="Content\plugins\personal\fonts\Linearicons-Free.ttf" />
+    <Content Include="Content\plugins\personal\fonts\Linearicons-Free.woff" />
+    <Content Include="Content\plugins\personal\fonts\Linearicons-Free.woff2" />
+    <Content Include="Content\plugins\personal\img\.DS_Store" />
+    <Content Include="Content\plugins\personal\img\blog\.DS_Store" />
+    <Content Include="Content\plugins\personal\img\elements\.DS_Store" />
+    <Content Include="Content\plugins\personal\js\.DS_Store" />
+    <Content Include="Content\plugins\personal\Personal - Doc\.DS_Store" />
+    <Content Include="Content\plugins\personal\Personal - Doc\css\.DS_Store" />
+    <Content Include="Content\plugins\personal\Personal - Doc\fonts\.DS_Store" />
+    <Content Include="Content\plugins\personal\Personal - Doc\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\plugins\personal\Personal - Doc\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\plugins\personal\Personal - Doc\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\plugins\personal\Personal - Doc\fonts\FontAwesome.otf" />
+    <Content Include="Content\plugins\personal\Personal - Doc\img\.DS_Store" />
+    <Content Include="Content\plugins\personal\Personal - Doc\js\.DS_Store" />
+    <Content Include="Content\plugins\personal\Personal - Doc\syntax-highlighter\.DS_Store" />
+    <Content Include="Content\plugins\personal\scss\.DS_Store" />
+    <Content Include="Content\plugins\personal\scss\bootstrap.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\.DS_Store" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_navbar-align.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_alert.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_badge.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_button-group.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_buttons.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_card.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_carousel.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_close.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_code.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_forms.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_functions.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_grid.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_images.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_input-group.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_list-group.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_media.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_mixins.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_modal.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_nav.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_navbar.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_pagination.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_popover.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_print.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_progress.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_reboot.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_root.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_tables.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_transitions.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_type.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_utilities.scss" />
+    <Content Include="Content\plugins\personal\scss\bootstrap\_variables.scss" />
+    <Content Include="Content\plugins\personal\scss\main.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\.DS_Store" />
+    <Content Include="Content\plugins\personal\scss\theme\_about.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_blog.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_contact.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_elements.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_flexbox.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_footer.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_header.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_home.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_mixins.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_price.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_reset.scss" />
+    <Content Include="Content\plugins\personal\scss\theme\_variables.scss" />
     <None Include="Properties\PublishProfiles\RukunTanggaWeb.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1246,17 +1589,6 @@
     <Content Include="Content\plugins\jstree\jstree.jquery.json" />
     <Content Include="Content\plugins\jstree\LICENSE-MIT" />
     <Content Include="Content\plugins\jstree\README.md" />
-    <Content Include="Report\DSReport.xsc">
-      <DependentUpon>DSReport.xsd</DependentUpon>
-    </Content>
-    <None Include="Report\DSReport.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSReport.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Report\DSReport.xss">
-      <DependentUpon>DSReport.xsd</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery\jquery-2.2.4.intellisense.js" />
     <Content Include="Scripts\jquery-validate-unobtrusive\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery-validate-unobtrusive\jquery.validate.unobtrusive.min.js" />
@@ -1265,6 +1597,11 @@
     <Content Include="Scripts\jquery-blockui\jquery.blockui.min.js" />
     <Content Include="Scripts\jquery-cookie\jquery.cokie.min.js" />
     <Content Include="Scripts\jquery\jquery.min.js" />
+    <Content Include="Views\AreaRw\Galery.cshtml" />
+    <Content Include="Views\AreaRw\DetailNews.cshtml" />
+    <None Include="Views\AreaRw\Portofolio.cshtml" />
+    <None Include="Views\AreaRw\Price.cshtml" />
+    <None Include="Views\AreaRw\Services.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1302,6 +1639,9 @@
     <Content Include="Views\Home\_DragValueChart.cshtml" />
     <Content Include="Views\Home\_PieChart.cshtml" />
     <Content Include="Views\Home\_RadarChart.cshtml" />
+    <Content Include="Views\Account\LandingPage.cshtml" />
+    <Content Include="Views\Shared\_LayoutLandingPage.cshtml" />
+    <Content Include="Views\Shared\_LayoutAreaRw.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1328,11 +1668,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Report\CoverageMTU.rdlc" />
-    <EmbeddedResource Include="Report\LiquidateReport.rdlc" />
-    <EmbeddedResource Include="Report\Report1.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AbidzarFrame.Core.Model.Business\AbidzarFrame.Core.Model.Business.vbproj">

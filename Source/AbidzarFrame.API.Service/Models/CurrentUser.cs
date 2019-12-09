@@ -41,7 +41,7 @@ namespace AbidzarFrame.API.Service.Models
 
             return url;
         }
-        
+
     }
 }
 

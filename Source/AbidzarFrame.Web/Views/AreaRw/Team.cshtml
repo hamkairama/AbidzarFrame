@@ -1,0 +1,135 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.RtResult>
+@using AbidzarFrame.Web.Helpers
+@{
+    Layout = "~/Views/Shared/_LayoutAreaRw.cshtml";
+    ViewBag.Title = "Personal";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- End banner Area -->
+<!-- Start post-content Area -->
+<section class="post-content-area pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                @if (Model.Count > 0)
+                {
+                    for (int i = 0; i < Model.Count(); i++)
+                    {
+
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 ">
+                                <div class="widget-wrap pt-0 pb-0 border-0">
+                                    <div class="single-sidebar-widget user-info-widget">
+                                        @*<img src="~/Content/plugins/personal/img/bingkai.png" />*@
+                                        <div style="background-image:url('../Content/Images/bg/card-grunge-blue-1.png');background-repeat:no-repeat;background-size: 200%;background-position: center;">
+                                            <img class="" src="@Model[i].Photo" width="200" height="1200" style="width:100%;height:auto;" alt="">
+                                        </div>
+
+                                        @*<img class="" src="/Content/plugins/personal/img/person.png" width="200" height="1200" style="width:100%;height:auto;" alt="">*@
+                                        <h5>@Model[i].NamaRt</h5>
+                                        <ul class="social-links">
+                                            <li><a href="https://www.facebook.com/@Model[i].Facebook"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="https://twitter.com/@Model[i].Twitter"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="https://www.instagram.com/@Model[i].Instagram"><i class="fa fa-instagram"></i></a></li>
+                                            <li><a href="https://wa.me/@Model[i].Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8  col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12 pt-10">
+                                        <h4 style="text-shadow: 1px 1px 2px black, 0 0 15px blue, 0 0 5px darkblue; text-align:center; color:white">KETUA RT @Model[i].NoRt</h4>
+                                        <dl class="accordion">
+                                            <dt>
+                                                <a href="">Visi</a>
+                                            </dt>
+                                            <dd>
+                                                @Html.Raw(HttpUtility.HtmlDecode(Model[i].Visi))
+                                            </dd>
+                                            <dt>
+                                                <a href="">Misi</a>
+                                            </dt>
+                                            @Html.Raw(HttpUtility.HtmlDecode(Model[i].Misi))
+
+                                            @*<dd>
+                                                <div class="">
+                                                    <ul class="unordered-list">
+                                                        <li>Kerja Bakti per minggu sekali</li>
+                                                        <li>Siskamling secara terjadwal</li>
+                                                        <li>Rapat bersama warga</li>
+                                                    </ul>
+                                                </div>
+                                            </dd>*@
+                                        </dl>
+
+                                    </div>
+                                </div>
+                                @if (!string.IsNullOrEmpty(Model[i].Quotes))
+                                {
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="">
+                                                <h5>Block Quotes</h5>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <blockquote class="generic-blockquote" style="font-size:10px">
+                                                            @Model[i].Quotes
+                                                        </blockquote>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                        @*<div class="row pt-0">
+                                <div class="col-lg-12">
+                                    <div class="checkout-wrap">
+                                        <ul class="checkout-bar">
+                                            <li class="previous visited" style="padding-top:0px;padding-bottom:0px">Conoco Indonesia</li>
+                                            <li class="previous visited" style="padding-top:0px;padding-bottom:0px">KSDrilling PPE </li>
+                                            <li class="active" style="padding-top:0px;padding-bottom:0px">active</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div style="border-bottom: 1px solid #eee;"></div>
+                    }
+                }
+
+            </div>
+            @{
+                var objectRw = CurrentUser.GetObjectRw();
+                <div class="col-lg-4 sidebar-widgets">
+                    <div class="widget-wrap">
+                        <div class="single-sidebar-widget user-info-widget">
+                            <img src="@objectRw.Photo" style="width:200px;border-radius: 50%;" />
+                            @*<img src="~/Content/plugins/personal/img/hero-img.png" style="width:200px;border-radius: 50%;" />*@
+                            @*<img src="https://greencoverw11.files.wordpress.com/2019/11/whatsapp-image-2019-11-22-at-21.15.34.jpeg" alt="Avatar" style="width:200px;border-radius: 50%;">*@
+
+                        <h4>@objectRw.NamaRw</h4>
+                            <p>
+                                KETUA RW @objectRw.NoRw
+                            </p>
+                            <ul class="social-links">
+                                <li><a href="https://www.facebook.com/@objectRw.Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/@objectRw.Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/@objectRw.Instagram"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://wa.me/@objectRw.Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single-sidebar-widget ads-widget">
+                            <a href="#"><img class="img-fluid" src="~/Content/plugins/personal/img/blog/ads-banner.jpg" alt=""></a>
+                        </div>
+                        <div class="single-sidebar-widget ads-widget">
+                            <a href="#"><img class="img-fluid" src="~/Content/plugins/personal/img/blog/ads-banner.jpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

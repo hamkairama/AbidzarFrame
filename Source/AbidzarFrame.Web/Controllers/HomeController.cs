@@ -37,6 +37,5 @@ namespace AbidzarFrame.Web.Controllers
         {
             return View();
         }
-
     }
 }

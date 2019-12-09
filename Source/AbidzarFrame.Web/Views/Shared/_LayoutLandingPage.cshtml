@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>AbidzarFrame</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="AbidzarFrame" name="description" />
+    <meta content="" name="author" />
+
+    <link href="~/Content/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/plugins/simple-line-icons/css/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    @Styles.Render("~/AbidzarFrame/bundles/login/css") 
+    <link href="~/Content/Layout/css/components-rounded.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/plugins/vegas/src/vegas.css" rel="stylesheet" />
+    <link href="~/Content/plugins/vegas/src/font.css" rel="stylesheet" />
+    <link href="~/Content/plugins/vegas/src/style.css" rel="stylesheet" />
+
+</head>
+<body class="">
+    <div class="logo">
+    </div>
+
+    <div class="menu-toggler sidebar-toggler">
+    </div>
+
+    <div class="page-container">
+        <div class="">
+            <div class="page-content">
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content">
+                <div class="container">
+                    <h1>rukuntangga.com @*<strong>2</strong>*@</h1>
+                    <h2>Abidzar Technology</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="content">
+        <div class="container">
+            <h1>rukuntangga.com <strong>2</strong></h1>
+            <h2>Abidzar Technology</h2>
+
+        </div>
+    </div>*@
+
+    <div class="copyright">
+    </div>
+
+    @Scripts.Render("~/AbidzarFrame/bundles/jquery/js")
+    <script src="~/Content/plugins/vegas/src/vegas.js"></script>
+    <script src="~/Content/plugins/vegas/src/script.js"></script>
+    @Scripts.Render("~/AbidzarFrame/bundles/bootstrap/js")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

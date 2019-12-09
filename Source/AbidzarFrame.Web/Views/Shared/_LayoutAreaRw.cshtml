@@ -1,0 +1,198 @@
+﻿@using AbidzarFrame.Web.Helpers
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="~/Content/plugins/personal/img/fav.png">
+    <meta name="author" content="colorlib">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta charset="UTF-8">
+    <title>rukuntangga</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/linearicons.css">
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/nice-select.css">
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/plugins/personal/css/main.css">
+    <link href="~/Content/plugins/personal/css/progress-flow.css" rel="stylesheet" />
+</head>
+<body>
+    <header id="header" style="background: -webkit-linear-gradient(0deg, #8490ff 0%, #62bdfc 100%);">
+        <div class="container main-menu">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="@Url.Action("Index")">
+                        @*<img src="~/Content/plugins/personal/img/logo.png" alt="" title="" />*@
+                        <h1 style="text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; color:white; text-align:center">RW 11 GREENCOVE</h1>
+                    </a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li><a href=@Url.Action("Index")>Home</a></li>
+                        <li><a href=@Url.Action("About")>About</a></li>
+                        <li><a href=@Url.Action("Team")>Team</a></li>
+                        <li><a href=@Url.Action("Services")>Services</a></li>
+                        @*<li><a href=@Url.Action("Portofolio")>Portfolio</a></li>*@
+                        <li><a href=@Url.Action("News")>News</a></li>
+                        <li><a href=@Url.Action("Galery")>Galery</a></li>
+                        <li><a href=@Url.Action("Contact")>Contact</a></li>
+
+                        @if (!string.IsNullOrEmpty(CurrentUser.GetCurrentUserId()))
+                        {
+                            <li><a href=@Url.Action("LogOffRw", "Account")>LogOff From RW Area</a></li>
+                            <li><a href="#">Welcome, @CurrentUser.GetCurrentUserName()</a></li>
+                        }
+                        else
+                        {
+                            <li><a href=@Url.Action("Login", "Account")>Login To RT Area</a></li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+
+    <section class="testimonial-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-20 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Testimoni</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @{
+                    var listTestimoni = CurrentUser.GetListTestimoni();
+                    <div class="active-testimonial">
+                        @for (int i = 0; i < listTestimoni.Count; i++)
+                        {
+                            <div class="single-testimonial item d-flex flex-row">
+                                <div class="thumb">
+                                    <img class="img-fluid" src="@listTestimoni[i].Photo" style="width:100px;border-radius: 50%;" alt="">
+                                </div>
+                                <div class="desc">
+                                    <p>
+                                        @listTestimoni[i].Deskripsi
+                                    </p>
+                                    <h4>@listTestimoni[i].Nama</h4>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="brands-area">
+        <div class="container">
+            <div class="brand-wrap">
+                <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
+                    <div class="col single-brand">
+                        <a href="#"><img class="mx-auto" src="~/Content/plugins/personal/img/l1.png" alt=""></a>
+                    </div>
+                    <div class="col single-brand">
+                        <a href="#"><img class="mx-auto" src="~/Content/plugins/personal/img/l2.png" alt=""></a>
+                    </div>
+                    <div class="col single-brand">
+                        <a href="#"><img class="mx-auto" src="~/Content/plugins/personal/img/l3.png" alt=""></a>
+                    </div>
+                    <div class="col single-brand">
+                        <a href="#"><img class="mx-auto" src="~/Content/plugins/personal/img/l4.png" alt=""></a>
+                    </div>
+                    <div class="col single-brand">
+                        <a href="#"><img class="mx-auto" src="~/Content/plugins/personal/img/l5.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h4>contact us</h4>
+                        <br />Sport Club Greencove,
+                        <br />Jl. Boulevard Timur BSD Kelurahan Cilenggang Kecamatan Serpong
+                        <br />Kota Tangerang Selatabn, Provinsi Banten Indonesia. 15310
+                        <br />+62 813 8690 1963
+                        <br />greencoverw11@gmail.com
+
+                        <p class="footer-text">
+                            Copyright &copy; 2019 All rights reserved
+                        </p>
+                    </div>
+                </div>
+                @*<div class="col-lg-5 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Newsletter</h4>
+                            <p>Stay updated with our latest trends</p>
+                            <div class="" id="mc_embed_signup">
+                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email Address '" required="" type="email">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">
+                                                <span class="lnr lnr-arrow-right"></span>
+                                            </button>
+                                        </div>
+                                        <div class="info"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        <h4>Follow Me</h4>
+                        <p>Let us be social</p>
+                        <div class="footer-social d-flex align-items-center">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer Area -->
+    <script src="~/Content/plugins/personal/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="~/Content/plugins/personal/js/popper.min.js"></script>
+    <script src="~/Content/plugins/personal/js/vendor/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="~/Content/plugins/personal/js/easing.min.js"></script>
+    <script src="~/Content/plugins/personal/js/hoverIntent.js"></script>
+    <script src="~/Content/plugins/personal/js/superfish.min.js"></script>
+    <script src="~/Content/plugins/personal/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/Content/plugins/personal/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Content/plugins/personal/js/jquery.tabs.min.js"></script>
+    <script src="~/Content/plugins/personal/js/jquery.nice-select.min.js"></script>
+    <script src="~/Content/plugins/personal/js/isotope.pkgd.min.js"></script>
+    <script src="~/Content/plugins/personal/js/waypoints.min.js"></script>
+    <script src="~/Content/plugins/personal/js/jquery.counterup.min.js"></script>
+    <script src="~/Content/plugins/personal/js/simple-skillbar.js"></script>
+    <script src="~/Content/plugins/personal/js/owl.carousel.min.js"></script>
+    <script src="~/Content/plugins/personal/js/mail-script.js"></script>
+    <script src="~/Content/plugins/personal/js/main.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

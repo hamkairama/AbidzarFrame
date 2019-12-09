@@ -490,6 +490,82 @@ namespace AbidzarFrame.Web.Controllers
             return responseHUL.ResultStatus;
         }
 
+        public ActionResult LandingPage()
+        {
+            return View();
+        }
+    
+        public ActionResult LandingPageLogin(LoginViewModelAreaRw model)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            string apiUrl = "api/Rw/GetRwByKodeRt";
+            UserRequest request = new UserRequest();
+            RwResponse response = new RwResponse();
+
+
+            TestimoniRequest requestTestimoni = new TestimoniRequest();
+            TestimoniResponse responseTestimoni = new TestimoniResponse();
+
+            if (!ModelState.IsValid)
+            {
+                return View("LandingPage", model);
+            }
+
+            try
+            {
+                _functionLog.WriteFunctionLog(controller, method, 1, LogData.LOG_TYPE.begin);
+
+                request.AuthenticationToken = token;
+                request.KodeRt = model.KodeRt;
+
+                response = JsonConvert.DeserializeObject<RwResponse>(JasonMapper.ConvertHttpResponseToJson(apiUrl, request));
+
+                if (response.RwResult != null)
+                {
+                    string apiUrlTestimoni = "api/Testimoni/GetTestimoniByIdRw";
+                    requestTestimoni.AuthenticationToken = token;
+                    requestTestimoni.IdRw = response.RwResult.Id;
+                    responseTestimoni = JsonConvert.DeserializeObject<TestimoniResponse>(JasonMapper.ConvertHttpResponseToJson(apiUrlTestimoni, requestTestimoni));
+                    Session["Testimoni"] = responseTestimoni.TestimoniResultList;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+                ModelState.AddModelError("", ex.Message);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(controller, method, 1, LogData.LOG_TYPE.end);
+            }
+
+            if (response.RwResult != null)
+            {
+                Session["AreaRw"] = response.RwResult;
+
+                return RedirectToAction("Index", "AreaRw");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Kode Rt is invalid");
+            }
+
+            return RedirectToAction("Index", "AreaRw");
+        }
+
+        public ActionResult Rw()
+        {
+            return View();
+        }
+        public ActionResult LogOffRw()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("LandingPage", "Account");
+        }
+
     }
 
 

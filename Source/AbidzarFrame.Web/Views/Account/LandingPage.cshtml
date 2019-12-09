@@ -1,0 +1,58 @@
+﻿@model AbidzarFrame.Web.Models.LoginViewModelAreaRw
+@{
+    Layout = "~/Views/Shared/_LayoutLandingPage.cshtml";
+    ViewBag.Title = "Landing Page";
+}
+
+@using (Html.BeginForm("LandingPageLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count() > 0)
+    {
+        <div class="alert alert-danger" style="display: block;">
+            <button class="close" data-close="alert">X</button>
+            @Html.ValidationSummary(true)
+        </div>
+    }
+    if (ViewBag.MsgScs != null)
+    {
+        <div class="alert alert-success" style="display: block;">
+            <button class="close" data-close="alert">X</button>
+            @ViewBag.MsgScs
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                        @Html.PasswordFor(m => m.KodeRt, new { @class = "form-control placeholder-no-fix", type = "password", placeholder = "Kode Rt" })
+
+                    </div>
+                    @Html.ValidationMessageFor(m => m.KodeRt, "", new { @class = "help-block" })
+                </div>
+                <div class="form-actions col-md-4">
+                    <button type="submit" class="btn blue pull-left" style="width:100px">
+                        Login <i class="m-icon m-icon-big-swapright m-icon-white"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 no-margin">
+                    <h7 style="text-shadow: 1px 1px 2px black, 0 0 5px red, 0 0 3px darkblue;">Silahkan menghubungi ketua RT untuk mendapatkan kode login RT</h7>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+
+
+
+}

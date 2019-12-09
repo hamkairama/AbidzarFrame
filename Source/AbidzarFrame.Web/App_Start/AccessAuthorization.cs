@@ -17,7 +17,7 @@ namespace AbidzarFrame.Web.App_Start
         {
             bool isValid = false;
             GlobalVariableUser userVariable = (GlobalVariableUser)HttpContext.Current.Session["GlobalUserVariable"];
-            if (userVariable != null )
+            if (userVariable != null)
             {
                 isValid = true;
             }
@@ -26,8 +26,12 @@ namespace AbidzarFrame.Web.App_Start
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
+            //filterContext.Result = new RedirectToRouteResult(new
+            //    RouteValueDictionary(new { controller = "Account", action = "LogOff", area = "" }));
+
             filterContext.Result = new RedirectToRouteResult(new
-                RouteValueDictionary(new { controller = "Account", action = "LogOff", area = "" }));
+                RouteValueDictionary(new { controller = "Account", action = "LandingPage", area = "" }));
+
         }
 
 

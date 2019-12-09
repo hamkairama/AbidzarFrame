@@ -46,6 +46,8 @@ namespace AbidzarFrame.Master.Interface
 
         [OperationContract()]
         DetailJenisInformasiResponse DeleteDetailJenisInformasi(DetailJenisInformasiRequest request);
+        [OperationContract()]
+        DetailJenisInformasiResponse SpGetDetailJenisInformasiByIdRw(DetailJenisInformasiRequest request);
         #endregion
 
         #region DetailJenisKegiatan
@@ -453,5 +455,144 @@ namespace AbidzarFrame.Master.Interface
 
 
 
+        #region Rt
+        [OperationContract()]
+        RtResponse GetRtFindBy(RtRequest request);
+
+        [OperationContract()]
+        RtResponse GetRtList(RtRequest request);
+
+        [OperationContract()]
+        RtResponse InsertRt(RtRequest request);
+
+        [OperationContract()]
+        RtResponse UpdateRt(RtRequest request);
+
+        [OperationContract()]
+        RtResponse DeleteRt(RtRequest request);
+
+        [OperationContract()]
+        RtResponse GetRtByIdRw(RtRequest request);
+        #endregion
+
+
+
+        #region Rw
+        [OperationContract()]
+        RwResponse GetRwFindBy(RwRequest request);
+
+        [OperationContract()]
+        RwResponse GetRwList(RwRequest request);
+
+        [OperationContract()]
+        RwResponse InsertRw(RwRequest request);
+
+        [OperationContract()]
+        RwResponse UpdateRw(RwRequest request);
+
+        [OperationContract()]
+        RwResponse DeleteRw(RwRequest request);
+        [OperationContract()]
+        RwResponse GetRwByKodeRt(RwRequest request);
+        #endregion
+
+
+
+        #region ListOfValue
+        [OperationContract()]
+        ListOfValueResponse GetListOfValueFindBy(ListOfValueRequest request);
+
+        [OperationContract()]
+        ListOfValueResponse GetListOfValueList(ListOfValueRequest request);
+
+        [OperationContract()]
+        ListOfValueResponse InsertListOfValue(ListOfValueRequest request);
+
+        [OperationContract()]
+        ListOfValueResponse UpdateListOfValue(ListOfValueRequest request);
+
+        [OperationContract()]
+        ListOfValueResponse DeleteListOfValue(ListOfValueRequest request);
+        #endregion
+
+
+
+        #region LandingPageLevel
+        [OperationContract()]
+        LandingPageLevelResponse GetLandingPageLevelFindBy(LandingPageLevelRequest request);
+
+        [OperationContract()]
+        LandingPageLevelResponse GetLandingPageLevelList(LandingPageLevelRequest request);
+
+        [OperationContract()]
+        LandingPageLevelResponse InsertLandingPageLevel(LandingPageLevelRequest request);
+
+        [OperationContract()]
+        LandingPageLevelResponse UpdateLandingPageLevel(LandingPageLevelRequest request);
+
+        [OperationContract()]
+        LandingPageLevelResponse DeleteLandingPageLevel(LandingPageLevelRequest request);
+        #endregion
+
+
+
+        #region LandingPageLevelProperty
+        [OperationContract()]
+        LandingPageLevelPropertyResponse GetLandingPageLevelPropertyFindBy(LandingPageLevelPropertyRequest request);
+
+        [OperationContract()]
+        LandingPageLevelPropertyResponse GetLandingPageLevelPropertyList(LandingPageLevelPropertyRequest request);
+
+        [OperationContract()]
+        LandingPageLevelPropertyResponse InsertLandingPageLevelProperty(LandingPageLevelPropertyRequest request);
+
+        [OperationContract()]
+        LandingPageLevelPropertyResponse UpdateLandingPageLevelProperty(LandingPageLevelPropertyRequest request);
+
+        [OperationContract()]
+        LandingPageLevelPropertyResponse DeleteLandingPageLevelProperty(LandingPageLevelPropertyRequest request);
+        #endregion
+
+
+        #region Biodata
+        [OperationContract()]
+        BiodataResponse GetBiodataFindBy(BiodataRequest request);
+
+        [OperationContract()]
+        BiodataResponse GetBiodataList(BiodataRequest request);
+
+        [OperationContract()]
+        BiodataResponse InsertBiodata(BiodataRequest request);
+
+        [OperationContract()]
+        BiodataResponse UpdateBiodata(BiodataRequest request);
+
+        [OperationContract()]
+        BiodataResponse DeleteBiodata(BiodataRequest request);
+
+        [OperationContract()]
+        BiodataResponse GetBiodataByNik(BiodataRequest request);
+        #endregion
+
+
+        #region Testimoni
+        [OperationContract()]
+        TestimoniResponse GetTestimoniFindBy(TestimoniRequest request);
+
+        [OperationContract()]
+        TestimoniResponse GetTestimoniList(TestimoniRequest request);
+
+        [OperationContract()]
+        TestimoniResponse InsertTestimoni(TestimoniRequest request);
+
+        [OperationContract()]
+        TestimoniResponse UpdateTestimoni(TestimoniRequest request);
+
+        [OperationContract()]
+        TestimoniResponse DeleteTestimoni(TestimoniRequest request);
+
+        [OperationContract()]
+        TestimoniResponse GetTestimoniByIdRw(TestimoniRequest request);
+        #endregion
     }
 }

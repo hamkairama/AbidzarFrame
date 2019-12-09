@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AbidzarFrame.Master.Interface</RootNamespace>
     <AssemblyName>AbidzarFrame.Master.Interface</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -44,6 +44,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\Testimoni\TestimoniRequest.cs" />
+    <Compile Include="Dto\Testimoni\TestimoniResponse.cs" />
+    <Compile Include="Dto\Testimoni\TestimoniResult.cs" />
+    <Compile Include="Dto\Biodata\BiodataRequest.cs" />
+    <Compile Include="Dto\Biodata\BiodataResponse.cs" />
+    <Compile Include="Dto\Biodata\BiodataResult.cs" />
+    <Compile Include="Dto\LandingPageLevelProperty\LandingPageLevelPropertyRequest.cs" />
+    <Compile Include="Dto\LandingPageLevelProperty\LandingPageLevelPropertyResponse.cs" />
+    <Compile Include="Dto\LandingPageLevelProperty\LandingPageLevelPropertyResult.cs" />
+    <Compile Include="Dto\LandingPageLevel\LandingPageLevelRequest.cs" />
+    <Compile Include="Dto\LandingPageLevel\LandingPageResponse.cs" />
+    <Compile Include="Dto\LandingPageLevel\LandingPageResult.cs" />
+    <Compile Include="Dto\ListOfValue\ListOfValueRequest.cs" />
+    <Compile Include="Dto\ListOfValue\ListOfValueResponse.cs" />
+    <Compile Include="Dto\ListOfValue\ListOfValueResult.cs" />
+    <Compile Include="Dto\Rw\RwRequest.cs" />
+    <Compile Include="Dto\Rw\RwResponse.cs" />
+    <Compile Include="Dto\Rw\RwResult.cs" />
+    <Compile Include="Dto\Rt\RtRequest.cs" />
+    <Compile Include="Dto\Rt\RtResponse.cs" />
+    <Compile Include="Dto\Rt\RtResult.cs" />
     <Compile Include="Dto\Parameter\ParameterRequest.cs" />
     <Compile Include="Dto\Parameter\ParameterResponse.cs" />
     <Compile Include="Dto\Parameter\ParameterResult.cs" />

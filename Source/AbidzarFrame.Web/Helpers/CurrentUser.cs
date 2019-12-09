@@ -119,6 +119,18 @@ namespace AbidzarFrame.Web.Helpers
                 return null;
         }
 
+        public static Domain.Models.RwBaseModel GetObjectRw()
+        {
+            Domain.Models.RwBaseModel result = (Domain.Models.RwBaseModel)HttpContext.Current.Session["AreaRw"];
+            return result;
+        }
+
+        public static List<Master.Interface.Dto.TestimoniResult> GetListTestimoni()
+        {
+            List<Master.Interface.Dto.TestimoniResult> result = (List<Master.Interface.Dto.TestimoniResult>)HttpContext.Current.Session["Testimoni"];
+            return result;
+        }
+
     }
 }
 

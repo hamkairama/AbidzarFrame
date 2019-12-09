@@ -1,0 +1,95 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.BiodataResult>
+@using AbidzarFrame.Web.Helpers
+@{
+    Layout = "~/Views/Shared/_LayoutAreaRw.cshtml";
+    ViewBag.Title = "Personal";
+}
+@{
+    var objectRw = CurrentUser.GetObjectRw();
+    <section class="home-about-area pt-120">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-6 col-md-6 home-about-left">
+                    @*<img src="~/Content/plugins/personal/img/about-img.png" />*@
+                    <img src="@objectRw.Photo" />
+
+                    @*<img class="img-fluid" src="https://greencoverw11.files.wordpress.com/2019/11/whatsapp-image-2019-11-22-at-21.15.34.jpeg" alt="" style="border-radius: 8px;display: block;margin-left: auto;margin-right: auto;">*@
+                </div>
+                <div class="col-lg-5 col-md-6 home-about-right">
+                    <a href="#" class="primary-btn text-uppercase">Ketua RW @objectRw.NoRw</a>
+
+                    @*<h6>Ketua Rw</h6>*@
+                    <h1 class="text-uppercase">@objectRw.NamaRw</h1>
+                    <p>
+                        Deskripsikan diri anda di sini
+                    </p>
+                    @*<a href="#" class="primary-btn text-uppercase">View Full Details</a>*@
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<section class="timeline pt-20">
+    <div class="text-center">
+        <div class="menu-content pb-20">
+            <div class="title text-center">
+                <h1 class="mb-10">My Experiences</h1>
+            </div>
+        </div>
+    </div>
+    <ul>
+        @if (Model.Count > 0)
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    <li>
+                        <div class="content">
+                            <h4>
+                                <time>@Model[i].Gelar</time>
+                            </h4>
+                            <p><b>Session:</b>@Model[i].Tahun</p>
+                            <p>@Model[i].Deskripsi</p>
+                        </div>
+                    </li>
+
+                }
+                else
+                {
+                    <li>
+                        <div class="content">
+                            <img class="img-fluid mx-auto d-block mb-30" src="img/about/c-logo.png" alt="">
+                            <h4>
+                                <time>@Model[i].Gelar</time>
+                            </h4>
+                            <p><b>Session:</b>@Model[i].Tahun</p>
+                            <p>@Model[i].Deskripsi</p>
+                        </div>
+                    </li>
+
+                }
+            }
+        }
+        @*<li>
+            <div class="content">
+                <h4>
+                    <time>VP Controller</time>
+                </h4>
+                <p><b>Session:</b> 2007</p>
+                <p> dalam perusahaan infrastruktur telekomunikasi di salah satu listed company di Indonesia</p>
+            </div>
+        </li>
+        <li>
+            <div class="content">
+                <img class="img-fluid mx-auto d-block mb-30" src="img/about/c-logo.png" alt="">
+                <h4>
+                    <time>Sekretaris RW 011 Green Cove</time>
+                </h4>
+                <p>2014 to Present</p>
+            </div>
+        </li>*@
+    </ul>
+</section>
+

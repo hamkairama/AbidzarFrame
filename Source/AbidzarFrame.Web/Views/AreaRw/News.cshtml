@@ -1,0 +1,91 @@
+﻿@model List<AbidzarFrame.Master.Interface.Dto.DetailJenisInformasiResult>
+@using AbidzarFrame.Web.Helpers
+
+@{
+    Layout = "~/Views/Shared/_LayoutAreaRw.cshtml";
+    ViewBag.Title = "Personal";
+}
+<style>
+    .overflow {
+        height: 106px;
+        overflow: hidden;
+        text-overflow: "---";
+    }
+</style>
+<div class="whole-wrap">
+    <div class="container">
+        <div class="section-top-border">
+            @*<img src="~/Content/plugins/personal/img/bingkai.png" />
+                <img src="~/Content/plugins/personal/img/bingkai.png" />*@
+            @*<img src="~/Content/plugins/personal/img/hero-img.png" />*@
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row mt-50">
+                        @{
+                            int total = Model.Count;
+                            int modulus = total % 3;
+                            int rowCounts = total / 3;
+                            for (int i = 0; i < 3; i++)
+                            {
+                                <div class="col-md-4">
+                                    @for (int k = 0; k < rowCounts; k++)
+                                    {
+                                        int indexx = k * 3 + i;
+                                        if (indexx < total)
+                                        {
+                                            <div class="widget-wrap mb-10" style="padding-top:0px;">
+                                                <div class="single-sidebar-widget user-info-widget " style="text-align:justify">
+                                                    <h6>@Model[i].Judul</h6>
+                                                    <div class="overflow" style="font-size:12px;text-align:justify;">
+                                                        @Html.Raw(HttpUtility.HtmlDecode(Model[i].Deskripsi));
+                                                    </div>
+
+                                                    <a href="@Url.Action("DetailNews","AreaRw",new { id = Model[i].Id})" class="primary-btn text-uppercase">Read</a>
+                                                </div>
+                                            </div>
+
+                                        }
+                                    }
+
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-4 sidebar-widgets mt-50">
+                    <div class="widget-wrap">
+                        @*<div class="single-sidebar-widget user-info-widget">
+                                <img src="~/Content/plugins/personal/img/hero-img.png" style="width:200px;border-radius: 50%;" />
+
+                                <h4>HARYO DEWANTO</h4>
+                                <p>
+                                    KETUA RW 11
+                                </p>
+                                <ul class="social-links">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                                </ul>
+                            </div>*@
+                        <div class="single-sidebar-widget ads-widget">
+                            @*<img src="~/Content/Images/area_rw/Ad-adidas.jpg" />*@
+                            <a href="#"><img class="img-fluid" src="~/Content/Images/area_rw/Ad-adidas.jpg" @*width="300" height="250"*@ alt=""></a>
+                        </div>
+                        <div class="single-sidebar-widget ads-widget">
+                            <a href="#"><img class="img-fluid" src="~/Content/plugins/personal/img/blog/ads-banner.jpg" alt=""></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+

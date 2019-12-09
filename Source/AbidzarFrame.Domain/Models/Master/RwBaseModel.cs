@@ -86,5 +86,15 @@ namespace AbidzarFrame.Domain.Models
         [Display(Name = "Whatsapp")]
         public string Whatsapp { get; set; }
 
+        [DataMember()]
+        [StringLength(500)]
+        [Display(Name = "Header")]
+        public string Header { get; set; }
+
+        [DataMember()]
+        [StringLength(4000)]
+        [Display(Name = "Footer")]
+        public string Footer { get; set; }
+
     }
 }

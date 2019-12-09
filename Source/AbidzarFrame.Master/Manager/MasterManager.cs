@@ -531,7 +531,7 @@ namespace AbidzarFrame.Master.Manager
             response.ResultStatus = result;
             return response;
         }
-        public DetailJenisInformasiResponse SpGetDetailJenisInformasiByIdRw(DetailJenisInformasiRequest request)
+        public DetailJenisInformasiResponse GetDetailJenisInformasiByIdRw(DetailJenisInformasiRequest request)
         {
             string method = MethodBase.GetCurrentMethod().Name;
             BusinessErrors bussinessError = new BusinessErrors();
@@ -545,7 +545,38 @@ namespace AbidzarFrame.Master.Manager
             {
                 _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
                 List<DetailJenisInformasiResult> refData = new List<DetailJenisInformasiResult>();
-                bussinessError.Add(_DetailJenisInformasiDao.SpGetDetailJenisInformasiByIdRw(request, ref refData));
+                bussinessError.Add(_DetailJenisInformasiDao.GetDetailJenisInformasiByIdRw(request, ref refData));
+                response.DetailJenisInformasiResultList = refData;
+                response.Count = refData.Count;
+            }
+            catch (Exception ex)
+            {
+                _errHand.FillError(ex.Message, ref bussinessError);
+            }
+            finally
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.end);
+            }
+            response.Errors = bussinessError;
+            return response;
+        }
+
+
+        public DetailJenisInformasiResponse GetDetailJenisInformasiLandingPage(DetailJenisInformasiRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            BusinessErrors bussinessError = new BusinessErrors();
+            var response = new DetailJenisInformasiResponse()
+            {
+                Errors = new BusinessErrors(),
+                DetailJenisInformasiResultList = new List<DetailJenisInformasiResult>(),
+            };
+
+            try
+            {
+                _functionLog.WriteFunctionLog(_serviceName, method, 1, LogData.LOG_TYPE.begin);
+                List<DetailJenisInformasiResult> refData = new List<DetailJenisInformasiResult>();
+                bussinessError.Add(_DetailJenisInformasiDao.GetDetailJenisInformasiLandingPage(request, ref refData));
                 response.DetailJenisInformasiResultList = refData;
                 response.Count = refData.Count;
             }

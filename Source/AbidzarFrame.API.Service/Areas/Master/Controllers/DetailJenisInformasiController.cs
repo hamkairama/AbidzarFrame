@@ -176,7 +176,28 @@ namespace AbidzarFrame.API.Service.Areas.Master.Controllers
             string method = MethodBase.GetCurrentMethod().Name;
             if (VerifyAuthenticationToken(request.AuthenticationToken))
             {
-                response = manager.SpGetDetailJenisInformasiByIdRw(request);
+                response = manager.GetDetailJenisInformasiByIdRw(request);
+            }
+            else
+            {
+                functionLog.WriteFunctionAuthentication(controller, method, 1, LogData.STAGE.unknown, Utils.ErrorMessages.AUTH_ERROR);
+                errors.Add(Utils.ErrorMessages.AUTH_ERROR);
+                response.Errors = errors;
+            }
+
+            return response;
+        }
+
+
+
+        [HttpPost]
+        [Route("GetDetailJenisInformasiLandingPage")]
+        public DetailJenisInformasiResponse SpGetDetailJenisInformasiLandingPage(DetailJenisInformasiRequest request)
+        {
+            string method = MethodBase.GetCurrentMethod().Name;
+            if (VerifyAuthenticationToken(request.AuthenticationToken))
+            {
+                response = manager.GetDetailJenisInformasiLandingPage(request);
             }
             else
             {

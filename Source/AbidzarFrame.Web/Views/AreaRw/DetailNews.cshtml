@@ -22,7 +22,7 @@
                         <div class="single-sidebar-widget user-info-widget " style="text-align:justify">
                             <h4>@Model.Judul</h4>
                             <div class="" style="font-size:12px;text-align:justify;">
-                                @Html.Raw(HttpUtility.HtmlDecode(Model.Deskripsi));
+                                @Html.Raw(HttpUtility.HtmlDecode(Model.Deskripsi))
                             </div>
 
                             <a href="@Url.Action("News","AreaRw")" class="primary-btn text-uppercase">Back</a>

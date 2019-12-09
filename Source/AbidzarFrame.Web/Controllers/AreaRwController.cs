@@ -34,7 +34,16 @@ namespace AbidzarFrame.Web.Controllers
                 ViewBag.ErrorMessage = _errHand.GetErrorMessage(ErrorHandler._ERRKEY_ABIDZARFRAME, errCode);
             }
 
-            return View();
+            DetailJenisInformasiRequest request = new DetailJenisInformasiRequest();
+            DetailJenisInformasiResponse response = new DetailJenisInformasiResponse();
+            request.AuthenticationToken = token;
+            var objRw = CurrentUser.GetObjectRw();
+            request.IdRw = (int)objRw.Id;
+
+            string apiUrl = "api/DetailJenisInformasi/GetDetailJenisInformasiLandingPage";
+            response = JsonConvert.DeserializeObject<DetailJenisInformasiResponse>(JasonMapper.ConvertHttpResponseToJson(apiUrl, request));
+
+            return View(response.DetailJenisInformasiResultList.ToList());
         }
 
         public ActionResult About()

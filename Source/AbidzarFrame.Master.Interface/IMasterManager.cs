@@ -47,7 +47,9 @@ namespace AbidzarFrame.Master.Interface
         [OperationContract()]
         DetailJenisInformasiResponse DeleteDetailJenisInformasi(DetailJenisInformasiRequest request);
         [OperationContract()]
-        DetailJenisInformasiResponse SpGetDetailJenisInformasiByIdRw(DetailJenisInformasiRequest request);
+        DetailJenisInformasiResponse GetDetailJenisInformasiByIdRw(DetailJenisInformasiRequest request);
+        [OperationContract()]
+        DetailJenisInformasiResponse GetDetailJenisInformasiLandingPage(DetailJenisInformasiRequest request);
         #endregion
 
         #region DetailJenisKegiatan

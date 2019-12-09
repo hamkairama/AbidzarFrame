@@ -49,7 +49,7 @@
 
                         @if (!string.IsNullOrEmpty(CurrentUser.GetCurrentUserId()))
                         {
-                            <li><a href=@Url.Action("LogOffRw", "Account")>LogOff From RW Area</a></li>
+                            <li><a href=@Url.Action("LogOffRw", "Account")>LogOff</a></li>
                             <li><a href="@Url.Action("Index","Home")">Welcome, @CurrentUser.GetCurrentUserName()</a></li>
                         }
                         else

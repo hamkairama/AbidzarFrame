@@ -176,6 +176,7 @@
     <Compile Include="Areas\Kependudukan\Controllers\KtpKuController.cs" />
     <Compile Include="Areas\Kependudukan\KependudukanAreaRegistration.cs" />
     <Compile Include="Areas\Informasi\Controllers\DetailJenisInformasiController.cs" />
+    <Compile Include="Areas\Master\Controllers\TestimoniController.cs" />
     <Compile Include="Areas\Master\Controllers\LandingPageLevelPropertyController.cs" />
     <Compile Include="Areas\Master\Controllers\LandingPageLevelController.cs" />
     <Compile Include="Areas\Master\Controllers\ListOfValueController.cs" />

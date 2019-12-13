@@ -9,6 +9,5 @@ namespace AbidzarFrame.Master.Interface.Dto
     [DataContract()]
     public class RwResult : RwBaseModel
     {
-        
     }
 }

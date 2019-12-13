@@ -96,5 +96,14 @@ namespace AbidzarFrame.Domain.Models
         [Display(Name = "Footer")]
         public string Footer { get; set; }
 
+        [DataMember()]
+        public int TotalRt { get; set; }
+
+        [DataMember()]
+        public int TotalKk { get; set; }
+
+        [DataMember()]
+        public int TotalRumah { get; set; }
+
     }
 }

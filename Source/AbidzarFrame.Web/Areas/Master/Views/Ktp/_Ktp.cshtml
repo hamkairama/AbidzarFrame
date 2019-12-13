@@ -4,7 +4,7 @@
     Layout = null;
 }
 
-@Styles.Render("~/AbidzarFrame/bundles/bootstrap-datepicker3/css")
+@*@Styles.Render("~/AbidzarFrame/bundles/bootstrap-datepicker3/css")*@
 @Scripts.Render("~/AbidzarFrame/bundles/bootstrap-datepicker/js")
 
 @Html.AntiForgeryToken()
@@ -25,7 +25,12 @@
 
         <div class="row">
             <div class="form-group col-md-12">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.Kk)
+                    @Html.TextBoxFor(m => m.Kk, new { @class = "form-control", @style = "width:100%", @maxlength = "16" })
+                </div>
+
+                <div class="form-group col-md-6">
                     @Html.LabelFor(m => m.Nik)
                     @Html.TextBoxFor(m => m.Nik, new { @class = "form-control", @style = "width:100%", @maxlength = "16" })
                     @Html.ValidationMessageFor(m => m.Nik, "", new { @class = "text-danger" })
@@ -37,13 +42,13 @@
                     @Html.ValidationMessageFor(m => m.Nama, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3 col-md-6">
                     @Html.LabelFor(m => m.TempatLahir)
                     @Html.TextBoxFor(m => m.TempatLahir, new { @class = "form-control", @style = "width:100%", @maxlength = "100" })
                     @Html.ValidationMessageFor(m => m.TempatLahir, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3 col-md-6">
                     @Html.LabelFor(m => m.TanggalLahir)
                     <div class="input-group date date-picker" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years" style="width:100%">
                         @Html.TextBoxFor(m => m.TanggalLahir, "{0:dd-MM-yyyy}", new { @class = "form-control", @style = "width:100%", @readonly = "readonly" })
@@ -55,27 +60,27 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    @Html.LabelFor(m => m.IdJenisKelamin)
-                    @Html.DropDownListFor(m => m.IdJenisKelamin, new SelectList(ViewBag.JenisKelaminList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
-                    @Html.ValidationMessageFor(m => m.IdJenisKelamin, "", new { @class = "text-danger" })
+                    @Html.LabelFor(m => m.IdProvinsi)
+                    @Html.DropDownListFor(m => m.IdProvinsi, new SelectList(ViewBag.ProvinsiList, "Value", "Text"), "", new { @class = "form-control IdProvinsi" })
+                    @Html.ValidationMessageFor(m => m.IdProvinsi, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6">
                     @Html.LabelFor(m => m.IdKota)
-                    @Html.DropDownListFor(m => m.IdKota, new SelectList(ViewBag.KotaList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.DropDownListFor(m => m.IdKota, new SelectList(ViewBag.KotaList, "Value", "Text"), "", new { @class = "form-control IdKota" })
                     @Html.ValidationMessageFor(m => m.IdKota, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6">
                     @Html.LabelFor(m => m.IdKecamatan)
-                    @Html.DropDownListFor(m => m.IdKecamatan, new SelectList(ViewBag.KecamatanList, "Value", "Text"), "", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IdKecamatan, new SelectList(ViewBag.KecamatanList, "Value", "Text"), "", new { @class = "form-control IdKecamatan" })
                     @*@Html.DropDownList("IdKecamatan", new SelectList(ViewBag.KecamatanList, "Value", "Text"), "", new { @class = "form-control" })*@
                     @Html.ValidationMessageFor(m => m.IdKecamatan, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6">
                     @Html.LabelFor(m => m.IdKelurahan)
-                    @Html.DropDownListFor(m => m.IdKelurahan, new SelectList(ViewBag.KelurahanList, "Value", "Text"), "", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IdKelurahan, new SelectList(ViewBag.KelurahanList, "Value", "Text"), "", new { @class = "form-control IdKelurahan" })
                     @Html.ValidationMessageFor(m => m.IdKelurahan, "", new { @class = "text-danger" })
                 </div>
 
@@ -85,39 +90,45 @@
                     @Html.ValidationMessageFor(m => m.Alamat, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-2 col-md-6">
                     @Html.LabelFor(m => m.Rt)
                     @Html.DropDownListFor(m => m.Rt, new SelectList(ViewBag.RtList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
                     @*@Html.TextBoxFor(m => m.Rt, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })*@
                     @Html.ValidationMessageFor(m => m.Rt, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-2 col-md-6">
                     @Html.LabelFor(m => m.Rw)
                     @Html.DropDownListFor(m => m.Rw, new SelectList(ViewBag.RwList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
                     @*@Html.TextBoxFor(m => m.Rw, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })*@
                     @Html.ValidationMessageFor(m => m.Rw, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-2 col-md-6">
                     @Html.LabelFor(m => m.KodePos)
                     @Html.TextBoxFor(m => m.KodePos, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
                     @Html.ValidationMessageFor(m => m.KodePos, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3 col-md-6">
+                    @Html.LabelFor(m => m.IdJenisKelamin)
+                    @Html.DropDownListFor(m => m.IdJenisKelamin, new SelectList(ViewBag.JenisKelaminList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.IdJenisKelamin, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-3 col-md-6">
                     @Html.LabelFor(m => m.IdAgama)
                     @Html.DropDownListFor(m => m.IdAgama, new SelectList(ViewBag.AgamaList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
                     @Html.ValidationMessageFor(m => m.IdAgama, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3 col-md-6">
                     @Html.LabelFor(m => m.IdStatusPerkawinan)
                     @Html.DropDownListFor(m => m.IdStatusPerkawinan, new SelectList(ViewBag.StatusPerkawinanList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
                     @Html.ValidationMessageFor(m => m.IdStatusPerkawinan, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3 col-md-6">
                     @Html.LabelFor(m => m.TanggalPerkawinan)
                     <div class="input-group date date-picker" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years" style="width:100%">
                         @Html.TextBoxFor(m => m.TanggalPerkawinan, "{0:dd-MM-yyyy}", new { @class = "form-control", @style = "width:100%", @readonly = "readonly" })
@@ -128,41 +139,29 @@
                     @Html.ValidationMessageFor(m => m.TanggalPerkawinan, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3  col-md-6">
                     @Html.LabelFor(m => m.IdJenisPekerjaan)
                     @Html.DropDownListFor(m => m.IdJenisPekerjaan, new SelectList(ViewBag.JenisPekerjaanList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
                     @Html.ValidationMessageFor(m => m.IdJenisPekerjaan, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3 col-md-6">
                     @Html.LabelFor(m => m.IdKewarganegaraan)
                     @Html.DropDownListFor(m => m.IdKewarganegaraan, new SelectList(ViewBag.KewarganegaraanList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
                     @Html.ValidationMessageFor(m => m.IdKewarganegaraan, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3 col-md-6">
                     @Html.LabelFor(m => m.IdGolonganDarah)
                     @Html.DropDownListFor(m => m.IdGolonganDarah, new SelectList(ViewBag.GolonganDarahList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
                     @Html.ValidationMessageFor(m => m.IdGolonganDarah, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3 col-md-6">
                     @Html.LabelFor(m => m.IdPendidikan)
                     @Html.DropDownListFor(m => m.IdPendidikan, new SelectList(ViewBag.PendidikanList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
                     @Html.ValidationMessageFor(m => m.IdPendidikan, "", new { @class = "text-danger" })
                 </div>
-
-                @*<div class="form-group col-md-6">
-                        @Html.LabelFor(m => m.IdPhotoKtp)
-                        <section action="#" class="dropzone" id="my-dropzone"></section>
-                        @Html.ValidationMessageFor(m => m.IdPhotoKtp, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        @Html.LabelFor(m => m.IdSignatureKtp)
-                        @Html.TextBoxFor(m => m.IdSignatureKtp, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
-                        @Html.ValidationMessageFor(m => m.IdSignatureKtp, "", new { @class = "text-danger" })
-                    </div>*@
 
                 <div class="form-group col-md-6">
                     @Html.LabelFor(m => m.NamaAyah)
@@ -176,11 +175,6 @@
                     @Html.ValidationMessageFor(m => m.NamaIbu, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6">
-                    @Html.LabelFor(m => m.Kk)
-                    @Html.TextBoxFor(m => m.Kk, new { @class = "form-control", @style = "width:100%", @maxlength = "16" })
-                </div>
-
                 @if (CurrentUser.IsApiLogin())
                 {
                     <div class="form-group col-md-6">
@@ -189,6 +183,57 @@
                     </div>
                 }
 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <h4>Alamat Tinggal Sekarang</h4>
+                    <hr />
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdProvinsiTinggal)
+                    @Html.DropDownListFor(m => m.IdProvinsiTinggal, new SelectList(ViewBag.ProvinsiList, "Value", "Text"), "", new { @class = "form-control IdProvinsiTinggal" })
+                    @Html.ValidationMessageFor(m => m.IdProvinsiTinggal, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdKotaTinggal)
+                    @Html.DropDownListFor(m => m.IdKotaTinggal, new SelectList(ViewBag.KotaList, "Value", "Text"), "", new { @class = "form-control IdKotaTinggal" })
+                    @Html.ValidationMessageFor(m => m.IdKotaTinggal, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdKecamatanTinggal)
+                    @Html.DropDownListFor(m => m.IdKecamatanTinggal, new SelectList(ViewBag.KecamatanList, "Value", "Text"), "", new { @class = "form-control IdKecamatanTinggal" })
+                    @*@Html.DropDownList("IdKecamatan", new SelectList(ViewBag.KecamatanList, "Value", "Text"), "", new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(m => m.IdKecamatanTinggal, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.IdKelurahanTinggal)
+                    @Html.DropDownListFor(m => m.IdKelurahanTinggal, new SelectList(ViewBag.KelurahanList, "Value", "Text"), "", new { @class = "form-control IdKelurahanTinggal" })
+                    @Html.ValidationMessageFor(m => m.IdKelurahanTinggal, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.AlamatTinggal)
+                    @Html.TextBoxFor(m => m.AlamatTinggal, new { @class = "form-control", @style = "width:100%", @maxlength = "50" })
+                    @Html.ValidationMessageFor(m => m.AlamatTinggal, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-3 col-md-6">
+                    @Html.LabelFor(m => m.RtTinggal)
+                    @Html.DropDownListFor(m => m.RtTinggal, new SelectList(ViewBag.RtList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.RtTinggal, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-3 col-md-6">
+                    @Html.LabelFor(m => m.RwTinggal)
+                    @Html.DropDownListFor(m => m.RwTinggal, new SelectList(ViewBag.RwList, "Value", "Text"), "", new { @class = "selectpicker show-tick form-control" })
+                    @Html.ValidationMessageFor(m => m.RwTinggal, "", new { @class = "text-danger" })
+                </div>
 
             </div>
         </div>
@@ -226,7 +271,76 @@
             //$("#TAX_RT_DISPLAY").autoNumeric('init', { vMax: 100.00, mDec: 2 });
         }, 1000);
 
-        $('#IdKota').change(function () {
+        $('.IdProvinsi').click(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListProvinsi/";
+            if (idSelected == "") {
+                $.ajax({
+                    url: path,
+                    cache: false,
+                    traditional: true,
+                    type: 'POST',
+                    data: {
+                        //idKota: idSelected
+                    },
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var markup, responseText, responseValue;
+                        responseText = "Select :";
+                        responseValue = "";
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                        for (var x = 0; x < response.length; x++) {
+                            var responseText = response[x].Text;
+                            var responseValue = response[x].Value;
+                            markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                        }
+                        $("#IdProvinsi").html(markup).show();
+                    },
+                    error: function (jqXHR, textStatus, errorMessage) {
+                        console.log(errorMessage);
+                    }
+                });
+    
+            }
+
+        })
+
+        $('.IdProvinsi').change(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListByIdProvinsi/";
+            $.ajax({
+                url: path,
+                cache: false,
+                traditional: true,
+                type: 'POST',
+                data: {
+                    idProvinsi: idSelected
+                },
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    var markup, responseText, responseValue;
+                    responseText = "Select :";
+                    responseValue = "";
+                    markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                    for (var x = 0; x < response.length; x++) {
+                        var responseText = response[x].Text;
+                        var responseValue = response[x].Value;
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                    }
+                    $("#IdKota").html(markup).show();
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+
+        })
+
+        $('.IdKota').change(function () {
             var idSelected = $(this).find('option:selected').attr('value');
             var path = location.href + "/GetDataListByIdKota/";
             $.ajax({
@@ -259,7 +373,7 @@
 
         })
 
-        $('#IdKecamatan').change(function () {
+        $('.IdKecamatan').change(function () {
             var idSelected = $(this).find('option:selected').attr('value');
             var path = location.href + "/GetDataListByIdKecamatan/";
             $.ajax({
@@ -284,6 +398,142 @@
                         markup += "<option value=" + responseValue + ">" + responseText + "</option>";
                     }
                     $("#IdKelurahan").html(markup).show();
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+
+        })
+
+        $('.IdProvinsiTinggal').click(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListProvinsi/";
+            //alert(idSelected);
+            if (idSelected == "") {
+                $.ajax({
+                    url: path,
+                    cache: false,
+                    traditional: true,
+                    type: 'POST',
+                    data: {
+                        //idKota: idSelected
+                    },
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var markup, responseText, responseValue;
+                        responseText = "Select :";
+                        responseValue = "";
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                        for (var x = 0; x < response.length; x++) {
+                            var responseText = response[x].Text;
+                            var responseValue = response[x].Value;
+                            markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                        }
+                        $("#IdProvinsiTinggal").html(markup).show();
+                    },
+                    error: function (jqXHR, textStatus, errorMessage) {
+                        console.log(errorMessage);
+                    }
+                });
+
+            }
+
+        })
+
+        $('.IdProvinsiTinggal').change(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListByIdProvinsi/";
+            $.ajax({
+                url: path,
+                cache: false,
+                traditional: true,
+                type: 'POST',
+                data: {
+                    idProvinsi: idSelected
+                },
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    var markup, responseText, responseValue;
+                    responseText = "Select :";
+                    responseValue = "";
+                    markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                    for (var x = 0; x < response.length; x++) {
+                        var responseText = response[x].Text;
+                        var responseValue = response[x].Value;
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                    }
+                    $("#IdKotaTinggal").html(markup).show();
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+
+        })
+
+        $('.IdKotaTinggal').change(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListByIdKota/";
+            $.ajax({
+                url: path,
+                cache: false,
+                traditional: true,
+                type: 'POST',
+                data: {
+                    idKota: idSelected
+                },
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    var markup, responseText, responseValue;
+                    responseText = "Select :";
+                    responseValue = "";
+                    markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                    for (var x = 0; x < response.length; x++) {
+                        var responseText = response[x].Text;
+                        var responseValue = response[x].Value;
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                    }
+                    $("#IdKecamatanTinggal").html(markup).show();
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+
+        })
+
+        $('.IdKecamatanTinggal').change(function () {
+            var idSelected = $(this).find('option:selected').attr('value');
+            var path = location.href + "/GetDataListByIdKecamatan/";
+            $.ajax({
+                url: path,
+                cache: false,
+                traditional: true,
+                type: 'POST',
+                data: {
+                    idKecamatan: idSelected
+                },
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    var markup, responseText, responseValue;
+                    responseText = "Select :";
+                    responseValue = "";
+                    markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+
+                    for (var x = 0; x < response.length; x++) {
+                        var responseText = response[x].Text;
+                        var responseValue = response[x].Value;
+                        markup += "<option value=" + responseValue + ">" + responseText + "</option>";
+                    }
+                    $("#IdKelurahanTinggal").html(markup).show();
                 },
                 error: function (jqXHR, textStatus, errorMessage) {
                     console.log(errorMessage);

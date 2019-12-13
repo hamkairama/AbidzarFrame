@@ -62,7 +62,7 @@ namespace AbidzarFrame.Web.Areas.Kependudukan.Controllers
 
         private void LoadData()
         {
-            ViewBag.ProvinsiList = DropDown.GetProvinsiList();
+            ViewBag.ProvinsiList = DropDown.GetProvinsiList(null);
             ViewBag.KotaList = DropDown.GetKotaList(null);
             ViewBag.KecamatanList = DropDown.GetKecamatanList(null);
             ViewBag.KelurahanList = DropDown.GetKelurahanList(null);

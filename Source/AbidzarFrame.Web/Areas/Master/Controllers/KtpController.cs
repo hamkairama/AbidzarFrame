@@ -63,12 +63,29 @@ namespace AbidzarFrame.Web.Areas.Master.Controllers
             }
         }
 
-        private void LoadData()
+        private void LoadData(KtpResponse response)
         {
-            ViewBag.ProvinsiList = DropDown.GetProvinsiList();
-            ViewBag.KotaList = DropDown.GetKotaList(null);
-            ViewBag.KecamatanList = DropDown.GetKecamatanList(null);
-            ViewBag.KelurahanList = DropDown.GetKelurahanList(null);
+            ViewBag.ProvinsiList = DropDown.GetProvinsiList(response.KtpResult.IdProvinsi);
+            ViewBag.KotaList = DropDown.GetKotaList(response.KtpResult.IdProvinsi);
+            ViewBag.KecamatanList = DropDown.GetKecamatanList(response.KtpResult.IdKota);
+            ViewBag.KelurahanList = DropDown.GetKelurahanList(response.KtpResult.IdKecamatan);
+            ViewBag.JenisKelaminList = DropDown.GetJenisKelaminList();
+            ViewBag.AgamaList = DropDown.GetAgamaList();
+            ViewBag.StatusPerkawinanList = DropDown.GetStatusPerkawinanList();
+            ViewBag.JenisPekerjaanList = DropDown.GetJenisPekerjaanList();
+            ViewBag.KewarganegaraanList = DropDown.GetKewarganegaraanList();
+            ViewBag.GolonganDarahList = DropDown.GetGolonganDarahList();
+            ViewBag.PendidikanList = DropDown.GetPendidikanList();
+            ViewBag.RtList = DropDown.GetRtList();
+            ViewBag.RwList = DropDown.GetRwList();
+        }
+
+        private void LoadDataFirst()
+        {
+            ViewBag.ProvinsiList = DropDown.NullList();
+            ViewBag.KotaList = DropDown.NullList(); // DropDown.GetKotaList(response.KtpResult.IdKota);
+            ViewBag.KecamatanList = DropDown.NullList(); // DropDown.GetKecamatanList(response.KtpResult.IdKota);
+            ViewBag.KelurahanList = DropDown.NullList(); // DropDown.GetKelurahanList(response.KtpResult.IdKecamatan);
             ViewBag.JenisKelaminList = DropDown.GetJenisKelaminList();
             ViewBag.AgamaList = DropDown.GetAgamaList();
             ViewBag.StatusPerkawinanList = DropDown.GetStatusPerkawinanList();
@@ -106,6 +123,22 @@ namespace AbidzarFrame.Web.Areas.Master.Controllers
             return response;
 
         }
+        public ActionResult GetDataListProvinsi()
+        {
+            SelectList selectList = DropDown.GetProvinsiList(null);
+            return Json(selectList);
+        }
+
+        public ActionResult GetDataListKota()
+        {
+            SelectList selectList = DropDown.GetKotaList(null);
+            return Json(selectList);
+        }
+        public ActionResult GetDataListByIdProvinsi(int idProvinsi)
+        {
+            SelectList selectList = DropDown.GetKotaList(idProvinsi);
+            return Json(selectList);
+        }
 
         public ActionResult GetDataListByIdKota(int idKota)
         {
@@ -134,6 +167,13 @@ namespace AbidzarFrame.Web.Areas.Master.Controllers
                 if (id > 0)
                 {
                     response = JsonConvert.DeserializeObject<KtpResponse>(JasonMapper.ConvertHttpResponseToJson(apiUrl, request));
+                    ViewBag.ActionGrid = "Edit";
+                    LoadData(response);
+                }
+                else
+                {
+                    ViewBag.ActionGrid = "Add";
+                    LoadDataFirst();
                 }
             }
             catch (Exception ex)
@@ -148,14 +188,14 @@ namespace AbidzarFrame.Web.Areas.Master.Controllers
 
             if (id > 0)
             {
-                ViewBag.ActionGrid = "Edit";
+               
             }
             else
             {
-                ViewBag.ActionGrid = "Add";
+               
             }
 
-            LoadData();
+           
             return PartialView("_Ktp", response.KtpResult);
         }
 

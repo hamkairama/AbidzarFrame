@@ -11,12 +11,16 @@ namespace AbidzarFrame.Web.Helpers
 {
     public class DropDown
     {
-        public static SelectList GetProvinsiList()
+        public static SelectList GetProvinsiList(int? id)
         {
             string apiUrl = "api/Provinsi/GetProvinsiList";
             ProvinsiResponse response = new ProvinsiResponse();
             ProvinsiRequest request = new ProvinsiRequest();
             request.AuthenticationToken = AuthenticationConfiguration.GetInstance().WebServiceAuthenticationToken; ;
+            if (id != null)
+            {
+                request.Id = (int)id;
+            }
             response = JsonConvert.DeserializeObject<ProvinsiResponse>(JasonMapper.ConvertHttpResponseToJson(apiUrl, request));
 
             var List = response.ProvinsiResultList
@@ -375,6 +379,18 @@ namespace AbidzarFrame.Web.Helpers
                 TipeLaporanKasList.Add(temp);
             }
             SelectList selectList = new SelectList(TipeLaporanKasList, "Value", "Text");
+            return selectList;
+        }
+
+        public static SelectList NullList()
+        {
+            List<TempObj> ObjList = new List<TempObj>();
+
+            TempObj temp = new TempObj();
+            temp.Text = "Select";
+            temp.Value = "";
+            ObjList.Add(temp);
+            SelectList selectList = new SelectList(ObjList, "Value", "Text");
             return selectList;
         }
     }

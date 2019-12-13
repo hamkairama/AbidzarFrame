@@ -162,6 +162,11 @@ namespace AbidzarFrame.Domain.Models
         public string NamaProvinsi { get; set; }
 
         [DataMember()]
+        [Display(Name = "Provinsi")]
+        [Required]
+        public int IdProvinsi { get; set; }
+
+        [DataMember()]
         [Display(Name = "Kota")]
         [Required]
         public int IdKota { get; set; }
@@ -172,7 +177,47 @@ namespace AbidzarFrame.Domain.Models
         public int IdKecamatan { get; set; }
 
         [DataMember()]
+        [Display(Name = "Kartu Keluarga")]
+        [Required]
         public string Kk { get; set; }
+
+        [DataMember()]
+        [StringLength(200)]
+        [Display(Name = "Alamat Tinggal")]
+        [Required]
+        public string AlamatTinggal { get; set; }
+
+        [DataMember()]
+        [Display(Name = "Provinsi")]
+        [Required]
+        public int IdProvinsiTinggal { get; set; }
+
+        [DataMember()]
+        [Display(Name = "Kota")]
+        [Required]
+        public int IdKotaTinggal { get; set; }
+
+        [DataMember()]
+        [Display(Name = "Kecamatan")]
+        [Required]
+        public int IdKecamatanTinggal { get; set; }
+
+        [DataMember()]
+        [Display(Name = "Kelurahan Tinggal")]
+        [Required]
+        public int IdKelurahanTinggal { get; set; }
+
+        [DataMember()]
+        [StringLength(3)]
+        [Display(Name = "RT Tinggal")]
+        [Required]
+        public string RtTinggal { get; set; }
+
+        [DataMember()]
+        [StringLength(3)]
+        [Display(Name = "RW Tinggal")]
+        [Required]
+        public string RwTinggal { get; set; }
 
     }
 }

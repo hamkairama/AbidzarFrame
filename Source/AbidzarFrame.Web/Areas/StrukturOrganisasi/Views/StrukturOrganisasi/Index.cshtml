@@ -8,6 +8,7 @@
 }
 
 
+<link href="~/Content/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 <link href="~/Content/plugins/orgchart/org-chart.css" rel="stylesheet" />
 <style>
     .blank, .sekretaris, .ketua, .bendahara, .keamanan_0, .keamanan_1, .humas_0, .humas_1, .rohani, .penasehat {
@@ -27,7 +28,7 @@
 </style>
 
 @{
-    <div class="portlet box red-soft" >
+    <div class="portlet box red-soft">
         <div class="portlet-title">
             <div class="caption">
                 <i class="fa fa-cogs"></i>@ViewBag.Title
@@ -397,6 +398,8 @@
 
 }
 
+<script src="~/Content/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="~/Content/plugins/sweetalert/ui-sweetalert.min.js"></script>
 <script>
     /* Events fired on the drag target */
 
@@ -415,9 +418,9 @@
 
     document.addEventListener("dragenter", function (event) {
         if (event.target.className == "blank" || event.target.className == "ketua" || event.target.className == "sekretaris" ||
-           event.target.className == "bendahara" || event.target.className == "keamanan_0" || event.target.className == "keamanan_1" ||
-           event.target.className == "humas_0" || event.target.className == "humas_1" || event.target.className == "rohani" ||
-           event.target.className == "penasehat") {
+            event.target.className == "bendahara" || event.target.className == "keamanan_0" || event.target.className == "keamanan_1" ||
+            event.target.className == "humas_0" || event.target.className == "humas_1" || event.target.className == "rohani" ||
+            event.target.className == "penasehat") {
             event.target.style.border = "3px dotted red";
         }
     });
@@ -428,9 +431,9 @@
 
     document.addEventListener("dragleave", function (event) {
         if (event.target.className == "blank" || event.target.className == "ketua" || event.target.className == "sekretaris" ||
-        event.target.className == "bendahara" || event.target.className == "keamanan_0" || event.target.className == "keamanan_1" ||
-        event.target.className == "humas_0" || event.target.className == "humas_1" || event.target.className == "rohani" ||
-        event.target.className == "penasehat") {
+            event.target.className == "bendahara" || event.target.className == "keamanan_0" || event.target.className == "keamanan_1" ||
+            event.target.className == "humas_0" || event.target.className == "humas_1" || event.target.className == "rohani" ||
+            event.target.className == "penasehat") {
             event.target.style.border = "";
         }
     });
@@ -532,7 +535,7 @@
             }),
 
             //untuk memunculkan pesan
-            success: function (ret) {                
+            success: function (ret) {
                 swal("Good job!", idKtp + ' move to be ' + namaJabatan, "success");
                 hideLoading();
                 //if (ret.Msg != null && ret.Msg != "") {

@@ -198,6 +198,11 @@ namespace AbidzarFrame.Master.Dao
                 cmd.Parameters.Add(_dbSql.CreateInputParameter("@NamaIbu", request.NamaIbu));
                 cmd.Parameters.Add(_dbSql.CreateInputParameter("@DibuatOleh", request.DibuatOleh));
                 cmd.Parameters.Add(_dbSql.CreateInputParameter("@KodeRt", request.KodeRt));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@Kk", request.Kk));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@IdKelurahanTinggal", request.IdKelurahanTinggal));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@RwTinggal", request.RwTinggal));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@RtTinggal", request.RtTinggal));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@AlamatTinggal", request.AlamatTinggal));
                 cmd.ExecuteNonQuery();
 
                 result.SetSuccessStatus();
@@ -256,6 +261,11 @@ namespace AbidzarFrame.Master.Dao
                 cmd.Parameters.Add(_dbSql.CreateInputParameter("@KodePos", request.KodePos));
                 cmd.Parameters.Add(_dbSql.CreateInputParameter("@NamaAyah", request.NamaAyah));
                 cmd.Parameters.Add(_dbSql.CreateInputParameter("@NamaIbu", request.NamaIbu));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@Kk", request.Kk));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@AlamatTinggal", request.AlamatTinggal));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@IdKelurahanTinggal", request.IdKelurahanTinggal));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@RtTinggal", request.RtTinggal));
+                cmd.Parameters.Add(_dbSql.CreateInputParameter("@RwTinggal", request.RwTinggal));
                 cmd.Parameters.Add(_dbSql.CreateInputParameter("@DieditOleh", request.DieditOleh));
                 cmd.ExecuteNonQuery();
 

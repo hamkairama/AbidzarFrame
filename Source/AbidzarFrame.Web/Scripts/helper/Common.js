@@ -5,53 +5,53 @@
                 var table = $("table[id]").DataTable();
                 var buttons = new $.fn.dataTable.Buttons(table, {
                     buttons: [
-                      //'colvis',
-                      {
-                          extend: 'print',
-                          exportOptions: {
-                              columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
-                          }
-                      },
-                      {
-                          extend: 'csvHtml5',
-                          exportOptions: {
-                              orthogonal: 'export',
-                              columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
-                          }
-                      },
-                      {
-                          extend: 'copyHtml5',
-                          exportOptions: {
-                              orthogonal: 'export',
-                              //columns: ':visible'
-                              columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
-                          }
-                      },
-                      {
-                          extend: 'excelHtml5',
-                          exportOptions: {
-                              orthogonal: 'export',
-                              //columns: ':visible',
-                              columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
-                          }
-                      },
-                      {
-                          extend: 'pdfHtml5',
-                          text: 'Export PDF',
-                          exportOptions: {
-                              orthogonal: 'export',
-                              //columns: ':visible',
-                              columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
-                          }
-                          //orientation: 'landscape',
-                          //pageSize: 'LEGAL',
-                          //customize: function (doc) {
-                          //    doc.styles['td:nth-child(1)'] = {
-                          //        width: '500px',
-                          //        'max-width': '500px'
-                          //    }
-                          //}
-                      }
+                        //'colvis',
+                        {
+                            extend: 'print',
+                            exportOptions: {
+                                columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
+                            }
+                        },
+                        {
+                            extend: 'csvHtml5',
+                            exportOptions: {
+                                orthogonal: 'export',
+                                columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
+                            }
+                        },
+                        {
+                            extend: 'copyHtml5',
+                            exportOptions: {
+                                orthogonal: 'export',
+                                //columns: ':visible'
+                                columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
+                            }
+                        },
+                        {
+                            extend: 'excelHtml5',
+                            exportOptions: {
+                                orthogonal: 'export',
+                                //columns: ':visible',
+                                columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
+                            }
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            text: 'Export PDF',
+                            exportOptions: {
+                                orthogonal: 'export',
+                                //columns: ':visible',
+                                columns: ':not(:contains(Edit)):not(:contains(Delete)):not(:contains(Detail))'
+                            }
+                            //orientation: 'landscape',
+                            //pageSize: 'LEGAL',
+                            //customize: function (doc) {
+                            //    doc.styles['td:nth-child(1)'] = {
+                            //        width: '500px',
+                            //        'max-width': '500px'
+                            //    }
+                            //}
+                        }
                     ]
                 });
             }
@@ -744,18 +744,18 @@ function getFormattedDateTime(date) {
 $(function () {
     try {
         $.validator.addMethod('date',
-        function (value, element) {
-            if (this.optional(element)) {
-                return true;
-            }
-            var ok = true;
-            try {
-                ok = moment(value, "dd-mm-yyyy", true).isValid();
-            } catch (err) {
-                ok = false;
-            }
-            return ok;
-        });
+            function (value, element) {
+                if (this.optional(element)) {
+                    return true;
+                }
+                var ok = true;
+                try {
+                    ok = moment(value, "dd-mm-yyyy", true).isValid();
+                } catch (err) {
+                    ok = false;
+                }
+                return ok;
+            });
     } catch (e) {
         alertError(e.message);
     }

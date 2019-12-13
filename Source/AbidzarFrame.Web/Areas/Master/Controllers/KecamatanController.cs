@@ -65,7 +65,7 @@ namespace AbidzarFrame.Web.Areas.Master.Controllers
         private void LoadData()
         {
 
-            ViewBag.ProvinsiList = DropDown.GetProvinsiList();
+            ViewBag.ProvinsiList = DropDown.GetProvinsiList(null);
             ViewBag.KotaList = DropDown.GetKotaList(null);
         }
 

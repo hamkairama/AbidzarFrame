@@ -88,7 +88,37 @@ namespace AbidzarFrame.Web.Controllers
                 request.Sandi = Cryptoghrap.EncryptString(model.Sandi);
 
                 response = JsonConvert.DeserializeObject<UserResponse>(JasonMapper.ConvertHttpResponseToJson(apiUrl, request));
+                if (response.UserResult != null)
+                {
+                    //if user is not active
+                    if (!response.UserResult.Status)
+                    {
+                        ModelState.AddModelError("", "You have registered, please completing activate registration with following email that we have sent to you");
+                        return View(model);
+                    }
 
+                    GlobalVariableUser userVariable = new GlobalVariableUser()
+                    {
+                        IdUser = response.UserResult.Nik,
+                        NamaUser = response.UserResult.Nama
+                    };
+                    Session["GlobalUserVariable"] = userVariable;
+                    Session["loginSession"] = model;
+                    Session["UserResult"] = response.UserResult;
+
+                    //insert historicaluserlogin
+                    ResultStatus rs = new ResultStatus();
+                    rs = CreateHistoricalUserLogin();
+
+                    //get berita newest
+                    Session["countNews"] = Common.GetDetailJenisInformasiNewest(response.UserResult.KodeRt).Count;
+
+                    return RedirectToAction("Index", "Home", new { area = "" });
+                }
+                else
+                {
+                    ModelState.AddModelError("", "User Id or password is wrong, please check again");
+                }
             }
             catch (Exception ex)
             {
@@ -100,34 +130,7 @@ namespace AbidzarFrame.Web.Controllers
                 _functionLog.WriteFunctionLog(controller, method, 1, LogData.LOG_TYPE.end);
             }
 
-            if (response.UserResult != null)
-            {
-                //if user is not active
-                if (!response.UserResult.Status)
-                {
-                    ModelState.AddModelError("", "You have registered, please completing activate registration with following email that we have sent to you");
-                    return View(model);
-                }
 
-                GlobalVariableUser userVariable = new GlobalVariableUser()
-                {
-                    IdUser = response.UserResult.Nik,
-                    NamaUser = response.UserResult.Nama
-                };
-                Session["GlobalUserVariable"] = userVariable;
-                Session["loginSession"] = model;
-                Session["UserResult"] = response.UserResult;
-
-                //insert historicaluserlogin
-                ResultStatus rs = new ResultStatus();
-                rs = CreateHistoricalUserLogin();
-
-                return RedirectToAction("Index", "Home", new { area = "" });
-            }
-            else
-            {
-                ModelState.AddModelError("", "User Id or password is wrong, please check again");
-            }
 
             return View(model);
         }
@@ -494,7 +497,7 @@ namespace AbidzarFrame.Web.Controllers
         {
             return View();
         }
-    
+
         public ActionResult LandingPageLogin(LoginViewModelAreaRw model)
         {
             string method = MethodBase.GetCurrentMethod().Name;
@@ -550,9 +553,9 @@ namespace AbidzarFrame.Web.Controllers
             else
             {
                 ModelState.AddModelError("", "Kode Rt is invalid");
-            }
+                return View("LandingPage", model);
 
-            return RedirectToAction("Index", "AreaRw");
+            }
         }
 
         public ActionResult Rw()
